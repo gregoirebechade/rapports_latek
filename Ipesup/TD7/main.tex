@@ -1,0 +1,90 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[french]{babel}
+\usepackage[fleqn]{amsmath} % Aligner les équations à gauche
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{TD7}
+\author{IPESUP - PC }
+\date{20 Décembre 2023}
+
+\begin{document}
+\maketitle
+
+
+
+\section{Bille bouchant un évier}
+
+Un évier est rempli d'eau. L'évacuation d'eau dans l'évier se fait par un cercle de rayon $r$. Une bille de rayon $R$ bouche ce trou. Quelle doit être la hauteur $h$ d'eau dans l'évier pour que la bille se décolle du trou ? 
+
+\section{A quelle vitesse va la voiture ? }
+
+C'est un exercice type "oral" très libre, dans lequel vous devez introduire toutes les variables utiles vous-même. \\[0.1cm]
+
+Un ami vous prend en voiture pour aller aux concours. Vous montez dans la voiture avec votre mug de café. Votre ami démarre et vous vous renversez du café dessus. Le compteur indique $50 km.h^{-1}$. Votre ami doit-il faire réviser sa voiture ? \\[0.1cm]
+
+
+\textit{Indication: commencer par calculer l'équation de la surface libre d'une surface d'eau dans un véhicule à accélération constante}
+
+
+\section{Profil de température}
+
+On considère de l’air en équilibre dans le référentiel terrestre $R$. Chaque élément de ce fluide
+est donc en équilibre sous l’action des forces extérieures à cet élément, qui sont de deux types :
+les forces de pression et la force due au champ de pesanteur.
+\begin{enumerate}
+    \item  L’air étant considéré comme un gaz parfait, calculer sa masse volumique $\rho_0 = \rho(P_0, T_0)$
+dans les conditions normales de température $T_0 = 273 K$ et de pression $P = P_0$.
+\item On choisit dans R un repère orthonormé de vecteurs unitaires $\vec{e_x}, \vec{e_y}, \vec{e_z}$, dont l’origine
+O est située à la surface de la terre et où $\vec{e_z}$ est dirigé vers les altitudes croissantes ; l’état de
+l’atmosphère est caractérisé par les champs de pression $P(x, y, z)$ et de température $T(x, y, z)$.
+\begin{enumerate}
+    \item Écrire la condition d’équilibre mécanique de l’air soumis aux forces de pression et au champ de pesanteur $\vec{g}=-g\vec{e_z}$ supposé localement uniforme.
+\item En déduire que $P$ ne dépend que de $z$ et établir l’équation différentielle permettant de
+déterminer $ P(z)$ en fonction de $M_a, P, g, T$ et de la constante des gaz parfaits $R$.
+\end{enumerate}
+\item On considère dans un premier temps l’atmosphère en équilibre isotherme.
+\begin{enumerate}
+    \item Montrer que la pression varie avec l’altitude $z$ selon une loi du type : $P(z)=P_0 exp(-z/H)$, où $H$ est une longueur nommée hauteur d’échelle de l’atmosphère que l’on explicitera en fonction
+de $M_a, R, g $ et $ T$. Calculer la hauteur d’échelle $H_0$ de l’atmosphère isotherme à $T_0 = 273 K$.
+\item L’hypothèse d’une température uniforme est-elle justifiée ?
+\end{enumerate}
+
+\item  On considère maintenant l’atmosphère en équilibre adiabatique caractérisé à toute altitude
+par la relation $P = K\rho ^\gamma $où $K$ est une constante et $\gamma = C_p /  C_v \simeq 1,4$
+est le rapport des capacités
+thermiques à pression et volume constants des gaz parfaits diatomiques. Montrer que dans ce modèle $P(z) $ et $T(z)$ vérifient les relations suivantes : \\
+
+$P(z)=P_0(1-\frac{z}{\frac{\gamma}{\gamma -1}H_0})^{\frac{\gamma}{\gamma -1}}$
+
+\\
+$T(z)=T_0(1-\frac{z}{\frac{\gamma}{\gamma - 1} H_0})$
+
+
+\end{enumerate}
+
+\end{document}
+
+
+
+\section{Exercice 1}
+
+\section{Exercice 2}
+
+\section{Exercice 3}
+
+\section{ Formulaire }
+
+\end{document}

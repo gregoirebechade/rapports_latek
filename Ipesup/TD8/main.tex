@@ -1,0 +1,73 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[french]{babel}
+\usepackage[fleqn]{amsmath} % Aligner les équations à gauche
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{TD8}
+\author{IPESUP - PC }
+\date{11 Janvier 2024}
+
+\begin{document}
+\maketitle
+
+
+
+\section{Rappels de cours}
+\begin{enumerate}
+
+    \item \textbf{Définitions:}\\[0.1cm]
+    \begin {itemize}
+    \item Ligne de courant : Courbe de l'espace qui possède en tout point une tangente parralèle à la vitesse du fluide.\\
+    \item Tube de courant: Ensemble des lignes de courant qui passent par un contour fermé.\\
+    \item Fluide parfait : Fluide sans viscosité.\\
+    \end{itemize}
+    \item  \textbf{Conservation de la masse : }\\[0.1cm]
+$     \frac{\partial \rho}{\partial t} + div(\rho \vec{v}) = 0$ \\
+
+On a souvent $\rho = cste$ , donc $ div(\vec{v}) = 0 $ . \\[0.1cm]
+
+\\
+\item \textbf{Accélération particulaire :}
+ \\[0.1cm]
+
+$\frac{Df}{Dt} = \frac{\partial f}{\partial t} + \vec{v} \cdot \vec{grad}(f)$\\
+
+$\vec{v} \cdot \vec{grad}(f)$ est un opérateur : \\
+
+$\vec{v} \cdot \vec{grad}(f)$ = $v_x \frac{\partial f}{\partial x} + v_y \frac{\partial f}{\partial y} + v_z \frac{\partial f}{\partial z}$\\
+
+Pour une variable vectorielle, on a : \\[0.2cm]
+$\vec{v} \cdot \vec{grad}(\vec{f})$ = $\vec{v} \cdot \vec{grad} (f_x) \vec{e_x} + \vec{v} \cdot \vec{grad} (f_y) \vec{e_y} + \vec{v} \cdot \vec{grad} (f_z) \vec{e_z} $\\
+
+\item \textbf{Equations dynamiques : }\\[0.1cm]
+
+Equation d'Euler: $\rho \frac{D\vec{v}}{Dt} = -grad(P) + \rho \vec{g} $\\[0.1cm] 
+\\
+On obtient cette équation en appliquant le PFD à une particule de fluide. 
+
+\item \textbf{ Théorème de Bernoulli : }\\[0.1cm]
+Pour un Fluide parfait, en Régime stationnaire, dans un écoulement Incompressible , dans un référentiel Galiléen, et si le fluide est hOmogène (FRIGO),  alors on a (sur une ligne de courant): \\[0.1cm]
+$P + \frac{1}{2} \rho v^2 + \rho g z = cste$\\[0.1cm]
+
+Si en plus le fluide est irrotationnel, cette formule est vraie partout ! (pas que sur une ligne de courant)
+\end{enumerate}
+\section{A quelle vitesse va la voiture ? }
+
+\section{Profil de température}
+
+
+
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[french]{babel}
+\usepackage[fleqn]{amsmath} % Aligner les équations à gauche
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{TD5}
+\author{IPESUP - PC }
+\date{6 Décembre 2023}
+
+\begin{document}
+\maketitle
+
+
+
+\section{Fusible}
+
+Un fusible est constitué par un fil conducteur cylindrique homogène, de section droite d’aire
+$S$, de longueur utile $ L$, de masse volumique $\mu$ et de capacité thermique massique $c$. Il possède
+une conductivité électrique $\gamma$ et une conductivité thermique $K$. Il est traversé par un courant
+électrique continu d’intensité $I$. Ce fil est enfermé dans une capsule remplie d’une substance
+assurant une isolation thermique et électrique parfaite. Les températures en $x =0 $ et $ x =L$
+sont imposées et égales à la température $T_0$ du milieu ambiant.
+Pour les applications numériques, on prendra les valeurs suivantes, données dans le système
+international d’unités (SD) : $K = 65$ SI ; $\gamma$= 1,2 x 10 SI ; $c$ = 460 SI ; $\mu$ =$ 2,7 \times 10^3 kg.m^{-3}$ ;
+$T_0 =290 K$; $L=2,5 cm$. 
+
+\begin{enumerate}
+    \item Montrer que la résistance d'un   conducteur cylindrique de conductivité $K$ de longueur
+$L$, de section $S$, parcouru par un courant $I$ uniformément réparti et parallèle à son axe, est
+$R=\frac{L}{K S}$ On se place en régime permanent. 
+\item Établir l’équation différentielle vérifiée par la température $T$. Donner l’expression littérale
+de $T(x)$ et représenter graphiquement $T$ en fonction de $x$. 
+\item Le matériau constituant le fil fond à $T_f = 390 K$. On veut fabriquer un fusible qui admet
+une intensité maximale $I_{max} = 16 A$.
+Préciser l’endroit de la rupture en cas de dépassement de $I_{max}$. Déterminer l’expression littérale de l’aire $S$ à prévoir. Faire l’application numérique. 
+\item  On fixe $ I = 10 A$. Le fil a la section $S$ trouvée à la question précédente. Evaluer littéralement puis numériquement la puissance thermique $P_{th}(0)$ transférée par conduction en $x= 0$.
+Préciser si cette puissance est reçue ou fournie par le fil. Même question pour la puissance
+thermique $P_{th}(L)$ transférée en $x = L$. Quelle relation a-t-on entre $P_{th}(0)$, $P_{th}(L)$ et la puissance
+électrique $P$ fournie à l’ensemble du fil ? Commenter. 
+
+\end{enumerate}
+
+\section{Durée de survie d'un plongeur }
+Un plongeur est équipé de sa combinaison.
+On note $T_e$, la température de l’eau environnante, uniforme et constante. La température initiale du plongeur est $T_{i0}$ = 37°C. Les pertes thermiques ont lieu au niveau de la peau et de la
+combinaison. 
+\begin{enumerate}
+    \item Rappeler l’expression de la résistance thermique dans le cas d’un modèle unidimensionnel,
+en fonction de la section $S$, de l’épaisseur $e$ et de la conductivité thermique $\gamma$.
+\item On modélise les pertes par convection par un flux thermique surfacique $\Phi = h(T-T_e)$
+Quelle résistance $R_c$ peut-on associer aux pertes par convection ? 
+\item  On modèlise les pertes par rayonnement par un flux thermique surfacique $\Phi_r = \sigma (T^4 - T_e^4)$
+où $\sigma$ est la constante de Stefan. On suppose $|T-T_e|<<T_e$,. Montrer que l’on peut associer aux
+pertes par rayonnement une résistance thermique $R_r$ dont on donnera l’expression en fonction
+de $\sigma$, $T_e$, et de la surface $S$ du système. 
+\item  Quelle est alors la résistance thermique $R_T$ équivalente à l’ensemble en fonction de $R_c$, $R_r$, $R_{peau}$, et $R_{combi}$ ?
+\item  Établir l’équation différentielle vérifiée par $T_i(t)$ sachant que la puissance thermique produite par le métabolisme humain est $q = 120 W$ et sa capacité thermique massique $c = 3.5 kJ. kg^{-1}.K^{-1}$
+\item Pour $T_e$ = 17°C, au bout de combien de temps le plongeur est-il en hypothermie, c’est-à- dire que sa température corporelle est descendue à 35°C ? Pour l’application numérique, on prendra la masse du plongeur $ m = 75 kg$, la surface totale de la combinaison $S = 1,3 m^2$, $R_{peau}$ = $3,0 \times 10^{-2} K.W^{-1}$, $\sigma$ =$5,7 \times 10^{-8} W.m^{-2} . K^{-4} SI.$,  $h = 10  W.m^{-2}.K^{-1}$, l’épaisseur e de la combinaison e = 3 mm et la conductivité thermique de la combinaison $\lambda = 4,4 \times 10^{-2} W.m^{-1}.K^{-1}$
+
+
+
+\end{enumerate}
+
+\end{document}
+
+
+
+\section{Exercice 1}
+
+\section{Exercice 2}
+
+\section{Exercice 3}
+
+\section{ Formulaire }
+
+\end{document}
