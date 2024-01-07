@@ -63,8 +63,41 @@ Pour un Fluide parfait, en Régime stationnaire, dans un écoulement Incompressi
 $P + \frac{1}{2} \rho v^2 + \rho g z = cste$\\[0.1cm]
 
 Si en plus le fluide est irrotationnel, cette formule est vraie partout ! (pas que sur une ligne de courant)
+\\[0.1cm]
+
+\item \textbf{Formule utile: }
 \end{enumerate}
-\section{A quelle vitesse va la voiture ? }
+
+
+
+\\[0.1cm]
+$\vec{v} \cdot \vec{grad}(v) = \vec{rot}(\vec{v}) \times \vec{v} + \vec{grad(v^2/2)} $
+
+
+
+\section{Bulle de cavitation:}
+
+
+
+Au sein d'un fluide incompressible, une bulle de rayon $a$, sphérique et vide, est formée à l'instant t=0. 
+Ce phénomène peut par exemple se produire à proximité de l'hélice d'un sous-marin. 
+On cherche à déterminer l'évolution du rayon de la bulle en fonction du temps.
+On notera $a(t)$ le rayon de la bulle. 
+On néglige les effets de la pesanteur et on note $P_0$ la pression du fluide loin de la bulle, ainsi que $\vec{v}(r,t)$ le champ de vitesse. 
+\begin{enumerate}
+    \item Montrer que $v(r,t)=a(t)^2 \frac{1}{r^2} \frac{da}{dt}$. 
+    En déduire que l'écoulement dérive d'un potentiel $\Phi(r,t)$ qu'on déterminera. 
+    \item Trouver l'équation vérifiée par $a(t)$. 
+    \textit{ Indication: on pourra intégrer l'équation d'Euler entre $a$ et l'infini. }
+    \item Estimer un temps caractéristique d'implosion. 
+    \item Le Titan est un sous-marin civil perdu en mer le 18 juin 2023.
+    D'après les enquêteurs, le sous-marin aurait subi une implosion à une profondeur de 3800m. 
+    En justifiant que le temps caractéristique calculé précedemment peut être utilisé pour déterminer un ordre de grandeur de la durée d'implosion du Titan, commenter la phrase suivante: 
+    " Les passagers ne se sont pas rendus compte de ce qui leur arrivait ". 
+    \\[0.1cm]
+    \textbf{Donnée: } Les signaux nerveux se propagent dans le corps humain à une vitesse de l'ordre de 50m/s.
+\end{enumerate}
+
 
 \section{Profil de température}
 
