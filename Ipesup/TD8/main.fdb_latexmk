@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1704651061 "c:/Users/grego/Documents/code/rapports_latek/Ipesup/TD8/main.tex" "main.pdf" "main" 1704651063 2
+["pdflatex"] 1704700302 "c:/Users/grego/Documents/code/rapports_latek/Ipesup/TD8/main.tex" "main.pdf" "main" 1704700304 2
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1704622186 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/grego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1704621744 24224029 74796c39445e227faab7b664e2920fba ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -28,6 +28,8 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1247596667 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1247596666 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -91,10 +93,11 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/grego/Documents/code/rapports_latek/Ipesup/TD8/main.tex" 1704651057 4088 18601a18a172d5f3ad426425b6cd70af ""
-  "main.aux" 1704651062 670 6baaff1841f78dbfdb6a59463fb4d7af "pdflatex"
-  "main.out" 1704651062 435 a6d3fe155902d34ab6393a49ba4546ac "pdflatex"
-  "main.tex" 1704651057 4088 18601a18a172d5f3ad426425b6cd70af ""
+  "c:/Users/grego/Documents/code/rapports_latek/Ipesup/TD8/main.tex" 1704700299 6767 32214d38d5ccbc614af33c09681c8725 ""
+  "main.aux" 1704700304 954 65c3d37fecffafbc86b052e2a01cb227 "pdflatex"
+  "main.out" 1704700304 543 20adf8313e51d2e4bda31cc7f494c072 "pdflatex"
+  "main.tex" 1704700299 6767 32214d38d5ccbc614af33c09681c8725 ""
+  "tube_tournant.png" 1704657531 16491 094deb8851412d25209f3ad7ff0bd629 ""
   (generated)
   "main.aux"
   "main.log"

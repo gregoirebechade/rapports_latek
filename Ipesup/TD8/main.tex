@@ -18,7 +18,7 @@
 
 \title{TD8}
 \author{IPESUP - PC }
-\date{11 Janvier 2024}
+\date{10 Janvier 2024}
 
 \begin{document}
 \maketitle
@@ -30,16 +30,16 @@
 
     \item \textbf{Définitions:}\\[0.1cm]
     \begin {itemize}
-    \item Ligne de courant : Courbe de l'espace qui possède en tout point une tangente parralèle à la vitesse du fluide.\\
+    \item Ligne de courant : Courbe de l'espace qui possède en tout point une tangente parallèle à la vitesse du fluide.\\
     \item Tube de courant: Ensemble des lignes de courant qui passent par un contour fermé.\\
     \item Fluide parfait : Fluide sans viscosité.\\
     \end{itemize}
-    \item  \textbf{Conservation de la masse : }\\[0.1cm]
+    \item  \textbf{Conservation de la masse : }\\[0.2cm]
 $     \frac{\partial \rho}{\partial t} + div(\rho \vec{v}) = 0$ \\
 
 On a souvent $\rho = cste$ , donc $ div(\vec{v}) = 0 $ . \\[0.1cm]
 
-\\
+
 \item \textbf{Accélération particulaire :}
  \\[0.1cm]
 
@@ -99,8 +99,50 @@ On néglige les effets de la pesanteur et on note $P_0$ la pression du fluide lo
 \end{enumerate}
 
 
-\section{Profil de température}
+\section{Ondes de gravitation}
 
+On considère un bassin rempli d'un fluide incompressible, de profondeur $H_0$ et de longueur infinie.
+Un vibreur génère des ondes sinusïdales à la surface de l'eau. 
+On note $h(x,t)$ l'altitude de la surface libre à l'abscisse $x$. 
+%ksi en latek: \xi
+On note $\xi(x,t)$ la perturbation, de sorte que $h(x,t) = H_0 + \xi(x,t)$.
+On suppose que les ondes sont de faible amplitude, c'est à dire que $\xi \ll H_0$.
+On notera de plus $\xi(x,t)=\xi_0 sin(\omega t - kx)$
+On suppose l'écoulement irrotationnel et on note $\vec{v}(x,z,t)$ le champ de vitesse.
+\begin{enumerate}
+    \item Montrer que le champ de vitesse dérive d'un potentiel $\Phi(x,z,t)$. 
+    On cherchera ce potentiel sous la forme $\Phi(x,z,t)=f(z) cos(\omega t - kx)$.
+    \item Donner l'équation dont est solution $\Phi(x,z,t)$ et en déduire que $f$ vérifie l"équation ${\frac{d^{2}f}{d z^{2}}}-k^{2}f=0$.
+    \item Montrer que $\frac{\partial\phi}{\partial z}(z=0)=0$. Qu'en déduit-on sur $f$ ? 
+    \item Montrer que l'autre condition limite s'écrit $\frac{\partial\phi}{\partial z}(z=H_{0})=\frac{\partial h}{\partial t}$
+    \item En déduire l'expression de f en fonction de $\xi_0$. 
+    \item En déduire l'expression de $\vec{v}(x,z,t)$.
+    \item 
+    
+    On note $(x^*(t), y^*(t), z^*(t))$ les coordonnées d’une particule de fluide. (Noter que la coordonnée $y^*(t)$ restera invariante).
+    Montrer que $x^*(t)$ et $ y^*(t)$  verifient le système d’équations suivant :\\[0.1cm]
+    $\frac{d x^{*}}{d t}=\frac{h_{0}\omega}{\sinh(k H_{0})}\cosh(k z^{*}(t))\sin(\omega t-k x^{*}(t))$\\
+    $\frac{d z^{*}}{d t}=\frac{h_{0}\omega}{\sinh(k H_{0})}\sinh(k z^{*}(t))\cos(\omega t-k x^{*}(t))$\\
 
+    \item Ce système d’ ́equations diff erentielle qui ne depend que du temps n’a pas de solution analytique
+    dans le cas général. Néanmoins, on observe que les particules de fluide forment des ellipses dont la taille est très petite devant la longueur d'onde.
+   On remplace alors $kx^*$ et $kz^*$ par $kx_m$ et $kz_m$, les valeurs moyennes de $x^*$ et $z^*$ dans l'ellipse. 
+   Résoudre alors le système d'équations différentielles.
+
+\end{enumerate}
+
+    \section{Tube tournant:} 
+    On considère un tube coudé de section circulaire plongé dans de l'eau et tournant autour de l'axe $Oz$ avec une vitesse angulaire $\omega$.
+    On suppose l'écoulement irrotationnel.
+    Quelle conditions doit on avoir sur $\omega$ pour que ce système fonctionne comme une pompe ? 
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.4\textwidth]{tube_tournant.png}
+        \label{fig:image1}
+        \title{Schéma du tube tournant}
+
+      \end{figure}
+        
 
 \end{document}
