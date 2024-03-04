@@ -1,0 +1,91 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[french]{babel}
+\usepackage[fleqn]{amsmath} % Aligner les équations à gauche
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{TD 13 }
+\author{IPESUP - PC }
+\date{7 mars 2024}
+
+\begin{document}
+\maketitle
+
+
+
+\section{Changement de milieu }
+
+On considère deux cordes accrochées à une masse $m$ située en $x=0$.
+Une onde se propage sur ces deux cordes selon les $x$ croissants. 
+On note $\underline{\xi_i}(x,t) = \xi_{0 i} e^{i(\omega t - k_1 x)}$ l'onde incidente,
+et $\underline{\xi_r}(x,t) = \xi_{0 r} e^{i(\omega t + k_1 x)}$ l'onde réfléchie, 
+et $\underline{\xi_r}(x,t) = \xi_{0 t} e^{i(\omega t - k_2 x)}$ l'onde transmise.
+
+On pose $r=\frac{\underline{\xi_{0r}}}{\underline{\xi_{0i}}}$ le coefficient de réflexion complexe et 
+$t=\frac{\underline{\xi_{0t}}}{\underline{\xi_{0i}}}$ le coefficient de transmission complexe.
+\begin{enumerate}
+  \item En appliquant la continuité de $\xi$ en 0, trouver une relation entre $r$ et $t$.
+  \item En appliquant le PFD à la masse $m$, trouver une autre relation entre $r$ et $t$. On précisera les hypothèses faites. 
+  \item En déduire $r$ et $t$.
+\end{enumerate}
+
+
+\section{Déformations longitudinales d'un ressort}
+
+On considère un ressort à spires non jointives dont une extrémité est accrochées à $0$ fixe, et l'autre extrémité est accrochée à une masse $M$. 
+On note $L$, $m_0$ et $k_0$ sa longueur à vide, sa masse et sa raideur. 
+Le mouvement se fait le long de l'axe $x$.
+On note $\mu = \frac{m_0}{L}$ la masse linéique du ressort.
+On s'intéresse à la tranche de ressort comprise entre $x$ et $x+dx$ au repos.
+On note $\xi(x,t)$ l'écart d'un point à sa position initiale. 
+\begin{enumerate}
+  \item Montrer qualitativement que la raideur de ce ressort infinitésimal est $\frac{k_0 L }{dx}$.
+  \item Montrer que la force exercée par la partie droite du ressort sur la partie gauche du ressort vaut $\vec{F}(x,t)=R \frac{\partial \xi}{\partial x}(x,t) \vec{u_x}$. Donner la valeur de R. 
+  \item Etablir l'équation vérifiée par $\xi(x,t)$.
+  \item On cherche des solutions sous la forme $\xi(x,t) = f(x) cos(\omega t + \phi)$. Déterminer l'équation vérifiée par $\omega$ et montrer graphiquement que $\omega$ peut tendre vers l'infini.
+  \item Retrouver la pulsation d'un ressort sans masse. 
+  \item  On va maintenant préciser le résultat de la question précédente. 
+    \begin{enumerate}
+    \item Ecrire l'équation d'onde avec les variables adimensionnées $x_a = x/L$ et $t_a = t / T$, pù $L$ est la longueur du ressort et $T$ une durée caractéristique de la propagation des ondes. 
+    \item On se place dans le cadre $L<<cT$. Montrer que l'équation d'onde devient $ \frac{\partial ^2 \xi}{\partial x ^2} \simeq 0 $. 
+    \item Déterminer entièrement $\xi(x,t)$.
+    \item Justifier la phrase suivante :  "Dans le cadre $L<<cT$, le ressort a une masse apparente de $m_0/3$".
+    \end{enumerate}    
+\end {enumerate}
+
+
+\section{Chaîne de pendules}
+
+On considère une chaîne de pendules simples, de masse $m$ et de longueur $l$. Ceux-ci sont régulièrement
+espacés sur un fil de torsion horizontal de constante $C=\frac{\Gamma} {a}$. 
+La distance entre deux pendules vaut $a$. 
+On note $\theta_n(t)$ l'angle que fait le n-ième pendule avec la verticale.
+\begin{enumerate}
+  \item Exprimer le couple exercé par le pendule $n$ sur le fil situé à droite de ce dernier. 
+  \item Ecrire l'équation du mouvement du pendule $n$.
+  \item Dans la limite $  a \rightarrow 0$, déterminer l'équation vérifiée par $\theta (x,t)$. Montrer qu'il n'y a propagation que pour des pulsations supérieures à une pulsation de coupure $\omega_c$ que l'on précisera. 
+\end{enumerate}
+
+\section{Durée de chute}
+On considère uen corde de longueur $l$ et de masse linéique $\mu$, suspendue par une de ses extrémités au plafond. 
+A l'instant $t=0$, on amène l'autre extrémité de la corde au niveau de la première, puis on la lâche.
+On suppose que le mouvement se fait sans dissipation de chaleur.
+Calculer la durée de chute de la corde et la comparer avec la chute libre. 
+Indication : $\int_{0}^{1}\sqrt{\frac{1-x}{x(2-x)} } dx \simeq 1.2$
+
+
+
+\end{document}
