@@ -1,0 +1,82 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[french]{babel}
+\usepackage[fleqn]{amsmath} % Aligner les équations à gauche
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsfonts}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{stmaryrd}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Confidence interval on SEIR predictions}
+\author{}
+\date{10/04/2024}
+
+\begin{document}
+\maketitle
+
+
+We observe data $(Y_i)_{i \in \llbracket 1, n  \rrbracket }$, which corresponds to the number of deaths per day. \\[0.5cm]
+
+\underline{\textbf{Assumption:}}\\[0.5cm]
+The number of deaths per day follows a SEIR model: \\
+$Y_i = h_\theta(i) + \epsilon_i$\\
+
+With $\theta = (\beta , \gamma , d ) \in \mathbb{R} ^3$ the parameters of the SEIR model and $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, i.i.d with $\sigma$ unknown.\\[0.5cm]
+
+We want to find $\theta$ and to compute confidence intervals on the predictions of the SEIR model. \\[0.5cm]
+
+Let $Y = 
+\begin{pmatrix}
+    Y_1 \\
+    Y_2 \\
+    \vdots \\
+    Y_n
+\end{pmatrix} $ \\[0.2cm]
+
+
+We find $\hat{\theta}$, an estimator of $\theta$ by minimizing the difference between $h_\theta$ and the observed data.\\
+
+$\hat{\theta}= \underset{\tilde{\theta} \in \mathbb{R} ^3}{\text{argmin}} \left(\sum_{i=1}^{n} (h_{\tilde{\theta}}(i) - Y_i)^2\right) $\\
+As $\theta$ is fixed with $(Y_i)_{i \in \llbracket 1 , n  \rrbracket}$ fixed, we note $\hat{\theta} = f(Z)$\\
+
+Thanks to the $\Delta$-method, we have : \\
+
+$Var(\hat{\theta}) = \nabla_{\theta} ^T f(Z) Cov(Z) \nabla_{\theta} f(Z)^T$, with $\nabla_{\theta} f(Z)$ the hessian of f evaluated in $Z$. \\
+
+We also have, as the $\epsilon_i$ are independante gaussian variables: \\[0.2cm]
+$Cov(Z) = \sigma ^2 \mathbf{I}_n$\\
+
+We estimate $\sigma^2$ like this : \\
+
+$\hat{\sigma}^2 = \frac{1}{n-1} \sum_{i=1}^{n} \epsilon_i^2  = \frac{1}{n-1} \sum_{i=1}^{n} (Y_i - h_{\hat{\theta}}(i))^2$\\
+
+
+We can now have access to $Var(\hat{\theta})$ and approximate it with a normal distribution: $\mathcal{N} (\hat{\theta}, Var(\hat{\theta}))$\\
+
+We can now sample different $\theta_i$ from this distribution and predict the behaviour of the pandemic for each of this value of $\theta$. It gives us a confidence interval on the predictions of the SEIR model.\\
+
+We can also compute the confidence interval directly on a prediction with the formula :\\
+
+$Var(h_{\hat{\theta}}(i)) = \nabla_{\theta} ^T h_{\hat{\theta}}(i) Var(\hat{\theta}) \nabla_{\theta} h_{\hat{\theta}}(i)$\\
+
+
+
+
+\end{document}
+
+
+
+
+\end{document}
