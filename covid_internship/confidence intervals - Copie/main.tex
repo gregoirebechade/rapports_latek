@@ -1,0 +1,106 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[french]{babel}
+\usepackage[fleqn]{amsmath} % Aligner les équations à gauche
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsfonts}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{stmaryrd}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Confidence interval on SEIR predictions}
+\author{}
+\date{11/04/2024}
+
+\begin{document}
+\maketitle
+
+
+We observe data $(Y_i)_{i \in \llbracket 1, n  \rrbracket }$, which corresponds to the number of deaths per day. \\[0.5cm]
+
+\underline{\textbf{Assumption:}}\\[0.5cm]
+The number of deaths per day follows a SEIR model: \\
+$Y_i = h_\theta(i) + \epsilon_i$\\
+
+With $\theta = (\beta , \gamma , d ) \in \mathbb{R} ^3$ the parameters of the SEIR model and $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, i.i.d with $\sigma$ unknown.\\[0.5cm]
+
+We want to find $\theta$ and to compute confidence intervals on the predictions of the SEIR model. \\[0.5cm]
+
+Let $Y = 
+\begin{pmatrix}
+    Y_1 \\
+    Y_2 \\
+    \vdots \\
+    Y_n
+\end{pmatrix} $ \\[0.2cm]
+
+
+We find $\hat{\theta}$, an estimator of $\theta$ by minimizing the difference between $h_\theta$ and the observed data.\\
+
+$\hat{\theta}= \underset{\tilde{\theta} \in \mathbb{R} ^3}{\text{argmin}} \left(\sum_{i=1}^{n} (h_{\tilde{\theta}}(i) - Y_i)^2\right) $\\
+As $\theta$ is fixed with $(Y_i)_{i \in \llbracket 1 , n  \rrbracket}$ fixed, we note $\hat{\theta} = f(Y)$\\
+
+Thanks to the $\Delta$-method, we have : \\
+
+\begin{equation} \label{eq:1}
+    Var(\hat{\theta}) \simeq \nabla_{} ^T f(Y) Cov(Y) \nabla_{} f(Y)^T
+\end{equation}\\[0.1cm]
+
+
+with $\nabla_{}f(Y)$ the gradient of f evaluated in $Y$. \\
+
+The goal is now to find a way to appriximate $Cov(Y)$.\\
+
+
+
+As the $\epsilon_i$ are independante gaussian variables, we have $Cov(Y) = \sigma ^2 \mathbf{I}_n$\\
+
+We could estimate $\sigma^2$ with its unbiaised estimator : \\
+
+$\hat{\sigma}^2 = \frac{1}{n-1} \sum_{i=1}^{n} \epsilon_i^2  = \frac{1}{n-1} \sum_{i=1}^{n} (Y_i - h_{\hat{\theta}}(i))^2$, \\
+
+and plug it into the formula given by the $\Delta$-method (\ref*{eq:1}), but it would be very sensible to the error of approximation of the model (bias error). \\
+
+We can instead approximate $Cov(Y)$ with the hessian of the objective function. 
+This approximation is exact when the objective function is the log-likehood of the observation of independant gaussian variables, which corresponds to the least mean square method (for the gaussian case). 
+It is not stricty the case for our data. \
+
+Indeed, let $J(\theta)$ be the log likehood of the observation $Y$. 
+
+We have $Cov(Y)^{-1} = \nabla ^2 J(\theta) \Leftrightarrow  Y \sim \mathcal{N}(
+    \begin{pmatrix}
+        \mu \\
+        \mu \\
+        \vdots \\
+        \mu
+    \end{pmatrix} , \sigma ^2 I_n )\\[0.2cm]
+     $  
+
+In our case we have :\\[0.3cm]
+ $Y \sim \mathcal{N}(
+    \begin{pmatrix}
+        h_{\theta}(1) \\
+        h_{\theta}(2) \\
+        \vdots \\
+        h_{\theta}(n)
+    \end{pmatrix} , \sigma ^2 I_n )$,\\[0.2cm]
+     
+
+Which justifies the approximation. We can finally compute $Var(\hat{\theta})$ with : $Var(\hat{\theta}) = \nabla_{} ^T f(Y) Cov(Y) \nabla_{} f(Y)^T$
+\end{document}
+
+
+
+
+\end{document}
