@@ -5,17 +5,13 @@
 \usepackage[french]{babel}
 \usepackage[fleqn]{amsmath} % Aligner les équations à gauche
 
-
 % Set page size and margins
-% Replace `letterpaper' with`a4paper' for UK/EU standard size
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsfonts}
-\usepackage{amsmath}
 \usepackage{amssymb}
-
-\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{stmaryrd}
@@ -30,133 +26,123 @@
 
 \section{Proof of the method for computing confidence intervals}
 
-\textbf{Assumption}: \\
+\textbf{Assumption}:
 
-We suppose that the data of the pandemic observed follows the model $h$, of parameter $\theta^* \in \mathcal{R}^d$.
+We suppose that the data of the pandemic observed follows the model $h$, of parameter $\theta^* \in \mathcal{R}^d$. Let $Y_i$, $ i = 1, \ldots, n$ be the number of hospitalized at each day. We suppose that: $Y_i = h_{\theta ^* } (i) + \epsilon_i$, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, iid, and independent from all the other variables. The objective is to estimate $\theta^*$. We use $\hat{\theta}$, the least square estimator of $\theta^*$ as an estimator of $\theta^* $:
+\[
+\hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2
+\]
 
-Let $Y_i$, $ i = 1, \ldots, n$ be the number of hospitalized at each day. 
-
-we suppose that : $^Y_i = h_{\theta ^* } (i) + \epsilon_i$, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, iid, and independant from all the other variables. 
-
-The objective is to estimate $\theta^*$. 
-
-We use $\hat{\theta}$, the least square estimator of $\theta^*$ as an estimator of $\theta ^* $ 
-
-$\hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2$ \\
-
-Let : \\
-
-
-$ Y = $ $\begin{pmatrix}
+Let:
+\begin{align*}
+Y &= \begin{pmatrix}
 Y_1 \\
 \vdots \\
 Y_n
-\end{pmatrix}$
- and $h_\theta = $ $\begin{pmatrix}
+\end{pmatrix} \\
+h_\theta &= \begin{pmatrix}
 h_\theta(1) \\
 \vdots \\
 h_\theta(n)
-\end{pmatrix}$
+\end{pmatrix}
+\end{align*}
 
+We have:
+\[
+\hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert Y - h_\theta \right\rVert ^2
+\]
 
-We have : \\
+Now, if $\theta$ is close enough to $\theta^*$, we can write:
+\[
+\forall i \in \{ 1, ..., n\} :  h_\theta(i) = h_{\theta^*} (i ) + \nabla_\theta h_{\theta^*}(i) (\theta - \theta^*)
+\]
+which leads to:
+\[
+\hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert Y - h_{\theta^*} (i ) - \nabla_\theta h_{\theta^*}(i) (\theta - \theta^*) \right\rVert ^2
+\]
 
-$ \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert Y - h_\theta \right\rVert ^2 $\\
+Let us define:
+\begin{align*}
+\tilde{Y} &= Y - h_{\theta^*} \\
+\beta &= \theta - \theta^* \\
+\hat{\beta} &= \theta - \hat{\theta}
+\end{align*}
 
-Now, if $\theta$ is close enough to $\theta^*$, we can write : \\
+and let us define the matrix $A \in \mathbb{R} ^{n \times d }$ such that $\forall i \in \{ 1, ..., n\}, \forall j \in \{1, ..., d\}, A_{i, j} = \frac{dh_{\theta^*}}{d\theta_j}(i)$.
 
+The previous problem can be re-written as:
+\[
+\hat{\beta} =  \underset{\beta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert \tilde{Y} - A \beta \right\rVert ^2
+\]
 
-$\forall i \in \{ 1, ..., n\} :  h_\theta(i) = h_{\theta ^* } (i ) + \nabla_\theta h_{\theta^*}(i) (\theta - \theta^*) $,   which leads to :\\
+This is a regression linear problem.
 
-$ \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert Y - h_{\theta ^* } (i ) - \nabla_\theta h_{\theta^*}(i) (\theta - \theta^*) \right\rVert ^2 $\\
+Let us solve this problem in the general case. Let  $\tilde{Y}_i = A_i \beta ^* + \epsilon'_i $, with  $\epsilon'_i \sim \mathcal{N}(0, \sigma ' ^2)$.
 
+The solution of this problem is explicitly:
+\[
+\hat{\beta } = (A^T A ) ^{-1} A^T \tilde{Y}
+\]
 
-Let us define : 
+This least-square estimator is unbiased:
+\[
+\mathbb{E}[\hat{\beta}] = \beta^*
+\]
 
-$ \tilde{Y} = Y - h_{\theta ^* }$\\
+\[
+\hat {\beta } = \left( \frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left( \frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
+\]
 
-$\beta = \theta - \theta ^* $\\ 
+Let us note:
+\[
+\hat{D}  = \frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i , \quad \text{and} \quad \hat{\delta}  = \left( \frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
+\]
 
-$\hat{\beta} = \theta - \hat{\theta} $\\
+We have:
+\[
+\hat{\beta} = \hat{D} ^{-1} \hat{\delta}
+\]
 
-and let us define the matrix $A \in \mathbb{R} ^{n \times d }$ such that  $\forall i \in \{ 1, ..., n\}, \forall j \in \{1, ..., d\}, A_{i, j} = \frac{dh_{\theta^*}}{d\theta_j}(i)$.\\
+\[
+\hat{D}  \underset{a.s}{\rightarrow}  \mathbb{E}[A_i ^T A_i ]
+\]
 
+\[
+\hat{\delta}   \underset{a.s}{\rightarrow}  \mathbb{E}[A_i ^T \tilde{Y}_i ]
+\]
 
-The previous problem can be re-written as : \\
+\[
+\hat{\beta} = \hat{D}^{-1} \hat{\delta}  \underset{a.s}{\rightarrow}  D^{-1} \delta
+\]
 
-
-$ \hat{\beta} =  \underset{\beta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert \tilde{Y} - A \beta \right\rVert ^2 $\\
-
-
-This is a regression linear problem. \\
-
-Let us solve this problem in the general case. Let  $\tilde{Y}_i = A_i \beta ^* + \epsilon ' _i $, with  $\epsilon ' _i \sim \mathcal{N}(0, \sigma ' ^2)$\\
-
-
-The solution of this problem is explicitely : \\
-
-
-$\hat{\beta } = (A^T A ) ^{-1} A^T \tilde{Y}$ \\
-
-
-This least-square estimator is unbiaised : \\
-
-$\mathbb{E}[\hat{\beta}] = \beta ^*$\\
-
-$\hat {\beta } = (\frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i ) ^{-1}    \times (\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i })$\\
-
-
-Let us note : \\
-
-$\hat{D}  = \frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i $ , and $\hat{\delta}  = (\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i }) $\\
-
-We have : \\
-
-$\hat{\beta} = \hat{D} ^{-1} \hat{\delta} $\\
-
-
-$\hat{D}  \underset{a.s}{\rightarrow}  \mathbb{E}[A_i ^T A_i ]$ \\
-
-
-$\hat{\delta}   \underset{a.s}{\rightarrow}  \mathbb{E}[A_i ^T \tilde{Y}_i ] $\\
-
-
-$\hat{\beta} = \hat{D}^{-1} \hat{\delta}  \underset{a.s}{\rightarrow}  D^{-1} \delta$, as  $\phi : A \rightarrow  A^{-1}$ is continuous on $\mathcal{GL}_n(\mathbb {R} )$ \\
-
+as $\phi : A \rightarrow  A^{-1}$ is continuous on $\mathcal{GL}_n(\mathbb {R} )$.
 
 Now, let us show that $\hat{\beta}$ is asymptotically normal: 
-
 
 \begin{align*}
     \sqrt{n} ( \hat{\beta} - \beta ^* ) &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \beta ^* ) \\
      &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \hat{D}^{-1} \hat{D} \beta ^* ) \\
      &= \sqrt{n} \hat{D}^{-1} (\hat{\delta} -  \hat{D} \beta ^* )  \\
-     &= \sqrt{n} \hat{D}^{-1} (\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} - \frac{1}{n}  \sum_{i=1}^{n}  A_i ^T A_i \beta ^* )  \\
-     &= \frac{\sqrt{n}}{n} \hat{D}^{-1} (\sum_{i=1}^{n} A_i ^T (\tilde{Y_i} -    A_i \beta ^* ) )   \\
-     & = \frac{1}{\sqrt{n}}  \hat{D} ^{-1} (\sum_{i=1}^{n}  A_i ^T \epsilon _ i )  \\
+     &= \sqrt{n} \hat{D}^{-1} \left( \frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} - \frac{1}{n}  \sum_{i=1}^{n}  A_i ^T A_i \beta ^* \right)  \\
+     &= \frac{\sqrt{n}}{n} \hat{D}^{-1} \left( \sum_{i=1}^{n} A_i ^T (\tilde{Y_i} -    A_i \beta ^* ) \right)   \\
+     &= \frac{1}{\sqrt{n}}  \hat{D} ^{-1} \left( \sum_{i=1}^{n}  A_i ^T \epsilon _ i \right)  
 \end{align*}
 
-
-This line is made of two terms. Let's show that each one of them converges in law.  \\
-
-
+This line is made of two terms. Let's show that each one of them converges in law. 
 
 \begin{align*}
     \frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) &= \sqrt{n} \left( \frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \\
     &= \sqrt{n} \left( \frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i - 0 \right) \\
-    &\xrightarrow{a.s.} \mathbb{N}(0, \text{Var}(A_i^T \epsilon_i) )
+    &\xrightarrow{a.s.} \mathcal{N}(0, \text{Var}(A_i^T \epsilon_i) )
 \end{align*}
 
 Yet, as $\epsilon_i \perp A_i $ and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i A_i ^T \epsilon_i ^2 ] = \mathbb{E} [ A_i A_i ^T ] \sigma'^2$. 
 
+Finally, $\frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{a.s.} \mathcal{N}(0, D \sigma'^{2})$. 
 
-Finally, $\frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{a.s.} \mathbb{N}(0, D \sigma'^{2})$. 
+On the other hand, $\hat{D}^{-1} \xrightarrow{\mathcal{L}} D^{-1} = Cte $.
 
-
-On the other hand, $\hat{D}^{-1} \xrightarrow{\mathcal{L}} D^{-1} = Cte $.\\
-
-Finally, with Slutsky, we obtain that : \\
-
+Finally, with Slutsky, we obtain that: 
 
 \begin{align*}
     \sqrt{n} (\hat{\beta} - \beta^*) &\xrightarrow{\mathcal{L}} D^{-1}\mathcal{N}(0, D \sigma'^2) \\
@@ -164,30 +150,36 @@ Finally, with Slutsky, we obtain that : \\
     &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma'^2 (A^T A)^{-1})
 \end{align*}
 
+Let's get back to the first problem: 
 
-Let's get back to the first problem : \\
+As $\beta ^* = 0 $ and $\hat{\beta} = \hat{\theta} - \theta ^* $, we have: 
 
-As $\beta ^* = 0 $ and $\hat{\beta} = \hat{\theta} - \theta ^* $, we have : \\
+\[
+\sqrt{n} (\hat{\theta} - \theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma^2 (A^T A)^{-1})
+\]
 
+and, 
+\[
+\hat{\theta} \sim \mathcal{N}(\theta^*, \frac{\sigma^2}{n} (A^T A)^{-1})
+\]
 
-$\sqrt{n} (\hat{\theta} - \theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma^2 (A^T A)^{-1})$\\
+As a first conclusion, we have that $\hat{\theta}$ is asymptotically normal.
 
-and , $\hat{\theta} \sim \mathcal{N}(\theta^*, \frac{\sigma^2}{n} (A^T A)^{-1})$\\
-
-As a first conclusion, we have that $\hat{\theta}$ is asymptotically normal. \\
-
-
-Let $\Sigma$ be the covariance matrix estimated from the computation of $\hat{\theta}$. \\
-In our case, $\Sigma = \frac{\sigma^2}{n} (A^T A)^{-1}$. \\
-
+Let $\Sigma$ be the covariance matrix estimated from the computation of $\hat{\theta}$. In our case, $\Sigma = \frac{\sigma^2}{n} (A^T A)^{-1}$. 
 
 As $\hat{\theta}$ is asymptotically normal, we can apply the delta-method: 
 
-$\sqrt{n} (\hat{\theta} -\theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \ \Sigma)$\\
-$\sqrt{n} (h_{\hat{\theta}} -h_{\theta^*}) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \nabla_\theta h_\theta ^T \Sigma  \nabla_\theta h_\theta)$\\
+\[
+\sqrt{n} (\hat{\theta} -\theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \ \Sigma)
+\]
+\[
+\sqrt{n} (h_{\hat{\theta}} -h_{\theta^*}) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \nabla_\theta h_\theta ^T \Sigma  \nabla_\theta h_\theta)
+\]
 
-And finally : 
-$h_{\hat{\theta}} \rightarrow \mathcal{N}(h_{\theta^*}, \frac{1}{n}\nabla_\theta h_\theta ^T \Sigma  \nabla_\theta h_\theta)$\\
+And finally: 
+\[
+h_{\hat{\theta}} \rightarrow \mathcal{N}(h_{\theta^*}, \frac{1}{n}\nabla_\theta h_\theta ^T \Sigma  \nabla_\theta h_\theta)
+\]
 
 By estimating $\frac{1}{n} \Sigma$ from \texttt{curve\_fit}, we can compute the confidence interval of the prediction with the quantiles of the normal distribution.
 

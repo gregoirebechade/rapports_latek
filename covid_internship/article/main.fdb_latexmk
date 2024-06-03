@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1717424118 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717424119 2
+["pdflatex"] 1717424643 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717424645 2
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1717159649 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/tfm/public/stmaryrd/stmary10.tfm" 1712750663 848 f478e0761563bbc369eca609a1741348 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/tfm/public/stmaryrd/stmary5.tfm" 1712750668 848 e1bc58a31b9ed9c3729ffea165acfaac ""
@@ -114,10 +114,10 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/stmaryrd/stmaryrd.sty" 1303229068 11317 aa7f81da60ce104f0dbb8b827dd14383 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/stmaryrd/ustmry.fd" 1303229068 1811 216b0f832c406513647608b5bb9bb8ff ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" 1717424115 6661 7f804c732a947cfe8ea671396474a5dc ""
-  "main.aux" 1717424119 472 25ee2510f333e325e4df7043f93e6773 "pdflatex"
-  "main.out" 1717424119 334 10a5b67e004f65136ea4396f46f1cc6a "pdflatex"
-  "main.tex" 1717424115 6661 7f804c732a947cfe8ea671396474a5dc ""
+  "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" 1717424639 6634 99a8096c332cb959f6fe42250d772c46 ""
+  "main.aux" 1717424644 472 25ee2510f333e325e4df7043f93e6773 "pdflatex"
+  "main.out" 1717424644 334 10a5b67e004f65136ea4396f46f1cc6a "pdflatex"
+  "main.tex" 1717424639 6634 99a8096c332cb959f6fe42250d772c46 ""
   (generated)
   "main.aux"
   "main.log"
