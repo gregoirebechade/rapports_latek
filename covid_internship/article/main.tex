@@ -1,236 +1,194 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
 \usepackage[french]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage[fleqn]{amsmath} % Aligner les équations à gauche
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage{titlesec}
-\usepackage{hyperref}
-\usepackage{amsmath} % Add this line to import the amsmath package
-\usepackage{amsmath} % Add this line to import the necessary package
+\usepackage{subcaption}
+\usepackage{stmaryrd}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
-\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
-\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter}{2pc}{}
-\onehalfspacing
-
-
-
-
-% Configuration des En-têtes et Pieds de page
-\pagestyle{fancy}
-\fancyhf{} % Clear all headers and footers
-
-% Images en en-tête
-\fancyhead[L]{\includegraphics[width=1.5cm]{logo_chalmers.jpg}} % Image en en-tête gauche
-\fancyhead[R]{\includegraphics[width=1.5cm]{logo_chalmers.jpg}} % Image en en-tête droite
-
-
-% Numérotation des pages en pied de page au centre
-\fancyfoot[C]{\thepage}
-
-% Pour éviter les en-têtes et pieds de page par défaut des chapitres
-\fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyhead[L]{\includegraphics[width=3cm]{logo_chalmers.jpg}}
-    \fancyhead[R]{\includegraphics[width=1.2cm]{logo_x.png}}
-    \fancyfoot[C]{\thepage}
-}
-
-
+\title{Confidence interval on SEIR predictions}
+\author{}
+\date{10/04/2024}
 
 \begin{document}
+\maketitle
+
+\section{Proof of the method for computing confidence intervals}
+
+\textbf{Assumption}: \\
+
+We suppose that the data of the pandemic observed follows the model $h$, of parameter $\theta^* \in \mathcal{R}^d$.
+
+Let $Y_i$, $ i = 1, \ldots, n$ be the number of hospitalized at each day. 
+
+we suppose that : $^Y_i = h_{\theta ^* } (i) + \epsilon_i$, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, iid, and independant from all the other variables. 
+
+The objective is to estimate $\theta^*$. 
+
+We use $\hat{\theta}$, the least square estimator of $\theta^*$ as an estimator of $\theta ^* $ 
+
+$\hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2$ \\
+
+Let : \\
 
 
-% Page de Garde
-\begin{titlepage}
-    \begin{center}
-        \vspace*{1cm}
-        
-        \Huge
-        \textbf{Comparing forecast performance on different synthetic pandemics }
-        
-        \vspace{0.5cm}
-        \LARGE
-        Sous-titre du Rapport
-        
-        \vspace{1.5cm}
-        
-        \textbf{Grégoire Béchade}
-        
-        \vfill
-        
-        \Large
-        Rapport de stage effectué chez \\
-        Nom de l'Entreprise
-        
-        \vspace{0.8cm}
-        
-        \includegraphics[width=0.4\textwidth]{logo.png}
-        
-        \vfill
-        
-        \Large
-        Under the direction of \\
-        Philipp Gerlee
-        
-        \vspace{0.8cm}
-        
-        \Large
-        Nom de l'Université \\
-        Nom de la Faculté \\
-        Nom du Département
-        
-    \end{center}
-\end{titlepage}
-
-% Page de Garde vide (optionnelle)
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
-
-% Table des matières
-\tableofcontents
-\newpage
-
-% Introduction
-\chapter*{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
-
-% Contenu des chapitres
+$ Y = $ $\begin{pmatrix}
+Y_1 \\
+\vdots \\
+Y_n
+\end{pmatrix}$
+ and $h_\theta = $ $\begin{pmatrix}
+h_\theta(1) \\
+\vdots \\
+h_\theta(n)
+\end{pmatrix}$
 
 
-\chapter{The data}
+We have : \\
+
+$ \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert Y - h_\theta \right\rVert ^2 $\\
+
+Now, if $\theta$ is close enough to $\theta^*$, we can write : \\
 
 
-\chapter{Models}
+$\forall i \in \{ 1, ..., n\} :  h_\theta(i) = h_{\theta ^* } (i ) + \nabla_\theta h_{\theta^*}(i) (\theta - \theta^*) $,   which leads to :\\
 
-\cite{ref1}
-
-\section{SIRH model}
+$ \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert Y - h_{\theta ^* } (i ) - \nabla_\theta h_{\theta^*}(i) (\theta - \theta^*) \right\rVert ^2 $\\
 
 
-The SIRH model is a compartemental model used in epidemiology to model the spread a pandemic. 
-This model splits the population in different compartments which represent the health conditions of the individuals.
-The evolution of the pandemic is modelled by a system of differential equations.
+Let us define : 
 
-Let $S_t$, $I_t$, $R_t$ and $H_t$ be the number of susceptible, infected, recovered and hospitalized individuals at time $t$.
+$ \tilde{Y} = Y - h_{\theta ^* }$\\
 
-The SIRH model is defined by this system of differential equations:\\
+$\beta = \theta - \theta ^* $\\ 
 
+$\hat{\beta} = \theta - \hat{\theta} $\\
 
-\begin{equation}
-    \begin{cases}
-        \frac{dS}{dt} & = - \beta \frac{S I}{N} \\
-        \frac{dI}{dt} & = \beta \frac{S I }{N} - (\gamma_i + h) I \\
-        \frac{dR}{dt} & = \gamma_i I + \gamma_h H  \\
-        \frac{dH}{dt} & = h I - \gamma_h H  \\
-    \end{cases}
-\end{equation}
-    
+and let us define the matrix $A \in \mathbb{R} ^{n \times d }$ such that  $\forall i \in \{ 1, ..., n\}, \forall j \in \{1, ..., d\}, A_{i, j} = \frac{dh_{\theta^*}}{d\theta_j}(i)$.\\
 
 
-
-where $\beta$ is the transmission rate, $\gamma_i$ is the recovery rate, $\gamma_h$ is the hospitalization rate and $h$ is the hospitalization rate.
-This model is useful for policymakers because of its explanatory power and its simplicity.
-Moreover, the parameters of the model have a physical interpretation. 
-
-\subsection{Computing confidence intervals with delta-method}
-
-For many models, we did not have an explici way to compute the confidence interval of the prediction. 
-We used the delta-method, which enables to output a confidence interval based on the error of estimation of the model associated with the estimation of the noise of the data. 
-
-We suppose that the number of hospitalized at day $i$ follows the mode $h_{\theta^*}$: 
-$ Y_i = h_{\theta^*}(i) + \epsilon_i$ where $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$
-
-Let $h_{\theta}(i)$ be the prediction of the model $h$, with parameters $\theta$ at time $i$, we have : \\
-$ \hat{\theta} = argmin_{\theta} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2$ be the least-squares estimator of $\theta^*$ \\
+The previous problem can be re-written as : \\
 
 
+$ \hat{\beta} =  \underset{\beta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert \tilde{Y} - A \beta \right\rVert ^2 $\\
 
-if we note : 
- $Y = 
-\begin{pmatrix}
-    Y_1 \\
-    Y_2 \\
-    \vdots \\
-    Y_n
-\end{pmatrix} $ \\[0.2cm]
 
-and $h_{\theta} =
-\begin{pmatrix}
-    h_{\theta}(1) \\
-    h_{\theta}(2) \\
-    \vdots \\
-    h_{\theta}(n)
-\end{pmatrix} $ \\[0.2cm], 
+This is a regression linear problem. \\
 
-we have : 
+Let us solve this problem in the general case. Let  $\tilde{Y}_i = A_i \beta ^* + \epsilon ' _i $, with  $\epsilon ' _i \sim \mathcal{N}(0, \sigma ' ^2)$\\
 
-$\hat{\theta} = argmin_{\theta} ||Y - h_{\theta}||^2$ \\
 
-We linearize around $\theta^*$ :
-$h_{\theta}(i) \simeq h_{\theta^*}(i) +  (\theta - \theta^*)^T\nabla_{\theta} h_{\theta^*}(i)$ \\
+The solution of this problem is explicitely : \\
 
-We have :\\
-$\hat{\theta} = argmin_{\theta} ||Y - h_{\theta^*} +  (\theta - \theta^*)^T\nabla_{\theta} h_{\theta^*}||^2$ \\
+
+$\hat{\beta } = (A^T A ) ^{-1} A^T \tilde{Y}$ \\
+
+
+This least-square estimator is unbiaised : \\
+
+$\mathbb{E}[\hat{\beta}] = \beta ^*$\\
+
+$\hat {\beta } = (\frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i ) ^{-1}    \times (\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i })$\\
+
+
+Let us note : \\
+
+$\hat{D}  = \frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i $ , and $\hat{\delta}  = (\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i }) $\\
+
+We have : \\
+
+$\hat{\beta} = \hat{D} ^{-1} \hat{\delta} $\\
+
+
+$\hat{D}  \underset{a.s}{\rightarrow}  \mathbb{E}[A_i ^T A_i ]$ \\
+
+
+$\hat{\delta}   \underset{a.s}{\rightarrow}  \mathbb{E}[A_i ^T \tilde{Y}_i ] $\\
+
+
+$\hat{\beta} = \hat{D}^{-1} \hat{\delta}  \underset{a.s}{\rightarrow}  D^{-1} \delta$, as  $\phi : A \rightarrow  A^{-1}$ is continuous on $\mathcal{GL}_n(\mathbb {R} )$ \\
+
+
+Now, let us show that $\hat{\beta}$ is asymptotically normal: 
+
+
+\begin{align*}
+    \sqrt{n} ( \hat{\beta} - \beta ^* ) &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \beta ^* ) \\
+     &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \hat{D}^{-1} \hat{D} \beta ^* ) \\
+     &= \sqrt{n} \hat{D}^{-1} (\hat{\delta} -  \hat{D} \beta ^* )  \\
+     &= \sqrt{n} \hat{D}^{-1} (\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} - \frac{1}{n}  \sum_{i=1}^{n}  A_i ^T A_i \beta ^* )  \\
+     &= \frac{\sqrt{n}}{n} \hat{D}^{-1} (\sum_{i=1}^{n} A_i ^T (\tilde{Y_i} -    A_i \beta ^* ) )   \\
+     & = \frac{1}{\sqrt{n}}  \hat{D} ^{-1} (\sum_{i=1}^{n}  A_i ^T \epsilon _ i )  \\
+\end{align*}
+
+
+This line is made of two terms. Let's show that each one of them converges in law.  \\
 
 
 
+\begin{align*}
+    \frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) &= \sqrt{n} \left( \frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \\
+    &= \sqrt{n} \left( \frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i - 0 \right) \\
+    &\xrightarrow{a.s.} \mathbb{N}(0, \text{Var}(A_i^T \epsilon_i) )
+\end{align*}
+
+Yet, as $\epsilon_i \perp A_i $ and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i A_i ^T \epsilon_i ^2 ] = \mathbb{E} [ A_i A_i ^T ] \sigma'^2$. 
 
 
+Finally, $\frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{a.s.} \mathbb{N}(0, D \sigma'^{2})$. 
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{SIRH_model.png}
-    \caption{Scheme of the compartments of the SIRH model}
-    \label{fig:sirh}
-\end{figure}
+On the other hand, $\hat{D}^{-1} \xrightarrow{\mathcal{L}} D^{-1} = Cte $.\\
+
+Finally, with Slutsky, we obtain that : \\
 
 
+\begin{align*}
+    \sqrt{n} (\hat{\beta} - \beta^*) &\xrightarrow{\mathcal{L}} D^{-1}\mathcal{N}(0, D \sigma'^2) \\
+    &\xrightarrow{\mathcal{L}} \mathcal{N}(0, D^{-1} \sigma'^2) \\
+    &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma'^2 (A^T A)^{-1})
+\end{align*}
 
 
+Let's get back to the first problem : \\
 
-\subsection{Titre de la Sous-section 1}
+As $\beta ^* = 0 $ and $\hat{\beta} = \hat{\theta} - \theta ^* $, we have : \\
 
 
+$\sqrt{n} (\hat{\theta} - \theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma^2 (A^T A)^{-1})$\\
 
-Contenu de votre rapport...
+and , $\hat{\theta} \sim \mathcal{N}(\theta^*, \frac{\sigma^2}{n} (A^T A)^{-1})$\\
 
-\chapter{Titre du Chapitre 2}
-\section{Titre de la Section 2}
+As a first conclusion, we have that $\hat{\theta}$ is asymptotically normal. \\
 
-Contenu de votre rapport...
 
-% Ajouter des images
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\textwidth]{logo_chalmers.jpg}
-    \caption{Description de l'image}
-    \label{fig:image1}
-\end{figure}
+Let $\Sigma$ be the covariance matrix estimated from the computation of $\hat{\theta}$. \\
+In our case, $\Sigma = \frac{\sigma^2}{n} (A^T A)^{-1}$. \\
 
-% Conclusion
-\chapter*{Conclusion}
-\addcontentsline{toc}{chapter}{Conclusion}
 
-Conclusion de votre rapport...
+As $\hat{\theta}$ is asymptotically normal, we can apply the delta-method: 
 
-% Bibliographie
-\newpage
-\addcontentsline{toc}{chapter}{Bibliographie}
-\bibliographystyle{plain}
-\bibliography{bibliographie}
+$\sqrt{n} (\hat{\theta} -\theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \ \Sigma)$\\
+$\sqrt{n} (h_{\hat{\theta}} -h_{\theta^*}) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \nabla_\theta h_\theta ^T \Sigma  \nabla_\theta h_\theta)$\\
 
-% Annexes
-\appendix
-\chapter{Titre de l'Annexe}
+And finally : 
+$h_{\hat{\theta}} \rightarrow \mathcal{N}(h_{\theta^*}, \frac{1}{n}\nabla_\theta h_\theta ^T \Sigma  \nabla_\theta h_\theta)$\\
 
-Contenu de l'annexe...
-
-\pagestyle{plain}
+By estimating $\frac{1}{n} \Sigma$ from \texttt{curve\_fit}, we can compute the confidence interval of the prediction with the quantiles of the normal distribution.
 
 \end{document}
