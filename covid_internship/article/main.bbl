@@ -19,6 +19,70 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{gerlee2021predicting}{article}{}
+      \name{author}{8}{}{%
+        {{hash=8e1b9d4655e25ad3c1c502d49b861104}{%
+           family={Gerlee},
+           familyi={G\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=551607a2cf450f3db78736b998d8d2b3}{%
+           family={Karlsson},
+           familyi={K\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f956baeff4ee5012cdcaa626fc446a23}{%
+           family={Fritzell},
+           familyi={F\bibinitperiod},
+           given={Ingrid},
+           giveni={I\bibinitperiod}}}%
+        {{hash=35592e1ab73f3c3c78e9039c87e86e9b}{%
+           family={Brezicka},
+           familyi={B\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=36d350245fcfd153960b0498a8026e72}{%
+           family={Spreco},
+           familyi={S\bibinitperiod},
+           given={Armin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9faed46673ed846445741c1e18db403e}{%
+           family={Timpka},
+           familyi={T\bibinitperiod},
+           given={Toomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=64479289ece63ce4e5f71739ee51aaeb}{%
+           family={Jöud},
+           familyi={J\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e88bed5b3277452929f378fef63e1c87}{%
+           family={Lundh},
+           familyi={L\bibinitperiod},
+           given={Torbjörn},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{759d2046fe606618f0dc75d962b60e1a}
+      \strng{fullhash}{665695b91391fe00fcdcda8b77826fe0}
+      \strng{bibnamehash}{759d2046fe606618f0dc75d962b60e1a}
+      \strng{authorbibnamehash}{759d2046fe606618f0dc75d962b60e1a}
+      \strng{authornamehash}{759d2046fe606618f0dc75d962b60e1a}
+      \strng{authorfullhash}{665695b91391fe00fcdcda8b77826fe0}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific reports}
+      \field{number}{1}
+      \field{title}{Predicting regional COVID-19 hospital admissions in Sweden using mobility data}
+      \field{volume}{11}
+      \field{year}{2021}
+      \field{pages}{24171}
+      \range{pages}{1}
+    \endentry
     \entry{kerr2021covasim}{article}{}
       \true{moreauthor}
       \true{morelabelname}

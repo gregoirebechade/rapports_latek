@@ -20,6 +20,29 @@ For the implementation and the first test of our models, we generated two pandem
 
 We will refer to these pandemics as the pandemic 1 and pandemic 2. 
 
+\input{tables/table_covasim_parameters.tex}
+
+The parameters used to generate these pandemics are described in the table \ref{tab:parameters_covasim}.
+
+The parameters that are not specified are the default parameters of the Covasim librairy. 
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/mobility_reports.png}
+    \caption{Mobility reports from Västtrafik.}
+    \label{fig:mobility_reports}
+\end{figure}
+
+
+The different interventions were based on mobility reports from Västtrafik  \ref{fig:mobility_reports}, the public transport company of the city of Gothenburg, 
+which were reported during the Covid 19 pandemic and has been retrieved in \cite{gerlee2021predicting}.
+
+These correspond to 53 relative weekly variations of the mobility, with a reference value of 1 for the first week of the report, which correspond to the 9-th week of 2020. 
+
+
+
+
 
 
 \subsection{Computing confidence intervals on the prediction}
