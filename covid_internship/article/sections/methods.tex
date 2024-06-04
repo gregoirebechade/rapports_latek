@@ -85,13 +85,44 @@ But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be relevant, the p
 
 Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
 
-$ S_{opt} = \underset{S' \subset S , \vert S' \vert =4 }{argmax} \sum_{s, t \in \mathcal{P}(S') , s \neq t }{\mathcal{L}_2(s,t)}$, with $\mathcal{P}(S')$ the set of the 81 pandemics generated with the 4 parameters of $S'$
+$ S_{opt} = \underset{S' \subset S , \vert S' \vert =4 }{argmax} \mathcal{L}(S')$, with $ \mathcal{L}(S')= \sum_{s, t \in \mathcal{P}(S') , s \neq t }{\mathcal{L}_2(s,t)}$, and  $\mathcal{P}(S')$ the set of the 81 pandemics generated with the 4 parameters of $S'$
 
 However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters included inn $S$.\\[1cm]
 
 
 A MCMC algorithm \cite*{diaconis2009markov} was then implemented, to perform a clever grid search on the different subsets of parameters.
+The MCMC algorithm is a method which is used to sample from a distribution that can't be directly sampled. 
+The main idea is to construct a Markov Chain whose stationary distribution is the objective distribution.
 
+Let $\mathcal{X}$ be the support of the target distribution, which is, in our case, the set of all the 715 combinations of the 4 parameters among the 13 different possible, and let $\pi$ be the target distribution on $\mathcal{X}$.
+$\forall x \in \mathcal{X}, \pi(x) = \frac{\mathcal{L}(x)}{\sum_{x \in \mathcal{X}}  \mathcal{L}(x)} $
+
+
+For each $x = [a, b, c, d] \in \mathcal{X}$, let $ne(x)$ be the set of the neighbourghs of $x$, i.e the set of all the elemnts of $\mathcal{X}$ who have only one parameter different from $x$. 
+
+Let $U_n$ be a sequence of independent uniform random variables on $[0, 1]$ and $\forall s \in \mathcal{X}$, let $U_{n}^{ne(s)}$ be a sequence of independant uniform random variables on $ne(s)$ .
+Let $x_0 \in \mathcal{X}$ and let  $X_n$ be the random sequence defined as follow : \\
+
+
+
+\[
+ \left\{
+\begin{array}{rcl}
+& X_0 = x_0 \\
+& \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(X_n)})}{\mathcal{X}_n} \\
+& \forall n \in \mathbb{N}, X_{n+1} = U_{n}^{ne(X_n)} \mathbb{1}_{U_n < \alpha_n} + X_n \mathbb{1}_{U_n > \alpha_n}
+\end{array}
+\right.
+\]
+
+As $X_{n+1}$ is a function of $X_n$ and of other independant variables, the sequence $X_n$ is a homogenous Markov Chain.
+This formula means that at each iteration, a neighbourgh of $X_n$ is uniformly selected among all the neighbourghs of $X_n$. 
+The Markov Chain moves to this neighbourgh if the value of the function $\mathcal{L}$ is higher than the value of the function $\mathcal{L}$ at the current state.
+If the value of $\mathcal{L}$ is smaller, the markov chain moves with a probability that is equal to the ratio of the two values.
+This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. 
+MAINTENANT IN PROIVE QUE C EST LA PROBA INVARIANTE DONC STATIONNAIRE ET HOP 
+
+The transition matrix of this Markov Chain is the following: [ ............................................]
 \subsection{Computing confidence intervals on the prediction}
 
 \textbf{Assumption}:
@@ -200,8 +231,6 @@ A & \mapsto & A^{-1}
 \end{array}
 \right.
 \]
-
-
 
 
 Now, let us show that $\hat{\beta}$ is asymptotically normal: 

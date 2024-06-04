@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1717506992 "main.bcf" "main.bbl" "main" 1717507193 0
+["biber main"] 1717506992 "main.bcf" "main.bbl" "main" 1717512550 0
   "./bibliography/references.bib" 1717506965 1222 c31d19d1c1165923a5df1ecd3020a74d ""
-  "main.bcf" 1717507192 107931 5d6ecd27ebec3638f782d1626fe7ffc9 "pdflatex"
+  "main.bcf" 1717512549 107931 5d6ecd27ebec3638f782d1626fe7ffc9 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1717507189 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717507193 0
+["pdflatex"] 1717512546 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717512550 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1717489840 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/tfm/public/stmaryrd/stmary10.tfm" 1712750663 848 f478e0761563bbc369eca609a1741348 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/tfm/public/stmaryrd/stmary5.tfm" 1712750668 848 e1bc58a31b9ed9c3729ffea165acfaac ""
@@ -59,6 +59,7 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1247596670 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1247596673 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -147,15 +148,15 @@
   "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" 1717489995 1036 804dd72eca1acf425faabfa8c87c1df2 ""
   "figures/mobility_reports.png" 1717494605 30156 03aa02e34a350c5d8a51be45789f7e2f ""
   "figures/most_different_pandemics.png" 1717505760 114400 d9b93f05951541ccf7999f7750dfe293 ""
-  "main.aux" 1717507192 2436 6fe5e96cab7907bdf840633b69388b99 "pdflatex"
+  "main.aux" 1717512549 2436 6fe5e96cab7907bdf840633b69388b99 "pdflatex"
   "main.bbl" 1717506996 7417 6231a59c4bae52f82e1a09682a5ef77f "biber main"
-  "main.out" 1717507192 851 3a95c7049c80e554d42a1d68c90b7495 "pdflatex"
-  "main.run.xml" 1717507192 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
+  "main.out" 1717512549 851 3a95c7049c80e554d42a1d68c90b7495 "pdflatex"
+  "main.run.xml" 1717512549 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
   "main.tex" 1717489995 1036 804dd72eca1acf425faabfa8c87c1df2 ""
   "sections/conclusion.tex" 1717489979 21 9f60a5ab3f61614e36714beb3c37f22c ""
   "sections/discussion.tex" 1717489966 21 553d9b57ca0d8d51a8d7f225fd0f83fe ""
   "sections/introduction.tex" 1717489475 151 12c05b0625af606bd55b3feb6c2f8849 ""
-  "sections/methods.tex" 1717507185 13520 e2a773a3bf2689e98a199747e81e88c5 ""
+  "sections/methods.tex" 1717512545 15786 0d5e91dfba478076225ac392208b1ea4 ""
   "sections/results.tex" 1717489959 18 80fbc6e87954fd99d752cc23d723b57c ""
   "tables/table_covasim_parameters.tex" 1717493831 828 f455a75754fdac66600b779a946cf2d9 ""
   (generated)
