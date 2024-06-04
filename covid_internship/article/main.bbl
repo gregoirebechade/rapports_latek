@@ -19,6 +19,32 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{diaconis2009markov}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}{%
+           family={Diaconis},
+           familyi={D\bibinitperiod},
+           given={Persi},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}
+      \strng{fullhash}{f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}
+      \strng{bibnamehash}{f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}
+      \strng{authorbibnamehash}{f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}
+      \strng{authornamehash}{f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}
+      \strng{authorfullhash}{f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bulletin of the American Mathematical Society}
+      \field{number}{2}
+      \field{title}{The markov chain monte carlo revolution}
+      \field{volume}{46}
+      \field{year}{2009}
+      \field{pages}{179\bibrangedash 205}
+      \range{pages}{27}
+    \endentry
     \entry{gerlee2021predicting}{article}{}
       \name{author}{8}{}{%
         {{hash=8e1b9d4655e25ad3c1c502d49b861104}{%

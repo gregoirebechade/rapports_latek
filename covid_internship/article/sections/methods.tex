@@ -2,28 +2,25 @@
 
 \subsection*{The data}
 
-As the goal of this study is to compare some forecasts on many different pandemics, we need to be able to generate synthetic pandemics, with a particular attention on the diversity of the pandemics generated. 
+As the goal of this study is to compare some forecasts on many different pandemics, many synthetic pandemics need to be generated, with a particular attention on the diversity of these pandemics. 
 
 \subsubsection*{Covasim}
 
-To generate the pandemics, we used Covasim \cite{kerr2021covasim}, a python librairy that can simulate the evolution of a pandemic. 
-
+To generate the pandemics,  \cite{kerr2021covasim}, a python librairy that can simulate the evolution of a pandemic was used. 
 Covasim is an agent-based model that can model many different pandemics and has a high diversity of outputs. 
-
 This model takes as an input many parameters such as the population type, the population size, the age repartition \dots and outputs a complete description of the pandemic, with real-time values of each relevant information, sucha as the number of severe, of asymptomatic... but also physical values such as the value of the reproduction number. 
-
 Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as the input of the model, but also with interventions that can be planned by the users. 
-
 These interventions can simulate the impact of a vaccination campaign, with changes in the probability transmission, that can be different for all ages groups. 
 
-For the implementation and the first test of our models, we generated two pandemics. The first one focusing on the new deaths count and the second one focusing on the number of hospitalized count. 
+\subsubsection{First pandemics}
 
-We will refer to these pandemics as the pandemic 1 and pandemic 2. 
+For the implementation and the first test of the models, two pandemics were generated. 
+The first one focusing on the new deaths count and the second one focusing on the number of hospitalized count. 
+Those pandemics will be referred to as pandemic 1 and pandemic 2. 
 
 \input{tables/table_covasim_parameters.tex}
 
 The parameters used to generate these pandemics are described in the table \ref{tab:parameters_covasim}.
-
 The parameters that are not specified are the default parameters of the Covasim librairy. 
 
 
@@ -35,15 +32,65 @@ The parameters that are not specified are the default parameters of the Covasim 
 \end{figure}
 
 
-The different interventions were based on mobility reports from Västtrafik  \ref{fig:mobility_reports}, the public transport company of the city of Gothenburg, 
-which were reported during the Covid 19 pandemic and has been retrieved in \cite{gerlee2021predicting}.
-
-These correspond to 53 relative weekly variations of the mobility, with a reference value of 1 for the first week of the report, which correspond to the 9-th week of 2020. 
+The different interventions were based on mobility reports from Västtrafik  \ref{fig:mobility_reports}, the public transport company of the city of Gothenburg, which were reported during the Covid 19 pandemic and has been retrieved in \cite{gerlee2021predicting}.
+These interventions correspond to 53 relative weekly variations of the mobility, with a reference value of 1 for the first week of the report, which correspond to the 9-th week of 2020. 
 
 
+\subsubsection{Generating diverse pandemics}
+
+In order to evaluate the performances of our models on a wide range of pandemics, a training set of pandemics was generated. 
+A huge diversity of pandemics is needed to determine which model is the more consistent.
+It is so relevant to identify the key parameters that generate this diversity.
+As Covasim has a very huge set of inputs parameters, a first subset of key parameters was identified: the spread parameters and the severity parameters. 
+The severity parameters are the 4 parameters that correspond to the probability for an agent to get from a compartment to another. 
+The spread parameters are 9 parameters that represent the distribution of probability of the time spend by an agent in a compartment (such as infected, crictical...) once he entered it. 
+This distribution is a log-normal distribution, but the spread-parameters correspond to the mean of this log-normal distribution
+All the parameters have a default value of 1, which correspond to keeping the reference value. 
+We decided to select 4 parameters and to make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
+To select the 4 parameters that generated the most diversity, different diversity metrics were computed. 
+
+Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics.  
+
+Let :  \\
+
+$\mathcal{L}_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1} $ \\
+
+$\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1} ) \|_{L_2} $, with $Y_1$ and $Y_2$ the first and second derivatives of $Y_1$\\
+
+It can be noted that $\mathcal{L_2}$ looks like the Sobolev norm  $\| \tilde{Y_1}  - \tilde{Y_2} \|_{W^{2, 1}} $ with squared terms and with additionary terms taking into account the amplitude. 
+
+$\mathcal{L}_3 = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) $, with $\mathcal{W}$ the Wasserstein distance.
 
 
+$\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2} ),\mathcal{W} ( \tilde{Y_1'} - \tilde{Y_2'} ) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''} ) ) \|_{L_2} $, with $Y_1$ and $Y_2$ the first and second derivatives of $Y_1$\\
 
+
+To determine which measure to use, we generated 14 pandemics. Each pandemic has default parameters except one of them which was doubled, except for the last one which only have the default parameters. 
+
+For each norm $\mathcal{L}_k$, we determined $S$,  the subset of 4 pandemics that maximized the following quantity:\\
+
+\[ \sum_{i, j \in S, i \neq j} \mathcal{L}_k(Y_i, Y_j) \]
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/most_different_pandemics.png}
+    \caption{4 most diverse pandemics according to each norm.}
+    \label{fig:diversity_pandemics}
+\end{figure}
+
+
+The 4 most divers pandemics accorded to each norm are shown in the figure \ref{fig:diversity_pandemics}.
+We then decided that $\mathcal{L}_2$ norm was the most relevant to determine the diversity of the pandemics.
+But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be relevant, the parameters were increased independantly, and the diversity did not take into account the correlation between some of them. 
+
+Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
+
+$ S_{opt} = \underset{S' \subset S , \vert S' \vert =4 }{argmax} \sum_{s, t \in \mathcal{P}(S') , s \neq t }{\mathcal{L}_2(s,t)}$, with $\mathcal{P}(S')$ the set of the 81 pandemics generated with the 4 parameters of $S'$
+
+However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters included inn $S$.\\[1cm]
+
+
+A MCMC algorithm \cite*{diaconis2009markov} was then implemented, to perform a clever grid search on the different subsets of parameters.
 
 \subsection{Computing confidence intervals on the prediction}
 
