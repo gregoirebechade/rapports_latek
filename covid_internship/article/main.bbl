@@ -19,6 +19,28 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{bodineau2015modelisation}{article}{}
+      \name{author}{1}{}{%
+        {{hash=03e0bb3a8218c522768edcaaf9e7246f}{%
+           family={Bodineau},
+           familyi={B\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{03e0bb3a8218c522768edcaaf9e7246f}
+      \strng{fullhash}{03e0bb3a8218c522768edcaaf9e7246f}
+      \strng{bibnamehash}{03e0bb3a8218c522768edcaaf9e7246f}
+      \strng{authorbibnamehash}{03e0bb3a8218c522768edcaaf9e7246f}
+      \strng{authornamehash}{03e0bb3a8218c522768edcaaf9e7246f}
+      \strng{authorfullhash}{03e0bb3a8218c522768edcaaf9e7246f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ecole Polytechnique}
+      \field{title}{Modélisation de phénomènes aléatoires: introduction aux chaînes de Markov et aux martingales}
+      \field{year}{2015}
+    \endentry
     \entry{diaconis2009markov}{article}{}
       \name{author}{1}{}{%
         {{hash=f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}{%
@@ -184,6 +206,53 @@
       \field{year}{2021}
       \field{pages}{e1009149}
       \range{pages}{-1}
+    \endentry
+    \entry{powellasymptoticsforleastsquares}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f1fac2bf94f2099432a9e4dd193771d5}{%
+           family={Powell},
+           familyi={P\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{f1fac2bf94f2099432a9e4dd193771d5}
+      \strng{fullhash}{f1fac2bf94f2099432a9e4dd193771d5}
+      \strng{bibnamehash}{f1fac2bf94f2099432a9e4dd193771d5}
+      \strng{authorbibnamehash}{f1fac2bf94f2099432a9e4dd193771d5}
+      \strng{authornamehash}{f1fac2bf94f2099432a9e4dd193771d5}
+      \strng{authorfullhash}{f1fac2bf94f2099432a9e4dd193771d5}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Asymptotics for least squares}
+    \endentry
+    \entry{ruckstuhl2010introduction}{article}{}
+      \name{author}{1}{}{%
+        {{hash=87491c1f29ea4f1ea76b41d6d9a474df}{%
+           family={Ruckstuhl},
+           familyi={R\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Zurich University of Applied Sciences Winterthur, Switzerland}%
+      }
+      \strng{namehash}{87491c1f29ea4f1ea76b41d6d9a474df}
+      \strng{fullhash}{87491c1f29ea4f1ea76b41d6d9a474df}
+      \strng{bibnamehash}{87491c1f29ea4f1ea76b41d6d9a474df}
+      \strng{authorbibnamehash}{87491c1f29ea4f1ea76b41d6d9a474df}
+      \strng{authornamehash}{87491c1f29ea4f1ea76b41d6d9a474df}
+      \strng{authorfullhash}{87491c1f29ea4f1ea76b41d6d9a474df}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IDP Institut fur Datenanalyse und Prozessdesign, Zurcher Hochschule fur Angewandte Wissenschaften}
+      \field{title}{Introduction to nonlinear regression}
+      \field{year}{2010}
+      \field{pages}{365}
+      \range{pages}{1}
     \endentry
   \enddatalist
 \endrefsection

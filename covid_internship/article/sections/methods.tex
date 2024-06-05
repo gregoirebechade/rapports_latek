@@ -53,19 +53,22 @@ Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing
 
 Let :  \\
 
-$\mathcal{L}_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1} $ \\
+$
+\begin{aligned}
+    &\mathcal{L}_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1}  \\
+    &\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1} ) \|_{L_2} \\
+    &\quad \quad\quad\quad\quad \quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second derivatives of} Y\\
+    &\mathcal{L}_3 = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) \text{, with }\mathcal{W} \text{ the Wasserstein distance.} \\
+    &\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2} ),\mathcal{W} ( \tilde{Y_1'} - \tilde{Y_2'} ) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''} ) ) \|_{L_2} \\
+    &\quad \quad\quad\quad\quad \quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second derivatives of} Y\\[1cm]
+\end{aligned}
+$
 
-$\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1} ) \|_{L_2} $, with $Y_1$ and $Y_2$ the first and second derivatives of $Y_1$\\
+It can be noted that $\mathcal{L}_2$ looks like the Sobolev norm  $\| \tilde{Y_1}  - \tilde{Y_2} \|_{W^{2, 1}} $ with squared terms and with additionary terms taking into account the amplitude. 
 
-It can be noted that $\mathcal{L_2}$ looks like the Sobolev norm  $\| \tilde{Y_1}  - \tilde{Y_2} \|_{W^{2, 1}} $ with squared terms and with additionary terms taking into account the amplitude. 
-
-$\mathcal{L}_3 = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) $, with $\mathcal{W}$ the Wasserstein distance.
-
-
-$\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2} ),\mathcal{W} ( \tilde{Y_1'} - \tilde{Y_2'} ) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''} ) ) \|_{L_2} $, with $Y_1$ and $Y_2$ the first and second derivatives of $Y_1$\\
-
-
-To determine which measure to use, we generated 14 pandemics. Each pandemic has default parameters except one of them which was doubled, except for the last one which only have the default parameters. 
+To determine which measure to use, we generated 14 pandemics. 
+Each pandemic but the last one has default parameters except one of them which was doubled. 
+The last pandemic has only default parameters. 
 
 For each norm $\mathcal{L}_k$, we determined $S$,  the subset of 4 pandemics that maximized the following quantity:\\
 
@@ -80,49 +83,124 @@ For each norm $\mathcal{L}_k$, we determined $S$,  the subset of 4 pandemics tha
 
 
 The 4 most divers pandemics accorded to each norm are shown in the figure \ref{fig:diversity_pandemics}.
-We then decided that $\mathcal{L}_2$ norm was the most relevant to determine the diversity of the pandemics.
-But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be relevant, the parameters were increased independantly, and the diversity did not take into account the correlation between some of them. 
+We decided according to this figure, that $\mathcal{L}_2$ norm was the most relevant to determine the diversity of the pandemics.
+But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as the parameters were changed independantly, and the diversity did not take into account the correlation between some of them. 
 
 Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
 
-$ S_{opt} = \underset{S' \subset S , \vert S' \vert =4 }{argmax} \mathcal{L}(S')$, with $ \mathcal{L}(S')= \sum_{s, t \in \mathcal{P}(S') , s \neq t }{\mathcal{L}_2(s,t)}$, and  $\mathcal{P}(S')$ the set of the 81 pandemics generated with the 4 parameters of $S'$
+$ S_{opt} = \underset{S' \subset S , \vert S' \vert =4 }{argmax} \mathcal{L}(S')$, with $ \mathcal{L}(S')= \sum_{s, t \in \mathcal{P}_g(S') , s \neq t }{\mathcal{L}_2(s,t)}$, and  $\mathcal{P}_{g}(S')$ the set of the 81 pandemics generated with the 4 parameters of $S'$
 
-However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters included inn $S$.\\[1cm]
+However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $S'$ included in $S$.\\[1cm]
 
 
-A MCMC algorithm \cite*{diaconis2009markov} was then implemented, to perform a clever grid search on the different subsets of parameters.
+A MCMC algorithm \cite*{diaconis2009markov} was then implemented, to perform a clever grid search on the different subsets $S' \subset S $ of parameters.
 The MCMC algorithm is a method which is used to sample from a distribution that can't be directly sampled. 
 The main idea is to construct a Markov Chain whose stationary distribution is the objective distribution.
 
-Let $\mathcal{X}$ be the support of the target distribution, which is, in our case, the set of all the 715 combinations of the 4 parameters among the 13 different possible, and let $\pi$ be the target distribution on $\mathcal{X}$.
-$\forall x \in \mathcal{X}, \pi(x) = \frac{\mathcal{L}(x)}{\sum_{x \in \mathcal{X}}  \mathcal{L}(x)} $
+Let $\mathcal{S} = \{ S'\subset S ;  \vert S' \vert = 4 \}$ be the support of the target distribution, which is, in our case, the set of all the 715 combinations of the 4 parameters among the 13 different possible, and let $\pi$ be the target distribution on $\mathcal{S}$.
+$\forall s \in \mathcal{S}, \pi(s) = \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}}  \mathcal{L}(s)} $. $\pi$ is not directly computable as it is too time consuming to compute the denominator.
 
 
-For each $x = [a, b, c, d] \in \mathcal{X}$, let $ne(x)$ be the set of the neighbourghs of $x$, i.e the set of all the elemnts of $\mathcal{X}$ who have only one parameter different from $x$. 
+For each $s = [a, b, c, d] \in \mathcal{S}$, let $ne(s)$ be the set of the neighbourghs of $s$, i.e the set of all the elements of $\mathcal{S}$ who have only one parameter different from $s$. 
+For instance, $[0, 3, 9, 12] \in ne([0, 3, 10, 12])$, but $[0, 3, 9, 12] \notin ne([0, 3, 8, 10])$.\\
 
-Let $U_n$ be a sequence of independent uniform random variables on $[0, 1]$ and $\forall s \in \mathcal{X}$, let $U_{n}^{ne(s)}$ be a sequence of independant uniform random variables on $ne(s)$ .
-Let $x_0 \in \mathcal{X}$ and let  $X_n$ be the random sequence defined as follow : \\
-
+Let $U_n$ be a sequence of independent uniform random variables on $[0, 1]$ and $\forall s \in \mathcal{S}$, let $U_{n}^{ne(s)}$ be a sequence of independant uniform random variables on $ne(s)$ .
+Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follow : \\
 
 
 \[
  \left\{
-\begin{array}{rcl}
-& X_0 = x_0 \\
-& \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(X_n)})}{\mathcal{X}_n} \\
-& \forall n \in \mathbb{N}, X_{n+1} = U_{n}^{ne(X_n)} \mathbb{1}_{U_n < \alpha_n} + X_n \mathbb{1}_{U_n > \alpha_n}
-\end{array}
+    \begin{aligned}
+        & S_0 = s_0 \\
+        & \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(S_n)})}{\mathcal{L}(\mathcal{S}_n)} \\
+        & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + X_n \mathbb{1}_{\{U_n > \alpha_n\}}
+\end{aligned}
 \right.
 \]
+\\[0.5cm]
 
-As $X_{n+1}$ is a function of $X_n$ and of other independant variables, the sequence $X_n$ is a homogenous Markov Chain.
-This formula means that at each iteration, a neighbourgh of $X_n$ is uniformly selected among all the neighbourghs of $X_n$. 
-The Markov Chain moves to this neighbourgh if the value of the function $\mathcal{L}$ is higher than the value of the function $\mathcal{L}$ at the current state.
-If the value of $\mathcal{L}$ is smaller, the markov chain moves with a probability that is equal to the ratio of the two values.
-This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. 
-MAINTENANT IN PROIVE QUE C EST LA PROBA INVARIANTE DONC STATIONNAIRE ET HOP 
+As $S_{n+1}$ is a function of $S_n$ and of other independant random variables, the sequence $S_n$ is a homogenous Markov Chain.
+This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbourghs of $S_n$ (it is $U_n^{ne(S_n)}$)
+The Markov Chain moves to this neighbourgh if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
+If the new value of $\mathcal{L}$ is smaller, the markov chain moves with a probability that is equal to the ratio of the two values.
+This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. \\
 
-The transition matrix of this Markov Chain is the following: [ ............................................]
+The transition matrix of this Markov Chain is the following: 
+\[
+K(s, s'): \left\{
+\begin{aligned}
+& 0 \text{ if } s' \notin ne(s) \text{ and } s' \neq s   \\
+& \frac{1}{Card(ne(s))} = \frac{1}{36} \text{ if } s' \in ne(s) \text{ and } \frac{\mathcal{L}(s')}{\mathcal{L}(s)} > 1 \text{ and } s' \neq s \\
+& \frac{1}{36} \times \frac{\mathcal{L}(s')}{\mathcal{L}(s)} \text{ if } s' \in ne(s) \text{ and } \frac{\mathcal{L}(s')}{\mathcal{L}(s)} \leq 1  \text{ and } s' \neq s  \\
+& 1 - \sum_{s' \in \mathcal{S}, s' \neq s}K(s, s') \text{ if } s' = s 
+\end{aligned}
+\right.
+\]
+\\[0.3cm]
+
+Let $(s, s') \in \mathcal{S}^2$. Let us suppose that $ s' \neq s$, that  $s' \in ne(s)$, adn that $\mathcal{L}(s) < \mathcal{L}(s')$, the other case is symmetric. \\[0.15cm]
+$
+\begin{aligned}
+    \pi(s)K(s, s') &=  \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}} \mathcal{L}(s)} \times \frac{1}{36} \quad \text{as} \ \mathcal{L}(s) < \mathcal{L}(s') \\
+    &=  \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}} \mathcal{L}(s)} \times \frac{1}{36} \times \frac{\mathcal{L}(s')}{\mathcal{L}(s')} \\
+    &=  \frac{\mathcal{L}(s')}{\sum_{s \in \mathcal{S}} \mathcal{L}(s)} \times \frac{1}{36} \times \frac{\mathcal{L}(s)}{\mathcal{L}(s')} \\
+    &= \pi(s')K(s', s)\\[0.3cm]
+\end{aligned}
+$
+
+Thus, $\pi$ is \textbf{reversible} for $K$.\\
+Let $(s, s') \in \mathcal{S}^2$. Let us note $(a, b, c, d)$ and $(a', b', c', d')$ the elements of $s$ and $s'$.
+We note : \\
+$s_1 = [a', b, c, d]$\\
+$ s_2 = [a', b', c, d]$ \\
+$s_3 = [a', b', c', d]$ \\
+
+
+$
+\begin{aligned}
+    \mathbb{P}(S_{n+4}=s'\vert S_n = s ) & \geqslant \mathbb{P}(S_{n+4} = s' \cap  S_{n+3}= s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \\
+    & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \cap S_n = s) \\
+    & \quad\quad\quad\quad \times \mathbb{P}( S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \text{  (Baye' s Formula)}\\
+    & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3) \times \mathbb{P}( S_{n+3} = s_3 \vert S_{n+2} = s_2 \cap S_{n+1} = s_1 \cap S_n = s) \\
+    & \quad\quad\quad\quad \times \mathbb{P}( S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s ) \text{ (by Markov's property)}\\
+    & \vdots \\
+    & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3) \times \mathbb{P}( S_{n+3} = s_3 \vert S_{n+2} = s_2) \times \mathbb{P}( S_{n+2} = s_2 \vert S_{n+1} = s_1) \\
+    & \quad\quad\quad\quad \times \mathbb{P}( S_{n+1} = s_1 \vert S_n = s ) \text{ (by Markov's property)}\\
+    & \geqslant (\frac{1}{36})^4 \times min (1, \frac{\mathcal{L}(s')}{\mathcal{L}(s)}) \times min (1, \frac{\mathcal{L}(s_3)}{\mathcal{L}(s_2)}) \times min (1, \frac{\mathcal{L}(s_2)}{\mathcal{L}(s_1)}) \times min (1, \frac{\mathcal{L}(s_1)}{\mathcal{L}(s)})  \\
+    & > 0 \\
+\end{aligned}
+$
+
+Thus, $S_n$ is \textbf{irreducible}.\\
+
+A Markov chain of transition matrix $P$ on the support $\mathcal{S}$ is said to be aperiodic if: \\
+$\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \\
+
+First, note that $\forall s \in \mathcal{S}$, if $s$ is a local minimum (i.e if $\forall s' \in ne(s), \mathcal{L}(s') > \mathcal{L}(s) $), then we have $K(s,s)=0$\\
+
+By contrapositive, if $s$ is not a local minimum, then $K(s, s)>0$. Moreover, $ \forall s \in \mathcal{S}, \forall s' \in ne(s)$, if $s\neq s'$, then $K(s, s') \neq 0 $\\[0.3cm]
+Let $(s, s')  \in \mathcal{S}^2$. \\
+
+\begin{itemize}
+    \item If $s'$ is not a local minimum, \\
+     $\forall n >4, \mathbb{P}(S_{n} = s' \vert S_0 = s) \geqslant \mathbb{P}(S_{4} = s' \vert S_0 = s) \times K(s', s')^{n-4} > 0 $ \\
+    \item If $s'$ is a local minimum,  $\forall s^* \in ne(s')$, $s^*$ is not a local minimum and $K(s^*, s^*) \neq 0$. \\
+    $\forall n>5$, $\mathbb{P}(S_n = s' \vert S_0 = s )   \geqslant \mathbb{P}(S_3=s^* \vert S_0 = s ) \times K(s^*, s^*)^{n-4} \times K(s^*, s') >0 $\\
+    
+\end{itemize}
+
+Thus $S_n$ is an \textbf{aperiodic} Markov Chain.\\
+
+
+Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreductible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.
+
+
+The most probable set that will be sampled by $S_n$ is so the one that maximises the diversity.
+We implemented this MCMC algorithm to maximise $\mathcal{L}_2$ on $\mathcal{S}$ . 
+After 200 iterations, the set of parameters that maximised the diversity was \texttt{[0, 5, 10, 12]}. 
+A new maxima was found at \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel_symp_prob, rel_severe_prob]}. 
+The $\mathcal{L}_2$- diversity increased from 62353 to 93553
+
 \subsection{Computing confidence intervals on the prediction}
 
 \textbf{Assumption}:
@@ -151,7 +229,7 @@ We have:
 \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert Y - h_\theta \right\rVert ^2
 \]
 
-Now, if $\theta$ is close enough to $\theta^*$, we can write:
+Now, if $\theta$ is close enough to $\theta^*$, we can write (from \cite*{ruckstuhl2010introduction}):
 \[
 \forall i \in \{ 1, ..., n\} :  h_\theta(i) = h_{\theta^*} (i ) + (\theta - \theta^*)^T\nabla_\theta h_{\theta^*}(i) 
 \]
@@ -178,11 +256,10 @@ This is a regression linear problem.
 
 Let us solve this problem in the general case.
 
-Let $(A_i, \tilde{Y_i})$ be the observations Let $\mathbb{P}$ be the law of $A_i$, and let us assume that $Y_i = A_i \beta ^* + \epsilon_i $, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$.
+Let $(A_i, \tilde{Y_i})$ be the observations Let $\mathbb{P}$ be the law from which the $A_i$ are drawn, and let us assume that $Y_i = A_i \beta ^* + \epsilon_i $, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$.
 
-% Let  $\tilde{Y}_i = A_i \beta ^* + \epsilon'_i $, with  $\epsilon'_i \sim \mathcal{N}(0, \sigma ' ^2)$.
 
-The solution of this problem is explicitly:
+The solution of this problem is explicitly (from \cite*{powellasymptoticsforleastsquares}):
 \[
 \hat{\beta } = (A^T A ) ^{-1} A^T \tilde{Y}
 \]
