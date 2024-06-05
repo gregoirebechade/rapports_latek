@@ -2365,8 +2365,9 @@
     <bcf:citekey order="2" intorder="1">gerlee2021predicting</bcf:citekey>
     <bcf:citekey order="3" intorder="1">diaconis2009markov</bcf:citekey>
     <bcf:citekey order="4" intorder="1">bodineau2015modelisation</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">ruckstuhl2010introduction</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">powellasymptoticsforleastsquares</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">gerlee2021predicting</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">ruckstuhl2010introduction</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">powellasymptoticsforleastsquares</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

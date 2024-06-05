@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1717597536 "main.bcf" "main.bbl" "main" 1717597894 0
+["biber main"] 1717598798 "main.bcf" "main.bbl" "main" 1717598807 0
   "./bibliography/references.bib" 1717593505 1949 5342a6d70325ba962d725710733ec599 ""
-  "main.bcf" 1717597893 108177 59c235d4fe62d68849f607b9b056aa4d "pdflatex"
+  "main.bcf" 1717598806 108252 5418631129f3a52575532737f4e686fc "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1717597891 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717597894 2
+["pdflatex"] 1717598803 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717598807 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1717597053 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1717593020 22504 9f5668af17bd7b6eefd62136611bf007 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1717593010 25420 05f1636bc2674c5a31198d4e64a701f9 ""
@@ -43,7 +43,6 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm1440.tfm" 993062128 3168 3bd7b08ba4330af81521911744311212 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm1728.tfm" 993062128 3168 11457c8185ce67fb79662ba8b03d6db1 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecti1000.tfm" 993062320 2840 5606e1a681c23005308de9d61c09a8ff ""
-  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ectt0800.tfm" 993062338 1348 ad6a25e9916b0e5ddfcc7ffcb8d43448 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ectt1000.tfm" 993062340 1348 d70ddf2d5d512b838e50a335e385e919 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -169,14 +168,15 @@
   "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" 1717597530 1137 29cbf8041d1de89ad7ad70d3cd5d1226 ""
   "figures/mobility_reports.png" 1717494605 30156 03aa02e34a350c5d8a51be45789f7e2f ""
   "figures/most_different_pandemics.png" 1717505760 114400 d9b93f05951541ccf7999f7750dfe293 ""
-  "main.aux" 1717597893 2976 c6097f9aff0faf6df979a6807b0db95b "pdflatex"
-  "main.bbl" 1717597540 10531 af2777eabf05769abf0975962f7b148c "biber main"
-  "main.out" 1717597893 851 3a95c7049c80e554d42a1d68c90b7495 "pdflatex"
+  "main.aux" 1717598806 3060 fa61528c30b4b0e1e1d04960efe09c6c "pdflatex"
+  "main.bbl" 1717598803 10531 af2777eabf05769abf0975962f7b148c "biber main"
+  "main.out" 1717598806 851 3a95c7049c80e554d42a1d68c90b7495 "pdflatex"
+  "main.run.xml" 1717598806 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
   "main.tex" 1717597530 1137 29cbf8041d1de89ad7ad70d3cd5d1226 ""
   "sections/conclusion.tex" 1717489979 21 9f60a5ab3f61614e36714beb3c37f22c ""
   "sections/discussion.tex" 1717489966 21 553d9b57ca0d8d51a8d7f225fd0f83fe ""
   "sections/introduction.tex" 1717489475 151 12c05b0625af606bd55b3feb6c2f8849 ""
-  "sections/methods.tex" 1717597884 21169 cfa946328a58ac9be98609a3b714b9ef ""
+  "sections/methods.tex" 1717598742 21480 d728cf9d6c3840b75e69ae63473842ed ""
   "sections/results.tex" 1717489959 18 80fbc6e87954fd99d752cc23d723b57c ""
   "tables/table_covasim_parameters.tex" 1717493831 828 f455a75754fdac66600b779a946cf2d9 ""
   (generated)

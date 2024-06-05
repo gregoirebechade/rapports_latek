@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  5 JUN 2024 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  5 JUN 2024 16:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -578,7 +578,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
-No file main.aux.
+(main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
@@ -601,6 +601,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
 LaTeX Font Info:    ... okay on input line 39.
 LaTeX Info: Redefining \degres on input line 39.
 LaTeX Info: Redefining \up on input line 39.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -665,6 +666,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 39.
+ (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -697,24 +699,16 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 41
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 15.
 
-(tables/table_covasim_parameters.tex)
-
-LaTeX Warning: Reference `tab:parameters_covasim' on page 1 undefined on input line 23.
-
-[1
+(tables/table_covasim_parameters.tex) [1
 
 {C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<figures/mobility_reports.png, id=26, 418.4433pt x 327.3831pt>
+<figures/mobility_reports.png, id=44, 418.4433pt x 327.3831pt>
 File: figures/mobility_reports.png Graphic file (type png)
 <use figures/mobility_reports.png>
 Package pdftex.def Info: figures/mobility_reports.png  used on input line 29.
 (pdftex.def)             Requested size: 354.86412pt x 277.64252pt.
-
-
-LaTeX Warning: Reference `fig:mobility_reports' on page 2 undefined on input line 35.
-
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 52.
-(C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/bbold\ubbold.fd)
+ (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/bbold\ubbold.fd)
 Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
@@ -729,14 +723,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
-<figures/most_different_pandemics.png, id=42, 714.7503pt x 523.9575pt>
+<figures/most_different_pandemics.png, id=60, 714.7503pt x 523.9575pt>
 File: figures/most_different_pandemics.png Graphic file (type png)
 <use figures/most_different_pandemics.png>
 Package pdftex.def Info: figures/most_different_pandemics.png  used on input line 79.
 (pdftex.def)             Requested size: 354.86412pt x 260.14726pt.
-
-LaTeX Warning: Reference `fig:diversity_pandemics' on page 3 undefined on input line 85.
-
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 87.
 (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
@@ -820,88 +811,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
 
-sections/methods.tex:201: Missing $ inserted.
-<inserted text> 
-                $
-l.201 ...sym2rec, rel_symp_prob, rel_severe_prob]}
-                                                  .
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-sections/methods.tex:201: Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.201 ...sym2rec, rel_symp_prob, rel_severe_prob]}
-                                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+Underfull \hbox (badness 10000) in paragraph at lines 198--203
 
-
-sections/methods.tex:202: LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.202 The $\mathcal
-                   {L}_2$- diversity increased from 62353 to 93553
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-sections/methods.tex:202: Missing $ inserted.
-<inserted text> 
-                $
-l.202 The $\mathcal{L}_
-                       2$- diversity increased from 62353 to 93553
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 206.
-
-Overfull \hbox (16.84058pt too wide) in paragraph at lines 206--209
-\T1/cmtt/m/n/10 We suppose that the data of the pandemic observed follows the model $\OML/cmm/m/it/10 h$\T1/cmtt/m/n/10 , of parameter $\OML/cmm/m/it/10 ^^R[] \OMS/cmsy/m/n/10 2
- []
-
-
-Overfull \hbox (8.46283pt too wide) in paragraph at lines 206--209
-\U/bbold/m/n/10 R[]$\T1/cmtt/m/n/10 . Let $\OML/cmm/m/it/10 Y[]$\T1/cmtt/m/n/10 , $\OML/cmm/m/it/10 i \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; [] ; n$ \T1/cmtt/m/n/10 be the number of hospitalized at each day. We suppose that: $\OML/cmm/m/it/10 Y[] \OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (10.92757pt too wide) in paragraph at lines 206--209
-\T1/cmtt/m/n/10 objective is to estimate $\OML/cmm/m/it/10 ^^R[]$\T1/cmtt/m/n/10 . We use $[]$, the least square estimator of $\OML/cmm/m/it/10 ^^R[]$ \T1/cmtt/m/n/10 as an estimator
  []
 
 [5]
-Overfull \hbox (14.47995pt too wide) in paragraph at lines 259--260
-[]\T1/cmtt/m/n/10 Let $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[]; []\OT1/cmr/m/n/10 )$ \T1/cmtt/m/n/10 be the observations Let $\U/bbold/m/n/10 P$ \T1/cmtt/m/n/10 be the law from which the $\OML/cmm/m/it/10 A[]$ \T1/cmtt/m/n/10 are drawn, and let
- []
 
-[6]
-Overfull \hbox (1.81642pt too wide) in paragraph at lines 324--325
-[]\T1/cmtt/m/n/10 This line is made of two terms. Let's show that each one of them converges in law. 
- []
+LaTeX Warning: Reference `fig:mobilities.png' on page 6 undefined on input line 204.
 
-
-Overfull \hbox (10.90662pt too wide) in paragraph at lines 332--333
-[]\T1/cmtt/m/n/10 Yet, as $\OML/cmm/m/it/10 ^^O[]$ \T1/cmtt/m/n/10 and $\OML/cmm/m/it/10 A[]$ \T1/cmtt/m/n/10 are independant, and $\U/bbold/m/n/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 A[]^^O[]\OT1/cmr/m/n/10 ] = 0$ \T1/cmtt/m/n/10 , $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[]^^O[]\OT1/cmr/m/n/10 ) = \U/bbold/m/n/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 A[]A[]^^O[]\OT1/cmr/m/n/10 ] = \U/bbold/m/n/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 A[]A[]\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ^^[[]$\T1/cmtt/m/n/10 . 
- []
-
-[7]
-Overfull \hbox (16.04247pt too wide) in paragraph at lines 364--365
-[]\T1/cmtt/m/n/10 Let $\OT1/cmr/m/n/10 ^^F$ \T1/cmtt/m/n/10 be the covariance matrix estimated from the computation of $[]$. In our case, $\OT1/cmr/m/n/10 ^^F =
- []
-
-) (sections/results.tex
-Overfull \hbox (42.62556pt too wide) in paragraph at lines 380--1
-[]\T1/cmtt/m/n/10 By estimating $[]\OT1/cmr/m/n/10 ^^F$ \T1/cmtt/m/n/10 from curve_fit, we can compute the confidence interval of the prediction
- []
-
-) (sections/discussion.tex) (sections/conclusion.tex) [8] [9] (main.aux)
+[6] [7]) (sections/results.tex) (sections/discussion.tex) (sections/conclusion.tex) [8] [9] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -910,42 +829,24 @@ L3 programming layer <2023-12-11>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  3A95C7049C80E554D42A1D68C90B7495;851.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 3A95C7049C80E554D42A1D68C90B7495;851.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 201 ({)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 21844 strings out of 474495
- 382749 string characters out of 5743936
- 1947460 words of memory out of 5000000
- 43813 multiletter control sequences out of 15000+600000
- 576961 words of font info for 87 fonts, out of 8000000 for 9000
+ 21854 strings out of 474495
+ 383095 string characters out of 5743936
+ 1946460 words of memory out of 5000000
+ 43818 multiletter control sequences out of 15000+600000
+ 576335 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,18n,81p,747b,1967s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,18n,81p,747b,1773s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold7.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (9 pages, 396679 bytes).
+Output written on main.pdf (9 pages, 390982 bytes).
 PDF statistics:
- 503 PDF objects out of 1000 (max. 8388607)
+ 497 PDF objects out of 1000 (max. 8388607)
  30 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
