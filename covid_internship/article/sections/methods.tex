@@ -208,9 +208,19 @@ To create the most diverse set possible, we also created 4 different mobilities 
     \caption{Mobility reports.}
     \label{fig:mobilities}
 \end{figure}
-ON EN EST LAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+These time-varying mobilities enabled us to model more complex behaviours of the pandemics. 
+We finally modelled 324 pandemics. 
+Indeed each of the 4 parameters was scaled among 3 values : \texttt{[0.5, 1, 2]} and the 4 mobilities reports were used.
 
-\subsection{Computing confidence intervals on the prediction}
+
+\subsection{The models}
+
+In this study, we define a model $\mathcal{h}_{\theta , \mathcal{D}}$ as a function $\mathcal{h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$. 
+We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
+
+
+
+\subsubsection{Computing confidence intervals on the prediction}
 
 \textbf{Assumption}:
 \\[0.5cm]
