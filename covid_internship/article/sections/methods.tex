@@ -215,12 +215,76 @@ Indeed each of the 4 parameters was scaled among 3 values : \texttt{[0.5, 1, 2]}
 
 \subsection{The models}
 
-In this study, we define a model $\mathcal{h}_{\theta , \mathcal{D}}$ as a function $\mathcal{h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$. 
+In this study, we define a model $\mathcal{h}_{\theta }$ as a function $\mathcal{h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$. 
 We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
+
+\textbf{Task of a model}: \\
+
+Each model $\mathcal{h}$ is given : 
+
+\begin{enumerate}
+    \item A training set $\mathcal{D}$
+    \item A reach of prediction $r$
+    \item A confidence threshold $\alpha$
+\end{enumerate}
+And outputs: 
+
+\begin{enumerate}
+    \item A prediction $\hat{Y}_r$
+    \item A $(1-\alpha)$ confidence interval on the prediction, $I_{\alpha, r}$
+\end{enumerate}
+
+The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_r = \mathcal{h}_{\hat{\theta}}(r)$.
+
+
+\subsubsection{The SIRH model}
+
+
+The SIRH model is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
+In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
+Each compartment correspond to the number of person in the state of health of the compartment. 
+The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
+
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        &\frac{dS}{dt} = - \beta \frac{SI}{N} \\
+        &\frac{dI}{dt} = \beta \frac{SI}{N} - \gamma_i I - h H \\
+        &\frac{dR}{dt} = \gamma_i I + \gamma_h h \\
+        &\frac{dH}{dt} = h I
+    \end{aligned}
+    \right.
+\end{equation}
+
+At $t=0$, the values of $(S_0, I_0, R_0, H_0)$ is fixed to $(10^6 -1, 1, 0, 0,) $. 
+As the system of equation can't be directly solved, we use a Euler method to solve it : \\
+
+
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        S_{t+dt}=S_t + dt \frac{dS}{dt}\\
+        I_{t+dt}=I_t + dt \frac{dI}{dt}\\
+        R_{t+dt}=R_t + dt \frac{dR}{dt}\\
+        H_{t+dt}=H_t + dt \frac{dH}{dt}\\
+    \end{aligned}
+    \right.
+\end{equation}
+
+We chose tof fix $dt=0.001$. 
+
+To train this model, we minimize the least square between the curve of the number of hospitalized observed to the curve of the number of hospitalized of teh training data with respect to $\theta = (\beta, gamma_i, gamma_h, h)$. 
+We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$. 
+In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
+The initial value for $S$ and $I$ correspond to the last value of the fit of the training phase. 
+The initial value for $H$ correspond to the last value of $\mathcal{D}$, the trainig data. 
+The initial value of $R$ is fixed by the previous values as the equation $S_t + I_y + R_t + H_t = N$ is always true. 
+The confidence interval of the prediction is computd thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
 
 
 
 \subsubsection{Computing confidence intervals on the prediction}
+\label{sec:ci}
 
 \textbf{Assumption}:
 \\[0.5cm]
@@ -397,3 +461,18 @@ h_{\hat{\theta}} \rightarrow \mathcal{N}(h_{\theta^*}, \frac{1}{n}\nabla_\theta 
 \]
 
 By estimating $\frac{1}{n} \Sigma$ from \texttt{curve\_fit}, we can compute the confidence interval of the prediction with the quantiles of the normal distribution.
+The gradient of $h_\theta$ is approximated through numerical approximation: \\
+$\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}{dt}$, with $dt=0.0001$. \\
+
+\begin{align*}
+    d\theta_i &= \begin{pmatrix}
+    \theta_0 \\
+    \theta_1\\
+    \vdots \\
+    \theta_{i-1}\\
+    \theta_i + dt \\
+    \theta_{i+1}\\
+    \vdots
+    \theta_n 
+    \end{pmatrix} \\    
+\end{align*}
