@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1717598798 "main.bcf" "main.bbl" "main" 1717598897 0
+["biber main"] 1717658602 "main.bcf" "main.bbl" "main" 1717658866 0
   "./bibliography/references.bib" 1717593505 1949 5342a6d70325ba962d725710733ec599 ""
-  "main.bcf" 1717598896 108252 5418631129f3a52575532737f4e686fc "pdflatex"
+  "main.bcf" 1717658865 108331 f66478d1ffcaa2e982d7ee38e48ee452 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1717598892 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717598897 0
+["pdflatex"] 1717658862 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717658866 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1717597053 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1717593020 22504 9f5668af17bd7b6eefd62136611bf007 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1717593010 25420 05f1636bc2674c5a31198d4e64a701f9 ""
@@ -165,19 +165,19 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/stmaryrd/stmaryrd.sty" 1303229068 11317 aa7f81da60ce104f0dbb8b827dd14383 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/stmaryrd/ustmry.fd" 1303229068 1811 216b0f832c406513647608b5bb9bb8ff ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" 1717597530 1137 29cbf8041d1de89ad7ad70d3cd5d1226 ""
+  "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" 1717657718 1162 5550196ce7c9c5e32c925c4760a3c560 ""
   "figures/mobilities.png" 1717598510 39981 149dd048c001d893e34ccc2131b3e1f9 ""
   "figures/mobility_reports.png" 1717494605 30156 03aa02e34a350c5d8a51be45789f7e2f ""
   "figures/most_different_pandemics.png" 1717505760 114400 d9b93f05951541ccf7999f7750dfe293 ""
-  "main.aux" 1717598896 3272 0c41fa45dbfd0040c42722b2134c2d5d "pdflatex"
-  "main.bbl" 1717598803 10531 af2777eabf05769abf0975962f7b148c "biber main"
-  "main.out" 1717598896 851 3a95c7049c80e554d42a1d68c90b7495 "pdflatex"
-  "main.run.xml" 1717598896 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
-  "main.tex" 1717597530 1137 29cbf8041d1de89ad7ad70d3cd5d1226 ""
+  "main.aux" 1717658865 3357 bb63d065c2330f7d70c718b716d9d939 "pdflatex"
+  "main.bbl" 1717658613 10531 af2777eabf05769abf0975962f7b148c "biber main"
+  "main.out" 1717658865 851 3a95c7049c80e554d42a1d68c90b7495 "pdflatex"
+  "main.run.xml" 1717658865 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
+  "main.tex" 1717657718 1162 5550196ce7c9c5e32c925c4760a3c560 ""
   "sections/conclusion.tex" 1717489979 21 9f60a5ab3f61614e36714beb3c37f22c ""
   "sections/discussion.tex" 1717489966 21 553d9b57ca0d8d51a8d7f225fd0f83fe ""
   "sections/introduction.tex" 1717489475 151 12c05b0625af606bd55b3feb6c2f8849 ""
-  "sections/methods.tex" 1717598887 21650 3bc4b35ebb16ea39db9b7e81d74225d0 ""
+  "sections/methods.tex" 1717658858 21811 5241c4da97b9b620cd13bb19cf751d26 ""
   "sections/results.tex" 1717489959 18 80fbc6e87954fd99d752cc23d723b57c ""
   "tables/table_covasim_parameters.tex" 1717493831 828 f455a75754fdac66600b779a946cf2d9 ""
   (generated)

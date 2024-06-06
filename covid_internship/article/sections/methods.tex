@@ -138,7 +138,7 @@ K(s, s'): \left\{
 \]
 \\[0.3cm]
 
-Let $(s, s') \in \mathcal{S}^2$. Let us suppose that $ s' \neq s$, that  $s' \in ne(s)$, adn that $\mathcal{L}(s) < \mathcal{L}(s')$, the other case is symmetric. \\[0.15cm]
+Let $(s, s') \in \mathcal{S}^2$. Let us suppose that $ s' \neq s$, that  $s' \in ne(s)$, and that $\mathcal{L}(s) < \mathcal{L}(s')$ (the other case is symmetric). \\[0.15cm]
 $
 \begin{aligned}
     \pi(s)K(s, s') &=  \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}} \mathcal{L}(s)} \times \frac{1}{36} \quad \text{as} \ \mathcal{L}(s) < \mathcal{L}(s') \\
@@ -147,7 +147,7 @@ $
     &= \pi(s')K(s', s)\\[0.3cm]
 \end{aligned}
 $
-
+Indeed, each subset $s$ has 36 neighbourgh, as there are 13 parameters and one can replace each parameter of $s$ by any of the 9 others. \\
 Thus, $\pi$ is \textbf{reversible} for $K$.\\
 Let $(s, s') \in \mathcal{S}^2$. Let us note $(a, b, c, d)$ and $(a', b', c', d')$ the elements of $s$ and $s'$.
 We note : \\
@@ -174,11 +174,11 @@ $
 Thus, $S_n$ is \textbf{irreducible}.\\
 
 A Markov chain of transition matrix $P$ on the support $\mathcal{S}$ is said to be aperiodic if: \\
-$\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \\
+$\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \cite[text]{bodineau2015modelisation}\\
 
-First, note that $\forall s \in \mathcal{S}$, if $s$ is a local minimum (i.e if $\forall s' \in ne(s), \mathcal{L}(s') > \mathcal{L}(s) $), then we have $K(s,s)=0$\\
+First, note that $\forall s \in \mathcal{S}$,  $s$ is a local minimum (i.e if $\forall s' \in ne(s), \mathcal{L}(s') > \mathcal{L}(s) $) if and only if $K(s,s)=0$\\
 
-By contrapositive, if $s$ is not a local minimum, then $K(s, s)>0$. Moreover, $ \forall s \in \mathcal{S}, \forall s' \in ne(s)$, if $s\neq s'$, then $K(s, s') \neq 0 $\\[0.3cm]
+Thus, if $s$ is not a local minimum, then $K(s, s)>0$. Moreover, $ \forall s \in \mathcal{S}, \forall s' \in ne(s)$, if $s\neq s'$, then $K(s, s') \neq 0 $\\[0.3cm]
 Let $(s, s')  \in \mathcal{S}^2$. \\
 
 \begin{itemize}
@@ -205,7 +205,7 @@ To create the most diverse set possible, we also created 4 different mobilities 
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{figures/mobilities.png}
-    \caption{Mobilities reports.}
+    \caption{Mobility reports.}
     \label{fig:mobilities}
 \end{figure}
 ON EN EST LAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
