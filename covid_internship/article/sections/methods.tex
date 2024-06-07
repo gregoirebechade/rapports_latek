@@ -412,8 +412,27 @@ The confidence intervals are computed by assuming that the predictions follow a 
 This model is used as a baseline.
 A model that does not manage to outperform the moving average model would not be relevant.
 
+\subsubsection{Exponential regression}
 
+An exponential regression model was implemented.
+It correspond to fitting the data of the number of hospitalized ($Y_t$) to the function $E_{a, b, c}(t) = a \times e^{b t} +c$.
+The value of $\theta = (a, b, c)$ is computed through a least square method.
+The confidence interval on the prediction is estimated with the same method as SIRH (see \ref*{sec:ci}). 
 
+An exponential regression of the second type was also implemented: \\
+The data of the number of hospitalized is fitted to the function $E_{a, b, c, d, e}(t) = a \times e^{b m_{t-i} + c  t + d inf_{t-j} }+e$.
+The value of $\theta = (a, b, c, d, e)$ is computed through a least square method.
+The optimal value of the time lag $i$ and $j$ is optimized during the training phase through a grid search among all the values between 0 and 14. 
+The confidence interval on the prediction is estimated with the same method as SIRH (see \ref*{sec:ci}). 
+
+\subsubsection{Machine learning models}
+
+In order to implement machine learning regressor, we converted the time-series $Y_{t, t \in {1, \vdots n}}$ in a training set $(X_i, Y_i)$ such that : \\
+$\forall i \in \{1, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
+
+We then trained and optimized both regressors : the linear and the bayesain regression, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Ridge, Gradient boosting regressor, Random Forest regressor, Bayesain Ridge and SVR. 
+The confidence interval on linear regression was computed with the same method as SIRH (see \ref*{sec:ci}).
+The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn librairy and the delta method. 
 
 \subsubsection{Computing confidence intervals on the prediction}
 \label{sec:ci}
@@ -608,6 +627,12 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
     \theta_n 
     \end{pmatrix} \\    
 \end{align*}
+
+
+\section*{Assessing the performance of the models}
+
+
+
 
 
 \end{document}
