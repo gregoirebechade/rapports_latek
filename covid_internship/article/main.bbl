@@ -207,6 +207,35 @@
       \field{pages}{e1009149}
       \range{pages}{-1}
     \endentry
+    \entry{kufel2020arima}{article}{}
+      \name{author}{1}{}{%
+        {{hash=74a4f494891b1f2564e7aa18263cfda9}{%
+           family={Kufel},
+           familyi={K\bibinitperiod},
+           given={Tadeusz},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Instytut Badań Gospodarczych}%
+      }
+      \strng{namehash}{74a4f494891b1f2564e7aa18263cfda9}
+      \strng{fullhash}{74a4f494891b1f2564e7aa18263cfda9}
+      \strng{bibnamehash}{74a4f494891b1f2564e7aa18263cfda9}
+      \strng{authorbibnamehash}{74a4f494891b1f2564e7aa18263cfda9}
+      \strng{authornamehash}{74a4f494891b1f2564e7aa18263cfda9}
+      \strng{authorfullhash}{74a4f494891b1f2564e7aa18263cfda9}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Equilibrium. Quarterly Journal of Economics and Economic Policy}
+      \field{number}{2}
+      \field{title}{ARIMA-based forecasting of the dynamics of confirmed Covid-19 cases for selected European countries}
+      \field{volume}{15}
+      \field{year}{2020}
+      \field{pages}{181\bibrangedash 204}
+      \range{pages}{24}
+    \endentry
     \entry{powellasymptoticsforleastsquares}{article}{}
       \name{author}{1}{}{%
         {{hash=f1fac2bf94f2099432a9e4dd193771d5}{%
@@ -252,6 +281,45 @@
       \field{title}{Introduction to nonlinear regression}
       \field{year}{2010}
       \field{pages}{365}
+      \range{pages}{1}
+    \endentry
+    \entry{shang2021regional}{article}{}
+      \name{author}{3}{}{%
+        {{hash=748cfd4392e1bad6cd1f11c2d38bda56}{%
+           family={Shang},
+           familyi={S\bibinitperiod},
+           given={Aaron\bibnamedelima C},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=a062a004f9eb3d8238f3b3b05680df93}{%
+           family={Galow},
+           familyi={G\bibinitperiod},
+           given={Kristen\bibnamedelima E},
+           giveni={K\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=832e71c1d2879d4b5baafde6240795aa}{%
+           family={Galow},
+           familyi={G\bibinitperiod},
+           given={Gary\bibnamedelima G},
+           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {AIMS Press}%
+      }
+      \strng{namehash}{b9283a51d83373b04ed379156bd6835f}
+      \strng{fullhash}{b9283a51d83373b04ed379156bd6835f}
+      \strng{bibnamehash}{b9283a51d83373b04ed379156bd6835f}
+      \strng{authorbibnamehash}{b9283a51d83373b04ed379156bd6835f}
+      \strng{authornamehash}{b9283a51d83373b04ed379156bd6835f}
+      \strng{authorfullhash}{b9283a51d83373b04ed379156bd6835f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AIMS public health}
+      \field{number}{1}
+      \field{title}{Regional forecasting of COVID-19 caseload by non-parametric regression: a VAR epidemiological model}
+      \field{volume}{8}
+      \field{year}{2021}
+      \field{pages}{124}
       \range{pages}{1}
     \endentry
   \enddatalist

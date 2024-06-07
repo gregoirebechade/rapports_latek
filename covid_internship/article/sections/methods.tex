@@ -215,12 +215,13 @@ Indeed each of the 4 parameters was scaled among 3 values : \texttt{[0.5, 1, 2]}
 
 \subsection{The models}
 
-In this study, we define a model $\mathcal{h}_{\theta }$ as a function $\mathcal{h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$. 
+In this study, we define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
+In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed form $\mathcal{D}$, and used for the prediction.  
 We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
 
 \textbf{Task of a model}: \\
 
-Each model $\mathcal{h}$ is given : 
+Each model ${h}$ is given : 
 
 \begin{enumerate}
     \item A training set $\mathcal{D}$
@@ -234,13 +235,13 @@ And outputs:
     \item A $(1-\alpha)$ confidence interval on the prediction, $I_{\alpha, r}$
 \end{enumerate}
 
-The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_r = \mathcal{h}_{\hat{\theta}}(r)$.
+The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_r = {h}_{\hat{\theta}}(r)$.
 
 
 \subsubsection{The SIRH model}
 
 
-The SIRH model is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
+The SIRH model (\ref*{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
 In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
 Each compartment correspond to the number of person in the state of health of the compartment. 
 The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
@@ -271,7 +272,37 @@ As the system of equation can't be directly solved, we use a Euler method to sol
     \right.
 \end{equation}
 
-We chose tof fix $dt=0.001$. 
+
+We chose to fix $dt=0.001$. 
+
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+        roundnode/.style={circle, draw=blue!60, fill=gray!5, very thick, minimum size=7mm},
+        arrow/.style={-{Stealth[scale=1]}, thick},
+        every node/.style={scale=2.0}
+        ]
+
+        % Nodes
+        \node[roundnode]      (s)                     {S};
+        \node[roundnode]      (i) [right=of s]        {I};
+        \node[roundnode]      (h) [right=of i]        {H};
+        \node[roundnode]      (r) [below=of i]        {R};
+
+        % Arrows
+        \draw[arrow] (s) -- (i) node[midway, above, font=\footnotesize] {$\beta$};
+        \draw[arrow] (i) -- (h) node[midway, above, font=\footnotesize] {$h$};
+        \draw[arrow] (i) -- (r) node[midway, left, font=\footnotesize] {$\gamma_i$};
+        \draw[arrow] (h) -- (r) node[midway, right, font=\footnotesize] {$\gamma_h$};
+
+    \end{tikzpicture}
+    \caption{Scheme of the SIRH model}
+    \label{fig:sirh}
+
+    
+\end{figure}
+
 
 To train this model, we minimize the least square between the curve of the number of hospitalized observed to the curve of the number of hospitalized of teh training data with respect to $\theta = (\beta, gamma_i, gamma_h, h)$. 
 We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$. 
@@ -280,6 +311,107 @@ The initial value for $S$ and $I$ correspond to the last value of the fit of the
 The initial value for $H$ correspond to the last value of $\mathcal{D}$, the trainig data. 
 The initial value of $R$ is fixed by the previous values as the equation $S_t + I_y + R_t + H_t = N$ is always true. 
 The confidence interval of the prediction is computd thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
+
+
+A SIRH model of the second type was implemented. 
+It has the same structure but uses the mobility data and the number of infected to be more precise. 
+The idea is the same, but there are two differences : 
+\begin{itemize}
+    \item $\beta$ varies with the time as a linear combination of the mobility : $\beta_t = a + b \times m_t$ 
+    \item The data is fitted to both the number of hospitalized and the number of infected. 
+\end{itemize}
+To write it more formally, let $H_\theta(t)$ and $I_\theta(t)$ be the number of hospitalized and infected at time $t$ in the SIRH model with parameters $\theta$.
+Let $Y_{H, t}$ and $Y_{I, t}$ be the number of hospitalized and infected at time $t$ in the data.
+We have :\\
+
+$\hat{\theta} = \underset{\theta \in \mathbb{R}^5}{\operatorname{argmin}} \sum_{t=1}^{n} (\frac{H_\theta(t) - Y_{H, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{H, t})}})^2 + (\frac{I_\theta(t) - Y_{I, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{I, t})}})^2$\\
+
+With $\theta = (a, c, \gamma_i, \gamma_h, h)$ and $m_t$ the mobility at time $t$.
+The normalization factors enables to prevent the optimization to focus on the number of infected, which is bigger than the number of hospitalized. 
+Once again, a variation of the SIRH model was implemented, in which the value of $\gamma_h$ and $\gamma_i$ is fixed to $0.2$. 
+
+
+
+\subsection*{ARIMA and VAR models} 
+
+The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic prediction (see \cite[text]{kufel2020arima} and \cite[text]{shang2021regional})
+The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differenciated $d$ times. 
+It follows the equation : \\
+$Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j}$\\
+where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differencing, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
+The coefficient are estimated through maximum likelihood estimation. 
+This method is implemented in the \texttt{statsmodels} library, which directly provide prediction and confidence intervals.
+We realized a grid search on a single pandemic to identify the combinaition of parameters that would optimize the prediction accuracy. 
+We found an optimal value for $p= 3, d=0, q=3$. 
+
+The VAR model is a multi-dimensional $AR$ model, in which different variable are predicted. 
+It so corresponds to a second type model. 
+This model exploits the correlation between variables. 
+The value of the parameters of a VAR have physical sense and can be interpreted to find correlations between variables. 
+Let $Y_{1,t}, ..., Y_{k,t}$ be the times series (in our case, $k=3$ and they correspond to the number of hospitalized, the number of infected and the mobility data).
+
+
+\[
+VAR(p) : 
+\begin{pmatrix}
+Y_{1,t} \\
+Y_{2,t} \\
+\vdots \\
+Y_{k,t}
+\end{pmatrix}
+=
+\begin{pmatrix}
+c_1 \\
+c_2 \\
+\vdots \\
+c_k
+\end{pmatrix}
++
+\begin{pmatrix}
+\phi_{11,1} & \phi_{12,1} & \cdots & \phi_{1k,1} \\
+\phi_{21,1} & \phi_{22,1} & \cdots & \phi_{2k,1} \\
+\vdots & \vdots & \ddots & \vdots \\
+\phi_{k1,1} & \phi_{k2,1} & \cdots & \phi_{kk,1}
+\end{pmatrix}
+\begin{pmatrix}
+Y_{1,t-1} \\
+Y_{2,t-1} \\
+\vdots \\
+Y_{k,t-1}
+\end{pmatrix}
++ \cdots +
+\begin{pmatrix}
+\phi_{11,p} & \phi_{12,p} & \cdots & \phi_{1k,p} \\
+\phi_{21,p} & \phi_{22,p} & \cdots & \phi_{2k,p} \\
+\vdots & \vdots & \ddots & \vdots \\
+\phi_{k1,p} & \phi_{k2,p} & \cdots & \phi_{kk,p}
+\end{pmatrix}
+\begin{pmatrix}
+Y_{1,t-p} \\
+Y_{2,t-p} \\
+\vdots \\
+Y_{k,t-p}
+\end{pmatrix}
++
+\begin{pmatrix}
+\epsilon_{1,t} \\
+\epsilon_{2,t} \\
+\vdots \\
+\epsilon_{k,t}
+\end{pmatrix}
+\]
+
+
+Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} librairy. 
+The confidence intervals are also directy provided by the librairy.
+\subsubsection{The moving average model}
+
+A mere moving average model was also implemented. 
+It returns a constant prediction that correspond to the mean of the 7 past days. 
+The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the 7 past data-points; 
+This model is used as a baseline.
+A model that does not manage to outperform the moving average model would not be relevant.
+
 
 
 
@@ -476,3 +608,6 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
     \theta_n 
     \end{pmatrix} \\    
 \end{align*}
+
+
+\end{document}
