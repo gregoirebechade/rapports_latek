@@ -2371,6 +2371,8 @@
     <bcf:citekey order="8" intorder="1">shang2021regional</bcf:citekey>
     <bcf:citekey order="9" intorder="1">ruckstuhl2010introduction</bcf:citekey>
     <bcf:citekey order="10" intorder="1">powellasymptoticsforleastsquares</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">paireau2022ensemble</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

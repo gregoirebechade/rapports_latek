@@ -41,6 +41,82 @@
       \field{title}{Modélisation de phénomènes aléatoires: introduction aux chaînes de Markov et aux martingales}
       \field{year}{2015}
     \endentry
+    \entry{cramer2022evaluation}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=e7b2d0f2dec17a515e0e0ce17a3814d4}{%
+           family={Cramer},
+           familyi={C\bibinitperiod},
+           given={Estee\bibnamedelima Y},
+           giveni={E\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=d16a29b1c1bff8d354890977bae93ae5}{%
+           family={Ray},
+           familyi={R\bibinitperiod},
+           given={Evan\bibnamedelima L},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=3cb05bbdd014831ee201cc7f63753e1c}{%
+           family={Lopez},
+           familyi={L\bibinitperiod},
+           given={Velma\bibnamedelima K},
+           giveni={V\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=bf4e0b1559f41753a5f8f0e193bf5f98}{%
+           family={Bracher},
+           familyi={B\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=27cb0f148c770228c1ec63cfe454c12e}{%
+           family={Brennen},
+           familyi={B\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f1b6e4b2c2d9f1f0e14b03b138544fe7}{%
+           family={Castro\bibnamedelima Rivadeneira},
+           familyi={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Alvaro\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=dc1fe86f3804906a797a752c7bac96a2}{%
+           family={Gerding},
+           familyi={G\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=cf94799d213c0ab2fd2012473da7440b}{%
+           family={Gneiting},
+           familyi={G\bibinitperiod},
+           given={Tilmann},
+           giveni={T\bibinitperiod}}}%
+        {{hash=5065397f0c36af1a3a4dcfd736b6aea9}{%
+           family={House},
+           familyi={H\bibinitperiod},
+           given={Katie\bibnamedelima H},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=47a873dada47240fe67a352c325f91be}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yuxin},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {National Acad Sciences}%
+      }
+      \strng{namehash}{098d31ce0b94b25dc61d55a5ad6529a3}
+      \strng{fullhash}{d80677560c1277e8aa5b05057e884f3e}
+      \strng{bibnamehash}{098d31ce0b94b25dc61d55a5ad6529a3}
+      \strng{authorbibnamehash}{098d31ce0b94b25dc61d55a5ad6529a3}
+      \strng{authornamehash}{098d31ce0b94b25dc61d55a5ad6529a3}
+      \strng{authorfullhash}{d80677560c1277e8aa5b05057e884f3e}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{15}
+      \field{title}{Evaluation of individual and ensemble probabilistic forecasts of COVID-19 mortality in the United States}
+      \field{volume}{119}
+      \field{year}{2022}
+      \field{pages}{e2113561119}
+      \range{pages}{-1}
+    \endentry
     \entry{diaconis2009markov}{article}{}
       \name{author}{1}{}{%
         {{hash=f5a7dd4f4a0c79d2eaaf29d6dda0f4b3}{%
@@ -235,6 +311,75 @@
       \field{year}{2020}
       \field{pages}{181\bibrangedash 204}
       \range{pages}{24}
+    \endentry
+    \entry{paireau2022ensemble}{article}{}
+      \name{author}{9}{}{%
+        {{hash=a9860bd8337b1f61b9f663e77767ddfc}{%
+           family={Paireau},
+           familyi={P\bibinitperiod},
+           given={Juliette},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f574f31785303e960acb83de42529386}{%
+           family={Andronico},
+           familyi={A\bibinitperiod},
+           given={Alessio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=237735ee4926a28a30658896745f9a3b}{%
+           family={Hozé},
+           familyi={H\bibinitperiod},
+           given={Nathanaël},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4cc24f9a0c3468cb6d656e56c1842210}{%
+           family={Layan},
+           familyi={L\bibinitperiod},
+           given={Maylis},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fb455a7871bf75b87200967deab45f7b}{%
+           family={Crepey},
+           familyi={C\bibinitperiod},
+           given={Pascal},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f6f58c123cbd7733d54f716a89fde71a}{%
+           family={Roumagnac},
+           familyi={R\bibinitperiod},
+           given={Alix},
+           giveni={A\bibinitperiod}}}%
+        {{hash=75caf6912069e9229c3c0c5aaa969428}{%
+           family={Lavielle},
+           familyi={L\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c79a3e64b19e89076a795948dae0587f}{%
+           family={Boëlle},
+           familyi={B\bibinitperiod},
+           given={Pierre-Yves},
+           giveni={P\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=d21f60e46e1b81a7894805e363dc0c8f}{%
+           family={Cauchemez},
+           familyi={C\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {National Acad Sciences}%
+      }
+      \strng{namehash}{1a50dea2cb098671c02d544ec47078a4}
+      \strng{fullhash}{ce586fab242b31b4e45b5b0d2e941c3c}
+      \strng{bibnamehash}{1a50dea2cb098671c02d544ec47078a4}
+      \strng{authorbibnamehash}{1a50dea2cb098671c02d544ec47078a4}
+      \strng{authornamehash}{1a50dea2cb098671c02d544ec47078a4}
+      \strng{authorfullhash}{ce586fab242b31b4e45b5b0d2e941c3c}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{18}
+      \field{title}{An ensemble model based on early predictors to forecast COVID-19 health care demand in France}
+      \field{volume}{119}
+      \field{year}{2022}
+      \field{pages}{e2103302119}
+      \range{pages}{-1}
     \endentry
     \entry{powellasymptoticsforleastsquares}{article}{}
       \name{author}{1}{}{%
