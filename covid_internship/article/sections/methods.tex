@@ -4,7 +4,7 @@
 
 As the goal of this study is to compare some forecasts on many different pandemics, many synthetic pandemics need to be generated, with a particular attention on the diversity of these pandemics. 
 
-\subsubsection*{Covasim}
+\subsubsection{Covasim}
 
 To generate the pandemics,  \cite{kerr2021covasim}, a python librairy that can simulate the evolution of a pandemic was used. 
 Covasim is an agent-based model that can model many different pandemics and has a high diversity of outputs. 
@@ -20,13 +20,14 @@ Those pandemics will be referred to as pandemic 1 and pandemic 2.
 
 \input{tables/table_covasim_parameters.tex}
 
-The parameters used to generate these pandemics are described in the table \ref{tab:parameters_covasim}.
+
+The parameters used to generate these pandemics are described in the table \ref{tab:parameters_covasim} 
 The parameters that are not specified are the default parameters of the Covasim librairy. 
 
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/mobility_reports.png}
+    \includegraphics[width=0.5\textwidth]{figures/mobility_reports.png}
     \caption{Mobility reports from Västtrafik.}
     \label{fig:mobility_reports}
 \end{figure}
@@ -241,6 +242,34 @@ The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the par
 \subsubsection{The SIRH model}
 
 
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+        roundnode/.style={circle, draw=blue!60, fill=gray!5, very thick, minimum size=7mm},
+        arrow/.style={-{Stealth[scale=1]}, thick},
+        every node/.style={scale=2.0}
+        ]
+
+        % Nodes
+        \node[roundnode]      (s)                     {S};
+        \node[roundnode]      (i) [right=of s]        {I};
+        \node[roundnode]      (h) [right=of i]        {H};
+        \node[roundnode]      (r) [below=of i]        {R};
+
+        % Arrows
+        \draw[arrow] (s) -- (i) node[midway, above, font=\footnotesize] {$\beta$};
+        \draw[arrow] (i) -- (h) node[midway, above, font=\footnotesize] {$h$};
+        \draw[arrow] (i) -- (r) node[midway, left, font=\footnotesize] {$\gamma_i$};
+        \draw[arrow] (h) -- (r) node[midway, right, font=\footnotesize] {$\gamma_h$};
+
+    \end{tikzpicture}
+    \caption{Scheme of the SIRH model}
+    \label{fig:sirh}
+
+    
+\end{figure}
+
 The SIRH model (\ref*{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
 In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
 Each compartment correspond to the number of person in the state of health of the compartment. 
@@ -276,32 +305,6 @@ As the system of equation can't be directly solved, we use a Euler method to sol
 We chose to fix $dt=0.001$. 
 
 
-\begin{figure}[h]
-    \centering
-    \begin{tikzpicture}[
-        roundnode/.style={circle, draw=blue!60, fill=gray!5, very thick, minimum size=7mm},
-        arrow/.style={-{Stealth[scale=1]}, thick},
-        every node/.style={scale=2.0}
-        ]
-
-        % Nodes
-        \node[roundnode]      (s)                     {S};
-        \node[roundnode]      (i) [right=of s]        {I};
-        \node[roundnode]      (h) [right=of i]        {H};
-        \node[roundnode]      (r) [below=of i]        {R};
-
-        % Arrows
-        \draw[arrow] (s) -- (i) node[midway, above, font=\footnotesize] {$\beta$};
-        \draw[arrow] (i) -- (h) node[midway, above, font=\footnotesize] {$h$};
-        \draw[arrow] (i) -- (r) node[midway, left, font=\footnotesize] {$\gamma_i$};
-        \draw[arrow] (h) -- (r) node[midway, right, font=\footnotesize] {$\gamma_h$};
-
-    \end{tikzpicture}
-    \caption{Scheme of the SIRH model}
-    \label{fig:sirh}
-
-    
-\end{figure}
 
 
 To train this model, we minimize the least square between the curve of the number of hospitalized observed to the curve of the number of hospitalized of teh training data with respect to $\theta = (\beta, gamma_i, gamma_h, h)$. 
@@ -637,7 +640,22 @@ Two metrucs were used to assess the performance of the models.
 The first metric is the Weighted Confidence Interval (WIS), which is a metric commonly used in forecast evaluation (see \cite[text]{cramer2022evaluation} or \cite*{paireau2022ensemble}). 
 
 Let $\alpha$ be in $]0, 1[$. Let $\hat{y}$ be the prediction of the model and $y$ the real value.
-Let $]l, u[$ be the $(1-\alpha)$ confidence interval of the prediction.
+Let $[l, u]$ be the $(1-\alpha)$ confidence interval of the prediction.
+We define the Interval Score ($IS$) that way : \\
+$IS_\alpha( [l, u], \hat{y}, y ) = \frac{2}{\alpha} \times ( \mathbb{1}_{\{y<l\}} (l-y) + \mathbb{1}_{\{y>u\}} (y-u) + (u-l))$. 
+This metric is made of three terms: a term of overprediction that punishes a model predicting a confidence interval which os above the real value, a term of underprediction that punishes a model whose confidence interval is under the real prediction, and a term of range, that punishes too wide confidence intervals. 
+Let $(\alpha_k)_{k \in \{1, \dots , K\}} \in ] 0 , 1 [ ^K $
+The WIS is defined as follow. \\
+
+$WIS_\alpha( [l, u], \hat{y}, y ) = \sum_{k=0}^{K} w_k IS_\alpha_k( [l, u], \hat{y}, y ) $ , with $(w_k)_{k \in \{1, \vdots , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
+
+According to previous literature (\cite{cramer2022evaluation}), we decided to set $(\alpha_k)_{k \in \{1, \vdots , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$. 
+One can notice that the WIS does not take into account the point prediction, but focus on confidence interval accuracy. \\
+
+The second metric chosen is the Root Mean Square Error ($RMSE$). 
+With the same notations as above, we define the $RMSE$ as follow : \\
+$RMSE([l, u], \hat{y}, y) = \sqrt{(y-\hat{y})^2}$\\
+This metric focuses on the point prediction, and does not take into account the confidence intervals. 
 
 
 

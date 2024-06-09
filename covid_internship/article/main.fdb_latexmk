@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1717758497 "main.bcf" "main.bbl" "main" 1717758572 0
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1717789047 -1
   "./bibliography/references.bib" 1717758317 3730 ebdad2feae7cabe2a9fda69be675ca27 ""
-  "main.bcf" 1717758571 108274 3db180f19285fe45d33d75d44f7592cb "pdflatex"
+  "main.bcf" 1717778645 108350 05174a3db97f56c52b7bbb66251567ee "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1717758568 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717758572 0
+["pdflatex"] 1717771385 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1717789047 2
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1717597053 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1717593020 22504 9f5668af17bd7b6eefd62136611bf007 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1717593010 25420 05f1636bc2674c5a31198d4e64a701f9 ""
@@ -237,13 +237,12 @@
   "figures/mobilities.png" 1717598510 39981 149dd048c001d893e34ccc2131b3e1f9 ""
   "figures/mobility_reports.png" 1717494605 30156 03aa02e34a350c5d8a51be45789f7e2f ""
   "figures/most_different_pandemics.png" 1717505760 114400 d9b93f05951541ccf7999f7750dfe293 ""
-  "main.aux" 1717758571 4172 005950110eda2f2f4568fa2faabd205b "pdflatex"
+  "main.aux" 1717778645 4374 7c212d1bd571200b29d6b4f7a1cfa392 "pdflatex"
   "main.bbl" 1717758500 19503 3c65766f00bcea06644c81b0324c3c1c "biber main"
-  "main.out" 1717758571 1679 4473855c73444ad97996c73f823f73c5 "pdflatex"
-  "main.run.xml" 1717758571 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
+  "main.out" 1717778645 1787 1cfb88febaa81d71041b3bf0cbfb57da "pdflatex"
   "main.tex" 1717741663 1222 e5f4652d7aa981c47bc457861ca77892 ""
   "sections/introduction.tex" 1717745600 52 97dfbc6ec04cf07be6ea63fff5efd910 ""
-  "sections/methods.tex" 1717758567 33892 552f3264d1f02b333a2ce688a085386b ""
+  "sections/methods.tex" 1717771379 35286 dc776f5d608268d87b74e597d5140da1 ""
   "tables/table_covasim_parameters.tex" 1717493831 828 f455a75754fdac66600b779a946cf2d9 ""
   (generated)
   "main.aux"
