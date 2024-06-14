@@ -286,6 +286,9 @@ INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\blx-case-e
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\blx-case-expl3.sty
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT .\main.aux
+INPUT .\main.aux
+INPUT main.aux
 OUTPUT main.aux
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -296,8 +299,14 @@ INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-s
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
-OUTPUT main.out
+INPUT .\main.out
+INPUT .\main.out
+INPUT main.out
+INPUT main.out
 OUTPUT main.pdf
+INPUT .\main.out
+INPUT .\main.out
+OUTPUT main.out
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\lbx\french.lbx
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\lbx\french.lbx
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\lbx\french.lbx
@@ -410,6 +419,7 @@ INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\tfm\public\bbold\bbold6.tfm
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT main.run.xml
 OUTPUT main.run.xml
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\public\bbold\dpi600\bbold7.pk
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\public\bbold\dpi600\bbold7.pk
