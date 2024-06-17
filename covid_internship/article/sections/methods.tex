@@ -441,9 +441,9 @@ The confidence interval on bayesian regression was directly computed with the va
 
 \subsubsection{Ensemble model}
 
-It has been showned ( \cite{cramer2022evaluation} and   TODO add other refs ) that ensemble models, which combine the outputs of manu modles, can outperform by far individual models.
-We implemented an ensemble model which is a linear combinaition of the outputs of the 13 models described above. 
-The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80% of the pandemic generated. 
+It has been showned ( \cite{cramer2022evaluation} and   TODO add other refs ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
+We implemented an ensemble model which is a linear combinaition of the outputs of the 13 models described above, with the exponential models removed.
+The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
 
 
