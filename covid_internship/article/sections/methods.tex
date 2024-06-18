@@ -38,7 +38,7 @@ These interventions correspond to 53 relative weekly variations of the mobility,
 
 
 \subsubsection{Generating diverse pandemics}
-
+\label{sec:generating_divserse_pandemics}
 In order to evaluate the performances of our models on a wide range of pandemics, a training set of pandemics was generated. 
 A huge diversity of pandemics is needed to determine which model is the more consistent.
 It is so relevant to identify the key parameters that generate this diversity.
@@ -278,6 +278,7 @@ Each compartment correspond to the number of person in the state of health of th
 The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
 
 \begin{equation}
+    \label{eq:sirh}
     \left\{
     \begin{aligned}
         &\frac{dS}{dt} = - \beta \frac{SI}{N} \\
@@ -311,6 +312,8 @@ We chose to fix $dt=0.001$.
 
 To train this model, we minimize the least square between the curve of the number of hospitalized observed to the curve of the number of hospitalized of teh training data with respect to $\theta = (\beta, gamma_i, gamma_h, h)$. 
 We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$. 
+
+TODO : add a table of which coefficient are constant or not sirh 1 = cst, cst/ sirh2 = cst, free / sirh3 = free , cst / sirh4 = free, free. 
 In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
 The initial value for $S$ and $I$ correspond to the last value of the fit of the training phase. 
 The initial value for $H$ correspond to the last value of $\mathcal{D}$, the trainig data. 
@@ -342,7 +345,7 @@ Once again, a variation of the SIRH model was implemented, in which the value of
 The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic prediction (see \cite[text]{kufel2020arima} and \cite[text]{shang2021regional})
 The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differenciated $d$ times. 
 It follows the equation : \\
-$Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j}$\\
+$Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j} \label{eq:arima}$\\ 
 where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differencing, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
 The coefficient are estimated through maximum likelihood estimation. 
 This method is implemented in the \texttt{statsmodels} library, which directly provide prediction and confidence intervals.
@@ -383,8 +386,8 @@ Y_{1,t-1} \\
 Y_{2,t-1} \\
 \vdots \\
 Y_{k,t-1}
-\end{pmatrix}
-+ \cdots +
+\end{pmatrix} 
++ \cdots + 
 \begin{pmatrix}
 \phi_{11,p} & \phi_{12,p} & \cdots & \phi_{1k,p} \\
 \phi_{21,p} & \phi_{22,p} & \cdots & \phi_{2k,p} \\
@@ -431,21 +434,28 @@ The optimal value of the time lag $i$ and $j$ is optimized during the training p
 The confidence interval on the prediction is estimated with the same method as SIRH (see \ref*{sec:ci}). 
 
 \subsubsection{Machine learning models}
+\label{sec:mlmodels}
 
 In order to implement machine learning regressor, we converted the time-series $Y_{t, t \in {1, \vdots n}}$ in a training set $(X_i, Y_i)$ such that : \\
 $\forall i \in \{1, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
 We then trained and optimized both regressors : the linear and the bayesain regression, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Ridge, Gradient boosting regressor, Random Forest regressor, Bayesain Ridge and SVR. 
-The confidence interval on linear regression was computed with the same method as SIRH (see \ref*{sec:ci}).
+The confidence interval for the linear regression prediction was computed as follow : \\
+Let us suppose that the data follows a linear regression model : $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
+The least square estimator of $\beta$ is $\hat{\beta} = (X^T X)^{-1} X^T Y$.
+If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to predict, the prediction is $\tilde{Y} = \tilde{X} \hat{\beta}$.
+$\tilde{Y} = \tilde{X} \hat{\beta} = \tilde{X} (X^T X)^{-1} X^T Y = \tilde{X} (X^T X)^{-1} X^T (X\beta + \epsilon) = \tilde{X} \beta + \tilde{X} (X^T X)^{-1} X^T \epsilon$.\\
+$\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}T \sigma ^2$.\\
 The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn librairy and the delta method. 
 
+TODO add more details on the confidence interval + the prior of the bayesian 
 \subsubsection{Ensemble model}
 
 It has been showned ( \cite{cramer2022evaluation} and   TODO add other refs ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
 We implemented an ensemble model which is a linear combinaition of the outputs of the 13 models described above, with the exponential models removed.
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
-
+TODO add the coefficient found 
 
 \subsubsection{Computing confidence intervals on the prediction}
 \label{sec:ci}
@@ -646,7 +656,7 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
 
 \subsection*{Metrics}
 
-Two metrucs were used to assess the performance of the models. 
+Two metrics were used to assess the performance of the models. 
 The first metric is the Weighted Confidence Interval (WIS), which is a metric commonly used in forecast evaluation (see \cite[text]{cramer2022evaluation} or \cite*{paireau2022ensemble}). 
 
 Let $\alpha$ be in $]0, 1[$. Let $\hat{y}$ be the prediction of the model and $y$ the real value.
@@ -660,7 +670,7 @@ The WIS is defined as follow. \\
 $WIS_\alpha( [l, u], \hat{y}, y ) = \sum_{k=0}^{K} w_k IS_{\alpha_k}( [l, u], \hat{y}, y ) $ , with $(w_k)_{k \in \{1, \vdots , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
 
 According to previous literature (\cite{cramer2022evaluation}), we decided to set $(\alpha_k)_{k \in \{1, \vdots , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$. 
-One can notice that the WIS does not take into account the point prediction, but focus on confidence interval accuracy. \\
+One can notice that the WIS does not take into account the point prediction, but focuses on confidence interval accuracy. \\
 
 The second metric chosen is the Root Mean Square Error ($RMSE$). 
 With the same notations as above, we define the $RMSE$ as follow : \\
@@ -668,7 +678,10 @@ $RMSE([l, u], \hat{y}, y) = \sqrt{(y-\hat{y})^2}$\\
 This metric focuses on the point prediction, and does not take into account the confidence intervals. 
 
 
-
+The models were tested on all the 324 pandemics, on 14 data points different (at days 20, 40, 60, ..., 280). 
+For each individual point, the models were trained on the previous days of the pandemic. 
+A 7 and 14 days ahead prediction was asked, and $[0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ confidence-intervals were computed. 
+The WIS and the RMSE of these predictions were then computed. 
 
 
 \end{document}
