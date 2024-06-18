@@ -202,7 +202,7 @@ After 200 iterations, the set of parameters that maximised the diversity was \te
 A new maxima was found at \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
 The $\mathcal{L}_2$- diversity increased from 62353 to 93553. \\
 
-To create the most diverse set possible, we also created 4 different mobilities reports \ref*{fig:mobilities}, corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
+To create the most diverse set possible, we also created 4 different mobilities reports \ref{fig:mobilities}, corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{figures/mobilities.png}
@@ -219,7 +219,7 @@ Indeed each of the 4 parameters was scaled among 3 values : \texttt{[0.5, 1, 2]}
 In this study, we define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
 In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed form $\mathcal{D}$, and used for the prediction.  
 We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
-All of these models were implemented in Python, and are available on the github repository provided with this article (\ref*{github-link}).
+All of these models were implemented in Python, and are available on the github repository provided with this article (\ref{github-link}).
 During the training or predicting phase, the computation sometimes fail (for instance, when the matrix is non-inversible for the linear regression model). 
 The model then outputs the value of the mving average model, which can be interpreted as a naive output when the computation fails. \\
 \textbf{Task of a model}: \\
@@ -272,7 +272,7 @@ The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the par
     
 \end{figure}
 
-The SIRH model (\ref*{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
+The SIRH model (\ref{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
 In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
 Each compartment correspond to the number of person in the state of health of the compartment. 
 The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
@@ -425,13 +425,13 @@ A model that does not manage to outperform the moving average model would not be
 An exponential regression model was implemented.
 It correspond to fitting the data of the number of hospitalized ($Y_t$) to the function $E_{a, b, c}(t) = a \times e^{b t} +c$.
 The value of $\theta = (a, b, c)$ is computed through a least square method.
-The confidence interval on the prediction is estimated with the same method as SIRH (see \ref*{sec:ci}). 
+The confidence interval on the prediction is estimated with the same method as SIRH (see \ref{sec:ci}). 
 
 An exponential regression of the second type was also implemented: \\
 The data of the number of hospitalized is fitted to the function $E_{a, b, c, d, e}(t) = a \times e^{b m_{t-i} + c  t + d inf_{t-j} }+e$.
 The value of $\theta = (a, b, c, d, e)$ is computed through a least square method.
 The optimal value of the time lag $i$ and $j$ is optimized during the training phase through a grid search among all the values between 0 and 14. 
-The confidence interval on the prediction is estimated with the same method as SIRH (see \ref*{sec:ci}). 
+The confidence interval on the prediction is estimated with the same method as SIRH (see \ref{sec:ci}). 
 
 \subsubsection{Machine learning models}
 \label{sec:mlmodels}
@@ -455,7 +455,7 @@ It has been showned ( \cite{cramer2022evaluation} and   TODO add other refs ) th
 We implemented an ensemble model which is a linear combinaition of the outputs of the 13 models described above, with the exponential models removed.
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
-TODO add the coefficient found 
+TODO add the coefficient found.
 
 \subsubsection{Computing confidence intervals on the prediction}
 \label{sec:ci}
@@ -655,7 +655,7 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
 \section*{Assessing the performance of the models}
 
 \subsection*{Metrics}
-
+\label{sec:metrics}
 Two metrics were used to assess the performance of the models. 
 The first metric is the Weighted Confidence Interval (WIS), which is a metric commonly used in forecast evaluation (see \cite[text]{cramer2022evaluation} or \cite*{paireau2022ensemble}). 
 
@@ -683,5 +683,34 @@ For each individual point, the models were trained on the previous days of the p
 A 7 and 14 days ahead prediction was asked, and $[0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ confidence-intervals were computed. 
 The WIS and the RMSE of these predictions were then computed. 
 
+\subsection{Point classification}
 
+In order to compare the performance of the models at different point of the pandemic, we classified the points in six categories : \textit{stable, increase, big increase, inflexion, decrease, big decrease}.
+For a pandemic $X_{i, i \in [1, ..., n]}$, and a day $d \in [1, \hdots, n]$, the classification is made according the following rule : \\
+define $d = \frac{1}{7} \times \frac{ (X[d+7] - X[d])} {X[d]}$\\
+and $d' = \frac{1}{49} \times \frac{X[d+7] + X[d-7] - 2 \times X[d]}{X[d]}$
+\begin{enumerate}
+    \item If $X[d] < 100$ : \\
+    classification = "stable"
+    \item Elif $d < - 0.05$ : \\
+    classification = "big decrease"
+    \item Elif $d < -0.03$ : \\
+    classification = "decrease"
+    \item Elif $d < 0.03$ : \\
+    \begin{itemize}
+        \item if $\vert d  \vert > 0.003$ : \\
+        classification = inflexion
+        \item else :
+        classification = "stable" 
+    \end{itemize}
+    \item Elif $d < 0.2$ : \\
+    classification = "increase"
+    \item Else : \\
+     classification = "big increase"
+\end{enumerate}
+
+
+The values of the thresholds were chosen by hand. 
+As the model are tested on the days [20, 40, 60, ..., 280], we labelled all of thses points with thye function described above. 
+It resulted that among all those 4536 points, 646 were classified as 'big decrease', 370 as decrease, '152' as inflexion, 2485 as 'stable', 760 as 'increase' and 123 as 'big increase'.
 \end{document}
