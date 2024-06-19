@@ -3,7 +3,7 @@
 \subsection*{The data}
 
 As the goal of this study is to compare some forecasts on many different pandemics, a large set of synthetic pandemics need to be generated, with a particular attention on the diversity of these pandemics. 
-
+All the simulations in this paper are made on a fixed population of $10^6$ agents. 
 \subsubsection{Covasim}
 
 To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python librairy that can simulate the evolution of a pandemic was used. 
@@ -33,24 +33,26 @@ The parameters that are not specified are the default parameters of the Covasim 
 \end{figure}
 
 
-The different interventions were based on mobility reports from Västtrafik (Fig.\ref{fig:mobility_reports}), the public transport company of the city of Gothenburg, which were reported during the Covid 19 pandemic and has been retrieved in \cite{gerlee2021predicting}.
+The different interventions were based on mobility reports from Västtrafik (Fig.\ref{fig:mobility_reports}), the public transport company of the city of Gothenburg. 
+They were reported during the Covid 19 pandemic and have been retrieved in \cite{gerlee2021predicting}.
 These interventions correspond to 53 relative weekly variations of the mobility, with a reference value of 1 for the first week of the report, which correspond to the 9-th week of 2020. 
 
 
 \subsubsection{Generating diverse pandemics}
 \label{sec:generating_divserse_pandemics}
 In order to evaluate the performances of our models on a wide range of pandemics, a training set of pandemics was generated. 
-A huge diversity of pandemics is needed to determine which model is the more consistent.
+A huge diversity of pandemics is needed to determine the most consistent model.
 It is so relevant to identify the key parameters that generate this diversity.
 As Covasim has a very huge set of inputs parameters, a first subset of key parameters was identified: the spread parameters and the severity parameters. 
 The severity parameters are the 4 parameters that correspond to the probability for an agent to get from a compartment to another. 
 The spread parameters are 9 parameters that represent the distribution of probability of the time spend by an agent in a compartment (such as infected, crictical...) once he entered it. 
+This set of 13 parameters is the noted as $S$. 
 This distribution is a log-normal distribution, but the spread-parameters correspond to the mean of this log-normal distribution
 All the parameters have a default value of 1, which correspond to keeping the reference value. 
 We decided to select 4 parameters and to make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
 To select the 4 parameters that generated the most diversity, different diversity metrics were computed. 
 
-Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics.  
+Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics.  \\[0.2cm]
 
 Let :  \\
 
@@ -71,9 +73,9 @@ To determine which measure to use, we generated 14 pandemics.
 Each pandemic but the last one has default parameters except one of them which was doubled. 
 The last pandemic has only default parameters. 
 
-For each norm $\mathcal{L}_k$, we determined $S$,  the subset of 4 pandemics that maximized the following quantity:\\
+For each norm $\mathcal{L}_k$, we determined $s$,  the subset of 4 pandemics that maximized the following quantity:\\
 
-\[ \sum_{i, j \in S, i \neq j} \mathcal{L}_k(Y_i, Y_j) \]
+\[ \mathcal{L}_k(S) = \sum_{i, j \in s, i \neq j} \mathcal{L}_k(Y_i, Y_j) \]
 
 \begin{figure}
     \centering
@@ -83,22 +85,22 @@ For each norm $\mathcal{L}_k$, we determined $S$,  the subset of 4 pandemics tha
 \end{figure}
 
 
-The 4 most divers pandemics accorded to each norm are shown in the figure \ref{fig:diversity_pandemics}.
+The 4 most diverse pandemics (in the subset of 14 pandemics generated) according to each norm are shown in the Fig.\ref{fig:diversity_pandemics}.
 We decided according to this figure, that $\mathcal{L}_2$ norm was the most relevant to determine the diversity of the pandemics.
-But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as the parameters were changed independantly, and the diversity did not take into account the correlation between some of them. 
+But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as the parameters were changed independantly, and the diversity did not take into account the correlation between some of them. \\
 
 Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
 
-$ S_{opt} = \underset{S' \subset S , \vert S' \vert =4 }{argmax} \mathcal{L}(S')$, with $ \mathcal{L}(S')= \sum_{s, t \in \mathcal{P}_g(S') , s \neq t }{\mathcal{L}_2(s,t)}$, and  $\mathcal{P}_{g}(S')$ the set of the 81 pandemics generated with the 4 parameters of $S'$
+$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax} \mathcal{L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s) , s \neq t }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
 
-However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $S'$ included in $S$.\\[1cm]
+However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $s$ included in $S$ (the set of all 13 parameters).\\[1cm]
 
 
-A MCMC algorithm \cite*{diaconis2009markov} was then implemented, to perform a clever grid search on the different subsets $S' \subset S $ of parameters.
+A MCMC algorithm \cite*{diaconis2009markov} was then implemented, to perform a clever grid search on the different subsets $s \subset S $ of parameters.
 The MCMC algorithm is a method which is used to sample from a distribution that can't be directly sampled. 
 The main idea is to construct a Markov Chain whose stationary distribution is the objective distribution.
 
-Let $\mathcal{S} = \{ S'\subset S ;  \vert S' \vert = 4 \}$ be the support of the target distribution, which is, in our case, the set of all the 715 combinations of the 4 parameters among the 13 different possible, and let $\pi$ be the target distribution on $\mathcal{S}$.
+Let $\mathcal{S} = \{ s\subset S ;  \vert s \vert = 4 \}$ be the support of the target distribution, which is, in our case, the set of all the 715 combinations of the 4 parameters among the 13 different possible, and let $\pi$ be the target distribution on $\mathcal{S}$.
 $\forall s \in \mathcal{S}, \pi(s) = \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}}  \mathcal{L}(s)} $. $\pi$ is not directly computable as it is too time consuming to compute the denominator.
 
 
@@ -113,7 +115,7 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
  \left\{
     \begin{aligned}
         & S_0 = s_0 \\
-        & \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(S_n)})}{\mathcal{L}(\mathcal{S}_n)} \\
+        & \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(S_n)})}{\mathcal{L}(S_n)} \\
         & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + X_n \mathbb{1}_{\{U_n > \alpha_n\}}
 \end{aligned}
 \right.
@@ -123,7 +125,7 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
 As $S_{n+1}$ is a function of $S_n$ and of other independant random variables, the sequence $S_n$ is a homogenous Markov Chain.
 This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbourghs of $S_n$ (it is $U_n^{ne(S_n)}$)
 The Markov Chain moves to this neighbourgh if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
-If the new value of $\mathcal{L}$ is smaller, the markov chain moves with a probability that is equal to the ratio of the two values.
+If the new value of $\mathcal{L}$ is smaller, the Markov Chain moves with a probability that is equal to the ratio of the two values.
 This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. \\
 
 The transition matrix of this Markov Chain is the following: 
@@ -148,8 +150,13 @@ $
     &= \pi(s')K(s', s)\\[0.3cm]
 \end{aligned}
 $
+\newline
 Indeed, each subset $s$ has 36 neighbourgh, as there are 13 parameters and one can replace each parameter of $s$ by any of the 9 others. \\
-Thus, $\pi$ is \textbf{reversible} for $K$.\\
+
+If $s' \notin ne(s)$, then $s \notin ne(s')$ and $K(s, s') = 0$.
+We directly have $\pi(s)K(s, s') = 0 = \pi(s')K(s', s)$.\\
+
+Thus, $\pi$ is \textbf{reversible} for $K$.\\[0.3cm]
 Let $(s, s') \in \mathcal{S}^2$. Let us note $(a, b, c, d)$ and $(a', b', c', d')$ the elements of $s$ and $s'$.
 We note : \\
 $s_1 = [a', b, c, d]$\\
@@ -162,8 +169,8 @@ $
     \mathbb{P}(S_{n+4}=s'\vert S_n = s ) & \geqslant \mathbb{P}(S_{n+4} = s' \cap  S_{n+3}= s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \\
     & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \cap S_n = s) \\
     & \quad\quad\quad\quad \times \mathbb{P}( S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \text{  (Baye' s Formula)}\\
-    & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3) \times \mathbb{P}( S_{n+3} = s_3 \vert S_{n+2} = s_2 \cap S_{n+1} = s_1 \cap S_n = s) \\
-    & \quad\quad\quad\quad \times \mathbb{P}( S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s ) \text{ (by Markov's property)}\\
+    & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3)\\
+    & \quad\quad\quad\quad  \times \mathbb{P}( S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s)  \text{ (by Markov's property)}\\
     & \vdots \\
     & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3) \times \mathbb{P}( S_{n+3} = s_3 \vert S_{n+2} = s_2) \times \mathbb{P}( S_{n+2} = s_2 \vert S_{n+1} = s_1) \\
     & \quad\quad\quad\quad \times \mathbb{P}( S_{n+1} = s_1 \vert S_n = s ) \text{ (by Markov's property)}\\
@@ -172,10 +179,10 @@ $
 \end{aligned}
 $
 
-Thus, $S_n$ is \textbf{irreducible}.\\
+Thus, $S_n$ is \textbf{irreductible}.\\
 
 A Markov chain of transition matrix $P$ on the support $\mathcal{S}$ is said to be aperiodic if: \\
-$\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \cite[text]{bodineau2015modelisation}\\
+$\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \cite{bodineau2015modelisation}\\
 
 First, note that $\forall s \in \mathcal{S}$,  $s$ is a local minimum (i.e if $\forall s' \in ne(s), \mathcal{L}(s') > \mathcal{L}(s) $) if and only if $K(s,s)=0$\\
 
@@ -193,19 +200,19 @@ Let $(s, s')  \in \mathcal{S}^2$. \\
 Thus $S_n$ is an \textbf{aperiodic} Markov Chain.\\
 
 
-Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreductible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.
+Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreductible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.\\
 
 
 The most probable set that will be sampled by $S_n$ is so the one that maximises the diversity.
 We implemented this MCMC algorithm to maximise $\mathcal{L}_2$ on $\mathcal{S}$ . 
-After 200 iterations, the set of parameters that maximised the diversity was \texttt{[0, 5, 10, 12]}. 
-A new maxima was found at \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
+The first value of the sequence was a clever starting point: the four parameters that maximized $\mathcal{L}_2$ on the 14 pandemics generated (Fig.\ref{fig:diversity_pandemics}).  
+After 200 iterations, the set of parameters that maximised the diversity was \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
 The $\mathcal{L}_2$- diversity increased from 62353 to 93553. \\
 
-To create the most diverse set possible, we also created 4 different mobilities reports \ref{fig:mobilities}, corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
+To create the most diverse set possible, we also created 4 different mobilities reports Fig.\ref{fig:mobilities}, corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/mobilities.png}
+    \includegraphics[width=0.5\textwidth]{figures/mobilities.png}
     \caption{Mobility reports.}
     \label{fig:mobilities}
 \end{figure}
@@ -221,7 +228,7 @@ In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed for
 We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
 All of these models were implemented in Python, and are available on the github repository provided with this article (\ref{github-link}).
 During the training or predicting phase, the computation sometimes fail (for instance, when the matrix is non-inversible for the linear regression model). 
-The model then outputs the value of the mving average model, which can be interpreted as a naive output when the computation fails. \\
+The model then outputs the value of the moving average model (see \ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
 \textbf{Task of a model}: \\
 
 Each model ${h}$ is given : 
@@ -272,7 +279,7 @@ The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the par
     
 \end{figure}
 
-The SIRH model (\ref{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
+The SIRH model (Fig.\ref{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
 In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
 Each compartment correspond to the number of person in the state of health of the compartment. 
 The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
@@ -284,7 +291,7 @@ The evolution of the number of person in each compartment is described by a syst
         &\frac{dS}{dt} = - \beta \frac{SI}{N} \\
         &\frac{dI}{dt} = \beta \frac{SI}{N} - \gamma_i I - h H \\
         &\frac{dR}{dt} = \gamma_i I + \gamma_h h \\
-        &\frac{dH}{dt} = h I
+        &\frac{dH}{dt} = h I - \gamma_h H
     \end{aligned}
     \right.
 \end{equation}
@@ -310,10 +317,10 @@ We chose to fix $dt=0.001$.
 
 
 
-To train this model, we minimize the least square between the curve of the number of hospitalized observed to the curve of the number of hospitalized of teh training data with respect to $\theta = (\beta, gamma_i, gamma_h, h)$. 
-We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$. 
+To train this model, we minimize the least square between the curve of the number of hospitalized observed to the curve of the number of hospitalized of teh training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
+We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:types_of_sirh}).
 
-TODO : add a table of which coefficient are constant or not sirh 1 = cst, cst/ sirh2 = cst, free / sirh3 = free , cst / sirh4 = free, free. 
+\input{tables/table_types_of_sirh.tex}
 In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
 The initial value for $S$ and $I$ correspond to the last value of the fit of the training phase. 
 The initial value for $H$ correspond to the last value of $\mathcal{D}$, the trainig data. 
@@ -332,24 +339,25 @@ To write it more formally, let $H_\theta(t)$ and $I_\theta(t)$ be the number of 
 Let $Y_{H, t}$ and $Y_{I, t}$ be the number of hospitalized and infected at time $t$ in the data.
 We have :\\
 
-$\hat{\theta} = \underset{\theta \in \mathbb{R}^5}{\operatorname{argmin}} \sum_{t=1}^{n} (\frac{H_\theta(t) - Y_{H, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{H, t})}})^2 + (\frac{I_\theta(t) - Y_{I, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{I, t})}})^2$\\
+$\hat{\theta} = \underset{\theta \in \mathbb{R}^5}{\operatorname{argmin}} \sum_{t=1}^{n} (\frac{H_\theta(t) - Y_{H, t}}{\underset{t \in \{1, ..., n \}}{\operatorname{max(Y_{H, t})}}})^2 + (\frac{I_\theta(t) - Y_{I, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{I, t})}})^2$\\
 
-With $\theta = (a, c, \gamma_i, \gamma_h, h)$ and $m_t$ the mobility at time $t$.
+With $\theta = (a, b, \gamma_i, \gamma_h, h)$ and $m_t$ the mobility at time $t$.
 The normalization factors enables to prevent the optimization to focus on the number of infected, which is bigger than the number of hospitalized. 
 Once again, a variation of the SIRH model was implemented, in which the value of $\gamma_h$ and $\gamma_i$ is fixed to $0.2$. 
+SIRH multi 1 refer to the model in which $\gamma_h$ and $\gamma_i$ are free and SIRH multi 2 refer to the model in which $\gamma_h$ and $\gamma_i$ are fixed to $0.2$.
 
 
 
 \subsubsection{ARIMA and VAR models} 
 
-The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic prediction (see \cite[text]{kufel2020arima} and \cite[text]{shang2021regional})
+The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic prediction (see \cite{kufel2020arima} and \cite{shang2021regional})
 The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differenciated $d$ times. 
 It follows the equation : \\
 $Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j} \label{eq:arima}$\\ 
-where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differencing, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
+where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differenciation, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
 The coefficient are estimated through maximum likelihood estimation. 
-This method is implemented in the \texttt{statsmodels} library, which directly provide prediction and confidence intervals.
-We realized a grid search on a single pandemic to identify the combinaition of parameters that would optimize the prediction accuracy. 
+This method is implemented in the \texttt{statsmodels} library, which directly provides prediction and confidence intervals.
+We realized a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
 We found an optimal value for $p= 3, d=0, q=3$. 
 
 The VAR model is a multi-dimensional $AR$ model, in which different variable are predicted. 
@@ -359,7 +367,10 @@ The value of the parameters of a VAR have physical sense and can be interpreted 
 Let $Y_{1,t}, ..., Y_{k,t}$ be the times series (in our case, $k=3$ and they correspond to the number of hospitalized, the number of infected and the mobility data).
 
 
-\[
+
+
+\begin{equation*}
+\begin{aligned}
 VAR(p) : 
 \begin{pmatrix}
 Y_{1,t} \\
@@ -367,7 +378,7 @@ Y_{2,t} \\
 \vdots \\
 Y_{k,t}
 \end{pmatrix}
-=
+&=
 \begin{pmatrix}
 c_1 \\
 c_2 \\
@@ -386,8 +397,9 @@ Y_{1,t-1} \\
 Y_{2,t-1} \\
 \vdots \\
 Y_{k,t-1}
-\end{pmatrix} 
-+ \cdots + 
+\end{pmatrix} \\
+&\quad + \cdots 
++ 
 \begin{pmatrix}
 \phi_{11,p} & \phi_{12,p} & \cdots & \phi_{1k,p} \\
 \phi_{21,p} & \phi_{22,p} & \cdots & \phi_{2k,p} \\
@@ -407,18 +419,21 @@ Y_{k,t-p}
 \vdots \\
 \epsilon_{k,t}
 \end{pmatrix}
-\]
+\end{aligned}
+\end{equation*}
+    
 
 
 Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} librairy. 
 The confidence intervals are also directy provided by the librairy.
 \subsubsection{The moving average model}
+\label{sec:moving_average}
 
 A mere moving average model was also implemented. 
 It returns a constant prediction that correspond to the mean of the 7 past days. 
 The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the 7 past data-points; 
 This model is used as a baseline.
-A model that does not manage to outperform the moving average model would not be relevant.
+A model that does not manage to outperform the moving average model would not be useful. 
 
 \subsubsection{Exponential regression}
 
@@ -428,7 +443,8 @@ The value of $\theta = (a, b, c)$ is computed through a least square method.
 The confidence interval on the prediction is estimated with the same method as SIRH (see \ref{sec:ci}). 
 
 An exponential regression of the second type was also implemented: \\
-The data of the number of hospitalized is fitted to the function $E_{a, b, c, d, e}(t) = a \times e^{b m_{t-i} + c  t + d inf_{t-j} }+e$.
+The data of the number of hospitalized is fitted to the function $E_{a, b, c, d, e}(t) = a \times e^{b m_{t-i} + c  t + d \times inf_{t-j} }+e$.\\
+$m_t$ is the mobility data at time $t$ and $inf_t$ is the number of infected at time $t$.
 The value of $\theta = (a, b, c, d, e)$ is computed through a least square method.
 The optimal value of the time lag $i$ and $j$ is optimized during the training phase through a grid search among all the values between 0 and 14. 
 The confidence interval on the prediction is estimated with the same method as SIRH (see \ref{sec:ci}). 
@@ -436,27 +452,40 @@ The confidence interval on the prediction is estimated with the same method as S
 \subsubsection{Machine learning models}
 \label{sec:mlmodels}
 
-In order to implement machine learning regressor, we converted the time-series $Y_{t, t \in {1, \vdots n}}$ in a training set $(X_i, Y_i)$ such that : \\
+In order to implement machine learning regressor, we converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
 $\forall i \in \{1, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
 We then trained and optimized both regressors : the linear and the bayesain regression, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Ridge, Gradient boosting regressor, Random Forest regressor, Bayesain Ridge and SVR. 
 The confidence interval for the linear regression prediction was computed as follow : \\
 Let us suppose that the data follows a linear regression model : $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
 The least square estimator of $\beta$ is $\hat{\beta} = (X^T X)^{-1} X^T Y$.
-If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to predict, the prediction is $\tilde{Y} = \tilde{X} \hat{\beta}$.
-$\tilde{Y} = \tilde{X} \hat{\beta} = \tilde{X} (X^T X)^{-1} X^T Y = \tilde{X} (X^T X)^{-1} X^T (X\beta + \epsilon) = \tilde{X} \beta + \tilde{X} (X^T X)^{-1} X^T \epsilon$.\\
+If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to predict, the prediction is  : \\
+
+$
+\begin{aligned}
+    \tilde{Y} & = \tilde{X} \hat{\beta} \\
+    &  = \tilde{X} \hat{\beta} = \tilde{X} (X^T X)^{-1} X^T Y \\
+    &  = \tilde{X} (X^T X)^{-1} X^T (X\beta + \epsilon) \\
+    &  = \tilde{X} \beta + \tilde{X} (X^T X)^{-1} X^T \epsilon.\\
+\end{aligned}
+$
 $\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}T \sigma ^2$.\\
 The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn librairy and the delta method. 
 
 TODO add more details on the confidence interval + the prior of the bayesian 
 \subsubsection{Ensemble model}
 
-It has been showned ( \cite{cramer2022evaluation} and   TODO add other refs ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
-We implemented an ensemble model which is a linear combinaition of the outputs of the 13 models described above, with the exponential models removed.
+It has been showned ( \cite{cramer2022evaluation}a dn \cite{reich2019accuracy} ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
+We implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
 TODO add the coefficient found on a figure with the weights
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/esb_coefs.png}
+    \caption{Weights of the ensemble models}
+    \label{fig:ensemble_weights}
+\end{figure}
 \subsubsection{Computing confidence intervals on the prediction}
 \label{sec:ci}
 
