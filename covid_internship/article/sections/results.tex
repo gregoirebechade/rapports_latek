@@ -7,7 +7,7 @@ The models were trained and tested on different points of 324 different pandemic
 To generate those pandemics, four parameters that maximized the diversity of the set of pandemics generated were selected (see \ref{sec:generating_divserse_pandemics}). 
 Those parameters were varied on the three values 0.5, 1 and 2. 
 These values correspond to scaling factors of the default values of the model. 
-For each pandemic, the transmission probabilities were time dependant and followed one of the four different mobility patterns (see \ref{fig:mobilities}). 
+For each pandemic, the transmission probabilities were time dependant and followed one of the four different mobility patterns (see FIG.\ref{fig:mobilities}). 
 Thanks to those 4 parameters, each varied on three different values and to the four different mobilities, we obtained 324 simulations of pandemics. 
 We decided to focus on the number of hospitalized individuals as the target variable. 
 Indeed, it is a key variable to monitor, as the hospital occupancy correspond to the capacity of the state to treat the patients. 
@@ -24,7 +24,7 @@ The second type of models xere trained on the time series of the number of hospi
 
 \subsubsection{SIRH}
 
-The SIRH (Suspectible, Infected, Recovered, Hospitalized) (\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment : the Hopsitalized compartment. 
+The SIRH (Suspectible, Infected, Recovered, Hospitalized) (FIG.\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment : the Hopsitalized compartment. 
 The parameters of this model correspond to the rates of evolution from a compartment to another one. 
 $\beta$ correspond to the transmission rate, $\gamma_i$ and $\gamma_h$ correspond to the recovery rate from both Infected and Hospitalized compartments, and $h$ correspond to the hospitalization rate. 
 The value of $S, I, R$ and $H$ are linked through a system of differential equations (\ref{eq:sirh}). 
@@ -76,7 +76,7 @@ They use the last 20 data points to predict the next one (see \ref{sec:mlmodels}
 The models described above were tested on 14 points of each of the 324 pandemics generated. 
 For each point, a 7 and 14 days-ahead prediction was made. 
 Each prediction was evaluated thanks to WIS and RMSE (see \ref{sec:metrics}), and then ranked according to the performances of other models.
-The point of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'inflexion', 'decrease' and 'big decrease'. 
+The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'inflexion', 'decrease' and 'big decrease'. 
 It is then possible to get global information on the rankings of the models. 
 For instance, if the loss and the reach of prediction is fixed, we can look at the distribution of rankings of all the models for a type of point (to see the best model for a type of point), as in Fig.\ref{fig:rankings}.
 \begin{figure}[h]
@@ -85,7 +85,7 @@ For instance, if the loss and the reach of prediction is fixed, we can look at t
     \caption{Distribution of rankings of the models for big increase points for 7-days ahead predictions and RMSE loss}
     \label{fig:rankings}
 \end{figure}
-This distribution of rankings of the model can be summed up in one single value : the expected value of the rank of a model (see \ref{fig:expected_rank} ), which enables to get the idea of the best model for this type of point, this loss, and this prediction range. 
+This distribution of rankings of the model can be summed up in one single value : the expected value of the rank of a model (see Fig.\ref{fig:expected_rank} ), which enables to get the idea of the best model for this type of point, this loss, and this prediction range on a more compact figure. 
 
 \begin{figure}[h]
     \centering
@@ -93,8 +93,8 @@ This distribution of rankings of the model can be summed up in one single value 
     \caption{Expected rank of the models for big increase points for 7-days ahead predictions and RMSE loss}
     \label{fig:expected_rank}
 \end{figure}
-This new number looses information (for instance on bimodal rankings distribution) but enables to enlight the expected performance of a model. 
-For each loss and range of prediction, the expected rank of the models for each type of point can be vizualized on the same figure, which enables to have a global look of the performances of the models.(\ref{fig:heatmap_RMSE_7}) 
+This new number loses information (for instance on bimodal rankings distribution) but enables to enlight the expected performance of a model. 
+For each loss and range of prediction, the expected rank of the models for each type of point can be vizualized on the same figure, which enables to have a global look of the performances of the models.(Fig.\ref{fig:heatmap_RMSE_7}) 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/heatmap_RMSE_7.png}
@@ -112,9 +112,10 @@ The exponential models are very bad and almost always the last ones.
 
 \subsection{The Ensemble model}
 
-It has been showned in the literature (TODO insert ref) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function. 
-We decided to implement or own ensemble models which are a linear combination of the predictions of the 13 individual models (without exponential models) for 7 and 14 days-ahead predictions.
-The performances of these two models are showned in the two figure below (\ref{fig:esb_rank_7} and \ref{fig:esb_rank_14})
+It has been showned in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking ( as it is done in \cite{reich2019accuracy} ).
+We decided to implement or own ensemble models. 
+They consist in a linear combination of the predictions of the 13 individual models (without exponential models) for 7 and 14 days-ahead predictions.
+The performances of these two models are showned in the two figure below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})
 
 \begin{figure}
     \centering
@@ -131,9 +132,9 @@ The performances of these two models are showned in the two figure below (\ref{f
 \end{figure}
 
 The distribution of the ranks of the ensemble model is almost always on the left side of the x-axis, except for the 'stable' points. 
-The fact that the 'stable' points are overrepresented leads to a general poor performance of the ensemble model.
-However, on the other type of points, the enesmble model is very consistent, and almpst always in the top models. 
-the heatmaps of expected ranks help to see how consistent is the ensemble model (\ref{heatmap_esb_7} and \ref{heatmap_esb_14}). 
+The fact that the 'stable' points are overrepresented (see \ref{sec:classification}) leads to a general poor performance of the ensemble model.
+However, on the other type of points, the ensemble model is very consistent, and almost always in the top models. 
+The heatmaps of expected ranks on all type of points enables to see how consistent is the ensemble model (Fig.\ref{fig:heatmap_esb_7} and Fig.\ref{fig:heatmap_esb_14}) compared to the other models. 
 
 \begin{figure}
     \centering
@@ -150,9 +151,8 @@ the heatmaps of expected ranks help to see how consistent is the ensemble model 
     \label{fig:heatmap_esb_7}
 \end{figure}
 
-From these figures, we can see that the ensemble model is rarely the best, but never the last model, as showed in TODO insert ref.
-Its consticency enables to get good predictions and to avoid outliers predicted values.
-
+From these figures, we can see that the ensemble model is rarely the best, but never the last model, which is a result aldready observed in \cite{cramer2022evaluation}.
+Its consistency allows for accurate predictions and helps avoid outlier predicted values.
 
 
 

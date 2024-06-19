@@ -401,6 +401,82 @@
       \field{labeltitlesource}{title}
       \field{title}{Asymptotics for least squares}
     \endentry
+    \entry{reich2019accuracy}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=68b4dbf033ecb04ab5bf0af268e2da21}{%
+           family={Reich},
+           familyi={R\bibinitperiod},
+           given={Nicholas\bibnamedelima G},
+           giveni={N\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=f1c7d5ba8ea38267f3686d3c76b8f208}{%
+           family={McGowan},
+           familyi={M\bibinitperiod},
+           given={Craig\bibnamedelima J},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=503515b7aae17a028752640c79aa5bef}{%
+           family={Yamana},
+           familyi={Y\bibinitperiod},
+           given={Teresa\bibnamedelima K},
+           giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=c3c7d3a1f526974cf2decc767950617b}{%
+           family={Tushar},
+           familyi={T\bibinitperiod},
+           given={Abhinav},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d16a29b1c1bff8d354890977bae93ae5}{%
+           family={Ray},
+           familyi={R\bibinitperiod},
+           given={Evan\bibnamedelima L},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=95651d480f49bec18f0c6a6a8d257b35}{%
+           family={Osthus},
+           familyi={O\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8f639bbed93ef10fb5bb373e9627faf4}{%
+           family={Kandula},
+           familyi={K\bibinitperiod},
+           given={Sasikiran},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6b1a8f7abdcdc797b42ee7a224170893}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Logan\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=e8b1a1629a7efaa6a59f3cb92dbe3c6c}{%
+           family={Crawford-Crudell},
+           familyi={C\bibinithyphendelim C\bibinitperiod},
+           given={Willow},
+           giveni={W\bibinitperiod}}}%
+        {{hash=d67a8363d00842a706f4a0527c407006}{%
+           family={Gibson},
+           familyi={G\bibinitperiod},
+           given={Graham\bibnamedelima Casey},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science San Francisco, CA USA}%
+      }
+      \strng{namehash}{a1627e419271c4e791af019298f9f0a3}
+      \strng{fullhash}{ff8eb37b79be9e385aa75b03574d44da}
+      \strng{bibnamehash}{a1627e419271c4e791af019298f9f0a3}
+      \strng{authorbibnamehash}{a1627e419271c4e791af019298f9f0a3}
+      \strng{authornamehash}{a1627e419271c4e791af019298f9f0a3}
+      \strng{authorfullhash}{ff8eb37b79be9e385aa75b03574d44da}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS computational biology}
+      \field{number}{11}
+      \field{title}{Accuracy of real-time multi-model ensemble forecasts for seasonal influenza in the US}
+      \field{volume}{15}
+      \field{year}{2019}
+      \field{pages}{e1007486}
+      \range{pages}{-1}
+    \endentry
     \entry{ruckstuhl2010introduction}{article}{}
       \name{author}{1}{}{%
         {{hash=87491c1f29ea4f1ea76b41d6d9a474df}{%
