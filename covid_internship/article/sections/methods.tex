@@ -478,8 +478,8 @@ TODO add more details on the confidence interval + the prior of the bayesian
 It has been showned ( \cite{cramer2022evaluation}a dn \cite{reich2019accuracy} ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
 We implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
+They are represented in the Fig.\ref{fig:ensemble_weights}.
 As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
-TODO add the coefficient found on a figure with the weights
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/esb_coefs.png}
