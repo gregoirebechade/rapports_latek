@@ -122,11 +122,11 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
 \]
 \\[0.5cm]
 
-As $S_{n+1}$ is a function of $S_n$ and of other independant random variables, the sequence $S_n$ is a homogenous Markov Chain.
-This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbourghs of $S_n$ (it is $U_n^{ne(S_n)}$)
+This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbourghs of $S_n$ (it is $U_n^{ne(S_n)}$). 
 The Markov Chain moves to this neighbourgh if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
 If the new value of $\mathcal{L}$ is smaller, the Markov Chain moves with a probability that is equal to the ratio of the two values.
 This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. \\
+As $S_{n+1}$ is a function of $S_n$ and of other independant random variables, the sequence $S_n$ is a homogenous Markov Chain.
 
 The transition matrix of this Markov Chain is the following: 
 \[
@@ -203,13 +203,13 @@ Thus $S_n$ is an \textbf{aperiodic} Markov Chain.\\
 Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreductible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.\\
 
 
-The most probable set that will be sampled by $S_n$ is so the one that maximises the diversity.
+The most probable set that will be sampled by $S_n$ is the one that maximises the diversity.
 We implemented this MCMC algorithm to maximise $\mathcal{L}_2$ on $\mathcal{S}$ . 
-The first value of the sequence was a clever starting point: the four parameters that maximized $\mathcal{L}_2$ on the 14 pandemics generated (Fig.\ref{fig:diversity_pandemics}).  
+The first value of the sequence was a clever starting point: the four parameters that maximized $\mathcal{L}_2$ on the 14 pandemics generated earlier (Fig.\ref{fig:diversity_pandemics}).  
 After 200 iterations, the set of parameters that maximised the diversity was \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
 The $\mathcal{L}_2$- diversity increased from 62353 to 93553. \\
 
-To create the most diverse set possible, we also created 4 different mobilities reports Fig.\ref{fig:mobilities}, corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
+To create the most diverse set possible, we also created 4 different mobilities reports (Fig.\ref{fig:mobilities}), corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/mobilities.png}
@@ -296,7 +296,7 @@ The evolution of the number of person in each compartment is described by a syst
     \right.
 \end{equation}
 
-At $t=0$, the values of $(S_0, I_0, R_0, H_0)$ is fixed to $(10^6 -1, 1, 0, 0,) $. 
+At $t=0$, the values of $(S_0, I_0, R_0, H_0)$ are fixed to $(10^6 -1, 1, 0, 0,) $. 
 As the system of equation can't be directly solved, we use a Euler method to solve it : \\
 
 
@@ -317,13 +317,13 @@ We chose to fix $dt=0.001$.
 
 
 
-To train this model, we minimize the least square between the curve of the number of hospitalized observed to the curve of the number of hospitalized of teh training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
-We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:types_of_sirh}).
+To train this model, we minimize the least squares error between the curve of the number of hospitalized observed to the curve of the number of hospitalized of the training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
+We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:sirh_models_parameters}).
 
 \input{tables/table_types_of_sirh.tex}
 In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
-The initial value for $S$ and $I$ correspond to the last value of the fit of the training phase. 
-The initial value for $H$ correspond to the last value of $\mathcal{D}$, the trainig data. 
+The initial values for $S$ and $I$ correspond to the last value of the fit of the training phase. 
+The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the trainig data. 
 The initial value of $R$ is fixed by the previous values as the equation $S_t + I_y + R_t + H_t = N$ is always true. 
 The confidence interval of the prediction is computd thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
 
@@ -438,8 +438,8 @@ A model that does not manage to outperform the moving average model would not be
 \subsubsection{Exponential regression}
 
 An exponential regression model was implemented.
-It correspond to fitting the data of the number of hospitalized ($Y_t$) to the function $E_{a, b, c}(t) = a \times e^{b t} +c$.
-The value of $\theta = (a, b, c)$ is computed through a least square method.
+It corresponds to fitting the data of the number of hospitalized ($Y_t$) to the function $E_{a, b, c}(t) = a \times e^{b t} +c$.
+The value of $\theta = (a, b, c)$ is computed through a least square minimization method.
 The confidence interval on the prediction is estimated with the same method as SIRH (see \ref{sec:ci}). 
 
 An exponential regression of the second type was also implemented: \\
@@ -455,7 +455,8 @@ The confidence interval on the prediction is estimated with the same method as S
 In order to implement machine learning regressor, we converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
 $\forall i \in \{1, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
-We then trained and optimized both regressors : the linear and the bayesain regression, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Ridge, Gradient boosting regressor, Random Forest regressor, Bayesain Ridge and SVR. 
+We then trained and optimized both regressors : the linear and the bayesain regressors, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
+The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} librairy (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
 The confidence interval for the linear regression prediction was computed as follow : \\
 Let us suppose that the data follows a linear regression model : $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
 The least square estimator of $\beta$ is $\hat{\beta} = (X^T X)^{-1} X^T Y$.
@@ -469,13 +470,14 @@ $
     &  = \tilde{X} \beta + \tilde{X} (X^T X)^{-1} X^T \epsilon.\\
 \end{aligned}
 $
+\newline
 $\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}T \sigma ^2$.\\
 The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn librairy and the delta method. 
 
 TODO add more details on the confidence interval + the prior of the bayesian 
 \subsubsection{Ensemble model}
 
-It has been showned ( \cite{cramer2022evaluation}a dn \cite{reich2019accuracy} ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
+It has been showned ( \cite{cramer2022evaluation} and \cite{reich2019accuracy} ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
 We implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 They are represented in the Fig.\ref{fig:ensemble_weights}.
@@ -542,8 +544,10 @@ This is a regression linear problem.
 
 Let us solve this problem in the general case.
 
-Let $(A_i, \tilde{Y_i})$ be the observations Let $\mathbb{P}$ be the law from which the $A_i$ are drawn, and let us assume that $Y_i = A_i \beta ^* + \epsilon_i $, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$.
-
+Let $(A_i, \tilde{Y_i})$ be the observations. ATTENTION LES EPSILON I SONT DES EPSILON I ' , IL FAUT AUSSI CHANGER LES SIGMA 
+We suppose that the $A_i$ are independant and identically distributed. 
+Let $\mathbb{P}$ be the law from which the $A_i$ are drawn, and let us assume that $Y_i = A_i \beta ^* + \epsilon_i $, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$.
+IL MANQUE DES TILDE ?
 
 The solution of this problem is explicitly (from \cite*{powellasymptoticsforleastsquares}):
 \[
@@ -579,11 +583,11 @@ We have:
 
 \[
 \hat{D}  \underset{a.s}{\rightarrow} D=  \mathbb{E}[A_i ^T A_i ]
-\]
+\] (A EST CONSTANT , IL FAUT CHANGER CETTE PARTIE. Si $\nabla_\theta h_\theta$ est borné, on a que $\hat{D}$ converge )
 
 \[
 \hat{\delta}   \underset{a.s}{\rightarrow}  \delta = \mathbb{E}[A_i ^T \tilde{Y}_i ]
-\]
+\] (VERIFIER LES HYPOTHESES D APPLICATION DE LA LFGN POUR LE CAS IND2PENDANT NON IDENTIQUEMENT DISTRIBUE. Ok avec $\delta=1$ dans la preuve de la lfgn Observations indépendantes et non-identiquement distribuées. Il nous faut alors la condition suivant : $h_\theta$ différentiable en $\theta$ et $\nabla_\theta h_\theta$ borné pour avoir la convergence.  )
 
 $ \hat{\beta} = \hat{D}^{-1} \hat{\delta}  \underset{a.s}{\rightarrow}  D^{-1} \delta $ , as the following function $\phi$ is continuous:
 \[
