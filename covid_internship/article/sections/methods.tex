@@ -497,7 +497,7 @@ We suppose that the data of the pandemic observed follows the model $h$, of para
 \[
 \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2
 \]
-
+We also suppose that $h_\theta$ is differentiable and that  $ \exists K \in \mathbb{R},  \forall i \in \{1, ..., n\}, \left\lVert  \nabla_\theta h_{\theta^*}(i) \right\rVert^2 \leq  K$.
 Let:
 \begin{align*}
 Y &= \begin{pmatrix}
@@ -544,9 +544,11 @@ This is a regression linear problem.
 
 Let us solve this problem in the general case.
 
-Let $(A_i, \tilde{Y_i})$ be the observations. ATTENTION LES EPSILON I SONT DES EPSILON I ' , IL FAUT AUSSI CHANGER LES SIGMA 
+Let $(A_i, \tilde{Y_i})$ be the observations.
+In our case, $A_i = (\nabla_\theta h_{\theta*} (i))^T$, the rows of $A$,  and is a fixed quantity.  
+ATTENTION LES EPSILON I SONT DES EPSILON I ' , IL FAUT AUSSI CHANGER LES SIGMA 
 We suppose that the $A_i$ are independant and identically distributed. 
-Let $\mathbb{P}$ be the law from which the $A_i$ are drawn, and let us assume that $Y_i = A_i \beta ^* + \epsilon_i $, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$.
+Let $\mathbb{P}$ be the law from which the $A_i$ are drawn, and let us assume that $Y_i = A_i \beta ^* + \epsilon'_i $, with $\epsilon'_i \sim \mathcal{N}(0, \sigma'^2)$.
 IL MANQUE DES TILDE ?
 
 The solution of this problem is explicitly (from \cite*{powellasymptoticsforleastsquares}):
@@ -581,11 +583,19 @@ We have:
 \hat{\beta} = \hat{D} ^{-1} \hat{\delta}
 \]
 
-\[
-\hat{D}  \underset{a.s}{\rightarrow} D=  \mathbb{E}[A_i ^T A_i ]
-\] (A EST CONSTANT , IL FAUT CHANGER CETTE PARTIE. Si $\nabla_\theta h_\theta$ est borné, on a que $\hat{D}$ converge )
+
+Let $n \in \mathbb{N}^*$. 
+
+$0 \leq \left\lVert\frac{1}{n} \sum_{i=1}^{n} A_i^T A_i\right\rVert \leq \frac{1}{n} \sum_{i=1}^{n} \left\lVert A_i\right\rVert ^2 \leq \frac{1}{n} \sum_{i=1}^{n} K = K $. 
+TODO  : verifier que cette equation est ok et qu'on a bie la suite qui converge. 
+This sequence of real values is bounded and increasing. It therefore converges toward a limit that we will denote $D$.
 
 \[
+\hat{D}  \underset{a.s}{\rightarrow} D
+\] 
+
+
+\[ 
 \hat{\delta}   \underset{a.s}{\rightarrow}  \delta = \mathbb{E}[A_i ^T \tilde{Y}_i ]
 \] (VERIFIER LES HYPOTHESES D APPLICATION DE LA LFGN POUR LE CAS IND2PENDANT NON IDENTIQUEMENT DISTRIBUE. Ok avec $\delta=1$ dans la preuve de la lfgn Observations indépendantes et non-identiquement distribuées. Il nous faut alors la condition suivant : $h_\theta$ différentiable en $\theta$ et $\nabla_\theta h_\theta$ borné pour avoir la convergence.  )
 
