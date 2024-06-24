@@ -497,7 +497,7 @@ We suppose that the data of the pandemic observed follows the model $h$, of para
 \[
 \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2
 \]
-We also suppose that $h_\theta$ is differentiable and that  $ \exists K \in \mathbb{R},  \forall i \in \{1, ..., n\}, \left\lVert  \nabla_\theta h_{\theta^*}(i) \right\rVert^2 \leq  K$.
+We also suppose that $h_\theta$ is differentiable and that  $ \exists K \in \mathbb{R},  \forall i \in \mathbb{N}, \left\lVert  \nabla_\theta h_{\theta^*}(i) \right\rVert^2 \leq  K$.
 Let:
 \begin{align*}
 Y &= \begin{pmatrix}
@@ -561,6 +561,7 @@ This least-square estimator is unbiased:
 \mathbb{E}[\hat{\beta}] = \beta^*
 \]
 
+
 \[
 \hat {\beta } = \left(  \sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left(  \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
 \]
@@ -584,12 +585,15 @@ We have:
 \]
 
 
-Let $n \in \mathbb{N}^*$. 
+Let $n \in \mathbb{N}^*$. Let $i \in \{1, ..., n\}$.
+Let $(a_{i, j})_{j \in \{1, ..., d\}}$ be the values of $A_i$.
+As $\left\lVert A_i \right\rVert ^2 \leq K$, we have that $ \forall j \in \{1, ..., d\}  , |a_{i, j}|^2 \leq K$
+$\sum_{i=0}^{n} $
 
-$0 \leq \left\lVert\frac{1}{n} \sum_{i=1}^{n} A_i^T A_i\right\rVert \leq \frac{1}{n} \sum_{i=1}^{n} \left\lVert A_i\right\rVert ^2 \leq \frac{1}{n} \sum_{i=1}^{n} K = K $. 
+
 TODO  : verifier que cette equation est ok et qu'on a bie la suite qui converge. 
 This sequence of real values is bounded and increasing. It therefore converges toward a limit that we will denote $D$.
-
+% On utilise Th´eor`eme 12  du papier LFGN dans les téléchatgements pour avoir la cvgence de d^ et D^ qui sont des va indépendantes mais pas identiquement dsitribuées. 
 \[
 \hat{D}  \underset{a.s}{\rightarrow} D
 \] 
