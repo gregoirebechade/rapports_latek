@@ -543,6 +543,28 @@
       \field{pages}{124}
       \range{pages}{1}
     \endentry
+    \entry{suquet2004lois}{article}{}
+      \name{author}{1}{}{%
+        {{hash=335b2d3f8ae23cd16a6206a804d6a696}{%
+           family={SUQUET},
+           familyi={S\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{335b2d3f8ae23cd16a6206a804d6a696}
+      \strng{fullhash}{335b2d3f8ae23cd16a6206a804d6a696}
+      \strng{bibnamehash}{335b2d3f8ae23cd16a6206a804d6a696}
+      \strng{authorbibnamehash}{335b2d3f8ae23cd16a6206a804d6a696}
+      \strng{authornamehash}{335b2d3f8ae23cd16a6206a804d6a696}
+      \strng{authorfullhash}{335b2d3f8ae23cd16a6206a804d6a696}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Université des Sciences et Technologies de Lille}
+      \field{title}{Lois des grands nombres}
+      \field{year}{2004}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

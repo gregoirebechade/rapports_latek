@@ -16,15 +16,15 @@ Indeed, it is a key variable to monitor, as the hospital occupancy correspond to
 \subsection*{The models}
 
 In this paper, we implemented 13 individual models and an ensemble model.
-Each model was trained on the data from the beggining of a pandemic and made predictions 7 or 14 days ahead (on user's choice).
+Each model was trained on the data from the begining of a pandemic and made predictions 7 or 14 days ahead (on user's choice).
 They output a point prediction and a set of confidence intervals on the prediction. 
 Models of two types were implemented. 
-The first type models were only trained on the time-serie of the number of hospitalized of the past few days. 
-The second type of models xere trained on the time series of the number of hospitalized, but also on the mobility data and the number of infected. 
+The models of the first type were only trained on the time-serie of the number of hospitalized of the past few days. 
+The models of the second type were trained on the time series of the number of hospitalized, but also on the mobility data and the number of infected. 
 
 \subsubsection{SIRH}
 
-The SIRH (Suspectible, Infected, Recovered, Hospitalized) (FIG.\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment : the Hopsitalized compartment. 
+The SIRH (Suspectible, Infected, Recovered, Hospitalized) (Fig.\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment : the Hopsitalized compartment. 
 The parameters of this model correspond to the rates of evolution from a compartment to another one. 
 $\beta$ correspond to the transmission rate, $\gamma_i$ and $\gamma_h$ correspond to the recovery rate from both Infected and Hospitalized compartments, and $h$ correspond to the hospitalization rate. 
 The value of $S, I, R$ and $H$ are linked through a system of differential equations (\ref{eq:sirh}). 
@@ -73,10 +73,10 @@ They use the last 20 data points to predict the next one (see \ref{sec:mlmodels}
 
 \subsection*{Evaluation of the models}
 
-The models described above were tested on 14 points of each of the 324 pandemics generated. 
+The models described above were tested on 14 points of each of the 324 pandemics generated, when the pandemic was significant (i.e when more than 0.01\% of the population was hospitalized, in our case when the value of the number of hospitalized was above 100). 
 For each point, a 7 and 14 days-ahead prediction was made. 
 Each prediction was evaluated thanks to WIS and RMSE (see \ref{sec:metrics}), and then ranked according to the performances of other models.
-The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'inflexion', 'decrease' and 'big decrease'. 
+The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'inflexion', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic. 
 It is then possible to get global information on the rankings of the models. 
 For instance, if the loss and the reach of prediction is fixed, we can look at the distribution of rankings of all the models for a type of point (to see the best model for a type of point), as in Fig.\ref{fig:rankings}.
 \begin{figure}[h]
@@ -103,7 +103,7 @@ For each loss and range of prediction, the expected rank of the models for each 
 \end{figure}
 
 
-The other heatmaps corresponding to RMSE and WIS for 7 and 14 days ahead predictions can be found in the appendix (\ref{sec:appendix})
+The other heatmaps corresponding to RMSE for 14 days ahead prediction and WIS for 7 and 14 days ahead predictions can be found in the appendix (\ref{sec:appendix})
 Some general interpretations can be made on these results. 
 We noticed that regressors performances dropp from 7-days ahead to 14-days ahead. 
 The family of the SIRH model does slightly better for long terms predictions than for short term ones. 
@@ -131,9 +131,8 @@ The performances of these two models are showned in the two figure below (Fig.\r
     \label{fig:esb_rank_14}
 \end{figure}
 
-The distribution of the ranks of the ensemble model is almost always on the left side of the x-axis, except for the 'stable' points. 
-The fact that the 'stable' points are overrepresented (see \ref{sec:classification}) leads to a general poor performance of the ensemble model.
-However, on the other type of points, the ensemble model is very consistent, and almost always in the top models. 
+The distribution of the ranks of the ensemble model is almost always on the left side of the x-axis.
+It is a very consistent model, and almost always in the top models. 
 The heatmaps of expected ranks on all type of points enables to see how consistent is the ensemble model (Fig.\ref{fig:heatmap_esb_7} and Fig.\ref{fig:heatmap_esb_14}) compared to the other models. 
 
 \begin{figure}
@@ -152,7 +151,10 @@ The heatmaps of expected ranks on all type of points enables to see how consiste
 \end{figure}
 
 From these figures, we can see that the ensemble model is rarely the best, but never the last model, which is a result aldready observed in \cite{cramer2022evaluation}.
-Its consistency allows for accurate predictions and helps avoid outlier predicted values.
+Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expectand rank.
+For instance, on the Figure.\ref{fig:expected_rank}, one can see that the top 3 models are Bayesian Regression, VAR and SIRH4. 
+On the train set, the Ensemble model is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
+Its consistency allows for accurate predictions and helps avoiding outlier predicted values that sometimes appear on the other good models (such as VAR and ARIMA). 
 
 
 

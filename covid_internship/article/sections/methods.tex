@@ -14,7 +14,7 @@ These interventions can help to assess the impact of a vaccination campaign, wit
 
 \subsubsection{First pandemics}
 
-For the implementation and the first test of the models, two pandemics were generated. 
+For the implementation and the first tests of the models, two pandemics were generated. 
 The first one focusing on the new deaths count and the second one focusing on the number of hospitalized count. 
 Those pandemics will be referred to as pandemic 1 and pandemic 2. 
 
@@ -46,7 +46,7 @@ It is so relevant to identify the key parameters that generate this diversity.
 As Covasim has a very huge set of inputs parameters, a first subset of key parameters was identified: the spread parameters and the severity parameters. 
 The severity parameters are the 4 parameters that correspond to the probability for an agent to get from a compartment to another. 
 The spread parameters are 9 parameters that represent the distribution of probability of the time spend by an agent in a compartment (such as infected, crictical...) once he entered it. 
-This set of 13 parameters is the noted as $S$. 
+This set of 13 parameters is then noted as $S$. 
 This distribution is a log-normal distribution, but the spread-parameters correspond to the mean of this log-normal distribution
 All the parameters have a default value of 1, which correspond to keeping the reference value. 
 We decided to select 4 parameters and to make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
@@ -91,7 +91,7 @@ But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as th
 
 Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
 
-$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax} \mathcal{L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s) , s \neq t }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
+$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax  } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s) , s \neq t }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
 
 However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $s$ included in $S$ (the set of all 13 parameters).\\[1cm]
 
@@ -224,7 +224,7 @@ Indeed each of the 4 parameters was scaled among 3 values : \texttt{[0.5, 1, 2]}
 \subsection{The models}
 
 In this study, we define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
-In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed form $\mathcal{D}$, and used for the prediction.  
+In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed from $\mathcal{D}$, and used for the prediction.  
 We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
 All of these models were implemented in Python, and are available on the github repository provided with this article (\ref{github-link}).
 During the training or predicting phase, the computation sometimes fail (for instance, when the matrix is non-inversible for the linear regression model). 
@@ -281,7 +281,7 @@ The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the par
 
 The SIRH model (Fig.\ref{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
 In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
-Each compartment correspond to the number of person in the state of health of the compartment. 
+Each compartment corresponds to the number of person in the state of health of the compartment. 
 The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
 
 \begin{equation}
@@ -431,7 +431,7 @@ The confidence intervals are also directy provided by the librairy.
 
 A mere moving average model was also implemented. 
 It returns a constant prediction that correspond to the mean of the 7 past days. 
-The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the 7 past data-points; 
+The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the 7 last data-points.
 This model is used as a baseline.
 A model that does not manage to outperform the moving average model would not be useful. 
 
@@ -471,13 +471,12 @@ $
 \end{aligned}
 $
 \newline
-$\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}T \sigma ^2$.\\
+$\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}^T \sigma ^2$.\\
 The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn librairy and the delta method. 
 
-TODO add more details on the confidence interval + the prior of the bayesian 
 \subsubsection{Ensemble model}
 
-It has been showned ( \cite{cramer2022evaluation} and \cite{reich2019accuracy} ) that ensemble models, which combine the outputs of many models, can outperform by far individual models.
+It has been showned (see \cite{cramer2022evaluation} and \cite{reich2019accuracy}), that ensemble models, which combine the outputs of many models, can outperform by far individual models.
 We implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 They are represented in the Fig.\ref{fig:ensemble_weights}.
@@ -497,7 +496,13 @@ We suppose that the data of the pandemic observed follows the model $h$, of para
 \[
 \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2
 \]
-We also suppose that $h_\theta$ is differentiable and that  $ \exists K \in \mathbb{R},  \forall i \in \mathbb{N}, \left\lVert  \nabla_\theta h_{\theta^*}(i) \right\rVert^2 \leq  K$.
+This problem is a non-linear regression problem on the regressors $i$. 
+We also suppose that $h_\theta$ is differentiable.
+Finally, we suppose that 
+\begin{equation}
+\exists A_0 \in \mathbb{R} ^{1 \times d},  \frac{1}{n} \sum_{i=1}^{n} \nabla_\theta h_{\theta^*}(i) \nabla_\theta h_{\theta^*}(i)^T \underset{n \rightarrow +\infty }{\rightarrow}  A_0^T A_0 .\label{hyp:major}  \\
+\end{equation}
+
 Let:
 \begin{align*}
 Y &= \begin{pmatrix}
@@ -540,16 +545,13 @@ The previous problem can be re-written as:
 \hat{\beta} =  \underset{\beta \in \mathbb{R}^d}{\operatorname{argmin}}  \left\lVert \tilde{Y} - A \beta \right\rVert ^2
 \]
 
-This is a regression linear problem.
+This is now a  linear regression problem on the regressors $\nabla_\theta h_{\theta^*}(i)$.
 
 Let us solve this problem in the general case.
 
 Let $(A_i, \tilde{Y_i})$ be the observations.
 In our case, $A_i = (\nabla_\theta h_{\theta*} (i))^T$, the rows of $A$,  and is a fixed quantity.  
-ATTENTION LES EPSILON I SONT DES EPSILON I ' , IL FAUT AUSSI CHANGER LES SIGMA 
-We suppose that the $A_i$ are independant and identically distributed. 
-Let $\mathbb{P}$ be the law from which the $A_i$ are drawn, and let us assume that $Y_i = A_i \beta ^* + \epsilon'_i $, with $\epsilon'_i \sim \mathcal{N}(0, \sigma'^2)$.
-IL MANQUE DES TILDE ?
+Let us assume that $\tilde{Y_i} = A_i \beta ^* + \epsilon'_i $, with $\epsilon'_i \sim \mathcal{N}(0, \sigma'^2)$.
 
 The solution of this problem is explicitly (from \cite*{powellasymptoticsforleastsquares}):
 \[
@@ -584,31 +586,53 @@ We have:
 \hat{\beta} = \hat{D} ^{-1} \hat{\delta}
 \]
 
-
-Let $n \in \mathbb{N}^*$. Let $i \in \{1, ..., n\}$.
-Let $(a_{i, j})_{j \in \{1, ..., d\}}$ be the values of $A_i$.
-As $\left\lVert A_i \right\rVert ^2 \leq K$, we have that $ \forall j \in \{1, ..., d\}  , |a_{i, j}|^2 \leq K$
-$\sum_{i=0}^{n} $
-
-
-TODO  : verifier que cette equation est ok et qu'on a bie la suite qui converge. 
-This sequence of real values is bounded and increasing. It therefore converges toward a limit that we will denote $D$.
-% On utilise Th´eor`eme 12  du papier LFGN dans les téléchatgements pour avoir la cvgence de d^ et D^ qui sont des va indépendantes mais pas identiquement dsitribuées. 
 \[
-\hat{D}  \underset{a.s}{\rightarrow} D
+\hat{D}  \underset{a.s}{\rightarrow} D \text{,  with } D = \mathbb{E}[A_i^T A_i ] = A_0^T A_0 \text{ (cf Hyp \ref{hyp:major})}
+\]
+$\hat{\delta}$ is the empirical mean of random variables independant but non identically distributed. 
+We therefore cannot use the Kolmogorov's Strong Law of Large Numbers. 
+There exists a law of large number for independant and non identically distributed random variables, which assesses that (see \cite{suquet2004lois}):
+
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+
+\begin{theorem}
+    \label{thm:1}
+    Let $(X_k)$ be a sequence of independent random variables such that:
+    \begin{enumerate}
+        \item For all $k \geq 1$, $\mathbb{E}(X_k^2) < +\infty$;
+        \item There exists an increasing sequence $(a_k)$ of strictly positive real numbers tending to infinity, such that
+        \[
+        \sum_{k=1}^{+\infty} \frac{\mathrm{Var}(X_k)}{a_k^2} < +\infty.
+        \]
+    \end{enumerate}
+    Then, $\frac{S_n - \mathbb{E}S_n}{a_n}$ converges almost surely to $0$. If additionally $a_n^{-1} \mathbb{E}S_n \to m$, then $\frac{S_n}{a_n}$ converges almost surely to $m$.\\[2cm]
+\end{theorem}
+
+Let $ i \in \{1, ..., n\}$.\\[0.2cm]
+$X_i = A_i ^T \tilde{Y_i} = A_i^T A_i \beta^* + A_i ^T \epsilon'_i$. \\
+The random values $X_i$ are independant random variables.\\
+$\forall i \in \{ 1, ...  n \}, \mathbb{E}[X_i^2] = \mathbb{E}[X_i] ^2 + A_0 ^T A_0 \sigma'^2 < + \infty $.\\
+
+$\sum_{i=1}^{\infty } \frac{Var(X_i)}{i^2} = \sum_{i=1}^{\infty } \frac{A_0^T A_0 \sigma'^2}{i^2} =  A_0^T A_0 \sigma'^2 \sum_{i=1}^{\infty } \frac{1}{i^2} < + \infty$.\\
+
+Moreover,  $\frac{1}{n} \sum_{i=1}^{n} \mathbb{E}[X_i] =\frac{1}{n} \sum_{i=1}^{n} A_i^T A_i \beta^* = \frac{\beta^*}{n} \sum_{i=1}^{n} A_i^T A_i \underset{n\rightarrow \infty}{\rightarrow} \beta ^*  A_0 ^T A_0 $ (see \ref{hyp:major}).\\
+
+Therefore, with Theorem \ref{thm:1}, we have :  $\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} \underset{a.s}{\rightarrow}  \beta ^*  A_0 ^T A_0 $
+
+\[
+\hat{\delta}   \underset{a.s}{\rightarrow}  \delta = A_0 ^T A_0 \beta^*
 \] 
-
-
-\[ 
-\hat{\delta}   \underset{a.s}{\rightarrow}  \delta = \mathbb{E}[A_i ^T \tilde{Y}_i ]
-\] (VERIFIER LES HYPOTHESES D APPLICATION DE LA LFGN POUR LE CAS IND2PENDANT NON IDENTIQUEMENT DISTRIBUE. Ok avec $\delta=1$ dans la preuve de la lfgn Observations indépendantes et non-identiquement distribuées. Il nous faut alors la condition suivant : $h_\theta$ différentiable en $\theta$ et $\nabla_\theta h_\theta$ borné pour avoir la convergence.  )
 
 $ \hat{\beta} = \hat{D}^{-1} \hat{\delta}  \underset{a.s}{\rightarrow}  D^{-1} \delta $ , as the following function $\phi$ is continuous:
 \[
 \phi: \left\{
 \begin{array}{rcl}
 \mathcal{GL}_n(\mathbb{R}) & \to & \mathcal{GL}_n(\mathbb{R}) \\
-A & \mapsto & A^{-1}
+M & \mapsto & M^{-1}
 \end{array}
 \right.
 \]
@@ -633,7 +657,8 @@ This line is made of two terms. Let's show that each one of them converges in la
     &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \text{Var}(A_i^T \epsilon_i) )
 \end{align*}
 
-Yet, as $\epsilon_i $ and $  A_i $ are independant, and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i A_i ^T \epsilon_i ^2 ] = \mathbb{E} [ A_i A_i ^T ] \sigma'^2$. 
+
+Yet, as $\epsilon_i $ and $  A_i $ are independant, and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i ^T A_i \epsilon_i ^2 ] = \mathbb{E} [ A_i ^T A_i ] \sigma'^2 =A_0^T A_0 \sigma'^2  $. 
 
 Finally, $\frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, D \sigma'^{2})$. 
 
@@ -646,7 +671,7 @@ Finally, with Slutsky, we obtain that:
     &\xrightarrow{\mathcal{L}} \mathcal{N}(0, D^{-1} (D \sigma'^2) (D^{-1})^T) \\
     &\xrightarrow{\mathcal{L}} \mathcal{N}(0, D^{-1} D \sigma'^2 (D^{-1})^{T}) \\
     &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma'^2 D^{-1}) \\
-    &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma'^2 (A^T A)^{-1})
+    &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma'^2 (A_0^T A_0)^{-1})
 \end{align*}
 
 
@@ -655,17 +680,17 @@ Let's get back to the first problem:
 As $\beta ^* = 0 $ and $\hat{\beta} = \hat{\theta} - \theta ^* $, we have: 
 
 \[
-\sqrt{n} (\hat{\theta} - \theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma^2 (A^T A)^{-1})
+\sqrt{n} (\hat{\theta} - \theta^*) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \sigma^2 (A_0^T A_0)^{-1})
 \]
 
 and, 
 \[
-\hat{\theta} \sim \mathcal{N}(\theta^*, \frac{\sigma^2}{n} (A^T A)^{-1})
+\hat{\theta} \sim \mathcal{N}(\theta^*, \frac{\sigma^2}{n} (A_0^T A_0)^{-1})
 \]
 
 As a first conclusion, we have that $\hat{\theta}$ is asymptotically normal.
 
-Let $\Sigma$ be the covariance matrix estimated from the computation of $\hat{\theta}$. In our case, $\Sigma = \frac{\sigma^2}{n} (A^T A)^{-1}$. 
+Let $\Sigma$ be the covariance matrix estimated from the computation of $\hat{\theta}$. 
 
 As $\hat{\theta}$ is asymptotically normal, we can apply the delta-method: 
 
@@ -704,19 +729,20 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
 \subsection*{Metrics}
 \label{sec:metrics}
 Two metrics were used to assess the performance of the models. 
-The first metric is the Weighted Confidence Interval (WIS), which is a metric commonly used in forecast evaluation (see \cite[text]{cramer2022evaluation} or \cite*{paireau2022ensemble}). 
+The first metric is the Weighted Confidence Interval (WIS), which is a metric commonly used in forecast evaluation (see \cite{cramer2022evaluation} or \cite{paireau2022ensemble}). 
 
 Let $\alpha$ be in $]0, 1[$. Let $\hat{y}$ be the prediction of the model and $y$ the real value.
 Let $[l, u]$ be the $(1-\alpha)$ confidence interval of the prediction.
-We define the Interval Score ($IS$) that way : \\
-$IS_\alpha( [l, u], \hat{y}, y ) = \frac{2}{\alpha} \times ( \mathbb{1}_{\{y<l\}} (l-y) + \mathbb{1}_{\{y>u\}} (y-u) + (u-l))$. 
-This metric is made of three terms: a term of overprediction that punishes a model predicting a confidence interval which os above the real value, a term of underprediction that punishes a model whose confidence interval is under the real prediction, and a term of range, that punishes too wide confidence intervals. 
+We define the Interval Score ($IS$) as : \\
+$IS_\alpha( [l, u], \hat{y}, y ) = \frac{2}{\alpha} \times ( \mathbb{1}_{\{y<l\}} (l-y) + \mathbb{1}_{\{y>u\}} (y-u) + (u-l))$. \\
+This metric is made of three terms: a term of overprediction that punishes a model predicting a confidence interval which is above the real value, a term of underprediction that punishes a model whose confidence interval is under the real value, and a term of range, that punishes too wide confidence intervals. \\
 Let $(\alpha_k)_{k \in \{1, \dots , K\}} \in ] 0 , 1 [ ^K $
 The WIS is defined as follow. \\
 
-$WIS_\alpha( [l, u], \hat{y}, y ) = \sum_{k=0}^{K} w_k IS_{\alpha_k}( [l, u], \hat{y}, y ) $ , with $(w_k)_{k \in \{1, \vdots , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
+$WIS( [l, u], \hat{y}, y ) = \sum_{k=0}^{K} w_k IS_{\alpha_k}( [l, u], \hat{y}, y ) $ , with $(w_k)_{k \in \{1, ... , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
 
-According to previous literature (\cite{cramer2022evaluation}), we decided to set $(\alpha_k)_{k \in \{1, \vdots , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$. 
+According to previous literature (\cite{cramer2022evaluation}), we decided to set \\
+$(\alpha_k)_{k \in \{1, ... , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$. 
 One can notice that the WIS does not take into account the point prediction, but focuses on confidence interval accuracy. \\
 
 The second metric chosen is the Root Mean Square Error ($RMSE$). 
@@ -729,35 +755,35 @@ The models were tested on all the 324 pandemics, on 14 data points different (at
 For each individual point, the models were trained on the previous days of the pandemic. 
 A 7 and 14 days ahead prediction was asked, and $[0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ confidence-intervals were computed. 
 The WIS and the RMSE of these predictions were then computed. 
-
+For the analysis of the results, we decided to remove the points for which the number of hospitalized was below 100, both point classification and model predictions were irrelevant at this period of the pandemic.
+Moreover, it is senseless to assess the performances of the models during the period in which there is no pandemic, as the interesting models are the ones that can predict the number of hospitalized during the waves.
+Not removing those points would lead to biaised results, as they represent 44\% of the dataset, and we would have concluded that the best model is the one that performs well when there is no pandemic. 
 \subsection{Point classification}
 \label{sec:classification}
 
 In order to compare the performance of the models at different point of the pandemic, we classified the points in six categories : \textit{stable, increase, big increase, inflexion, decrease, big decrease}.
-For a pandemic $X_{i, i \in [1, ..., n]}$, and a day $d \in [1, \hdots, n]$, the classification is made according the following rule : \\
-define $d = \frac{1}{7} \times \frac{ (X[d+7] - X[d])} {X[d]}$\\
-and $d' = \frac{1}{49} \times \frac{X[d+7] + X[d-7] - 2 \times X[d]}{X[d]}$
+The $R_{eff}$ number was used for the point classification. 
+This number is easily available from the Covasim simulation. 
+$R_{eff}$ represents the expected number of people that an infected person will infect.
+For a pandemic $X_{i, i \in [1, ..., n]}$ of reproduction number $R_{i, i \in [1, ..., n]}$, and a day $d \in [1, \hdots, n]$, the classification is made according the following rule : \\
 \begin{enumerate}
-    \item If $X[d] < 100$ : \\
+    \item if $X[d]$<100 : \\
+    classification = "no pandemic"
+    \item Elif $R[d] < 0.5$ : \\
     classification = "stable"
-    \item Elif $d < - 0.05$ : \\
+    \item Elif $R[d] <0.5$ : \\
     classification = "big decrease"
-    \item Elif $d < -0.03$ : \\
+    \item Elif $R[d] < 0.8$ : \\
     classification = "decrease"
-    \item Elif $d < 0.03$ : \\
-    \begin{itemize}
-        \item if $\vert d  \vert > 0.003$ : \\
-        classification = inflexion
-        \item else :
-        classification = "stable" 
-    \end{itemize}
-    \item Elif $d < 0.2$ : \\
+    \item Elif $R[d] < 1.2$ : \\
+    classification = "stable" 
+    \item Elif $R[d] < 3$ : \\
     classification = "increase"
     \item Else : \\
-     classification = "big increase"
+    classification = "big increase"
 \end{enumerate}
 
 
 The values of the thresholds were chosen by hand. 
-As the model are tested on the days [20, 40, 60, ..., 280], we labelled all of thses points with thye function described above. 
-It resulted that among all those 4536 points, 646 were classified as 'big decrease', 370 as decrease, '152' as inflexion, 2485 as 'stable', 760 as 'increase' and 123 as 'big increase'.
+As the model are tested on the days [20, 40, 60, ..., 280], we labelled all of these points with the function described above. 
+It resulted that among all those 4536 points, 698 were classified as 'big decrease', 579 as 'decrease', 388 as 'stable', 752 as 'increase',  132 as 'big increase', and 1987 as 'no pandemic'.

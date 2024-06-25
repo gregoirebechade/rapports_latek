@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  24 JUN 2024 18:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  25 JUN 2024 15:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,6 +435,17 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box64
 \@float@everytoks=\toks41
 \@floatcapt=\box65
+) (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks42
+\thm@bodyfont=\toks43
+\thm@headfont=\toks44
+\thm@notefont=\toks45
+\thm@headpunct=\toks46
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
+\dth@everypar=\toks47
 ) (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen284
@@ -488,7 +499,8 @@ Now handling font encoding PD1 ...
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count321
- (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+
+(C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -502,8 +514,7 @@ Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4448.
 \c@Hy@tempcnt=\count322
-
-(C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+ (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -548,7 +559,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip53
+\Hy@SectionHShift=\skip56
 ) (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
@@ -602,14 +613,14 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \blx@sectionciteorderinternal@0=\count370
 \blx@entrysetcounter=\count371
 \blx@biblioinstance=\count372
-\labelnumberwidth=\skip54
-\labelalphawidth=\skip55
-\biblabelsep=\skip56
-\bibitemsep=\skip57
-\bibnamesep=\skip58
-\bibinitsep=\skip59
-\bibparsep=\skip60
-\bibhang=\skip61
+\labelnumberwidth=\skip57
+\labelalphawidth=\skip58
+\biblabelsep=\skip59
+\bibitemsep=\skip60
+\bibnamesep=\skip61
+\bibinitsep=\skip62
+\bibparsep=\skip63
+\bibhang=\skip64
 \blx@bcfin=\read4
 \blx@bcfout=\write4
 \blx@langwohyphens=\language80
@@ -693,20 +704,20 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@savedoriglanguage=\count441
 \c@pageref=\count442
 \c@savedpageref=\count443
-\shorthandwidth=\skip62
-\shortjournalwidth=\skip63
-\shortserieswidth=\skip64
-\shorttitlewidth=\skip65
-\shortauthorwidth=\skip66
-\shorteditorwidth=\skip67
-\locallabelnumberwidth=\skip68
-\locallabelalphawidth=\skip69
-\localshorthandwidth=\skip70
-\localshortjournalwidth=\skip71
-\localshortserieswidth=\skip72
-\localshorttitlewidth=\skip73
-\localshortauthorwidth=\skip74
-\localshorteditorwidth=\skip75
+\shorthandwidth=\skip65
+\shortjournalwidth=\skip66
+\shortserieswidth=\skip67
+\shorttitlewidth=\skip68
+\shortauthorwidth=\skip69
+\shorteditorwidth=\skip70
+\locallabelnumberwidth=\skip71
+\locallabelalphawidth=\skip72
+\localshorthandwidth=\skip73
+\localshortjournalwidth=\skip74
+\localshortserieswidth=\skip75
+\localshorttitlewidth=\skip76
+\localshortauthorwidth=\skip77
+\localshorteditorwidth=\skip78
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
@@ -852,12 +863,12 @@ LaTeX Info: Redefining \up on input line 43.
 \scratchbox=\box67
 \nofMPsegments=\count457
 \nofMParguments=\count458
-\everyMPshowfont=\toks42
+\everyMPshowfont=\toks48
 \MPscratchCnt=\count459
 \MPscratchDim=\dimen293
 \MPnumerator=\count460
 \makeMPintoPDFobject=\count461
-\everyMPtoPDFconversion=\toks43
+\everyMPtoPDFconversion=\toks49
 ) (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -936,28 +947,28 @@ File: figures/esb_rank_14.png Graphic file (type png)
 <use figures/esb_rank_14.png>
 Package pdftex.def Info: figures/esb_rank_14.png  used on input line 129.
 (pdftex.def)             Requested size: 310.50357pt x 383.61887pt.
-<figures/heatmap_esb_14.png, id=155, 615.0177pt x 473.3685pt>
+<figures/heatmap_esb_14.png, id=154, 615.0177pt x 473.3685pt>
 File: figures/heatmap_esb_14.png Graphic file (type png)
 <use figures/heatmap_esb_14.png>
-Package pdftex.def Info: figures/heatmap_esb_14.png  used on input line 141.
+Package pdftex.def Info: figures/heatmap_esb_14.png  used on input line 140.
 (pdftex.def)             Requested size: 310.50357pt x 238.99503pt.
-<figures/heatmap_esb_7.png, id=156, 607.7907pt x 473.3685pt>
+<figures/heatmap_esb_7.png, id=155, 607.7907pt x 473.3685pt>
 File: figures/heatmap_esb_7.png Graphic file (type png)
 <use figures/heatmap_esb_7.png>
-Package pdftex.def Info: figures/heatmap_esb_7.png  used on input line 149.
+Package pdftex.def Info: figures/heatmap_esb_7.png  used on input line 148.
 (pdftex.def)             Requested size: 310.50357pt x 241.83366pt.
-) (sections/discussion.tex) (sections/conclusion.tex [3 <./figures/ranks_big_increase_RMSE_7.png>]) (sections/methods.tex
+ [3 <./figures/ranks_big_increase_RMSE_7.png>]) (sections/discussion.tex) (sections/conclusion.tex) (sections/methods.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 7.
 
-(tables/table_covasim_parameters.tex)
-<figures/mobility_reports.png, id=172, 418.4433pt x 327.3831pt>
+[4 <./figures/expected_ranks_big_increase_RMSE_7.png>] (tables/table_covasim_parameters.tex)
+<figures/mobility_reports.png, id=181, 418.4433pt x 327.3831pt>
 File: figures/mobility_reports.png Graphic file (type png)
 <use figures/mobility_reports.png>
 Package pdftex.def Info: figures/mobility_reports.png  used on input line 30.
 (pdftex.def)             Requested size: 221.78923pt x 173.5222pt.
- [4 <./figures/expected_ranks_big_increase_RMSE_7.png>] [5 <./figures/heatmap_RMSE_7.png>] [6 <./figures/esb_rank_7.png>] [7 <./figures/esb_rank_14.png>] [8 <./figures/heatmap_esb_14.png> <./figures/heatmap_esb_7.png>]
+ [5 <./figures/heatmap_RMSE_7.png>] [6 <./figures/esb_rank_7.png>] [7 <./figures/esb_rank_14.png>] [8 <./figures/heatmap_esb_14.png> <./figures/heatmap_esb_7.png>]
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 55.
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/bbold\ubbold.fd)
 Underfull \hbox (badness 10000) in paragraph at lines 55--56
@@ -992,12 +1003,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--91
 
  []
 
-
+[9 <./figures/mobility_reports.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
-[9 <./figures/mobility_reports.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
@@ -1125,56 +1136,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 458--464
 <figures/esb_coefs.png, id=286, 503.7219pt x 250.7769pt>
 File: figures/esb_coefs.png Graphic file (type png)
 <use figures/esb_coefs.png>
-Package pdftex.def Info: figures/esb_coefs.png  used on input line 487.
+Package pdftex.def Info: figures/esb_coefs.png  used on input line 486.
 (pdftex.def)             Requested size: 221.78923pt x 110.41487pt.
-[16 <./figures/esb_coefs.png>] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 684--687
+[16 <./figures/esb_coefs.png>] [17]
+\c@theorem=\count462
 
- []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 709--716
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 717--718
+Underfull \hbox (badness 10000) in paragraph at lines 612--613
 
  []
 
 
-Overfull \hbox (80.6858pt too wide) in paragraph at lines 719--721
-[]\T1/cmr/m/n/10 According to pre-vious li-te-ra-ture ([[][]2[][]]), we de-ci-ded to set $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )[] = [0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 02\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 05\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 6\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9]$\T1/cmr/m/n/10 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 719--721
+Underfull \hbox (badness 10000) in paragraph at lines 615--619
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 747--748
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
 
  []
 
-[20]) (sections/appendix.tex
-<figures/heatmap_RMSE_14.png, id=322, 615.0177pt x 473.3685pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
+
+ []
+
+[18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 709--712
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 734--741
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 742--743
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 744--747
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 764--769
+
+ []
+
+) (sections/appendix.tex
+<figures/heatmap_RMSE_14.png, id=332, 615.0177pt x 473.3685pt>
 File: figures/heatmap_RMSE_14.png Graphic file (type png)
 <use figures/heatmap_RMSE_14.png>
 Package pdftex.def Info: figures/heatmap_RMSE_14.png  used on input line 9.
 (pdftex.def)             Requested size: 310.50357pt x 238.99503pt.
-<figures/heatmap_WIS_7.png, id=323, 596.9502pt x 473.3685pt>
+ [21]
+<figures/heatmap_WIS_7.png, id=344, 596.9502pt x 473.3685pt>
 File: figures/heatmap_WIS_7.png Graphic file (type png)
 <use figures/heatmap_WIS_7.png>
 Package pdftex.def Info: figures/heatmap_WIS_7.png  used on input line 16.
 (pdftex.def)             Requested size: 310.50357pt x 246.22527pt.
- [21 <./figures/heatmap_RMSE_14.png>]
-<figures/heatmap_WIS_14.png, id=334, 604.1772pt x 473.3685pt>
+<figures/heatmap_WIS_14.png, id=345, 604.1772pt x 473.3685pt>
 File: figures/heatmap_WIS_14.png Graphic file (type png)
 <use figures/heatmap_WIS_14.png>
 Package pdftex.def Info: figures/heatmap_WIS_14.png  used on input line 24.
 (pdftex.def)             Requested size: 310.50357pt x 243.27827pt.
-) [22 <./figures/heatmap_WIS_7.png> <./figures/heatmap_WIS_14.png>] [23] (main.aux)
+) [22 <./figures/heatmap_RMSE_14.png> <./figures/heatmap_WIS_7.png>] [23 <./figures/heatmap_WIS_14.png>] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -1186,17 +1214,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32952 strings out of 474495
- 627652 string characters out of 5743936
+ 33057 strings out of 474495
+ 629502 string characters out of 5743936
  1951460 words of memory out of 5000000
- 54626 multiletter control sequences out of 15000+600000
+ 54721 multiletter control sequences out of 15000+600000
  577466 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,93p,747b,1773s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold7.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (23 pages, 1102053 bytes).
+Output written on main.pdf (23 pages, 1076185 bytes).
 PDF statistics:
- 808 PDF objects out of 1000 (max. 8388607)
- 96 named destinations out of 1000 (max. 500000)
+ 832 PDF objects out of 1000 (max. 8388607)
+ 102 named destinations out of 1000 (max. 500000)
  259 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2378,9 +2378,10 @@
     <bcf:citekey order="15" intorder="1">reich2019accuracy</bcf:citekey>
     <bcf:citekey order="16" intorder="1">ruckstuhl2010introduction</bcf:citekey>
     <bcf:citekey order="17" intorder="1">powellasymptoticsforleastsquares</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">cramer2022evaluation</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">paireau2022ensemble</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">suquet2004lois</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">paireau2022ensemble</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">cramer2022evaluation</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
