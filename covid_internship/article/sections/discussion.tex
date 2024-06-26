@@ -1,3 +1,52 @@
-\section*{Discussion}
+\section{Discussion}
 
 See noisy data ( not perfect data exact on covasim) and its influence on the predictions. 
+
+
+\subsection{Summary of Key Findings}
+
+This study enabled us to assess the consistency of the different models that were implemented. 
+Indeed, comparing the models on a set of diverse pandemics enabled us to see which models are the most consistent with the different pandemics.
+Moreover, the classification of the models with the type of points enabled to determine the phase of the pandemics in which each model is the best, and on the other hand to determine which model is the best for a $R_{eff}$ given. 
+This result is promising, as the reproduction number is a quantity oftenly estimated by the stakeholders during a pandemic. 
+The interpretation based on the heatmaps Fig.\ref{fig:heatmap_RMSE_14}, Fig.\ref{fig:heatmap_RMSE_7} and Fig.\ref{fig:heatmap_WIS_14} and Fig.\ref{fig:heatmap_WIS_7} show the following results : \\
+
+
+
+\begin{itemize}
+    \item Arima and VAR are very performant models in term of expected ranking. They are the two best models for 7-days ahead predictions and in the top 4 models for the 14-days ahead predictions. 
+    \item Adding information with the mobility and the number of infected is not beneficial for the models. Wo observe almost alxays a poorest performance of the models of the second type compared to their equivalent model of the first type (VAR / Arima and SIRH Multi / SIRH ). Only the exponential multi outperform the mere exponential model, but as they both perform pretty bad, this result is not interesting. 
+    \item The autoregressive models (Bayesian and Linear Regression, ARIMA and VAR) perform best for short term predictions rather than long term ones. On the other hand, the SIRH models, which have a phyisical meaning and try to fit the data to an understandable model perform better for long term predictions. This is also observed in the coefficients of the ensemble model (see Fig. \ref{fig:ensemble_weights}). Indeed, the ensemble model put more weight on the VAR and Arima models for short term predictions and more on the SIRH models for long terms predictions.  
+    \item The difference of ranking between the models is more pronounced whan we rank them with RMSE rather than WIS. This might be due to the fact that the confidence intervals are not well calibrated and that the real value always land out of it. 
+    \item The Moving Average model is not the worst model and is often ranked between 6 and 8. This might be due to the fact that as the curve of the number of hospitalized is continuous, the mean never diverge too much from the real value, while other models might misinterpret the trend of the curve and land far away from the real value. 
+    \item The Exponential models are almost always the last models, except for big increase points that are almost always at the very beginning od the pandemic. the fact that the beginning of a pandemic looks like an exponential curve is also showed with the SIRH model, when the number of infected is very small. 
+    \item The Ensemble model performs quite well. We noticed that it is very rarely the best model for a type of point, while other models almost always have some point on which they perform the best. On the other hand, it is never the last, and has a very consistent ranking : it is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
+\end{itemize}
+
+
+
+
+\subsection{Comparison with Previous Research}
+
+The very good performance of both VAR and ARIMA models is consistent with previous research. 
+\cite{kufel2020arima} and \cite{shang2021regional} both assess the performance of the ARIMA model in term of regional or national prediction. 
+The interpretation of the coefficients of the ARIMA model enables to have information on the inherent parameters of the pandemic, or to discover links between the different regions of a country. 
+The consistency of the ensemble model has been shown in many previous studies (see \cite{cramer2022evaluation}, \cite{VIBOUD201813} and \cite{reich2019accuracy}), who also observe that their ensemble model outperformed any individual model. 
+They also observe the fact that the ensemble model is very consistent: rarely the best, but never the last, allowing to produce robust forecasts. 
+
+
+
+\subsection{Practical Implications}
+
+This study might be useful when facing a new pandemic.
+As the value of the $R_{eff}$ is often estimated by the researchers during a pandemic, it could be used to decide which type of model to use during the current pandemic. 
+
+
+\subsection{Limitations}
+
+This study did not take into account uncertinity on the data or imperfect data. 
+Indeed, the Covasim librairy provided a daily data of high quality and without any noise. 
+Real-life data is often full of mistakes, of missing values or of time-lag in the reports (\cite{info:doi/10.2196/25538}).
+It would be interesting to measure the robustness of the models with respect to these imperfections.
+Moreover, the models of the second type used the number of infected to predict the number of hospitalized. 
+However, this quantity is not directy accessible and is often estimated with tests.  
