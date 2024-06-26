@@ -3,13 +3,13 @@
 
 \subsection{The data}
 
-The models were trained and tested on different points of 324 different pandemics generated with Covasim \cite*{kerr2021covasim}, a complex agent-based model. 
+The models were trained and tested on various points of 324 different pandemics generated with Covasim \cite*{kerr2021covasim}, a complex agent-based model. 
 To generate those pandemics, four parameters that maximized the diversity of the set of pandemics generated were selected (see \ref{sec:generating_divserse_pandemics}). 
 Those parameters were varied on the three values 0.5, 1 and 2. 
 These values correspond to scaling factors of the default values of the model. 
-For each pandemic, the transmission probabilities were time dependant and followed one of the four different mobility patterns (see FIG.\ref{fig:mobilities}). 
+For each pandemic, the transmission probabilities were time dependant and followed one of the four different mobility patterns (see Fig.\ref{fig:mobilities}). 
 Thanks to those 4 parameters, each varied on three different values and to the four different mobilities, we obtained 324 simulations of pandemics. 
-We decided to focus on the number of hospitalized individuals as the target variable. 
+We have decided to focus on the number of hospitalized individuals as the target variable. 
 Indeed, it is a key variable to monitor, as the hospital occupancy correspond to the capacity of the state to treat the patients. 
 
 
@@ -19,12 +19,12 @@ In this paper, we implemented 13 individual models and an ensemble model.
 Each model was trained on the data from the begining of a pandemic and made predictions 7 or 14 days ahead (on user's choice).
 They output a point prediction and a set of confidence intervals on the prediction. 
 Models of two types were implemented. 
-The models of the first type were only trained on the time-serie of the number of hospitalized of the past few days. 
+The models of the first type were only trained on the time series of the number of hospitalized of the past few days. 
 The models of the second type were trained on the time series of the number of hospitalized, but also on the mobility data and the number of infected. 
 
 \subsubsection{SIRH}
 
-The SIRH (Suspectible, Infected, Recovered, Hospitalized) (Fig.\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment : the Hopsitalized compartment. 
+The SIRH (Suspectible, Infected, Recovered, Hospitalized) (Fig.\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment : the Hospitalized compartment. 
 The parameters of this model correspond to the rates of evolution from a compartment to another one. 
 $\beta$ correspond to the transmission rate, $\gamma_i$ and $\gamma_h$ correspond to the recovery rate from both Infected and Hospitalized compartments, and $h$ correspond to the hospitalization rate. 
 The value of $S, I, R$ and $H$ are linked through a system of differential equations (\ref{eq:sirh}). 
@@ -42,7 +42,7 @@ The parameters to optimize are now $a, b, \gamma_i, \gamma_h$ and $h$ and both c
 
 \subsubsection{ARIMA}
 
-The ARIMA is a model used for time series forcasting. 
+The ARIMA model is used for time series forcasting. 
 It is the sum of an AR and a MA model (\ref{eq:arima})
 It is trained by maximizing the likelihood of the observed data. 
 

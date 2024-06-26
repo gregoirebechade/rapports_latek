@@ -2371,10 +2371,61 @@
     <bcf:citekey order="8" intorder="1">cramer2022evaluation</bcf:citekey>
     <bcf:citekey order="9" intorder="1">VIBOUD201813</bcf:citekey>
     <bcf:citekey order="10" intorder="1">reich2019accuracy</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">info:doi/10.2196/25538</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">greene_Nowcasting</bcf:citekey>
     <bcf:citekey order="12" intorder="1">kerr2021covasim</bcf:citekey>
     <bcf:citekey order="13" intorder="1">gerlee2021predicting</bcf:citekey>
     <bcf:citekey order="14" intorder="1">diaconis2009markov</bcf:citekey>
     <bcf:citekey order="15" intorder="1">bodineau2015modelisation</bcf:citekey>
     <bcf:citekey order="16" intorder="1">bodineau2015modelisation</bcf:citekey>
     <bcf:citekey order="17" intorder="1">gerlee2021predicting</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">kufel2020arima</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">shang2021regional</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">reich2019accuracy</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">ruckstuhl2010introduction</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">powellasymptoticsforleastsquares</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">suquet2004lois</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">paireau2022ensemble</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">cramer2022evaluation</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="nty">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nty/global//global/global"
+                type="entry"
+                sortingtemplatename="nty"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>
