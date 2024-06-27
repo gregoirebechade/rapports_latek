@@ -76,7 +76,7 @@ They use the last 20 data points to predict the next one (see \ref{sec:mlmodels}
 The models described above were tested on 14 points of each of the 324 pandemics generated, when the pandemic was significant (i.e when more than 0.01\% of the population was hospitalized, in our case when the value of the number of hospitalized was above 100). 
 For each point, a 7 and 14 days-ahead prediction was made. 
 Each prediction was evaluated thanks to WIS and RMSE (see \ref{sec:metrics}), and then ranked according to the performances of other models.
-The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic. 
+The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic (see :\ref{sec:classification} for more details). 
 It is then possible to get global information on the rankings of the models. 
 For instance, if the loss and the reach of prediction is fixed, we can look at the distribution of rankings of all the models for a type of point (to see the best model for a type of point), as in Fig.\ref{fig:rankings}.
 \begin{figure}[h]
@@ -112,7 +112,7 @@ The exponential models are very bad and almost always the last ones.
 
 \subsection{The Ensemble model}
 
-It has been showned in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking ( as it is done in \cite{reich2019accuracy} ).
+It has been showned in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}, \cite{howerton2023evaluation}) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking ( as it is done in \cite{reich2019accuracy} ) or linear opinion pool (see \cite{howerton2023evaluation}).
 We decided to implement or own ensemble models. 
 They consist in a linear combination of the predictions of the 13 individual models (without exponential models) for 7 and 14 days-ahead predictions.
 The performances of these two models are showned in the two figure below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})

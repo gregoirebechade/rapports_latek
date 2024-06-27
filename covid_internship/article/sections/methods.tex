@@ -768,7 +768,7 @@ The $R_{eff}$ number was used for the point classification.
 This number is easily available from the Covasim simulation. 
 $R_{eff}$ represents the expected number of people that an infected person will infect.
 For a pandemic $X_{i, i \in [1, ..., n]}$ of reproduction number $R_{i, i \in [1, ..., n]}$, and a day $d \in [1, \hdots, n]$, the classification is made according the following rule : \\
-\begin{enumerate}
+\begin{itemize}
     \item if $X[d]$<100 : \\
     classification = "no pandemic"
     \item Elif $R[d] <0.5$ : \\
@@ -781,7 +781,7 @@ For a pandemic $X_{i, i \in [1, ..., n]}$ of reproduction number $R_{i, i \in [1
     classification = "increase"
     \item Else : \\
     classification = "big increase"
-\end{enumerate}
+\end{itemize}
 
 
 The values of the thresholds were chosen by hand. 

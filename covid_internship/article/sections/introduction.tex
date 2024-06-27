@@ -1,23 +1,22 @@
 \section{Introduction}
 
 The recent outbreak of COVID-19 has enlighted the importance of accurate forecasting models, for policymakers and population alike. 
-The number of hospitalized has shown to be a key indicator in the last pandemic, as the goal of most governemnts was to maintain the number of hospitalized individuals below the capacity of the healthcare system.
+The number of hospitalized has shown to be a key indicator in the last pandemic, as maintaining the number of hospitalized individuals below the capacity of the healthcare system was a major concern.
 Predicting the trajectory of a pandemic is a complex task, considering the number of parameters that have an influence on the outbreak. 
-In this study, we explore the efficacy of different models in predicting the number of hospitalized individuals. 
+In this study, we explore the efficiency of different models in predicting the number of hospitalized individuals. 
 
 We implemented 13 individual models and an ensemble model to forecast the number of hospitalizations 7 and 14 days ahead, given the data up to the current day.
-These models fall into two categories: those trained only on hospitalization data and those incorporating additional time-series such as mobility data and the number of infected agents. 
+These models are divided into two categories: those trained only on hospitalization data and those incorporating additional time-series such as mobility data and the number of infected agents. 
 The individual models are : variations of the SIRH (Susceptible, Infected, Recovered, Hospitalized) model, ARIMA, VAR, moving average, exponential regressions, bayesian and linear regressors.
 
 A complex agent-based model was used to simulate pandemics of a wide diversity. 
-By varying key parameters and using different mobility patterns, we created a diverse set of 324 synthetic pandemic scenarios (consisting into daily reports). 
+By varying key parameters and using different mobility patterns, we created a diverse set of 324 synthetic pandemic scenarios (consisting into daily reports of key quantities). 
 This diversity allows for a robust evaluation of the models across various conditions.
+
 The models were trained and tested on many points of these pandemics, allowing for a consistent analysis of their performance. 
+Additionally, we classified the points in the pandemic trajectories based on the reproductive number to understand model performance at different phases of the pandemic.
 
-Our evaluation metrics include the Weighted Interval Score (WIS) and Root Mean Square Error (RMSE), providing a comprehensive assessment of both the point predictions and the confidence intervals. 
-Additionally, we classified the points in the pandemic trajectories based on the reproductive number ($R_eff$) to understand model performance at different phases of the pandemic.
-
-This paper aims to determine the most consistent and reliable models for forecasting hospitalizations during pandemics, at different phase of the outbreak. 
+This paper aims to determine the most consistent and reliable models for forecasting hospitalizations during pandemics, at different phases of the outbreak. 
 By analyzing the performance of various models across a wide range of synthetic pandemic scenarios, we aim to provide insights that can guide the selection and development of predictive models for real-world applications. 
 Our findings highlight the strengths and weaknesses of different modeling approaches and underscore the value of ensemble models in achieving robust and accurate predictions.
 

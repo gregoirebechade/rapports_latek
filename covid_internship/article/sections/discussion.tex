@@ -38,7 +38,8 @@ These findings are consistent with the results we have observed.
 Indeed, we have showed that the SEIR model (capturing the physics of transmission and resetting state ) performances increase from 7-days ahead to 14-days ahead predictions, while black-box model (such as Arima or VAR), are less performant for long terms prediction. 
 This has to be qualified, as our "long term predictions" was a 14-days ahead prediction, while the study \cite{rahmandad2022enhancing} get interested to predictions up to 14-weeks reach. 
 
-
+The methodology of point classification has not be found in any other paper of the literature. 
+Some studies assess the performance of the models during different times of a pandemic (see \cite{howerton2023evaluation}), but this systematic point classification based on the reproduction number was not found. 
 
 \subsection{Practical Implications}
 
@@ -54,3 +55,4 @@ Real-life data is often full of mistakes, of missing values or of time-lag in th
 It would be interesting to measure the robustness of the models with respect to these imperfections to assess if the models can still make good predictions. 
 Moreover, the models of the second type used the number of infected to predict the number of hospitalized. 
 This quantity is not directy accessible and is often estimated with tests, which could lead to huge variations in the predicted values.  
+Moreover, the models were only tested on outbreaks generated with covasim, which might lead to a bias in the results, despite the effort to create a diverse set of pandemics. 

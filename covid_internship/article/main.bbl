@@ -265,6 +265,82 @@
       \range{pages}{-1}
       \keyw{COVID-19; data quality; epidemiology; forecasting; infectious disease; morbidity and mortality trends; public health practice; surveillance}
     \endentry
+    \entry{howerton2023evaluation}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=495b0743f6f6a6f66e34ce24504df9f8}{%
+           family={Howerton},
+           familyi={H\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod}}}%
+        {{hash=72fefe4fae69972fe29c74615419d538}{%
+           family={Contamin},
+           familyi={C\bibinitperiod},
+           given={Lucie},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c1a02fefbacbf0c3947cd77ecd82e7a8}{%
+           family={Mullany},
+           familyi={M\bibinitperiod},
+           given={Luke\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=a6856e617ab50b155534925866c38eac}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Michelle},
+           giveni={M\bibinitperiod}}}%
+        {{hash=68b4dbf033ecb04ab5bf0af268e2da21}{%
+           family={Reich},
+           familyi={R\bibinitperiod},
+           given={Nicholas\bibnamedelima G},
+           giveni={N\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=57ec66af82b069e45ab6591e10a6b241}{%
+           family={Bents},
+           familyi={B\bibinitperiod},
+           given={Samantha},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2df816337a45dba362c25c2acc6183ab}{%
+           family={Borchering},
+           familyi={B\bibinitperiod},
+           given={Rebecca\bibnamedelima K},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=23e68a15161cec6b2f65317daaefdb41}{%
+           family={Jung},
+           familyi={J\bibinitperiod},
+           given={Sung-mok},
+           giveni={S\bibinithyphendelim m\bibinitperiod}}}%
+        {{hash=5fa6ae53bf5ce32018bcf31e5be71201}{%
+           family={Loo},
+           familyi={L\bibinitperiod},
+           given={Sara\bibnamedelima L},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=f61c8e2ec3e914ae7bc92776a43c5b3e}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Claire\bibnamedelima P},
+           giveni={C\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{cda610b20c09ea2a6602de8d00cd2c49}
+      \strng{fullhash}{5f154e1046e69647f0678c4886e08720}
+      \strng{bibnamehash}{cda610b20c09ea2a6602de8d00cd2c49}
+      \strng{authorbibnamehash}{cda610b20c09ea2a6602de8d00cd2c49}
+      \strng{authornamehash}{cda610b20c09ea2a6602de8d00cd2c49}
+      \strng{authorfullhash}{5f154e1046e69647f0678c4886e08720}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature communications}
+      \field{number}{1}
+      \field{title}{Evaluation of the US COVID-19 Scenario Modeling Hub for informing pandemic response under uncertainty}
+      \field{volume}{14}
+      \field{year}{2023}
+      \field{pages}{7260}
+      \range{pages}{1}
+    \endentry
     \entry{kerr2021covasim}{article}{}
       \true{moreauthor}
       \true{morelabelname}
