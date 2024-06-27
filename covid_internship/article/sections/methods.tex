@@ -763,7 +763,7 @@ Not removing those points would lead to biaised results, as they represent 44\% 
 \subsection{Point classification}
 \label{sec:classification}
 
-In order to compare the performance of the models at different point of the pandemic, we classified the points in six categories : \textit{stable, increase, big increase, inflexion, decrease, big decrease}.
+In order to compare the performance of the models at different point of the pandemic, we classified the points in six categories : \textit{stable, increase, big increase, decrease, big decrease}.
 The $R_{eff}$ number was used for the point classification. 
 This number is easily available from the Covasim simulation. 
 $R_{eff}$ represents the expected number of people that an infected person will infect.
@@ -771,8 +771,6 @@ For a pandemic $X_{i, i \in [1, ..., n]}$ of reproduction number $R_{i, i \in [1
 \begin{enumerate}
     \item if $X[d]$<100 : \\
     classification = "no pandemic"
-    \item Elif $R[d] < 0.5$ : \\
-    classification = "stable"
     \item Elif $R[d] <0.5$ : \\
     classification = "big decrease"
     \item Elif $R[d] < 0.8$ : \\

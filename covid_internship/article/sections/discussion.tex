@@ -32,6 +32,11 @@ The very good performance of both VAR and ARIMA models is consistent with previo
 The interpretation of the coefficients of the ARIMA model enables to have information on the inherent parameters of the pandemic, or to discover links between the different regions of a country. 
 The consistency of the ensemble model has been shown in many previous studies (see \cite{cramer2022evaluation}, \cite{VIBOUD201813} and \cite{reich2019accuracy}), who also observe that their ensemble model outperformed any individual model. 
 They also observe the fact that the ensemble model is very consistent: rarely the best, but never the last, allowing to produce robust forecasts. 
+In \cite{rahmandad2022enhancing}, the authors compared several model to understand they key features that enabled a model to make long term predictions. 
+These features are : " \textit{(1) capturing the physics of transmission (instead of using black-box models); (2) projecting human behavioral reactions to an evolving pandemic; and (3) resetting state variables to account for randomness not captured in the model before starting projection.}"
+These findings are consistent with the results we have observed. 
+Indeed, we have showed that the SEIR model (capturing the physics of transmission and resetting state ) performances increase from 7-days ahead to 14-days ahead predictions, while black-box model (such as Arima or VAR), are less performant for long terms prediction. 
+This has to be qualified, as our "long term predictions" was a 14-days ahead prediction, while the study \cite{rahmandad2022enhancing} get interested to predictions up to 14-weeks reach. 
 
 
 

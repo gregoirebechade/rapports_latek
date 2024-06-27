@@ -459,6 +459,45 @@
       \field{labeltitlesource}{title}
       \field{title}{Asymptotics for least squares}
     \endentry
+    \entry{rahmandad2022enhancing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5e961bc891870d2f92cf9f8c6271df22}{%
+           family={Rahmandad},
+           familyi={R\bibinitperiod},
+           given={Hazhir},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0ffff6c439a8f53ff7ba957ad15e6170}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Ran},
+           giveni={R\bibinitperiod}}}%
+        {{hash=3879947855d0f8fd796155ca0a2c0d36}{%
+           family={Ghaffarzadegan},
+           familyi={G\bibinitperiod},
+           given={Navid},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science San Francisco, CA USA}%
+      }
+      \strng{namehash}{5e9806af36ddf3ea7d55fd636024d120}
+      \strng{fullhash}{5e9806af36ddf3ea7d55fd636024d120}
+      \strng{bibnamehash}{5e9806af36ddf3ea7d55fd636024d120}
+      \strng{authorbibnamehash}{5e9806af36ddf3ea7d55fd636024d120}
+      \strng{authornamehash}{5e9806af36ddf3ea7d55fd636024d120}
+      \strng{authorfullhash}{5e9806af36ddf3ea7d55fd636024d120}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS computational biology}
+      \field{number}{5}
+      \field{title}{Enhancing long-term forecasting: Learning from COVID-19 models}
+      \field{volume}{18}
+      \field{year}{2022}
+      \field{pages}{e1010100}
+      \range{pages}{-1}
+    \endentry
     \entry{reich2019accuracy}{article}{}
       \true{moreauthor}
       \true{morelabelname}

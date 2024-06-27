@@ -76,7 +76,7 @@ They use the last 20 data points to predict the next one (see \ref{sec:mlmodels}
 The models described above were tested on 14 points of each of the 324 pandemics generated, when the pandemic was significant (i.e when more than 0.01\% of the population was hospitalized, in our case when the value of the number of hospitalized was above 100). 
 For each point, a 7 and 14 days-ahead prediction was made. 
 Each prediction was evaluated thanks to WIS and RMSE (see \ref{sec:metrics}), and then ranked according to the performances of other models.
-The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'inflexion', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic. 
+The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic. 
 It is then possible to get global information on the rankings of the models. 
 For instance, if the loss and the reach of prediction is fixed, we can look at the distribution of rankings of all the models for a type of point (to see the best model for a type of point), as in Fig.\ref{fig:rankings}.
 \begin{figure}[h]
