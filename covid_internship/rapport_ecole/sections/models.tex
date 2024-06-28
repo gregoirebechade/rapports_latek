@@ -106,13 +106,12 @@ The initial values for $S$ and $I$ correspond to the last value of the fit of th
 The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the trainig data. 
 The initial value of $R$ is fixed by the previous values as the equation $S_t + I_y + R_t + H_t = N$ is always true. 
 The confidence interval of the prediction is computd thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
-ON EN EST LA 
 
 A SIRH model of the second type was implemented. 
 It has the same structure but uses the mobility data and the number of infected to be more precise. 
 The idea is the same, but there are two differences : 
 \begin{itemize}
-    \item $\beta$ varies with the time as a linear combination of the mobility : $\beta_t = a + b \times m_t$ 
+    \item $\beta$ varies with the time as a linear combination of the mobility : $\beta_t = a + b \times m_t$ (which is inspired from \cite{gerlee2021predicting})
     \item The data is fitted to both the number of hospitalized and the number of infected. 
 \end{itemize}
 To write it more formally, let $H_\theta(t)$ and $I_\theta(t)$ be the number of hospitalized and infected at time $t$ in the SIRH model with parameters $\theta$.
@@ -123,6 +122,7 @@ $\hat{\theta} = \underset{\theta \in \mathbb{R}^5}{\operatorname{argmin}} \sum_{
 
 With $\theta = (a, b, \gamma_i, \gamma_h, h)$ and $m_t$ the mobility at time $t$.
 The normalization factors enables to prevent the optimization to focus on the number of infected, which is bigger than the number of hospitalized. 
+During my first tries, I hadn't normalized the data and the curve of the infected was almost perfectly fitted to the curve of the SIRH model, but the curve of the hospitalized was flat. 
 Once again, a variation of the SIRH model was implemented, in which the value of $\gamma_h$ and $\gamma_i$ is fixed to $0.2$. 
 SIRH multi 1 refer to the model in which $\gamma_h$ and $\gamma_i$ are free and SIRH multi 2 refer to the model in which $\gamma_h$ and $\gamma_i$ are fixed to $0.2$.
 
@@ -130,20 +130,19 @@ SIRH multi 1 refer to the model in which $\gamma_h$ and $\gamma_i$ are free and 
 
 \subsection{ARIMA and VAR models} 
 
-The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic prediction (see \cite{kufel2020arima} and \cite{shang2021regional})
+The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic forecasting (see \cite{kufel2020arima} and \cite{shang2021regional}).
 The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differenciated $d$ times. 
 It follows the equation : \\
 $Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j} \label{eq:arima}$\\ 
 where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differenciation, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
 The coefficient are estimated through maximum likelihood estimation. 
 This method is implemented in the \texttt{statsmodels} library, which directly provides prediction and confidence intervals.
-We realized a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
-We found an optimal value for $p= 3, d=0, q=3$. 
+I realized a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
+I found an optimal value for $p= 3, d=0, q=3$. 
 
-The VAR model is a multi-dimensional $AR$ model, in which different variable are predicted. 
+The VAR model is a multi-dimensional $AR$ model, in which different variables are predicted. 
 It so corresponds to a second type model. 
-This model exploits the correlation between variables. 
-The value of the parameters of a VAR have physical sense and can be interpreted to find correlations between variables. 
+This model exploits the correlation between variables and the value of the parameters of a VAR have physical sense as they can be interpreted to find correlations between variables. 
 Let $Y_{1,t}, ..., Y_{k,t}$ be the times series (in our case, $k=3$ and they correspond to the number of hospitalized, the number of infected and the mobility data).
 
 
@@ -206,14 +205,16 @@ Y_{k,t-p}
 
 Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} librairy. 
 The confidence intervals are also directy provided by the librairy.
+
+
+
 \subsection{The moving average model}
 \label{sec:moving_average}
 
 A mere moving average model was also implemented. 
 It returns a constant prediction that correspond to the mean of the 7 past days. 
 The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the 7 last data-points.
-This model is used as a baseline.
-A model that does not manage to outperform the moving average model would not be useful. 
+This model is used as a baseline, indeed, a model that does not manage to outperform the moving average model would not be useful. 
 
 \subsection{Exponential regression}
 
@@ -232,10 +233,10 @@ The confidence interval on the prediction is estimated with the same method as S
 \subsection{Machine learning models}
 \label{sec:mlmodels}
 
-In order to implement machine learning regressor, we converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
+In order to implement machine learning regressor, I converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
 $\forall i \in \{1, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
-We then trained and optimized both regressors : the linear and the bayesain regressors, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
+I have then trained and optimized both regressors : the linear and the bayesain regressors, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
 The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} librairy (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
 The confidence interval for the linear regression prediction was computed as follow : \\
 Let us suppose that the data follows a linear regression model : $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
@@ -257,7 +258,7 @@ The confidence interval on bayesian regression was directly computed with the va
 \subsection{Ensemble model}
 
 It has been showned (see \cite{cramer2022evaluation} and \cite{reich2019accuracy}), that ensemble models, which combine the outputs of many models, can outperform by far individual models.
-We implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
+I have implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 They are represented in the Fig.\ref{fig:ensemble_weights}.
 As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
@@ -269,6 +270,13 @@ As the ensemble model only outputs a single value without confidence intervals, 
 \end{figure}
 \subsection{Computing confidence intervals on the prediction}
 \label{sec:ci}
+In this section, we prove the formula used for in the code to compute the confidence intervals. 
+This problem is a non linear regression problem. 
+The proof is made of three steps. 
+First, we linearize the problem around the solution to get back to a linear regression problem. 
+Then, we show that the estimator of the linear regression problem is asymptotically normal.
+Finally, we use the delta-method to obtain the asymptotic normality of the non linear regression estimator . \\
+
 
 \textbf{Assumption}:
 \\[0.5cm]
@@ -282,6 +290,9 @@ Finally, we suppose that
 \begin{equation}
 \exists A_0 \in \mathbb{R} ^{1 \times d},  \frac{1}{n} \sum_{i=1}^{n} \nabla_\theta h_{\theta^*}(i) \nabla_\theta h_{\theta^*}(i)^T \underset{n \rightarrow +\infty }{\rightarrow}  A_0^T A_0 .\label{hyp:major}  \\
 \end{equation}
+
+\textbf{STEP 1 :}\\
+\label{step:step1}
 
 Let:
 \begin{align*}
@@ -326,6 +337,13 @@ The previous problem can be re-written as:
 \]
 
 This is now a  linear regression problem on the regressors $\nabla_\theta h_{\theta^*}(i)$.
+
+
+
+\textbf{STEP 2 :}\\
+\label{step:step2}
+
+
 
 Let us solve this problem in the general case.
 
@@ -468,7 +486,13 @@ and,
 \hat{\theta} \sim \mathcal{N}(\theta^*, \frac{\sigma^2}{n} (A_0^T A_0)^{-1})
 \]
 
-As a first conclusion, we have that $\hat{\theta}$ is asymptotically normal.
+As a partial conclusion, we have that $\hat{\theta}$ is asymptotically normal.
+
+
+
+\textbf{STEP 3 :}\\
+\label{step:step3}
+
 
 Let $\Sigma$ be the covariance matrix estimated from the computation of $\hat{\theta}$. 
 
