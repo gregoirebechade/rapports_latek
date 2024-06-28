@@ -1,17 +1,17 @@
-[0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'main.blg'
-[311] biber-MSWIN64:340> INFO - === 
-[391] Biber.pm:419> INFO - Reading 'main.bcf'
-[636] Biber.pm:979> INFO - Found 16 citekeys in bib section 0
-[668] Biber.pm:4419> INFO - Processing section 0
-[700] Biber.pm:4610> INFO - Looking for bibtex file 'bibliography/references.bib' for section 0
-[785] bibtex.pm:1713> INFO - LaTeX decoding ...
-[889] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography/references.bib'
-[1186] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1186] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1186] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'fr-FR'
-[1187] Biber.pm:4245> INFO - No sort tailoring available for locale 'fr-FR'
-[1220] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1250] bbl.pm:763> INFO - Output to main.bbl
-[1251] Biber.pm:131> WARN - legacy month field 'Jan' in entry 'greene_Nowcasting' is not an integer - this will probably not sort properly.
-[1251] Biber.pm:133> INFO - WARNINGS: 1
+[1] Config.pm:307> INFO - This is Biber 2.19
+[3] Config.pm:310> INFO - Logfile is 'main.blg'
+[319] biber-MSWIN64:340> INFO - === 
+[426] Biber.pm:419> INFO - Reading 'main.bcf'
+[761] Biber.pm:979> INFO - Found 16 citekeys in bib section 0
+[806] Biber.pm:4419> INFO - Processing section 0
+[844] Biber.pm:4610> INFO - Looking for bibtex file 'bibliography/references.bib' for section 0
+[977] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1090] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography/references.bib'
+[1586] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1587] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1587] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'fr-FR'
+[1587] Biber.pm:4245> INFO - No sort tailoring available for locale 'fr-FR'
+[1618] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1653] bbl.pm:763> INFO - Output to main.bbl
+[1653] Biber.pm:131> WARN - legacy month field 'Jan' in entry 'greene_Nowcasting' is not an integer - this will probably not sort properly.
+[1654] Biber.pm:133> INFO - WARNINGS: 1

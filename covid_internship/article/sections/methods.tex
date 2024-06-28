@@ -334,7 +334,7 @@ A SIRH model of the second type was implemented.
 It has the same structure but uses the mobility data and the number of infected to be more precise. 
 The idea is the same, but there are two differences : 
 \begin{itemize}
-    \item $\beta$ varies with the time as a linear combination of the mobility : $\beta_t = a + b \times m_t$ 
+    \item $\beta$ varies with the time as a linear combination of the mobility : $\beta_t = a + b \times m_t$ which is inspired from \cite{gerlee2021predicting}. 
     \item The data is fitted to both the number of hospitalized and the number of infected. 
 \end{itemize}
 To write it more formally, let $H_\theta(t)$ and $I_\theta(t)$ be the number of hospitalized and infected at time $t$ in the SIRH model with parameters $\theta$.
@@ -720,7 +720,7 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
     \theta_{i-1}\\
     \theta_i + dt \\
     \theta_{i+1}\\
-    \vdots
+    \vdots \\
     \theta_n 
     \end{pmatrix} \\    
 \end{align*}
