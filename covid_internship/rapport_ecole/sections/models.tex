@@ -2,11 +2,11 @@
 
 
 
-In this study, we define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
+In this study, let us define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
 In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed from $\mathcal{D}$, and used for the prediction.  
-We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
-All of these models were implemented in Python, and are available on the github repository provided with this article (\ref{github-link}).
-During the training or predicting phase, the computation sometimes fail (for instance, when the matrix is non-inversible for the linear regression model). 
+I deisgned two types of models: the first type correspond to models which are only trained on the time series we want to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
+All of these models were implemented in Python, and are available on the github repository provided with this report (\ref{github-link}).
+During the training or predicting phase, the computation sometimes fails (for instance, when the matrix is non-inversible for the linear regression model). 
 The model then outputs the value of the moving average model (see \ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
 \textbf{Task of a model}: \\
 
@@ -96,10 +96,9 @@ As the system of equation can't be directly solved, we use a Euler method to sol
 We chose to fix $dt=0.001$. 
 
 
-
-
 To train this model, we minimize the least squares error between the curve of the number of hospitalized observed to the curve of the number of hospitalized of the training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
-We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:sirh_models_parameters}).
+I implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:sirh_models_parameters}).
+This value of $0.2$ seems arbitrairy but corresponds to an expected value of recovery of 5 days and sometimes helps the curve fir function to converge, as the computations sometimes fails to optimize on the 4 parameters. 
 
 \input{tables/table_types_of_sirh.tex}
 In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
@@ -107,7 +106,7 @@ The initial values for $S$ and $I$ correspond to the last value of the fit of th
 The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the trainig data. 
 The initial value of $R$ is fixed by the previous values as the equation $S_t + I_y + R_t + H_t = N$ is always true. 
 The confidence interval of the prediction is computd thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
-
+ON EN EST LA 
 
 A SIRH model of the second type was implemented. 
 It has the same structure but uses the mobility data and the number of infected to be more precise. 
@@ -499,7 +498,7 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
     \theta_{i-1}\\
     \theta_i + dt \\
     \theta_{i+1}\\
-    \vdots
+    \vdots \\
     \theta_n 
     \end{pmatrix} \\    
 \end{align*}

@@ -103,10 +103,9 @@ The ARIMA performance dropps from 7-days ahead to 14-days ahead predictions.
 The exponential models are very bad and almost always the last ones. 
 
 \subsection{The Ensemble model}
-
-It has been showned in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}, \cite{howerton2023evaluation}) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking ( as it is done in \cite{reich2019accuracy} ) or linear opinion pool (see \cite{howerton2023evaluation}).
-We decided to implement or own ensemble models. 
-They consist in a linear combination of the predictions of the 13 individual models (without exponential models) for 7 and 14 days-ahead predictions.
+The performance of the ensemble models have to be separated from the performances of the other models. 
+Indeed, as the ensemble models were tarined on a part of the pandemics, they can't be evaluated on the whole set of outbreaks. 
+The performances discussed in this part refer to the same evaluation as above, but only for the RMSE loss and on a test set that represent 20\% of the pandemics. 
 The performances of these two models are showned in the two figure below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})
 
 \begin{figure}

@@ -168,7 +168,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortlocale</bcf:key>
-      <bcf:value>french</bcf:value>
+      <bcf:value>english</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
@@ -2377,36 +2377,32 @@
     <bcf:citekey order="14" intorder="1">hult2020estimates</bcf:citekey>
     <bcf:citekey order="15" intorder="1">sjodin2020covid</bcf:citekey>
     <bcf:citekey order="16" intorder="1">kerr2021covasim</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">gerlee2021predicting</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">diaconis2009markov</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">bodineau2015modelisation</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">kerr2021covasim</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">gerlee2021predicting</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">diaconis2009markov</bcf:citekey>
     <bcf:citekey order="20" intorder="1">bodineau2015modelisation</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">gerlee2021predicting</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">kufel2020arima</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">shang2021regional</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">cramer2022evaluation</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">reich2019accuracy</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">ruckstuhl2010introduction</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">powellasymptoticsforleastsquares</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">suquet2004lois</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">cramer2022evaluation</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">paireau2022ensemble</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">bodineau2015modelisation</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">gerlee2021predicting</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">kufel2020arima</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">shang2021regional</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">reich2019accuracy</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">ruckstuhl2010introduction</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">powellasymptoticsforleastsquares</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">suquet2004lois</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">paireau2022ensemble</bcf:citekey>
     <bcf:citekey order="32" intorder="1">cramer2022evaluation</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">reich2019accuracy</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">howerton2023evaluation</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">reich2019accuracy</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">howerton2023evaluation</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">cramer2022evaluation</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">kufel2020arima</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">shang2021regional</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">cramer2022evaluation</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">VIBOUD201813</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">reich2019accuracy</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">rahmandad2022enhancing</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">rahmandad2022enhancing</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">howerton2023evaluation</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">greene_Nowcasting</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">kufel2020arima</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">shang2021regional</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">cramer2022evaluation</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">VIBOUD201813</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">reich2019accuracy</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">rahmandad2022enhancing</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">rahmandad2022enhancing</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">howerton2023evaluation</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">greene_Nowcasting</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

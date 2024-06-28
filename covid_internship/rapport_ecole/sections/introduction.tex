@@ -3,26 +3,27 @@
 The recent outbreak of COVID-19 has enlighted the importance of accurate forecasting models, for policymakers and population alike. 
 The number of hospitalized has shown to be a key indicator in the last pandemic, as maintaining the number of hospitalized individuals below the capacity of the healthcare system was a major concern.
 Predicting the trajectory of a pandemic is a complex task, considering the number of parameters that have an influence on the outbreak. 
-In this study, we explore the efficiency of different models in predicting the number of hospitalized individuals. 
+I will relate in this report the work that was done during an research internship of 16 weeks in Chalmers, whose goal was to develop predictive models and assess their performance on a set pf diverse pandemics. 
+The elaboration of the set of pandemic was also an important part of the work. 
 
-We implemented 13 individual models and an ensemble model to forecast the number of hospitalizations 7 and 14 days ahead, given the data up to the current day.
+I implemented 13 individual models and an ensemble model to forecast the number of hospitalizations 7 and 14 days ahead, given the data up to the current day.
 These models are divided into two categories: those trained only on hospitalization data and those incorporating additional time-series such as mobility data and the number of infected agents. 
 The individual models are : variations of the SIRH (Susceptible, Infected, Recovered, Hospitalized) model, ARIMA, VAR, moving average, exponential regressions, bayesian and linear regressors.
 
 A complex agent-based model was used to simulate pandemics of a wide diversity. 
-By varying key parameters and using different mobility patterns, we created a diverse set of 324 synthetic pandemic scenarios (consisting into daily reports of key quantities). 
+By varying key parameters and using different mobility patterns, I created a diverse set of 324 synthetic pandemic scenarios (consisting into daily reports of key quantities). 
 This diversity allows for a robust evaluation of the models across various conditions.
 
 The models were trained and tested on many points of these pandemics, allowing for a consistent analysis of their performance. 
-Additionally, we classified the points in the pandemic trajectories based on the reproductive number to understand model performance at different phases of the pandemic.
+Additionally, I classified the points in the pandemic trajectories based on the reproductive number to understand model performance at different phases of the pandemic.
 
 This paper aims to determine the most consistent and reliable models for forecasting hospitalizations during pandemics, at different phases of the outbreak. 
-By analyzing the performance of various models across a wide range of synthetic pandemic scenarios, we aim to provide insights that can guide the selection and development of predictive models for real-world applications. 
-Our findings highlight the strengths and weaknesses of different modeling approaches and underscore the value of ensemble models in achieving robust and accurate predictions.
+By analyzing the performance of various models across a wide range of synthetic pandemic scenarios, the objective is to provide insights that can guide the selection and development of predictive models for real-world applications. 
+The findings of this internship highlight the strengths and weaknesses of different modeling approaches and underscore the value of ensemble models in achieving robust and accurate predictions.
 
 The simulations that are described in this report and lead to all the figures presented below are available on this  \href{https://github.com/gregoirebechade/covid_internship}{GitHub Repository}\label{github-link}.
 
 The work presented in this report led to a publication. 
-Some parts of this report are directly taken from this publication. 
+Some parts of this report are directly taken from this publication, as they referred to the exact same work and results. 
 Those parts were fully written by me, and present some of my work. 
 This approach was reported and accepted by the Applied Mathematics Department of Polytechnique.  

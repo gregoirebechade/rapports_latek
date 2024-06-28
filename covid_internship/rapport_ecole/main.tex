@@ -1,5 +1,5 @@
-\documentclass[12pt,a4paper]{report}
-\usepackage[french]{babel}
+\documentclass[11pt,a4paper]{article}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -8,11 +8,9 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{hyperref}
-\usepackage{amsmath} % Add this line to import the necessary package
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz}
-
-
 \usepackage{amsfonts}
 \usepackage{subcaption}
 \usepackage{stmaryrd}
@@ -20,22 +18,15 @@
 \usepackage{csquotes}
 \usepackage{float}
 \usepackage{amsthm} 
-
-
 \usetikzlibrary{arrows.meta, positioning}
-
 
 % Bibliography
 \usepackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{bibliography/references.bib}
 
-
 \geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
 \titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter}{2pc}{}
 \onehalfspacing
-
-
-
 
 % Configuration des En-têtes et Pieds de page
 \pagestyle{fancy}
@@ -43,8 +34,7 @@
 
 % Images en en-tête
 \fancyhead[L]{\includegraphics[width=1.5cm]{logo_chalmers.jpg}} % Image en en-tête gauche
-\fancyhead[R]{\includegraphics[width=1.5cm]{logo_x.png}} % Image en en-tête droite
-
+\fancyhead[R]{\includegraphics[width=1.2cm]{logo_x.png}} % Image en en-tête droite
 
 % Numérotation des pages en pied de page au centre
 \fancyfoot[C]{\thepage}
@@ -52,15 +42,25 @@
 % Pour éviter les en-têtes et pieds de page par défaut des chapitres
 \fancypagestyle{plain}{
     \fancyhf{}
-    \fancyhead[L]{\includegraphics[width=3cm]{logo_chalmers.jpg}}
+    \fancyhead[L]{\includegraphics[width=1.5cm]{logo_chalmers.jpg}}
     \fancyhead[R]{\includegraphics[width=1.2cm]{logo_x.png}}
     \fancyfoot[C]{\thepage}
 }
 
+% Augmenter la hauteur de l'en-tête
+\setlength{\headheight}{25pt}
+
+% Ajouter de l'espace entre l'en-tête et le texte
+\addtolength{\headsep}{0.5cm}
+
+
+
+% Numérotation des sections sans les chapitres
+\renewcommand{\thesection}{\arabic{section}}
+
 
 
 \begin{document}
-
 
 % Page de Garde
 \begin{titlepage}
@@ -68,7 +68,7 @@
         \vspace*{1cm}
         
         \Huge
-        \textbf{Comparing forecast performance on different synthetic pandemics }
+        \textbf{Comparing forecast performance on different synthetic pandemics}
         
         \vspace{0.5cm}
         \LARGE
@@ -81,7 +81,7 @@
         \vfill
         
         \Large
-        Internship at  \\
+        Internship at \\
         Chalmers University
         
         \vspace{0.8cm}
@@ -95,7 +95,6 @@
         Philipp Gerlee
         
         \vspace{0.8cm}
-       
         
     \end{center}
 \end{titlepage}
@@ -109,17 +108,15 @@
 % Table des matières
 \tableofcontents
 \newpage
-% sections 
 
-\input{sections/introduction} % intro + analyse de la litérature + objective du stage 
+% sections 
+\input{sections/introduction} % intro + analyse de la littérature + objectif du stage 
 \input{sections/Literature_review_and_context}
-\input{sections/generating_diverse_pandemics} 
+\input{sections/generating_diverse_pandemics}
 \input{sections/models}
 \input{sections/results_and_discussion}
 \input{sections/conclusion}
 \input{sections/appendix}
 \printbibliography % Move this line to the desired location, typically at the end of the document
-
-
 
 \end{document}
