@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  1 JUL 2024 10:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  1 JUL 2024 15:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1031,62 +1031,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--124
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--155
+Underfull \hbox (badness 10000) in paragraph at lines 147--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--158
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
 
  []
 
 [14]
-Overfull \hbox (19.75365pt too wide) in paragraph at lines 167--181
+Overfull \hbox (19.75365pt too wide) in paragraph at lines 170--184
 []$[][]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--186
+Underfull \hbox (badness 10000) in paragraph at lines 187--189
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--191
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--195
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--197
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
 
  []
 
@@ -1096,17 +1091,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 203--204
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--211
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--214
 
  []
 
 <figures/mobilities.png, id=301, 409.7709pt x 327.3831pt>
 File: figures/mobilities.png Graphic file (type png)
 <use figures/mobilities.png>
-Package pdftex.def Info: figures/mobilities.png  used on input line 215.
+Package pdftex.def Info: figures/mobilities.png  used on input line 218.
 (pdftex.def)             Requested size: 221.78923pt x 177.19386pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--233
+Underfull \hbox (badness 10000) in paragraph at lines 229--236
 
  []
 
@@ -1115,79 +1115,79 @@ Underfull \hbox (badness 10000) in paragraph at lines 226--233
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [16 <./figures/mobilities.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 301--303
+Underfull \hbox (badness 10000) in paragraph at lines 304--306
 
  []
 
 (tables/table_types_of_sirh.tex) [17]
-Underfull \hbox (badness 10000) in paragraph at lines 340--343
+Underfull \hbox (badness 10000) in paragraph at lines 343--346
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 457--459
+Underfull \hbox (badness 10000) in paragraph at lines 460--462
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--466
+Underfull \hbox (badness 10000) in paragraph at lines 463--469
 
  []
 
 <figures/esb_coefs.png, id=344, 503.7219pt x 250.7769pt>
 File: figures/esb_coefs.png Graphic file (type png)
 <use figures/esb_coefs.png>
-Package pdftex.def Info: figures/esb_coefs.png  used on input line 488.
+Package pdftex.def Info: figures/esb_coefs.png  used on input line 491.
 (pdftex.def)             Requested size: 221.78923pt x 110.41487pt.
 [19] [20 <./figures/esb_coefs.png>]
 \c@theorem=\count462
  [21]
-Underfull \hbox (badness 10000) in paragraph at lines 614--615
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--621
+Underfull \hbox (badness 10000) in paragraph at lines 620--624
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+Underfull \hbox (badness 10000) in paragraph at lines 625--626
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 627--628
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 711--714
+Underfull \hbox (badness 10000) in paragraph at lines 714--717
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 736--743
+Underfull \hbox (badness 10000) in paragraph at lines 739--746
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 744--745
+Underfull \hbox (badness 10000) in paragraph at lines 747--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 746--749
+Underfull \hbox (badness 10000) in paragraph at lines 749--752
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 766--771
+Underfull \hbox (badness 10000) in paragraph at lines 769--774
 
  []
 
@@ -1228,7 +1228,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,18n,93p,747b,1773s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold7.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (27 pages, 1106837 bytes).
+Output written on main.pdf (27 pages, 1106810 bytes).
 PDF statistics:
  922 PDF objects out of 1000 (max. 8388607)
  107 named destinations out of 1000 (max. 500000)

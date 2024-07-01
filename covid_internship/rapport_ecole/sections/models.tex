@@ -4,8 +4,8 @@
 
 In this study, let us define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
 In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed from $\mathcal{D}$, and used for the prediction.  
-I deisgned two types of models: the first type correspond to models which are only trained on the time series we want to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
-All of these models were implemented in Python, and are available on the github repository provided with this report (\ref{github-link}).
+I deisgned two types of models: the first type correspond to models which are only trained on the time series we want to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to forecast the number of hospitalized (the mobility and the number of infected). 
+All of these models were implemented in Python, and are available on the Github repository provided with this report (\ref{github-link}).
 During the training or predicting phase, the computation sometimes fails (for instance, when the matrix is non-inversible for the linear regression model). 
 The model then outputs the value of the moving average model (see \ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
 \textbf{Task of a model}: \\
@@ -13,7 +13,7 @@ The model then outputs the value of the moving average model (see \ref{sec:movin
 Each model ${h}$ is given : 
 
 \begin{enumerate}
-    \item A training set $\mathcal{D}$
+    \item A training set $\mathcal{D}$os size $n$. 
     \item A reach of prediction $r$
     \item A confidence threshold $\alpha$
 \end{enumerate}
@@ -22,11 +22,11 @@ Each model ${h}$ is given :
 And outputs: 
 
 \begin{enumerate}
-    \item A prediction $\hat{Y}_r$
-    \item A $(1-\alpha)$ confidence interval on the prediction, $I_{\alpha, r}$
+    \item A prediction $\hat{Y}_{n+r}$
+    \item A $(1-\alpha)$ confidence interval on the prediction, $I_{\alpha, n+r}$
 \end{enumerate}
 
-The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_r = {h}_{\hat{\theta}}(r)$.
+The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_{n+r} = {h}_{\hat{\theta}}(n+r)$.
 
 
 \subsection{The SIRH model}
@@ -70,7 +70,7 @@ The evolution of the number of person in each compartment is described by a syst
     \left\{
     \begin{aligned}
         &\frac{dS}{dt} = - \beta \frac{SI}{N} \\
-        &\frac{dI}{dt} = \beta \frac{SI}{N} - \gamma_i I - h H \\
+        &\frac{dI}{dt} = \beta \frac{SI}{N} - \gamma_i I - h I \\
         &\frac{dR}{dt} = \gamma_i I + \gamma_h h \\
         &\frac{dH}{dt} = h I - \gamma_h H
     \end{aligned}
@@ -98,7 +98,7 @@ We chose to fix $dt=0.001$.
 
 To train this model, we minimize the least squares error between the curve of the number of hospitalized observed to the curve of the number of hospitalized of the training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
 I implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:sirh_models_parameters}).
-This value of $0.2$ seems arbitrairy but corresponds to an expected value of recovery of 5 days and sometimes helps the curve fir function to converge, as the computations sometimes fails to optimize on the 4 parameters. 
+This value of $0.2$ seems arbitrairy but corresponds to an expected value of recovery of 5 days and sometimes helps the curve fit function to converge, as the computations sometimes fails to optimize on the 4 parameters. 
 
 \input{tables/table_types_of_sirh.tex}
 In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
@@ -233,8 +233,8 @@ The confidence interval on the prediction is estimated with the same method as S
 \subsection{Machine learning models}
 \label{sec:mlmodels}
 
-In order to implement machine learning regressor, I converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
-$\forall i \in \{1, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
+In order to implement machine learning regressors, I converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
+$\forall i \in \{21, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
 I have then trained and optimized both regressors : the linear and the bayesain regressors, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
 The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} librairy (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
@@ -246,7 +246,7 @@ If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to pred
 $
 \begin{aligned}
     \tilde{Y} & = \tilde{X} \hat{\beta} \\
-    &  = \tilde{X} \hat{\beta} = \tilde{X} (X^T X)^{-1} X^T Y \\
+    &   = \tilde{X} (X^T X)^{-1} X^T Y \\
     &  = \tilde{X} (X^T X)^{-1} X^T (X\beta + \epsilon) \\
     &  = \tilde{X} \beta + \tilde{X} (X^T X)^{-1} X^T \epsilon.\\
 \end{aligned}
@@ -273,7 +273,7 @@ As the ensemble model only outputs a single value without confidence intervals, 
 In this section, we prove the formula used for in the code to compute the confidence intervals. 
 The following proof is inspired from \cite{ruckstuhl2010introduction} and \cite{powellasymptoticsforleastsquares}. 
 I have assembled individuals proofs from these two articles to get the final results. 
-Some notations and steps are identical to what we can find in the paper and are explicitely cited. 
+Some notations and steps are identical to what we can find in the paper and are explicitely cited. \\
 This problem is a non linear regression problem. 
 The proof is made of three steps. 
 First, we linearize the problem around the solution to get back to a linear regression problem. 

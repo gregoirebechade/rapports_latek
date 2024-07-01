@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {6.2}Evaluation of the models}{22}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}The Ensemble model}{24}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Summary of Key Findings}{25}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Comparison with Previous Research}{29}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Practical Implications}{30}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Limitations}{30}{subsection.6.7}%
-\contentsline {section}{\numberline {7}Appendix}{33}{section.7}%
+\contentsline {subsection}{\numberline {6.5}Comparison with Previous Research}{27}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Practical Implications}{28}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Limitations}{28}{subsection.6.7}%
+\contentsline {section}{\numberline {7}Appendix}{31}{section.7}%

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1719819714 "main.bcf" "main.bbl" "main" 1719821621 0
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1719841811 -1
   "./bibliography/references.bib" 1719579164 7622 935a07f62cb975406509a51719dfb251 ""
-  "main.bcf" 1719821620 111359 db90dabd5091ceb393b3d106936b57ea "pdflatex"
+  "main.bcf" 1719841809 111359 db90dabd5091ceb393b3d106936b57ea "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1719821614 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/rapport_ecole/main.tex" "main.pdf" "main" 1719821621 0
+["pdflatex"] 1719841804 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/rapport_ecole/main.tex" "main.pdf" "main" 1719841811 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1718721400 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1719568939 28976 d9db75ca4b56c83a8f70afe4fe96ae09 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1717156662 31952 8bcd38facc752fc208bbb3dba0164919 ""
@@ -14,6 +14,7 @@
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1728.pk" 1717156577 49100 09eb6df1a925391b46296b31d7185ce1 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx2488.pk" 1717156587 72288 0eec7ef145403af3ac6edbb56716ab19 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/eccc1095.pk" 1719568926 27712 286ab2475d0bfb8ced5e33c03c611bb2 ""
+  "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1000.pk" 1717593013 23808 a34483021ff8b3c93e4b9834757a52fd ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk" 1719568937 26228 266a4407f80c575d97895b15d2a2363b ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1440.pk" 1719568718 34320 b2afb1c92d770beb2fcf5de610c007cf ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1728.pk" 1717156581 42516 c60662bef410b57913e697d38c466cf7 ""
@@ -42,6 +43,7 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm0600.tfm" 993062116 3160 116e21835795bb29209ae8bb4682382f ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm0800.tfm" 993062118 3152 11ecf5aad6aacf00ff18f394ab23a8b5 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm0900.tfm" 993062120 3156 6d4f5755d77638125f6f89de4f3bb757 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm1000.tfm" 993062122 3148 7e594c8240c71e432203f65ab5f95a51 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm1095.tfm" 993062124 3172 eb6efaa83c6c52473a1c403f376eab0f ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm1200.tfm" 993062126 3152 4850ff0163852b7fab34bd55e1197f28 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm1440.tfm" 993062128 3168 3bd7b08ba4330af81521911744311212 ""
@@ -262,20 +264,20 @@
   "figures/ranks_big_increase_RMSE_7.png" 1719316856 74013 45b61598908865b0d6d2921cb78ded6f ""
   "logo_chalmers.jpg" 1719567781 80381 ca1fd1436e9f6f26b46034e107ffa40e ""
   "logo_x.png" 1719567205 150669 f38c83add78ac6fd6ef40ae29992b60a ""
-  "main.aux" 1719821620 15462 5bdada6bdc1a3188aa3258d84f437184 "pdflatex"
+  "main.aux" 1719841809 15877 a4f5dfe9c092659d7ea5ff21a9a8b2d4 "pdflatex"
   "main.bbl" 1719819717 40701 1f978535df4d10590041e037298b240a "biber main"
-  "main.out" 1719821620 4155 b171a59c7992f7dfc4a1cd09370ab492 "pdflatex"
-  "main.run.xml" 1719821620 2318 ebd98b15c298057d75c6637c1a71e311 "pdflatex"
+  "main.out" 1719841809 4155 b171a59c7992f7dfc4a1cd09370ab492 "pdflatex"
+  "main.run.xml" 1719841809 2318 ebd98b15c298057d75c6637c1a71e311 "pdflatex"
   "main.tex" 1719820561 3017 3c094463449f5013195999da069cdede ""
-  "main.toc" 1719821620 2218 a8f960a6ba99119229b0a3d26bcca8fd "pdflatex"
+  "main.toc" 1719841809 2218 abc349fe743c920811146c0f4641117a "pdflatex"
   "sections/Literature_review_and_context.tex" 1719821102 2979 eaa5c37801e2a33c2b44d9c298ef8beb ""
   "sections/appendix.tex" 1719820488 1032 542c96a3f1ae58a8a3dabae64acf0a37 ""
-  "sections/conclusion.tex" 1719487884 815 e276f120f40888cc5e86a727016adb03 ""
-  "sections/generating_diverse_pandemics.tex" 1719821613 15053 679161d373d0bbb877ed86dc134ff64c ""
+  "sections/conclusion.tex" 1719841803 829 09c8b33144bab8907fb99f1e927bfbc9 ""
+  "sections/generating_diverse_pandemics.tex" 1719841722 15274 c2c7fcc6de90bd47af09aacf7567b173 ""
   "sections/introduction.tex" 1719820857 2986 fa255bc32b94aafccb2499f02a7058db ""
-  "sections/models.tex" 1719819706 25318 efce4b9a4dba4d4a8cbefb706a9c34e9 ""
+  "sections/models.tex" 1719840446 25325 7477070535ade27a683a1cbb7c73cc76 ""
   "sections/plagiat.tex" 1719820444 546 8ab32532cd3f76312056d7c94b76857b ""
-  "sections/results_and_discussion.tex" 1719578620 17016 d0d6003bfd7eaf76cc725d06e9066ca9 ""
+  "sections/results_and_discussion.tex" 1719841722 17724 b9dd5675b2556112e739caf5a20088ba ""
   "tables/table_types_of_sirh.tex" 1718789001 355 29fff74d967bcf4083681c2bf2927b9d ""
   (generated)
   "main.aux"

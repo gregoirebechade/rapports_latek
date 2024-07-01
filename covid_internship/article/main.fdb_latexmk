@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1719575116 "main.bcf" "main.bbl" "main" 1719821674 0
+["biber main"] 1719575116 "main.bcf" "main.bbl" "main" 1719840058 0
   "./bibliography/references.bib" 1719487017 6390 859eb96d70b7335bd5be6e4fd7dbca8d ""
-  "main.bcf" 1719821666 110187 7afc05cf60636a8837d3fbe39133edd6 "pdflatex"
+  "main.bcf" 1719840057 110187 7afc05cf60636a8837d3fbe39133edd6 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1719821659 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1719821674 0
+["pdflatex"] 1719840053 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1719840058 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1718721400 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1717593020 22504 9f5668af17bd7b6eefd62136611bf007 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1717593010 25420 05f1636bc2674c5a31198d4e64a701f9 ""
@@ -252,16 +252,16 @@
   "figures/mobility_reports.png" 1717494605 30156 03aa02e34a350c5d8a51be45789f7e2f ""
   "figures/most_different_pandemics.png" 1717505760 114400 d9b93f05951541ccf7999f7750dfe293 ""
   "figures/ranks_big_increase_RMSE_7.png" 1719316856 74013 45b61598908865b0d6d2921cb78ded6f ""
-  "main.aux" 1719821666 14344 f2e0a61f553f45f57f44f065e24333f0 "pdflatex"
+  "main.aux" 1719840057 14344 f2e0a61f553f45f57f44f065e24333f0 "pdflatex"
   "main.bbl" 1719575122 34068 1ecfc5244c394f880651beb21fce24a4 "biber main"
-  "main.out" 1719821666 4018 749c2c4239c984717b1213679b148921 "pdflatex"
-  "main.run.xml" 1719821666 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
+  "main.out" 1719840057 4018 749c2c4239c984717b1213679b148921 "pdflatex"
+  "main.run.xml" 1719840057 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
   "main.tex" 1719566635 1272 127b1f553771a8645cd8996c17fa2659 ""
   "sections/appendix.tex" 1719492995 835 2b81ffe82f1e213e3a9757df780e1728 ""
   "sections/conclusion.tex" 1719487884 815 e276f120f40888cc5e86a727016adb03 ""
   "sections/discussion.tex" 1719578506 6750 cb17e68300ed30f47a810272ce9ffec0 ""
   "sections/introduction.tex" 1719489035 2598 ae813ec8560ba86ea881baf1f092e2ac ""
-  "sections/methods.tex" 1719821657 43734 f7e560b4a722b0f5d4c6b2e487bb284a ""
+  "sections/methods.tex" 1719840052 43717 0f55614ed37542617fbb9da22d33dff3 ""
   "sections/results.tex" 1719487085 11006 05fcb3a83dbeb7a5853fbc77f655e6c0 ""
   "tables/table_covasim_parameters.tex" 1718784914 827 4552dbcd093bccdedeffb4de78f6a4a9 ""
   "tables/table_types_of_sirh.tex" 1718789001 355 29fff74d967bcf4083681c2bf2927b9d ""

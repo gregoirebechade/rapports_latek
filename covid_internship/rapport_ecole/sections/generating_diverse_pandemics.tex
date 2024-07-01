@@ -12,7 +12,8 @@ To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python librairy th
 Covasim is an agent-based model that can simulate the spread of a pandemic in a population. 
 This model takes as an input many parameters such as the population type, the population size, the age repartition... and outputs a complete description of the pandemic, with real-time values of each relevant information, such as the number of severe, of asymptomatic... but also physical values such as the value of the reproduction number. 
 Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as the input of the model, but also with interventions that can be planned by the users. 
-These interventions can help to assess the impact of a vaccination campaign, or lockdown scenarios, with changes in the probability transmission. 
+These interventions can help to assess the impact of a vaccination campaign, or lockdown scenarios. 
+They represent relatives changes in the probabilities of transmission. 
 Covasim was used by policymakers during the Covid 19 outbreak to adapt their strategies of mitigation, for instance in Australia,Vietnam, India and United States (\cite{kerr2021covasim}). 
 
 \subsection{First pandemics}
@@ -41,7 +42,7 @@ All the parameters have a default value of 1, which corresponds to keeping the r
 I decided to select 4 parameters and to make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
 To select the 4 parameters that generated the most diversity, different diversity metrics were computed. 
 
-Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics, and $Y'$ and $Y''$ the first and second derivatives pf $Y$.  \\[0.2cm]
+Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics, and $Y'$ and $Y''$ the first and second derivatives of $Y$.  \\[0.2cm]
 
 Let :  \\
 
@@ -89,7 +90,8 @@ The main idea is to construct a Markov Chain whose stationary distribution is th
 
 Let $\mathcal{S} = \{ s\subset S ;  \vert s \vert = 4 \}$ be the support of the target distribution, which is, in our case, the set of all the 715 combinations of the 4 parameters among the 13 different possible, and let $\pi$ be the target distribution on $\mathcal{S}$.
 $\forall s \in \mathcal{S}, \pi(s) = \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}}  \mathcal{L}(s)} $. $\pi$ is not directly computable as it is too time consuming to compute the denominator.
-
+We suppose that $\forall s \in \mathcal{S}, \mathcal{L}(s) >0$.
+It is a reasonable assumption, as $\mathcal{L}(s) = 0 $ means that the 81 pandemics generated   are strictly identical. 
 
 For each $s = [a, b, c, d] \in \mathcal{S}$, let $ne(s)$ be the set of the neighbourghs of $s$, i.e the set of all the elements of $\mathcal{S}$ who have only one parameter different from $s$. 
 For instance, $[0, 3, 9, 12] \in ne([0, 3, 10, 12])$, but $[0, 3, 9, 12] \notin ne([0, 3, 8, 10])$.\\
@@ -103,7 +105,7 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
     \begin{aligned}
         & S_0 = s_0 \\
         & \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(S_n)})}{\mathcal{L}(S_n)} \\
-        & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + X_n \mathbb{1}_{\{U_n > \alpha_n\}}
+        & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + S_n \mathbb{1}_{\{U_n > \alpha_n\}}
 \end{aligned}
 \right.
 \]
@@ -168,7 +170,7 @@ $
 
 Thus, $S_n$ is \textbf{irreductible}.\\
 
-A Markov chain of transition matrix $P$ on the support $\mathcal{S}$ is said to be aperiodic if: \\
+A Markov chain of transition matrix $P$ on the support $\mathcal{S}$ is said to be \textit{aperiodic} if: \\
 $\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \cite{bodineau2015modelisation}\\
 
 First, note that $\forall s \in \mathcal{S}$,  $s$ is a local minimum (i.e if $\forall s' \in ne(s), \mathcal{L}(s') > \mathcal{L}(s) $) if and only if $K(s,s)=0$\\

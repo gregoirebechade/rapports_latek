@@ -116,11 +116,14 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
     \begin{aligned}
         & S_0 = s_0 \\
         & \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(S_n)})}{\mathcal{L}(S_n)} \\
-        & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + X_n \mathbb{1}_{\{U_n > \alpha_n\}}
+        & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + S_Sn \mathbb{1}_{\{U_n > \alpha_n\}}
 \end{aligned}
 \right.
 \]
 \\[0.5cm]
+
+
+
 
 This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbourghs of $S_n$ (it is $U_n^{ne(S_n)}$). 
 The Markov Chain moves to this neighbourgh if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
@@ -291,7 +294,7 @@ The evolution of the number of person in each compartment is described by a syst
     \left\{
     \begin{aligned}
         &\frac{dS}{dt} = - \beta \frac{SI}{N} \\
-        &\frac{dI}{dt} = \beta \frac{SI}{N} - \gamma_i I - h H \\
+        &\frac{dI}{dt} = \beta \frac{SI}{N} - \gamma_i I - h I \\
         &\frac{dR}{dt} = \gamma_i I + \gamma_h h \\
         &\frac{dH}{dt} = h I - \gamma_h H
     \end{aligned}
@@ -467,7 +470,7 @@ If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to pred
 $
 \begin{aligned}
     \tilde{Y} & = \tilde{X} \hat{\beta} \\
-    &  = \tilde{X} \hat{\beta} = \tilde{X} (X^T X)^{-1} X^T Y \\
+    &  = \tilde{X} (X^T X)^{-1} X^T Y \\
     &  = \tilde{X} (X^T X)^{-1} X^T (X\beta + \epsilon) \\
     &  = \tilde{X} \beta + \tilde{X} (X^T X)^{-1} X^T \epsilon.\\
 \end{aligned}

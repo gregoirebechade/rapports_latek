@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  1 JUL 2024 10:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  1 JUL 2024 15:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -975,11 +975,11 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 [4]) (sections/generating_diverse_pandemics.tex
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 17.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 18.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 17.
+Package pdftex.def Info: logo_x.png  used on input line 18.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 
@@ -990,24 +990,24 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [5]
-LaTeX Font Info:    Trying to load font information for U+bbold on input line 44.
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 45.
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/bbold\ubbold.fd)
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 58.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 59.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 58.
+Package pdftex.def Info: logo_x.png  used on input line 59.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1017,35 +1017,35 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
 <figures/most_different_pandemics.png, id=216, 714.7503pt x 523.9575pt>
 File: figures/most_different_pandemics.png Graphic file (type png)
 <use figures/most_different_pandemics.png>
-Package pdftex.def Info: figures/most_different_pandemics.png  used on input line 68.
+Package pdftex.def Info: figures/most_different_pandemics.png  used on input line 69.
 (pdftex.def)             Requested size: 364.19667pt x 266.98294pt.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 77.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 78.
 (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 82.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 83.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 82.
+Package pdftex.def Info: logo_x.png  used on input line 83.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1055,32 +1055,32 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [7 <./figures/most_different_pandemics.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 96--98
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--111
+Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
 
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 128.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 130.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 128.
+Package pdftex.def Info: logo_x.png  used on input line 130.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1090,37 +1090,37 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 128--130
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--142
+Underfull \hbox (badness 10000) in paragraph at lines 133--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--145
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--152
+Underfull \hbox (badness 10000) in paragraph at lines 148--154
 
  []
 
 
-Overfull \hbox (48.25308pt too wide) in paragraph at lines 154--168
+Overfull \hbox (48.25308pt too wide) in paragraph at lines 156--170
 []$[][]$ 
  []
 
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 169.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 171.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 169.
+Package pdftex.def Info: logo_x.png  used on input line 171.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1130,27 +1130,22 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--173
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--182
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
@@ -1160,27 +1155,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--184
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--198
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--200
 
  []
 
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 198.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 200.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 198.
+Package pdftex.def Info: logo_x.png  used on input line 200.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1190,10 +1190,10 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [10]
-<figures/mobilities.png, id=253, 409.7709pt x 327.3831pt>
+<figures/mobilities.png, id=254, 409.7709pt x 327.3831pt>
 File: figures/mobilities.png Graphic file (type png)
 <use figures/mobilities.png>
-Package pdftex.def Info: figures/mobilities.png  used on input line 202.
+Package pdftex.def Info: figures/mobilities.png  used on input line 204.
 (pdftex.def)             Requested size: 227.62206pt x 181.85463pt.
 ) (sections/models.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--12
@@ -1292,7 +1292,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--245
 
  []
 
-<figures/esb_coefs.png, id=297, 503.7219pt x 250.7769pt>
+<figures/esb_coefs.png, id=298, 503.7219pt x 250.7769pt>
 File: figures/esb_coefs.png Graphic file (type png)
 <use figures/esb_coefs.png>
 Package pdftex.def Info: figures/esb_coefs.png  used on input line 267.
@@ -1499,16 +1499,13 @@ File: figures/heatmap_RMSE_7.png Graphic file (type png)
 <use figures/heatmap_RMSE_7.png>
 Package pdftex.def Info: figures/heatmap_RMSE_7.png  used on input line 92.
 (pdftex.def)             Requested size: 318.66948pt x 248.18993pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 104.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 96.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 104.
+Package pdftex.def Info: logo_x.png  used on input line 96.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1518,35 +1515,37 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [23 <./figures/ranks_big_increase_RMSE_7.png>]
-<figures/esb_rank_7.png, id=379, 640.3122pt x 800.0289pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/esb_rank_7.png, id=378, 640.3122pt x 800.0289pt>
 File: figures/esb_rank_7.png Graphic file (type png)
 <use figures/esb_rank_7.png>
-Package pdftex.def Info: figures/esb_rank_7.png  used on input line 113.
-(pdftex.def)             Requested size: 318.66948pt x 398.17014pt.
-<figures/esb_rank_14.png, id=380, 647.5392pt x 800.0289pt>
+Package pdftex.def Info: figures/esb_rank_7.png  used on input line 115.
+(pdftex.def)             Requested size: 204.85846pt x 255.95343pt.
+<figures/esb_rank_14.png, id=379, 647.5392pt x 800.0289pt>
 File: figures/esb_rank_14.png Graphic file (type png)
 <use figures/esb_rank_14.png>
-Package pdftex.def Info: figures/esb_rank_14.png  used on input line 120.
-(pdftex.def)             Requested size: 318.66948pt x 393.71443pt.
-<figures/heatmap_esb_14.png, id=383, 615.0177pt x 473.3685pt>
+Package pdftex.def Info: figures/esb_rank_14.png  used on input line 122.
+(pdftex.def)             Requested size: 204.85846pt x 253.0969pt.
+<figures/heatmap_esb_14.png, id=382, 615.0177pt x 473.3685pt>
 File: figures/heatmap_esb_14.png Graphic file (type png)
 <use figures/heatmap_esb_14.png>
-Package pdftex.def Info: figures/heatmap_esb_14.png  used on input line 131.
-(pdftex.def)             Requested size: 318.66948pt x 245.27905pt.
-<figures/heatmap_esb_7.png, id=384, 607.7907pt x 473.3685pt>
+Package pdftex.def Info: figures/heatmap_esb_14.png  used on input line 139.
+(pdftex.def)             Requested size: 204.85846pt x 157.67113pt.
+<figures/heatmap_esb_7.png, id=383, 607.7907pt x 473.3685pt>
 File: figures/heatmap_esb_7.png Graphic file (type png)
 <use figures/heatmap_esb_7.png>
-Package pdftex.def Info: figures/heatmap_esb_7.png  used on input line 139.
-(pdftex.def)             Requested size: 318.66948pt x 248.18993pt.
+Package pdftex.def Info: figures/heatmap_esb_7.png  used on input line 146.
+(pdftex.def)             Requested size: 204.85846pt x 159.54912pt.
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 149.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 159.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 149.
+Package pdftex.def Info: logo_x.png  used on input line 159.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
-
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
 (fancyhdr)                Make it at least 53.03302pt, for example:
@@ -1555,17 +1554,17 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [24 <./figures/expected_ranks_big_increase_RMSE_7.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 154--159
+Underfull \hbox (badness 10000) in paragraph at lines 164--169
 
  []
 
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 166.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 176.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 166.
+Package pdftex.def Info: logo_x.png  used on input line 176.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1577,11 +1576,11 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 [25 <./figures/heatmap_RMSE_7.png>]
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 166.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 176.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 166.
+Package pdftex.def Info: logo_x.png  used on input line 176.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 
@@ -1591,14 +1590,14 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[26 <./figures/esb_rank_7.png>]
+[26 <./figures/esb_rank_7.png> <./figures/esb_rank_14.png> <./figures/heatmap_esb_14.png> <./figures/heatmap_esb_7.png>]
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 166.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 197.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 166.
+Package pdftex.def Info: logo_x.png  used on input line 197.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 
@@ -1608,41 +1607,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[27 <./figures/esb_rank_14.png>]
-File: logo_chalmers.jpg Graphic file (type jpg)
-<use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 166.
-(pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
-File: logo_x.png Graphic file (type png)
-<use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 166.
-(pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
-
-
-Package fancyhdr Warning: \headheight is too small (25.0pt): 
-(fancyhdr)                Make it at least 53.03302pt, for example:
-(fancyhdr)                \setlength{\headheight}{53.03302pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
-
-[28 <./figures/heatmap_esb_14.png> <./figures/heatmap_esb_7.png>]
-File: logo_chalmers.jpg Graphic file (type jpg)
-<use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 187.
-(pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
-File: logo_x.png Graphic file (type png)
-<use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 187.
-(pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
-
-
-Package fancyhdr Warning: \headheight is too small (25.0pt): 
-(fancyhdr)                Make it at least 53.03302pt, for example:
-(fancyhdr)                \setlength{\headheight}{53.03302pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
-
-[29]) (sections/conclusion.tex)
+[27]) (sections/conclusion.tex)
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
 Package pdftex.def Info: logo_chalmers.jpg  used on input line 120.
@@ -1659,7 +1624,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[30]
+[28]
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
 Package pdftex.def Info: logo_chalmers.jpg  used on input line 121.
@@ -1676,7 +1641,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[31]
+[29]
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
 Package pdftex.def Info: logo_chalmers.jpg  used on input line 122.
@@ -1693,13 +1658,13 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[32] (sections/appendix.tex
-<figures/heatmap_RMSE_14.png, id=454, 615.0177pt x 473.3685pt>
+[30] (sections/appendix.tex
+<figures/heatmap_RMSE_14.png, id=445, 615.0177pt x 473.3685pt>
 File: figures/heatmap_RMSE_14.png Graphic file (type png)
 <use figures/heatmap_RMSE_14.png>
 Package pdftex.def Info: figures/heatmap_RMSE_14.png  used on input line 8.
 (pdftex.def)             Requested size: 318.66948pt x 245.27905pt.
-<figures/heatmap_WIS_7.png, id=455, 596.9502pt x 473.3685pt>
+<figures/heatmap_WIS_7.png, id=446, 596.9502pt x 473.3685pt>
 File: figures/heatmap_WIS_7.png Graphic file (type png)
 <use figures/heatmap_WIS_7.png>
 Package pdftex.def Info: figures/heatmap_WIS_7.png  used on input line 15.
@@ -1708,7 +1673,7 @@ Package pdftex.def Info: figures/heatmap_WIS_7.png  used on input line 15.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/heatmap_WIS_14.png, id=456, 604.1772pt x 473.3685pt>
+<figures/heatmap_WIS_14.png, id=447, 604.1772pt x 473.3685pt>
 File: figures/heatmap_WIS_14.png Graphic file (type png)
 <use figures/heatmap_WIS_14.png>
 Package pdftex.def Info: figures/heatmap_WIS_14.png  used on input line 23.
@@ -1716,7 +1681,7 @@ Package pdftex.def Info: figures/heatmap_WIS_14.png  used on input line 23.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/mobility_reports.png, id=457, 418.4433pt x 327.3831pt>
+<figures/mobility_reports.png, id=448, 418.4433pt x 327.3831pt>
 File: figures/mobility_reports.png Graphic file (type png)
 <use figures/mobility_reports.png>
 Package pdftex.def Info: figures/mobility_reports.png  used on input line 32.
@@ -1741,7 +1706,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[33 <./figures/heatmap_RMSE_14.png>]
+[31 <./figures/heatmap_RMSE_14.png>]
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
 Package pdftex.def Info: logo_chalmers.jpg  used on input line 125.
@@ -1758,7 +1723,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[34 <./figures/heatmap_WIS_7.png> <./figures/heatmap_WIS_14.png>]
+[32 <./figures/heatmap_WIS_7.png> <./figures/heatmap_WIS_14.png>]
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
 Package pdftex.def Info: logo_chalmers.jpg  used on input line 125.
@@ -1775,7 +1740,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
-[35 <./figures/mobility_reports.png>] (main.aux)
+[33 <./figures/mobility_reports.png>] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -1787,17 +1752,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32913 strings out of 474495
- 628544 string characters out of 5743936
+ 32926 strings out of 474495
+ 628863 string characters out of 5743936
  1949460 words of memory out of 5000000
- 54553 multiletter control sequences out of 15000+600000
- 578891 words of font info for 90 fonts, out of 8000000 for 9000
+ 54569 multiletter control sequences out of 15000+600000
+ 579654 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,93p,753b,1856s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold8.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi657\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (36 pages, 1467181 bytes).
+ <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold8.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi657\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (34 pages, 1475607 bytes).
 PDF statistics:
- 976 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
+ 999 PDF objects out of 1000 (max. 8388607)
+ 104 named destinations out of 1000 (max. 500000)
  306 words of extra memory for PDF output out of 10000 (max. 10000000)
 

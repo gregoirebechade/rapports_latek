@@ -17,7 +17,7 @@ The WIS is defined as follow. \\
 $WIS( [l, u], \hat{y}, y ) = \sum_{k=0}^{K} w_k IS_{\alpha_k}( [l, u], \hat{y}, y ) $ , with $(w_k)_{k \in \{1, ... , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
 
 According to previous literature (\cite{cramer2022evaluation}), I decided to set \\
-$(\alpha_k)_{k \in \{1, ... , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$. 
+$(\alpha_k)_{k \in \{1, ... , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ and $ \forall k \in  \{1, ... , K\}, w_k = \frac{\alpha_k}{2}$
 One can notice that the WIS does not take into account the point prediction, but focuses on confidence interval accuracy. \\
 
 The second metric chosen is the Root Mean Square Error ($RMSE$). 
@@ -30,7 +30,7 @@ The models were tested on all the 324 pandemics, on 14 data points different (at
 For each individual point, the models were trained on the previous days of the pandemic. 
 A 7 and 14 days ahead prediction was asked, and $[0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ confidence-intervals were computed. 
 The WIS and the RMSE of these predictions were then computed. 
-For the analysis of the results, I decided to remove the points for which the number of hospitalized was below 100, both point classification and model predictions were irrelevant at this period of the pandemic.
+For the analysis of the results, I decided to remove the points for which the number of hospitalized was below 100, as both point classification and model predictions were irrelevant at this period of the pandemic.
 Moreover, it is senseless to assess the performances of the models during the period in which there is no pandemic, as the interesting models are the ones that can predict the number of hospitalized during the waves.
 Not removing those points would lead to biaised results, as they represent 44\% of the dataset, and we would have concluded that the best model is the one that performs well when there is no pandemic. 
 \subsection{Point classification}
@@ -66,7 +66,7 @@ It resulted that among all those 4536 points, 698 were classified as 'big decrea
 \subsection{Evaluation of the models}
 
 The models described above were tested on 14 points of each of the 324 pandemics generated, when the pandemic was significant (i.e when more than 0.01\% of the population was hospitalized, in our case when the value of the number of hospitalized was above 100). 
-For each point, two  were made:  a 7-days ahead and a 14-days ahead. 
+For each point, two  predictions were made:  a 7-days ahead and a 14-days ahead. 
 Each prediction was evaluated thanks to WIS and RMSE (see \ref{sec:metrics}), and then ranked according to the performances of other models.
 The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic (see :\ref{sec:classification} for more details). 
 It is then possible to get global information on the rankings of the models. 
@@ -95,7 +95,7 @@ For each loss and range of prediction, the expected rank of the models for each 
 \end{figure}
 
 
-The other heatmaps corresponding to RMSE for 14 days ahead prediction and WIS for 7 and 14 days ahead predictions can be found in the appendix (\ref{sec:appendix})
+The other heatmaps corresponding to RMSE for 14 days ahead prediction and WIS for 7 and 14 days ahead predictions can be found in the appendix (\ref{sec:appendix}).
 Some general interpretations can be made on these results. 
 I noticed that regressors performances dropp from 7-days ahead to 14-days ahead. 
 The family of the SIRH model does slightly better for long terms predictions than for short term ones. 
@@ -108,37 +108,47 @@ Indeed, as the ensemble models were trained on a part of the pandemics, they can
 The performances discussed in this part refer to the same evaluation as above, but only for the RMSE loss and on a test set that represent 20\% of the pandemics. 
 The performances of these two models are showned in the two figure below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/esb_rank_7.png}
-    \caption{Expected rank of the ensemble model for each type of point for 7-days ahead predictions and RMSE loss}
-    \label{fig:esb_rank_7}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/esb_rank_14.png}
-    \caption{Expected rank of the ensemble model for each type of point for 14-days ahead predictions and RMSE loss}
-    \label{fig:esb_rank_14}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/esb_rank_7.png}
+        \caption{Expected rank of the ensemble model for each type of point for 7-days ahead predictions and RMSE loss}
+        \label{fig:esb_rank_7}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/esb_rank_14.png}
+        \caption{Expected rank of the ensemble model for each type of point for 14-days ahead predictions and RMSE loss}
+        \label{fig:esb_rank_14}
+    \end{subfigure}
+    \caption{Comparison of expected ranks for 7-days and 14-days ahead predictions}
+    \label{fig:esb_rank_comparison}
 \end{figure}
 
 The distribution of the ranks of the ensemble model is almost always on the left side of the x-axis.
 It is a very consistent model, and almost always in the top models. 
 The heatmaps of expected ranks on all type of points enables to see how consistent is the ensemble model (Fig.\ref{fig:heatmap_esb_7} and Fig.\ref{fig:heatmap_esb_14}) compared to the other models. 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/heatmap_esb_14.png}
-    \caption{Expected rank of all the models for each type of point for 14-days ahead predictions and RMSE loss on the test set}
-    \label{fig:heatmap_esb_14}
-\end{figure}
 
-
-\begin{figure}
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/heatmap_esb_7.png}
-    \caption{Expected rank of all the models for each type of point for 7-days ahead predictions and RMSE loss on the test set}
-    \label{fig:heatmap_esb_7}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/heatmap_esb_14.png}
+        \caption{Expected rank of all the models for each type of point for 14-days ahead predictions}
+        \label{fig:heatmap_esb_14}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/heatmap_esb_7.png}
+        \caption{Expected rank of all the models for each type of point for 7-days ahead predictions}
+        \label{fig:heatmap_esb_7}
+    \end{subfigure}
+    \caption{Expected rank of all the models for each type of point and RMSE loss on the test set for 7-days and 14-days ahead predictions}
+    \label{fig:heatmap_esb_comparison}
 \end{figure}
 
 From these figures, we can see that the ensemble model is rarely the best, but never the last model. 
@@ -151,7 +161,7 @@ Its consistency allows for accurate predictions and helps avoiding outlier predi
 
 \subsection{Summary of Key Findings}
 
-This study enabled us to assess the consistency of the different models that were implemented. 
+This method enabled us to assess the consistency of the different models that were implemented. 
 Indeed, comparing the models on a set of diverse pandemics enlighted the most consistent with the different pandemics.
 Moreover, the classification of the models with the type of points leads to the determination of the phase of the pandemics in which each model is the best, and on the other hand to assess which model is the best for a $R_{eff}$ given. 
 This result is promising, as the reproduction number is a quantity oftenly estimated by the stakeholders during a pandemic. 
@@ -166,7 +176,7 @@ The interpretation based on the heatmaps Fig.\ref{fig:heatmap_RMSE_14}, Fig.\ref
     \item The difference of ranking between the models is more pronounced when we rank them with RMSE rather than WIS. This might be due to the fact that the confidence intervals are not well calibrated and that the real value always land out of it. 
     \item The Moving Average model is not the worst model and is often ranked between 6 and 8. This might be due to the fact that as the curve of the number of hospitalized is continuous, the mean never diverge too much from the real value, while other models might misinterpret the trend of the curve and land far away from the real value. 
     \item The Exponential models are almost always the last models, except for big increase points that are almost always at the very beginning of the pandemic. the fact that the beginning of a pandemic looks like an exponential curve is also showed with the SIRH model, when the number of infected is very small. 
-    \item The Ensemble model performs quite well. I noticed that it is very rarely the best model for a type of point, while other models almost always have some point on which they make the best prediction. On the other hand, it is never the last, and has a very consistent ranking : it is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
+    \item The Ensemble model performs quite well. I noticed that it is very rarely the best model for a type of point, while other models almost always have some points on which they make the best prediction. On the other hand, it is never the last, and has a very consistent ranking: it is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
 \end{itemize}
 
 
@@ -182,7 +192,7 @@ They also observe the fact that the ensemble model is very consistent: rarely th
 In \cite{rahmandad2022enhancing}, the authors compared several model to understand they key features that enabled a model to make long term predictions. 
 These features are : " \textit{(1) capturing the physics of transmission (instead of using black-box models); (2) projecting human behavioral reactions to an evolving pandemic; and (3) resetting state variables to account for randomness not captured in the model before starting projection.}"
 These findings are consistent with the results that I have observed. 
-Indeed, I have showed that the SEIR model (capturing the physics of transmission and resetting state ) performances increase from 7-days ahead to 14-days ahead predictions, while black-box model (such as Arima or VAR), are less performant for long terms prediction. 
+Indeed, I have showed that the SEIR model (capturing the physics of transmission and resetting state ) performances increase from 7-days ahead to 14-days ahead predictions, while black-box models (such as Arima or VAR), are less performant for long terms prediction. 
 This has to be qualified, as the "long term predictions" of this report refer to a 14-days ahead prediction, while the study \cite{rahmandad2022enhancing} get interested to predictions up to 14-weeks reach. 
 
 The methodology of point classification has not be found in any other paper of the literature. 
@@ -196,10 +206,10 @@ As the value of the $R_{eff}$ is often estimated by the researchers during a pan
 
 \subsection{Limitations}
 
-This study did not take into account uncertinity on the data or imperfect data. 
-Indeed, the Covasim librairy provided a daily data of high quality and without any noise. 
-Real-life data is often full of mistakes, of missing values or of time-lag in the reports (\cite{greene_Nowcasting}).
-It would be interesting to measure the robustness of the models with respect to these imperfections to assess if the models can still make good predictions. 
+During my researchs, I didn't take into account the impact of uncertainity of the data on the models. 
+Indeed, the Covasim librairy provided a daily data of high quality and without any noise, but
+real-life data is often full of mistakes, of missing values or of time-lag in the reports (\cite{greene_Nowcasting}).
+It would be interesting to measure the robustness of the models with respect to these imperfections to assess if the models can still make good predictions, and to focus on the robustness of the ensemble model. 
 Moreover, the models of the second type used the number of infected to predict the number of hospitalized. 
 This quantity is not directy accessible and is often estimated with tests, which could lead to huge variations in the predicted values.  
-Moreover, the models were only tested on outbreaks generated with covasim, which might lead to a bias in the results, despite the effort to create a diverse set of pandemics. 
+Finally, the models were only tested on outbreaks generated with Covasim, which might lead to a bias in the results, despite the effort to create a diverse set of pandemics. 
