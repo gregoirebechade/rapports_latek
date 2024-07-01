@@ -352,6 +352,7 @@ INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\tex\latex\stmaryrd\ustmry.fd
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\tfm\public\stmaryrd\stmary10.tfm
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\tfm\public\stmaryrd\stmary8.tfm
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\tfm\public\stmaryrd\stmary6.tfm
+INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0800.tfm
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0900.tfm
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx0900.tfm
 INPUT .\sections\introduction.tex
@@ -482,7 +483,6 @@ INPUT .\figures\mobilities.png
 INPUT .\figures\mobilities.png
 INPUT .\figures\mobilities.png
 INPUT .\figures\mobilities.png
-INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0800.tfm
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\tfm\public\bbold\bbold8.tfm
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\tfm\public\bbold\bbold6.tfm
 INPUT .\tables\table_types_of_sirh.tex
@@ -546,6 +546,8 @@ INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecb
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx0900.pk
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx0900.pk
+INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk
+INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk

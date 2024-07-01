@@ -5,20 +5,20 @@
 The literature of pandemic forecastings is well documented, as many studies have been conducted during the outbreak of Covid 19. 
 The huge amount of article published makes it difficult to identify relevant articles with interesting results. 
 The first part of the internship was dedicated to the analysis of the literature, to find useful ideas for the project, such as models, methods or clever ways to present the results. 
-I found that early predictions on the number of cases (such as \cite{gardner2020intervention}) almost overestimated the real spread of the virus, and aknowledge the difficulty to estyimate the impacts of governments strategies to mitigate the outbreak. 
+I found that early predictions on the number of cases (such as \cite{gardner2020intervention}) almost overestimated the real spread of the virus, and aknowledge the difficulty to estimate the impacts of governments strategies to mitigate the outbreak. 
 
-Some models performance were pointed out. 
-Indeed, the autoregressive models such as the Arima model seems to outperform the other model in short-terms predictions (\cite{kufel2020arima} and \cite{shang2021regional}), whereas compartemental models such as the SIR model are more performant for long term predictions (\cite{rahmandad2022enhancing}).
+Some model performances were pointed out. 
+Indeed, the autoregressive models such as the Arima model seem to outperform the other model in short-terms predictions (\cite{kufel2020arima} and \cite{shang2021regional}), whereas compartemental models such as the SIR model are more performant for long term predictions (\cite{rahmandad2022enhancing}).
 
 Many article about the ensemble models were found (\cite{cramer2022evaluation}, \cite{reich2019accuracy}, \cite{howerton2023evaluation}). 
 The ensemble models aggregate the predictions of many models, and output a function of these predictions. 
 It can be simple functions (such as median), our more complexe ones such as stacking ( as it is done in \cite{reich2019accuracy} ) or linear opinion pool (see \cite{howerton2023evaluation}).
-These studies all enhance the following results : the ensmeble models are rarely the best, but never the mast. 
+These studies all enhance the following results : the ensemble models are rarely the best, but never the last. 
 Indeed, when compared to individuals models, the ensemble models seems very consistent in their predictions, and their distribution of ranking among the other models is very little scattered. 
 
-Many papers on the variations of SIR models were found (\cite{gerlee2021predicting}, \cite{hult2020estimates}, \cite{sjodin2020covid})
+Many papers on the variations of SIR model were found (\cite{gerlee2021predicting}, \cite{hult2020estimates}, \cite{sjodin2020covid})
 If this simple model does not manage to catch the complexity of an outbreak, some variations can have very good results. 
-For instance, in \cite{gerlee2021predicting}, the authors manage to find a strong correlation between the mobility data and the number of cases. 
+For instance, in \cite{gerlee2021predicting}, the authors manage to find a strong correlation between the mobility data and the number of cases, with a three weeks lag. 
 
 Other interesting results were also pointed out. 
 For instance, \cite{hult2020estimates} pointed out the relevance of testing to estimate the proportions of infected. 
@@ -28,4 +28,4 @@ For instance, \cite{hult2020estimates} pointed out the relevance of testing to e
 
 After this review, a general direction was taken. 
 It was decided to implement some simple models (Arima, SIR, exponential regression...) to compare their performances on a wide range of pandemics. 
-Indeed, the models that were found in the literature were often tested on a single pandemic, which might lead to a bias in the results and could limit the generalization of the results.
+Indeed, the models that were found in the literature were often tested on a single pandemic, which might lead to a bias in the results and could limit their generalization. 

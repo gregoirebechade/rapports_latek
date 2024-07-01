@@ -2,14 +2,14 @@
 
 
 
-To be able to compare the perfoamance of the models, one need pandemic data to compare them. 
-As the objective was to obtain the most consistent results, I decided not to train and compare the models on rela data: this data is limited and biaised: the results would not have been relevant when facing a new pandemic. 
+To be able to compare the performances of the models, one need pandemic data to compare them. 
+As the objective was to obtain the most consistent results, I decided not to train and compare the models on real data as this data is limited and biaised: the results would not have been relevant when facing a new pandemic. 
 All the simulations in this paper are made on a fixed population of $10^6$ agents. 
 
 \subsection{Covasim}
 
 To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python librairy that can simulate the evolution of a pandemic, was used. 
-Covasim is an agent-based model that can simulate many different pandemics and has a high diversity of outputs. 
+Covasim is an agent-based model that can simulate the spread of a pandemic in a population. 
 This model takes as an input many parameters such as the population type, the population size, the age repartition... and outputs a complete description of the pandemic, with real-time values of each relevant information, such as the number of severe, of asymptomatic... but also physical values such as the value of the reproduction number. 
 Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as the input of the model, but also with interventions that can be planned by the users. 
 These interventions can help to assess the impact of a vaccination campaign, or lockdown scenarios, with changes in the probability transmission. 
@@ -41,7 +41,7 @@ All the parameters have a default value of 1, which corresponds to keeping the r
 I decided to select 4 parameters and to make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
 To select the 4 parameters that generated the most diversity, different diversity metrics were computed. 
 
-Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics.  \\[0.2cm]
+Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics, and $Y'$ and $Y''$ the first and second derivatives pf $Y$.  \\[0.2cm]
 
 Let :  \\
 
@@ -49,10 +49,8 @@ $
 \begin{aligned}
     &\mathcal{L}_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1}  \\
     &\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1} ) \|_{L_2} \\
-    &\quad \quad\quad\quad\quad \quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second derivatives of } Y\\
     &\mathcal{L}_3 = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) \text{, with }\mathcal{W} \text{ the Wasserstein distance.} \\
     &\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2} ),\mathcal{W} ( \tilde{Y_1'} - \tilde{Y_2'} ) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''} ) ) \|_{L_2} \\
-    &\quad \quad\quad\quad\quad \quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second derivatives of } Y\\[1cm]
 \end{aligned}
 $
 
@@ -80,7 +78,7 @@ But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as th
 
 Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
 
-$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax  } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s) , s \neq t }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
+$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax  } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s)  }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
 
 However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $s$ included in $S$ (the set of all 13 parameters).\\[1cm]
 

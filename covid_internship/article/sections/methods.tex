@@ -91,7 +91,7 @@ But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as th
 
 Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
 
-$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax  } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s) , s \neq t }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
+$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax  } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s)  }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
 
 However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $s$ included in $S$ (the set of all 13 parameters).\\[1cm]
 
