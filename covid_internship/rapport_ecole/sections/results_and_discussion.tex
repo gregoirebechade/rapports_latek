@@ -4,7 +4,7 @@
 \subsection*{Metrics}
 \label{sec:metrics}
 Two metrics were used to assess the performance of the models. 
-The first metric is the Weighted Confidence Interval (WIS), which is a metric commonly used in forecast evaluation (see \cite{cramer2022evaluation} or \cite{paireau2022ensemble}). 
+The first metric is the Weighted Interval Score (WIS), which is a metric commonly used in forecast evaluation (see \cite{cramer2022evaluation} or \cite{paireau2022ensemble}). 
 
 Let $\alpha$ be in $]0, 1[$. Let $\hat{y}$ be the prediction of the model and $y$ the real value.
 Let $[l, u]$ be the $(1-\alpha)$ confidence interval of the prediction.
@@ -152,7 +152,7 @@ The heatmaps of expected ranks on all type of points enables to see how consiste
 \end{figure}
 
 From these figures, we can see that the ensemble model is rarely the best, but never the last model. 
-Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expectand rank.
+Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expected rank.
 For instance, on the Figure.\ref{fig:expected_rank}, one can see that the top 3 models are Bayesian Regression, VAR and SIRH4. 
 On the train set, the Ensemble model is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
 Its consistency allows for accurate predictions and helps avoiding outlier predicted values that sometimes appear on the other good models (such as VAR and ARIMA). 
@@ -207,7 +207,7 @@ As the value of the $R_{eff}$ is often estimated by the researchers during a pan
 \subsection{Limitations}
 
 During my researchs, I didn't take into account the impact of uncertainity of the data on the models. 
-Indeed, the Covasim librairy provided a daily data of high quality and without any noise, but
+Indeed, the Covasim library provided a daily data of high quality and without any noise, but
 real-life data is often full of mistakes, of missing values or of time-lag in the reports (\cite{greene_Nowcasting}).
 It would be interesting to measure the robustness of the models with respect to these imperfections to assess if the models can still make good predictions, and to focus on the robustness of the ensemble model. 
 Moreover, the models of the second type used the number of infected to predict the number of hospitalized. 

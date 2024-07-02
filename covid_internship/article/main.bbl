@@ -738,6 +738,31 @@
       \field{title}{Lois des grands nombres}
       \field{year}{2004}
     \endentry
+    \entry{van2000asymptotic}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a1329a86e5d1f01024d85e4e198a54a1}{%
+           family={Van\bibnamedelimb der\bibnamedelima Vaart},
+           familyi={V\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Aad\bibnamedelima W},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{a1329a86e5d1f01024d85e4e198a54a1}
+      \strng{fullhash}{a1329a86e5d1f01024d85e4e198a54a1}
+      \strng{bibnamehash}{a1329a86e5d1f01024d85e4e198a54a1}
+      \strng{authorbibnamehash}{a1329a86e5d1f01024d85e4e198a54a1}
+      \strng{authornamehash}{a1329a86e5d1f01024d85e4e198a54a1}
+      \strng{authorfullhash}{a1329a86e5d1f01024d85e4e198a54a1}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Asymptotic statistics}
+      \field{volume}{3}
+      \field{year}{2000}
+    \endentry
     \entry{VIBOUD201813}{article}{}
       \name{author}{10}{}{%
         {{hash=a85d19d68ecf1ec7d4723fe1f21c20cf}{%

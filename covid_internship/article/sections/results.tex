@@ -7,7 +7,7 @@ The models were trained and tested on various points of 324 different pandemics 
 To generate those pandemics, four parameters that maximized the diversity of the set of pandemics generated were selected (see \ref{sec:generating_divserse_pandemics}). 
 Those parameters were varied on the three values 0.5, 1 and 2. 
 These values correspond to scaling factors of the default values of the model. 
-For each pandemic, the transmission probabilities were time dependant and followed one of the four different mobility patterns (see Fig.\ref{fig:mobilities}). 
+For each pandemic, the transmission probabilities were time dependent and followed one of the four different mobility patterns (see Fig.\ref{fig:mobilities}). 
 Thanks to those 4 parameters, each varied on three different values and to the four different mobilities, we obtained 324 simulations of pandemics. 
 We have decided to focus on the number of hospitalized individuals as the target variable. 
 Indeed, it is a key variable to monitor, as the hospital occupancy correspond to the capacity of the state to treat the patients. 
@@ -93,8 +93,8 @@ This distribution of rankings of the model can be summed up in one single value 
     \caption{Expected rank of the models for big increase points for 7-days ahead predictions and RMSE loss}
     \label{fig:expected_rank}
 \end{figure}
-This new number loses information (for instance on bimodal rankings distribution) but enables to enlight the expected performance of a model. 
-For each loss and range of prediction, the expected rank of the models for each type of point can be vizualized on the same figure, which enables to have a global look of the performances of the models.(Fig.\ref{fig:heatmap_RMSE_7}) 
+This new number loses information (for instance on bimodal rankings distribution) but enables to highlight the expected performance of a model. 
+For each loss and range of prediction, the expected rank of the models for each type of point can be visualized on the same figure, which enables to have a global look of the performances of the models.(Fig.\ref{fig:heatmap_RMSE_7}) 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/heatmap_RMSE_7.png}
@@ -105,17 +105,17 @@ For each loss and range of prediction, the expected rank of the models for each 
 
 The other heatmaps corresponding to RMSE for 14 days ahead prediction and WIS for 7 and 14 days ahead predictions can be found in the appendix (\ref{sec:appendix})
 Some general interpretations can be made on these results. 
-We noticed that regressors performances dropp from 7-days ahead to 14-days ahead. 
+We noticed that regressors performances drop from 7-days ahead to 14-days ahead. 
 The family of the SIRH model does slightly better for long terms predictions than for short term ones. 
-The ARIMA performance dropps from 7-days ahead to 14-days ahead predictions. 
+The ARIMA performance drops from 7-days ahead to 14-days ahead predictions. 
 The exponential models are very bad and almost always the last ones. 
 
 \subsection{The Ensemble model}
 
-It has been showned in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}, \cite{howerton2023evaluation}) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking ( as it is done in \cite{reich2019accuracy} ) or linear opinion pool (see \cite{howerton2023evaluation}).
+It has been shown in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}, \cite{howerton2023evaluation}) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking ( as it is done in \cite{reich2019accuracy} ) or linear opinion pool (see \cite{howerton2023evaluation}).
 We decided to implement or own ensemble models. 
 They consist in a linear combination of the predictions of the 13 individual models (without exponential models) for 7 and 14 days-ahead predictions.
-The performances of these two models are showned in the two figure below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})
+The performances of these two models are shown in the two figure below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})
 
 \begin{figure}
     \centering
@@ -150,8 +150,8 @@ The heatmaps of expected ranks on all type of points enables to see how consiste
     \label{fig:heatmap_esb_7}
 \end{figure}
 
-From these figures, we can see that the ensemble model is rarely the best, but never the last model, which is a result aldready observed in \cite{cramer2022evaluation}.
-Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expectand rank.
+From these figures, we can see that the ensemble model is rarely the best, but never the last model, which is a result already observed in \cite{cramer2022evaluation}.
+Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expected rank.
 For instance, on the Figure.\ref{fig:expected_rank}, one can see that the top 3 models are Bayesian Regression, VAR and SIRH4. 
 On the train set, the Ensemble model is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
 Its consistency allows for accurate predictions and helps avoiding outlier predicted values that sometimes appear on the other good models (such as VAR and ARIMA). 

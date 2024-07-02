@@ -2,30 +2,33 @@
 
 \subsection*{The data}
 
-As the goal of this study is to compare some forecasts on many different pandemics, a large set of synthetic pandemics need to be generated, with a particular attention on the diversity of these pandemics. 
-All the simulations in this paper are made on a fixed population of $10^6$ agents. 
+As the goal of this study is to compare the accuracy of forecast in the context of many different pandemics, a large set of synthetic pandemics was generated, with a particular attention on the diversity of these pandemics. 
 \subsubsection{Covasim}
 
-To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python librairy that can simulate the evolution of a pandemic was used. 
+To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python library that can simulate the evolution of a pandemic, was used. 
 Covasim is an agent-based model that can simulate many different pandemics and has a high diversity of outputs. 
-This model takes as an input many parameters such as the population type, the population size, the age repartition... and outputs a complete description of the pandemic, with real-time values of each relevant information, such as the number of severe, of asymptomatic... but also physical values such as the value of the reproduction number. 
-Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as the input of the model, but also with interventions that can be planned by the users. 
+This model takes as an input many parameters such as the population type, the population size, the age distribution etc, and outputs a complete description of the pandemic, with real-time values of each relevant piece of information, such as the number of severe, of asymptomatic etc, but also physical data such as the value of the reproduction number. 
+Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as input to the model, but also with interventions that can be planned by the users. 
 These interventions can help to assess the impact of a vaccination campaign, with changes in the probability transmission. 
+All the simulations in this paper are made on a fixed population of $10^6$ agents. 
 
-\subsubsection{First pandemics}
+\subsubsection{First pandemic}
 
-For the implementation and the first tests of the models, two pandemics were generated. 
-The first one focusing on the new deaths count and the second one focusing on the number of hospitalized count. 
-Those pandemics will be referred to as pandemic 1 and pandemic 2. 
+For the implementation and the first tests of the models, a single pandemic was generated. 
 
 \input{tables/table_covasim_parameters.tex}
 
 
-The parameters used to generate these pandemics are described in the table \ref{tab:parameters_covasim} 
-The parameters that are not specified are the default parameters of the Covasim librairy. 
+The parameters used to generate this pandemic are described in the table \ref{tab:parameters_covasim} 
+The parameters that are not specified are the default parameters of the Covasim library. 
 
 
-\begin{figure}
+
+The interventions (interventions1) were based on mobility reports from Västtrafik (Fig.\ref{fig:mobility_reports}), the public transport company of the city of Gothenburg. 
+They were reported during the Covid-19 pandemic and have been retrieved from \cite{gerlee2021predicting}.
+These interventions correspond to 53 relative weekly variations of the mobility, with a reference value of 1 for the first week of the report, which correspond to the 9-th week of 2020. 
+As the interventions refer to relative changes in mobility, they were used as relatives changes in probabilities of transmission. 
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/mobility_reports.png}
     \caption{Mobility reports from Västtrafik.}
@@ -33,24 +36,19 @@ The parameters that are not specified are the default parameters of the Covasim 
 \end{figure}
 
 
-The different interventions were based on mobility reports from Västtrafik (Fig.\ref{fig:mobility_reports}), the public transport company of the city of Gothenburg. 
-They were reported during the Covid 19 pandemic and have been retrieved in \cite{gerlee2021predicting}.
-These interventions correspond to 53 relative weekly variations of the mobility, with a reference value of 1 for the first week of the report, which correspond to the 9-th week of 2020. 
-
-
 \subsubsection{Generating diverse pandemics}
 \label{sec:generating_divserse_pandemics}
 In order to evaluate the performances of our models on a wide range of pandemics, a training set of pandemics was generated. 
-A huge diversity of pandemics is needed to determine the most consistent model.
-It is so relevant to identify the key parameters that generate this diversity.
-As Covasim has a very huge set of inputs parameters, a first subset of key parameters was identified: the spread parameters and the severity parameters. 
-The severity parameters are the 4 parameters that correspond to the probability for an agent to get from a compartment to another. 
-The spread parameters are 9 parameters that represent the distribution of probability of the time spend by an agent in a compartment (such as infected, crictical...) once he entered it. 
-This set of 13 parameters is then noted as $S$. 
-This distribution is a log-normal distribution, but the spread-parameters correspond to the mean of this log-normal distribution
+A huge diversity of pandemics is needed to determine the most accurate forecasting model.
+It is therefore relevant to identify the key parameters that generate this diversity.
+As Covasim has a large set of inputs parameters, a first subset of key parameters was identified: the \textit{spread} parameters and the \textit{severity} parameters, which are parameters related to disease transmission and severity
+The \textit{severity} parameters are the 4 parameters that correspond to the probability for an individual to move from one disease compartment to another. 
+The \textit{spread} parameters are 9 parameters that represent the distribution of probability of the time spend by an agent in a compartment (such as infected, crictical...) once he entered it. 
+This distribution is a log-normal distribution, but the \textit{spread} parameters correspond to the mean of this log-normal distribution
 All the parameters have a default value of 1, which correspond to keeping the reference value. 
-We decided to select 4 parameters and to make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
-To select the 4 parameters that generated the most diversity, different diversity metrics were computed. 
+This set of 13 parameters is then noted as $S$. 
+In order to test the forecasting models on a large, but still manageable set of different pandemics we decided to vary four parameters and that these should each take three different values in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
+To select the 4 parameters that generated the most diversity out of the 13 possible, different diversity metrics were constructed. 
 
 Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics.  \\[0.2cm]
 
@@ -60,18 +58,16 @@ $
 \begin{aligned}
     &\mathcal{L}_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1}  \\
     &\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1} ) \|_{L_2} \\
-    &\quad \quad\quad\quad\quad \quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second derivatives of} Y\\
+    &\quad \quad\quad\quad\quad \quad\quad\quad \quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second numerical derivatives of } Y\\
     &\mathcal{L}_3 = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) \text{, with }\mathcal{W} \text{ the Wasserstein distance.} \\
     &\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2} ),\mathcal{W} ( \tilde{Y_1'} - \tilde{Y_2'} ) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''} ) ) \|_{L_2} \\
-    &\quad \quad\quad\quad\quad \quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second derivatives of} Y\\[1cm]
+    &\quad \quad\quad\quad\quad \quad\quad \quad\quad \quad\quad\quad\quad \quad\quad\quad\quad \quad\quad\quad\text{ with }Y' \text{ and } Y'' \text{the first and second numerical derivatives of } Y\\[1cm]
 \end{aligned}
 $
 
-It can be noted that $\mathcal{L}_2$ looks like the Sobolev norm  $\| \tilde{Y_1}  - \tilde{Y_2} \|_{W^{2, 1}} $ with squared terms and with additionary terms taking into account the amplitude. 
+It can be noted that $\mathcal{L}_2$ is similar to the Sobolev norm  $\| \tilde{Y_1}  - \tilde{Y_2} \|_{W^{2, 1}} $ with squared terms and with additionary terms taking into account the amplitude. 
 
-To determine which measure to use, we generated 14 pandemics. 
-Each pandemic but the last one has default parameters except one of them which was doubled. 
-The last pandemic has only default parameters. 
+To determine which measure to use, we generated 14 pandemics : one reference pandemic with all parameter values equal to the default values and the remaining pandemics having one parameter value doubled.
 
 For each norm $\mathcal{L}_k$, we determined $s$,  the subset of 4 pandemics that maximized the following quantity:\\
 
@@ -87,27 +83,27 @@ For each norm $\mathcal{L}_k$, we determined $s$,  the subset of 4 pandemics tha
 
 The 4 most diverse pandemics (in the subset of 14 pandemics generated) according to each norm are shown in the Fig.\ref{fig:diversity_pandemics}.
 We decided according to this figure, that $\mathcal{L}_2$ norm was the most relevant to determine the diversity of the pandemics.
-But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as the parameters were changed independantly, and the diversity did not take into account the correlation between some of them. \\
+But, keeping the parameters from this evaluation (\texttt{[0, 5, 10, 12]}) would not be accurate, as the parameters were changed independently, and the diversity did not take into account the correlation between some of them. \\
 
-Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
+Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solving the following problem : \\
 
 $ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax  } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s)  }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
 
 However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $s$ included in $S$ (the set of all 13 parameters).\\[1cm]
 
 
-A MCMC algorithm \cite*{diaconis2009markov} was then implemented, to perform a clever grid search on the different subsets $s \subset S $ of parameters.
-The MCMC algorithm is a method which is used to sample from a distribution that can't be directly sampled. 
+An MCMC algorithm \cite*{diaconis2009markov} was therefore implemented, to perform a clever grid search on the different subsets $s \subset S $ of parameters.
+The MCMC algorithm is a method which is used to sample from a distribution that cannot be directly sampled. 
 The main idea is to construct a Markov Chain whose stationary distribution is the objective distribution.
 
 Let $\mathcal{S} = \{ s\subset S ;  \vert s \vert = 4 \}$ be the support of the target distribution, which is, in our case, the set of all the 715 combinations of the 4 parameters among the 13 different possible, and let $\pi$ be the target distribution on $\mathcal{S}$.
 $\forall s \in \mathcal{S}, \pi(s) = \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}}  \mathcal{L}(s)} $. $\pi$ is not directly computable as it is too time consuming to compute the denominator.
 
 
-For each $s = [a, b, c, d] \in \mathcal{S}$, let $ne(s)$ be the set of the neighbourghs of $s$, i.e the set of all the elements of $\mathcal{S}$ who have only one parameter different from $s$. 
+For each $s = [a, b, c, d] \in \mathcal{S}$, let $ne(s)$ be the set of the neighbours of $s$, i.e the set of all the elements of $\mathcal{S}$ who have only one parameter different from $s$. 
 For instance, $[0, 3, 9, 12] \in ne([0, 3, 10, 12])$, but $[0, 3, 9, 12] \notin ne([0, 3, 8, 10])$.\\
 
-Let $U_n$ be a sequence of independent uniform random variables on $[0, 1]$ and $\forall s \in \mathcal{S}$, let $U_{n}^{ne(s)}$ be a sequence of independant uniform random variables on $ne(s)$ .
+Let $U_n$ be a sequence of independent uniform random variables on $[0, 1]$ and $\forall s \in \mathcal{S}$, let $U_{n}^{ne(s)}$ be a sequence of independent uniform random variables on $ne(s)$ .
 Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follow : \\
 
 
@@ -116,7 +112,7 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
     \begin{aligned}
         & S_0 = s_0 \\
         & \forall n \in \mathbb{N}, \alpha_n = \frac{\mathcal{L}(U_{n}^{ne(S_n)})}{\mathcal{L}(S_n)} \\
-        & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + S_Sn \mathbb{1}_{\{U_n > \alpha_n\}}
+        & \forall n \in \mathbb{N}, S_{n+1} = U_{n}^{ne(S_n)} \mathbb{1}_{\{U_n < \alpha_n\}} + S_n \mathbb{1}_{\{U_n > \alpha_n\}}
 \end{aligned}
 \right.
 \]
@@ -125,11 +121,11 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
 
 
 
-This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbourghs of $S_n$ (it is $U_n^{ne(S_n)}$). 
+This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbours of $S_n$ (it is $U_n^{ne(S_n)}$). 
 The Markov Chain moves to this neighbourgh if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
 If the new value of $\mathcal{L}$ is smaller, the Markov Chain moves with a probability that is equal to the ratio of the two values.
-This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. \\
-As $S_{n+1}$ is a function of $S_n$ and of other independant random variables, the sequence $S_n$ is a homogenous Markov Chain.
+This algorithm enables to perform a clever grid search, as the Markov Chain tends to increase the diversity but is authorized to sometimes diminishes it to avoid to stay stucked in a local maximum, as a mere gradient descent would do. 
+As $S_{n+1}$ is a function of $S_n$ and of other independent random variables, the sequence $S_n$ is a homogenous Markov Chain.
 
 The transition matrix of this Markov Chain is the following: 
 \[
@@ -144,6 +140,8 @@ K(s, s'): \left\{
 \]
 \\[0.3cm]
 
+
+To prove that the stationary distribution of this Markov chain is $\pi$, we will show that it is an irreducible and aperiodic Markov chain and that $\pi$ is reversible for $K$. \\
 Let $(s, s') \in \mathcal{S}^2$. Let us suppose that $ s' \neq s$, that  $s' \in ne(s)$, and that $\mathcal{L}(s) < \mathcal{L}(s')$ (the other case is symmetric). \\[0.15cm]
 $
 \begin{aligned}
@@ -161,7 +159,7 @@ We directly have $\pi(s)K(s, s') = 0 = \pi(s')K(s', s)$.\\
 
 Thus, $\pi$ is \textbf{reversible} for $K$.\\[0.3cm]
 Let $(s, s') \in \mathcal{S}^2$. Let us note $(a, b, c, d)$ and $(a', b', c', d')$ the elements of $s$ and $s'$.
-We note : \\
+We denote : \\
 $s_1 = [a', b, c, d]$\\
 $ s_2 = [a', b', c, d]$ \\
 $s_3 = [a', b', c', d]$ \\
@@ -182,7 +180,7 @@ $
 \end{aligned}
 $
 
-Thus, $S_n$ is \textbf{irreductible}.\\
+Thus, $S_n$ is \textbf{irreducible}.\\
 
 A Markov chain of transition matrix $P$ on the support $\mathcal{S}$ is said to be aperiodic if: \\
 $\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \cite{bodineau2015modelisation}\\
@@ -203,16 +201,17 @@ Let $(s, s')  \in \mathcal{S}^2$. \\
 Thus $S_n$ is an \textbf{aperiodic} Markov Chain.\\
 
 
-Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreductible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.\\
+Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreducible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.\\
 
 
 The most probable set that will be sampled by $S_n$ is the one that maximises the diversity.
 We implemented this MCMC algorithm to maximise $\mathcal{L}_2$ on $\mathcal{S}$ . 
 The first value of the sequence was a clever starting point: the four parameters that maximized $\mathcal{L}_2$ on the 14 pandemics generated earlier (Fig.\ref{fig:diversity_pandemics}).  
-After 200 iterations, the set of parameters that maximised the diversity was \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
+After 200 iterations, the set of parameters that maximised the diversity was found to be \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
+They correspond respectively to the mean of the log-normal distribution representing the time spent in the compartment 'symptomatic' before moving into the compartment 'severe', the mean of the log-normal distribution representing the time spent in the compartment 'asymptomatic' before moving into the compartment 'recovered', to the scale factor for proportion of symptomatic cases and to the scale factor for proportion of symptomatic cases that become severe. (see \cite{kerr2021covasim}). 
 The $\mathcal{L}_2$- diversity increased from 62353 to 93553. \\
 
-To create the most diverse set possible, we also created 4 different mobilities reports (Fig.\ref{fig:mobilities}), corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
+To create the most diverse set possible, we also created 4 different time-dependent mobilities (Fig.\ref{fig:mobilities}), corresponding to constant mobility, annual variations, lockdown scenario and the mobility data from Västraffik from \cite{gerlee2021predicting}. 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/mobilities.png}
@@ -221,17 +220,17 @@ To create the most diverse set possible, we also created 4 different mobilities 
 \end{figure}
 These time-varying mobilities enabled us to model more complex behaviours of the pandemics. 
 We finally modelled 324 pandemics. 
-Indeed each of the 4 parameters was scaled among 3 values : \texttt{[0.5, 1, 2]} and the 4 mobilities reports were used.
+Indeed each of the 4 parameters was set to three different values : \texttt{[0.5, 1, 2]} and the 4 time-dependant mobilities were used.
 
 
 \subsection{The models}
 
-In this study, we define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
+In this study, we define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$ (corresponding to the days since the start of the pandemic ), with parameters $\theta$ and trained on the data $\mathcal{D}$.
 In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed from $\mathcal{D}$, and used for the prediction.  
-We elaborated two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
+We considered two types of models: the first type correspond to models which are only trained on the time series we want it to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to predict the number of hospitalized (the mobility and the number of infected). 
 All of these models were implemented in Python, and are available on the github repository provided with this article (\ref{github-link}).
-During the training or predicting phase, the computation sometimes fail (for instance, when the matrix is non-inversible for the linear regression model). 
-The model then outputs the value of the moving average model (see \ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
+During the training or predicting phase, the computation sometimes fail (for instance, when the matrix is non-invertible for the linear regression model). 
+Instead of outputing a missing value, we let the model output the value of the moving average model (see \ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
 \textbf{Task of a model}: \\
 
 Each model ${h}$ is given : 
@@ -250,7 +249,7 @@ And outputs:
     \item A $(1-\alpha)$ confidence interval on the prediction, $I_{\alpha, r}$
 \end{enumerate}
 
-The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_r = {h}_{\hat{\theta}}(r)$.
+The model was trained on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_r = {h}_{\hat{\theta}}(r)$.
 
 
 \subsubsection{The SIRH model}
@@ -286,8 +285,8 @@ The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the par
 
 The SIRH model (Fig.\ref{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
 In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
-Each compartment corresponds to the number of person in the state of health of the compartment. 
-The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
+Each compartment corresponds to the number of individuals in the health state corresponding to the compartment. 
+The evolution of the number of individuals in each compartment is described by a system of ordinary differential equations: 
 
 \begin{equation}
     \label{eq:sirh}
@@ -302,39 +301,27 @@ The evolution of the number of person in each compartment is described by a syst
 \end{equation}
 
 At $t=0$, the values of $(S_0, I_0, R_0, H_0)$ are fixed to $(10^6 -1, 1, 0, 0,) $. 
-As the system of equation can't be directly solved, we use a Euler method to solve it : \\
+As the system of equation cannot be directly solved, we use a Euler method to solve it : \\
 
 
-\begin{equation}
-    \left\{
-    \begin{aligned}
-        S_{t+dt}=S_t + dt \frac{dS}{dt}\\
-        I_{t+dt}=I_t + dt \frac{dI}{dt}\\
-        R_{t+dt}=R_t + dt \frac{dR}{dt}\\
-        H_{t+dt}=H_t + dt \frac{dH}{dt}\\
-    \end{aligned}
-    \right.
-\end{equation}
-
-
-We chose to fix $dt=0.001$. 
+We chose to fix $dt=0.001$ in the Euler's method. 
 
 
 
 
 To train this model, we minimize the least squares error between the curve of the number of hospitalized observed to the curve of the number of hospitalized of the training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
-We implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:sirh_models_parameters}).
+We implemented some variations of the model in which either $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:sirh_models_parameters}).
 
 \input{tables/table_types_of_sirh.tex}
-In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
+In the prediction phase, an $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
 The initial values for $S$ and $I$ correspond to the last value of the fit of the training phase. 
-The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the trainig data. 
-The initial value of $R$ is fixed by the previous values as the equation $S_t + I_y + R_t + H_t = N$ is always true. 
-The confidence interval of the prediction is computd thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
+The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the training data. 
+The initial value of $R$ is fixed by the previous values as the equation $S_t + I_t + R_t + H_t = N$ is always true. 
+The confidence interval of the prediction is computed thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
 
 
-A SIRH model of the second type was implemented. 
-It has the same structure but uses the mobility data and the number of infected to be more precise. 
+An SIRH model of the second type was implemented. 
+It has the same structure but uses the mobility data and the number of infected in order to provide more accurate forecasts. 
 The idea is the same, but there are two differences : 
 \begin{itemize}
     \item $\beta$ varies with the time as a linear combination of the mobility : $\beta_t = a + b \times m_t$ which is inspired from \cite{gerlee2021predicting}. 
@@ -347,28 +334,26 @@ We have :\\
 $\hat{\theta} = \underset{\theta \in \mathbb{R}^5}{\operatorname{argmin}} \sum_{t=1}^{n} (\frac{H_\theta(t) - Y_{H, t}}{\underset{t \in \{1, ..., n \}}{\operatorname{max(Y_{H, t})}}})^2 + (\frac{I_\theta(t) - Y_{I, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{I, t})}})^2$\\
 
 With $\theta = (a, b, \gamma_i, \gamma_h, h)$ and $m_t$ the mobility at time $t$.
-The normalization factors enables to prevent the optimization to focus on the number of infected, which is bigger than the number of hospitalized. 
+The normalization factors enables to put equal weight on the number of infected and hospitalized. 
 Once again, a variation of the SIRH model was implemented, in which the value of $\gamma_h$ and $\gamma_i$ is fixed to $0.2$. 
-SIRH multi 1 refer to the model in which $\gamma_h$ and $\gamma_i$ are free and SIRH multi 2 refer to the model in which $\gamma_h$ and $\gamma_i$ are fixed to $0.2$.
+SIRH-multi-1 refer to the model in which $\gamma_h$ and $\gamma_i$ are free and SIRH multi 2 refer to the model in which $\gamma_h$ and $\gamma_i$ are fixed to $0.2$.
 
 
 
 \subsubsection{ARIMA and VAR models} 
 
 The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic prediction (see \cite{kufel2020arima} and \cite{shang2021regional})
-The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differenciated $d$ times. 
+The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differentiated $d$ times. 
 It follows the equation : \\
 $Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j} \label{eq:arima}$\\ 
-where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differenciation, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
+where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differentiation, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
 The coefficient are estimated through maximum likelihood estimation. 
 This method is implemented in the \texttt{statsmodels} library, which directly provides prediction and confidence intervals.
-We realized a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
+We performed a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
 We found an optimal value for $p= 3, d=0, q=3$. 
 
-The VAR model is a multi-dimensional $AR$ model, in which different variable are predicted. 
-It so corresponds to a second type model. 
+The VAR model is a multi-dimensional $AR$ model, in which different variables are predicted. 
 This model exploits the correlation between variables. 
-The value of the parameters of a VAR have physical sense and can be interpreted to find correlations between variables. 
 Let $Y_{1,t}, ..., Y_{k,t}$ be the times series (in our case, $k=3$ and they correspond to the number of hospitalized, the number of infected and the mobility data).
 
 
@@ -429,13 +414,13 @@ Y_{k,t-p}
     
 
 
-Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} librairy. 
-The confidence intervals are also directy provided by the librairy.
+Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} library. 
+The confidence intervals are also directy provided by the library.
 \subsubsection{The moving average model}
 \label{sec:moving_average}
 
 A mere moving average model was also implemented. 
-It returns a constant prediction that correspond to the mean of the 7 past days. 
+It returns a constant prediction that correspond to the mean of the 7 past days, whatever the reach $r$. 
 The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the 7 last data-points.
 This model is used as a baseline.
 A model that does not manage to outperform the moving average model would not be useful. 
@@ -460,12 +445,12 @@ The confidence interval on the prediction is estimated with the same method as S
 In order to implement machine learning regressor, we converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
 $\forall i \in \{1, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
-We then trained and optimized both regressors : the linear and the bayesain regressors, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
-The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} librairy (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
+We then trained and optimized both regressors : the linear and the bayesain regressors, which were the only ones that provided reasonable outputs on the \texttt{scikit-learn} models including : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and support vector regression. 
+The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} library (a gamma distribution with shape parameter equal to $10^{-6}$ and scale parameter equal to $10^{-6}$).
 The confidence interval for the linear regression prediction was computed as follow : \\
 Let us suppose that the data follows a linear regression model : $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
 The least square estimator of $\beta$ is $\hat{\beta} = (X^T X)^{-1} X^T Y$.
-If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to predict, the prediction is  : \\
+If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to predict, the prediction is given by : \\
 
 $
 \begin{aligned}
@@ -476,16 +461,17 @@ $
 \end{aligned}
 $
 \newline
-$\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}^T \sigma ^2$.\\
-The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn librairy and the delta method. 
+It implies that $\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}^T \sigma ^2$.\\
+The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn library and the delta method. 
 
 \subsubsection{Ensemble model}
 
-It has been showned (see \cite{cramer2022evaluation} and \cite{reich2019accuracy}), that ensemble models, which combine the outputs of many models, can outperform by far individual models.
+It has been showned (see \cite{cramer2022evaluation} and \cite{reich2019accuracy}), that ensemble models, which combine the outputs of many models, can outperform individual models.
 We implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
+Indeed, the exponential models almost always output very high values, and it had as a consequence that the optimization step of the linear regression problem failed. 
 The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
 They are represented in the Fig.\ref{fig:ensemble_weights}.
-As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
+As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric (see \ref{sec:metrics}). 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/esb_coefs.png}
@@ -507,7 +493,8 @@ Finally, we suppose that
 \begin{equation}
 \exists A_0 \in \mathbb{R} ^{1 \times d},  \frac{1}{n} \sum_{i=1}^{n} \nabla_\theta h_{\theta^*}(i) \nabla_\theta h_{\theta^*}(i)^T \underset{n \rightarrow +\infty }{\rightarrow}  A_0^T A_0 .\label{hyp:major}  \\
 \end{equation}
-
+This assumption is a condition for the sequence of the gradient of $h_\theta$ not to move too much as $n$ goes to infinity. 
+This is a strong assumption, but required to have some essential convergences for the proof. 
 Let:
 \begin{align*}
 Y &= \begin{pmatrix}
@@ -594,9 +581,9 @@ We have:
 \[
 \hat{D}  \underset{a.s}{\rightarrow} D \text{,  with } D = \mathbb{E}[A_i^T A_i ] = A_0^T A_0 \text{ (cf Hyp \ref{hyp:major})}
 \]
-$\hat{\delta}$ is the empirical mean of random variables independant but non identically distributed. 
+$\hat{\delta}$ is the empirical mean of random variables independent but non identically distributed. 
 We therefore cannot use the Kolmogorov's Strong Law of Large Numbers. 
-There exists a law of large number for independant and non identically distributed random variables, which assesses that (see \cite{suquet2004lois}):
+There exists a law of large number for independent and non identically distributed random variables, which asserts that (see \cite{suquet2004lois}):
 
 
 
@@ -619,7 +606,7 @@ There exists a law of large number for independant and non identically distribut
 
 Let $ i \in \{1, ..., n\}$.\\[0.2cm]
 $X_i = A_i ^T \tilde{Y_i} = A_i^T A_i \beta^* + A_i ^T \epsilon'_i$. \\
-The random values $X_i$ are independant random variables.\\
+The random values $X_i$ are independent random variables.\\
 $\forall i \in \{ 1, ...  n \}, \mathbb{E}[X_i^2] = \mathbb{E}[X_i] ^2 + A_0 ^T A_0 \sigma'^2 < + \infty $.\\
 
 $\sum_{i=1}^{\infty } \frac{Var(X_i)}{i^2} = \sum_{i=1}^{\infty } \frac{A_0^T A_0 \sigma'^2}{i^2} =  A_0^T A_0 \sigma'^2 \sum_{i=1}^{\infty } \frac{1}{i^2} < + \infty$.\\
@@ -663,13 +650,13 @@ This line is made of two terms. Let's show that each one of them converges in la
 \end{align*}
 
 
-Yet, as $\epsilon_i $ and $  A_i $ are independant, and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i ^T A_i \epsilon_i ^2 ] = \mathbb{E} [ A_i ^T A_i ] \sigma'^2 =A_0^T A_0 \sigma'^2  $. 
+Yet, as $\epsilon_i $ and $  A_i $ are independent, and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i ^T A_i \epsilon_i ^2 ] = \mathbb{E} [ A_i ^T A_i ] \sigma'^2 =A_0^T A_0 \sigma'^2  $. 
 
 Finally, $\frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, D \sigma'^{2})$. 
 
 On the other hand, $\hat{D}^{-1} \xrightarrow{\mathcal{L}} D^{-1} $, which is constant.
 
-Finally, with Slutsky, we obtain that: 
+Finally, with Slutsky (\cite{van2000asymptotic}), we obtain that: 
 
 \begin{align*}
     \sqrt{n} (\hat{\beta} - \beta^*) &\xrightarrow{\mathcal{L}} D^{-1}\mathcal{N}(0, D \sigma'^2) \\
@@ -713,7 +700,7 @@ h_{\hat{\theta}} \rightarrow \mathcal{N}(h_{\theta^*}, \frac{1}{n}\nabla_\theta 
 
 By estimating $\frac{1}{n} \Sigma$ from \texttt{curve\_fit}, we can compute the confidence interval of the prediction with the quantiles of the normal distribution.
 The gradient of $h_\theta$ is approximated through numerical approximation: \\
-$\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}{dt}$, with $dt=0.0001$. \\
+$\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}{dt}$, with $dt=0.0001$ and  \\
 
 \begin{align*}
     d\theta_i &= \begin{pmatrix}
@@ -734,25 +721,25 @@ $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}
 \subsection*{Metrics}
 \label{sec:metrics}
 Two metrics were used to assess the performance of the models. 
-The first metric is the Weighted Confidence Interval (WIS), which is a metric commonly used in forecast evaluation (see \cite{cramer2022evaluation} or \cite{paireau2022ensemble}). 
+The first metric is the Weighted Interval Score(WIS), which is a metric commonly used in forecast evaluation (see \cite{cramer2022evaluation} or \cite{paireau2022ensemble}). 
 
 Let $\alpha$ be in $]0, 1[$. Let $\hat{y}$ be the prediction of the model and $y$ the real value.
 Let $[l, u]$ be the $(1-\alpha)$ confidence interval of the prediction.
 We define the Interval Score ($IS$) as : \\
-$IS_\alpha( [l, u], \hat{y}, y ) = \frac{2}{\alpha} \times ( \mathbb{1}_{\{y<l\}} (l-y) + \mathbb{1}_{\{y>u\}} (y-u) + (u-l))$. \\
+$IS_\alpha( [l, u],  y ) = \frac{2}{\alpha} \times ( \mathbb{1}_{\{y<l\}} (l-y) + \mathbb{1}_{\{y>u\}} (y-u) + (u-l))$. \\
 This metric is made of three terms: a term of overprediction that punishes a model predicting a confidence interval which is above the real value, a term of underprediction that punishes a model whose confidence interval is under the real value, and a term of range, that punishes too wide confidence intervals. \\
 Let $(\alpha_k)_{k \in \{1, \dots , K\}} \in ] 0 , 1 [ ^K $
 The WIS is defined as follow. \\
 
-$WIS( [l, u], \hat{y}, y ) = \sum_{k=0}^{K} w_k IS_{\alpha_k}( [l, u], \hat{y}, y ) $ , with $(w_k)_{k \in \{1, ... , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
+$WIS( [l, u], y ) = \sum_{k=0}^{K} w_k IS_{\alpha_k}( [l, u], y ) $ , with $(w_k)_{k \in \{1, ... , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
 
 According to previous literature (\cite{cramer2022evaluation}), we decided to set \\
-$(\alpha_k)_{k \in \{1, ... , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$. 
+$(\alpha_k)_{k \in \{1, ... , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ and  $ \forall k \in  \{1, ... , K\}, w_k = \frac{\alpha_k}{2}$. 
 One can notice that the WIS does not take into account the point prediction, but focuses on confidence interval accuracy. \\
 
 The second metric chosen is the Root Mean Square Error ($RMSE$). 
 With the same notations as above, we define the $RMSE$ as follow : \\
-$RMSE([l, u], \hat{y}, y) = \sqrt{(y-\hat{y})^2}$\\
+$RMSE( \hat{y}, y) = \sqrt{(y-\hat{y})^2}$\\
 This metric focuses on the point prediction, and does not take into account the confidence intervals. 
 
 
@@ -760,31 +747,23 @@ The models were tested on all the 324 pandemics, on 14 data points different (at
 For each individual point, the models were trained on the previous days of the pandemic. 
 A 7 and 14 days ahead prediction was asked, and $[0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ confidence-intervals were computed. 
 The WIS and the RMSE of these predictions were then computed. 
-For the analysis of the results, we decided to remove the points for which the number of hospitalized was below 100, both point classification and model predictions were irrelevant at this period of the pandemic.
-Moreover, it is senseless to assess the performances of the models during the period in which there is no pandemic, as the interesting models are the ones that can predict the number of hospitalized during the waves.
+For the analysis of the results, we decided to remove the points for which the number of hospitalized was below 100, (i.e less than $10^{e-4}$ hospitalized per 100 000 citizens) both point classification and model predictions were irrelevant at this period of the pandemic.
+Moreover, it is pointless to assess the performances of the models during the period in which there is no pandemic, as the interesting models are the ones that can predict the number of hospitalized during the waves.
 Not removing those points would lead to biaised results, as they represent 44\% of the dataset, and we would have concluded that the best model is the one that performs well when there is no pandemic. 
 \subsection{Point classification}
 \label{sec:classification}
 
-In order to compare the performance of the models at different point of the pandemic, we classified the points in six categories : \textit{stable, increase, big increase, decrease, big decrease}.
-The $R_{eff}$ number was used for the point classification. 
+In order to compare the performance of the models at different point of the pandemic, we classified each day of the pandemic in six categories : \textit{stable, increase, big increase, decrease, big decrease}.
+The $R_{eff}$ number was used for point classification. 
 This number is easily available from the Covasim simulation. 
 $R_{eff}$ represents the expected number of people that an infected person will infect.
-For a pandemic $X_{i, i \in [1, ..., n]}$ of reproduction number $R_{i, i \in [1, ..., n]}$, and a day $d \in [1, \hdots, n]$, the classification is made according the following rule : \\
-\begin{itemize}
-    \item if $X[d]$<100 : \\
-    classification = "no pandemic"
-    \item Elif $R[d] <0.5$ : \\
-    classification = "big decrease"
-    \item Elif $R[d] < 0.8$ : \\
-    classification = "decrease"
-    \item Elif $R[d] < 1.2$ : \\
-    classification = "stable" 
-    \item Elif $R[d] < 3$ : \\
-    classification = "increase"
-    \item Else : \\
-    classification = "big increase"
-\end{itemize}
+For a pandemic $X_{i, i \in [1, ..., n]}$ of reproduction number $R_{i, i \in [1, ..., n]}$, and a day $d \in [1, \hdots, n]$, the classification is made according rule in \ref{tab:classification}. 
+
+
+
+
+\input{tables/table_classification.tex}
+
 
 
 The values of the thresholds were chosen by hand. 

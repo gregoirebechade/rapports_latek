@@ -1,19 +1,18 @@
 # Fdb version 4
-["biber main"] 1719575116 "main.bcf" "main.bbl" "main" 1719840058 0
-  "./bibliography/references.bib" 1719487017 6390 859eb96d70b7335bd5be6e4fd7dbca8d ""
-  "main.bcf" 1719840057 110187 7afc05cf60636a8837d3fbe39133edd6 "pdflatex"
+["biber main"] 1719912003 "main.bcf" "main.bbl" "main" 1719919431 0
+  "./bibliography/references.bib" 1719911971 6564 c908d630fa5aca83cabaae2a0b86eab5 ""
+  "main.bcf" 1719919430 110331 891f8dbf1389d16fd2c3089b835d134a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1719840053 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1719840058 0
+["pdflatex"] 1719919425 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/article/main.tex" "main.pdf" "main" 1719919431 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1718721400 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1717593020 22504 9f5668af17bd7b6eefd62136611bf007 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1717593010 25420 05f1636bc2674c5a31198d4e64a701f9 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1717156662 31952 8bcd38facc752fc208bbb3dba0164919 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1717156575 40136 8303b3b0ea6e1716ba26877f4fe6d07a ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/eccc1000.pk" 1717593007 25100 6a10b219ebe5833ed0320fb91224fa4d ""
-  "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm0800.pk" 1719821672 19080 a2ea9154ae2e7130fe654fe1f366af17 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1000.pk" 1717593013 23808 a34483021ff8b3c93e4b9834757a52fd ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1200.pk" 1717156579 28440 28444ed05be840bb0bb8a35ed1646bc5 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1728.pk" 1717156581 42516 c60662bef410b57913e697d38c466cf7 ""
@@ -252,18 +251,19 @@
   "figures/mobility_reports.png" 1717494605 30156 03aa02e34a350c5d8a51be45789f7e2f ""
   "figures/most_different_pandemics.png" 1717505760 114400 d9b93f05951541ccf7999f7750dfe293 ""
   "figures/ranks_big_increase_RMSE_7.png" 1719316856 74013 45b61598908865b0d6d2921cb78ded6f ""
-  "main.aux" 1719840057 14344 f2e0a61f553f45f57f44f065e24333f0 "pdflatex"
-  "main.bbl" 1719575122 34068 1ecfc5244c394f880651beb21fce24a4 "biber main"
-  "main.out" 1719840057 4018 749c2c4239c984717b1213679b148921 "pdflatex"
-  "main.run.xml" 1719840057 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
+  "main.aux" 1719919430 14783 78047c40a15035798ed57c89ec4460cc "pdflatex"
+  "main.bbl" 1719912007 35193 f64539a0add4e092ee87923e8fc4439a "biber main"
+  "main.out" 1719919430 4013 b5922595df75ac4d0dfba29627a108aa "pdflatex"
+  "main.run.xml" 1719919430 2317 c5cc8503eec171ecc0375ec606561e70 "pdflatex"
   "main.tex" 1719566635 1272 127b1f553771a8645cd8996c17fa2659 ""
   "sections/appendix.tex" 1719492995 835 2b81ffe82f1e213e3a9757df780e1728 ""
-  "sections/conclusion.tex" 1719487884 815 e276f120f40888cc5e86a727016adb03 ""
-  "sections/discussion.tex" 1719578506 6750 cb17e68300ed30f47a810272ce9ffec0 ""
-  "sections/introduction.tex" 1719489035 2598 ae813ec8560ba86ea881baf1f092e2ac ""
-  "sections/methods.tex" 1719840052 43717 0f55614ed37542617fbb9da22d33dff3 ""
-  "sections/results.tex" 1719487085 11006 05fcb3a83dbeb7a5853fbc77f655e6c0 ""
-  "tables/table_covasim_parameters.tex" 1718784914 827 4552dbcd093bccdedeffb4de78f6a4a9 ""
+  "sections/conclusion.tex" 1719919424 817 8e7c1144a4101e5e67ba4a2d42e1891d ""
+  "sections/discussion.tex" 1719919358 6750 afe54d2700c0d8ed30a80fc8e007ef19 ""
+  "sections/introduction.tex" 1719914177 2597 765bcc190528c39620082ff7141fdf16 ""
+  "sections/methods.tex" 1719913982 44761 50fd63583943208384c368480ebd5252 ""
+  "sections/results.tex" 1719918587 11000 f73b739107d78bd1e4493edbec4b84af ""
+  "tables/table_classification.tex" 1719912688 461 9274e7367c7a75e00504ea1dc5f17aa0 ""
+  "tables/table_covasim_parameters.tex" 1719912851 718 f7e12cf79d3d32e792e173d988042a1c ""
   "tables/table_types_of_sirh.tex" 1718789001 355 29fff74d967bcf4083681c2bf2927b9d ""
   (generated)
   "main.aux"

@@ -5,21 +5,21 @@
 \subsection{Summary of Key Findings}
 
 This study enabled us to assess the consistency of the different models that were implemented. 
-Indeed, comparing the models on a set of diverse pandemics enlighted the most consistent with the different pandemics.
+Indeed, comparing the models on a set of diverse pandemics highlighted the most consistent with the different pandemics.
 Moreover, the classification of the models with the type of points leads to the determination of the phase of the pandemics in which each model is the best, and on the other hand to assess which model is the best for a $R_{eff}$ given. 
-This result is promising, as the reproduction number is a quantity oftenly estimated by the stakeholders during a pandemic. 
+This result is promising, as the reproduction number is a quantity often estimated by the stakeholders during a pandemic. 
 The interpretation based on the heatmaps Fig.\ref{fig:heatmap_RMSE_14}, Fig.\ref{fig:heatmap_RMSE_7} and Fig.\ref{fig:heatmap_WIS_14} and Fig.\ref{fig:heatmap_WIS_7} show the following results : \\
 
 
 
 \begin{itemize}
     \item Arima and VAR are very performant models in terms of expected ranking. They are the two best models for 7-days ahead predictions and in the top 4 models for the 14-days ahead predictions. 
-    \item Adding information with the mobility and the number of infected is not beneficial for the models. We observe almost always a poorest performance of the models of the second type compared to their equivalent model of the first type (VAR / Arima and SIRH Multi / SIRH ). Only the exponential multi outperforms the mere exponential model, but as they both perform pretty bad, this result is not interesting. 
-    \item The autoregressive models (Bayesian and Linear Regression, ARIMA and VAR) perform best for short term predictions rather than long term ones. On the other hand, the SIRH models, which have a phyisical meaning and try to fit the data to an understandable model perform better for long term predictions. This is also observed in the coefficients of the ensemble model (see Fig. \ref{fig:ensemble_weights}). Indeed, the ensemble model put more weight on the VAR and Arima models for short term predictions and more on the SIRH models for long terms predictions.  
-    \item The difference of ranking between the models is more pronounced when we rank them with RMSE rather than WIS. This might be due to the fact that the confidence intervals are not well calibrated and that the real value always land out of it. 
-    \item The Moving Average model is not the worst model and is often ranked between 6 and 8. This might be due to the fact that as the curve of the number of hospitalized is continuous, the mean never diverge too much from the real value, while other models might misinterpret the trend of the curve and land far away from the real value. 
-    \item The Exponential models are almost always the last models, except for big increase points that are almost always at the very beginning of the pandemic. the fact that the beginning of a pandemic looks like an exponential curve is also showed with the SIRH model, when the number of infected is very small. 
-    \item The Ensemble model performs quite well. We noticed that it is very rarely the best model for a type of point, while other models almost always have some point on which they make the best prediction. On the other hand, it is never the last, and has a very consistent ranking : it is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
+    \item Adding information with the mobility and the number of infected is not beneficial for the models. We observe almost always a poorer performance of the models of the second type compared to their equivalent model of the first type (VAR / Arima and SIRH Multi / SIRH ). Only the exponential multi outperforms the mere exponential model, but as they both perform pretty bad, this result is not interesting. 
+    \item The autoregressive models (Bayesian and Linear Regression, ARIMA and VAR) perform best for short term predictions rather than long term ones. On the other hand, the SIRH models, which have a physical meaning and try to fit the data to an understandable model perform better for long term predictions. This is also observed in the coefficients of the ensemble model (see Fig. \ref{fig:ensemble_weights}). Indeed, the ensemble model puts more weight on the VAR and Arima models for short term predictions and more on the SIRH models for long terms predictions.  
+    \item The difference of ranking between the models is more pronounced when we rank them with RMSE rather than WIS. This might be due to the fact that the confidence intervals are not well calibrated and that the real value always lands out of it. 
+    \item The Moving Average model is not the worst model and is often ranked between 6 and 8. This might be due to the fact that as the curve of the number of hospitalized is continuous, the mean never diverges too much from the real value, while other models might misinterpret the trend of the curve and land far away from the real value. 
+    \item The Exponential models are almost always the last models, except for big increase points that are almost always at the very beginning of the pandemic. the fact that the beginning of a pandemic looks like an exponential curve is also shown with the SIRH model, when the number of infected is very small. 
+    \item The Ensemble model performs quite well. We noticed that it is very rarely the best model for a type of point, while other models almost always have some point on which they produce the best prediction. On the other hand, it is never the last, and has a very consistent ranking : it is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
 \end{itemize}
 
 
@@ -35,8 +35,8 @@ They also observe the fact that the ensemble model is very consistent: rarely th
 In \cite{rahmandad2022enhancing}, the authors compared several model to understand they key features that enabled a model to make long term predictions. 
 These features are : " \textit{(1) capturing the physics of transmission (instead of using black-box models); (2) projecting human behavioral reactions to an evolving pandemic; and (3) resetting state variables to account for randomness not captured in the model before starting projection.}"
 These findings are consistent with the results we have observed. 
-Indeed, we have showed that the SEIR model (capturing the physics of transmission and resetting state ) performances increase from 7-days ahead to 14-days ahead predictions, while black-box model (such as Arima or VAR), are less performant for long terms prediction. 
-This has to be qualified, as our "long term predictions" was a 14-days ahead prediction, while the study \cite{rahmandad2022enhancing} get interested to predictions up to 14-weeks reach. 
+Indeed, we haven that the SEIR model (capturing the physics of transmission and resetting state ) performances increase from 7-days ahead to 14-days ahead predictions, while black-box models (such as Arima or VAR), are less performant for long terms prediction. 
+This has to be qualified, as our "long term predictions" were a 14-days ahead prediction, while the study \cite{rahmandad2022enhancing} get interested to predictions up to 14-weeks reach. 
 
 The methodology of point classification has not be found in any other paper of the literature. 
 Some studies assess the performance of the models during different times of a pandemic (see \cite{howerton2023evaluation}), but this systematic point classification based on the reproduction number was not found. 
@@ -49,10 +49,10 @@ As the value of the $R_{eff}$ is often estimated by the researchers during a pan
 
 \subsection{Limitations}
 
-This study did not take into account uncertinity on the data or imperfect data. 
-Indeed, the Covasim librairy provided a daily data of high quality and without any noise. 
+This study did not take into account uncertainity on the data or imperfect data. 
+Indeed, the Covasim library provided a daily data of high quality and without any noise. 
 Real-life data is often full of mistakes, of missing values or of time-lag in the reports (\cite{greene_Nowcasting}).
 It would be interesting to measure the robustness of the models with respect to these imperfections to assess if the models can still make good predictions. 
 Moreover, the models of the second type used the number of infected to predict the number of hospitalized. 
-This quantity is not directy accessible and is often estimated with tests, which could lead to huge variations in the predicted values.  
+This quantity is not directly accessible and is often estimated with tests, which could lead to huge variations in the predicted values.  
 Moreover, the models were only tested on outbreaks generated with covasim, which might lead to a bias in the results, despite the effort to create a diverse set of pandemics. 

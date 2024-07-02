@@ -8,10 +8,10 @@ All the simulations in this paper are made on a fixed population of $10^6$ agent
 
 \subsection{Covasim}
 
-To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python librairy that can simulate the evolution of a pandemic, was used. 
+To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python library that can simulate the evolution of a pandemic, was used. 
 Covasim is an agent-based model that can simulate the spread of a pandemic in a population. 
-This model takes as an input many parameters such as the population type, the population size, the age repartition... and outputs a complete description of the pandemic, with real-time values of each relevant information, such as the number of severe, of asymptomatic... but also physical values such as the value of the reproduction number. 
-Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as the input of the model, but also with interventions that can be planned by the users. 
+This model takes as an input many parameters such as the population type, the population size, the age repartition... and outputs a complete description of the pandemic, with real-time values of each relevant piece of information, such as the number of severe, of asymptomatic... but also physical values such as the value of the reproduction number. 
+Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as input to the model, but also with interventions that can be planned by the users. 
 These interventions can help to assess the impact of a vaccination campaign, or lockdown scenarios. 
 They represent relatives changes in the probabilities of transmission. 
 Covasim was used by policymakers during the Covid 19 outbreak to adapt their strategies of mitigation, for instance in Australia,Vietnam, India and United States (\cite{kerr2021covasim}). 
@@ -75,7 +75,7 @@ For each norm $\mathcal{L}_k$, I determined $s$,  the subset of 4 pandemics that
 The 4 most diverse pandemics (in the subset of 14 pandemics generated) according to each norm are shown in the Fig.\ref{fig:diversity_pandemics}.
 As "diversity" is not countable, a human choice was necessary to choose the most relevant norm.
 According to Fig. \ref{fig:diversity_pandemics}, I decided to select $\mathcal{L}_2$.
-But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as the parameters were changed independantly, and the diversity did not take into account the correlation between some of them. \\
+But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as the parameters were changed independently, and the diversity did not take into account the correlation between some of them. \\
 
 Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
 
@@ -93,10 +93,10 @@ $\forall s \in \mathcal{S}, \pi(s) = \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{
 We suppose that $\forall s \in \mathcal{S}, \mathcal{L}(s) >0$.
 It is a reasonable assumption, as $\mathcal{L}(s) = 0 $ means that the 81 pandemics generated   are strictly identical. 
 
-For each $s = [a, b, c, d] \in \mathcal{S}$, let $ne(s)$ be the set of the neighbourghs of $s$, i.e the set of all the elements of $\mathcal{S}$ who have only one parameter different from $s$. 
+For each $s = [a, b, c, d] \in \mathcal{S}$, let $ne(s)$ be the set of the neighbours of $s$, i.e the set of all the elements of $\mathcal{S}$ who have only one parameter different from $s$. 
 For instance, $[0, 3, 9, 12] \in ne([0, 3, 10, 12])$, but $[0, 3, 9, 12] \notin ne([0, 3, 8, 10])$.\\
 
-Let $U_n$ be a sequence of independent uniform random variables on $[0, 1]$ and $\forall s \in \mathcal{S}$, let $U_{n}^{ne(s)}$ be a sequence of independant uniform random variables on $ne(s)$ .
+Let $U_n$ be a sequence of independent uniform random variables on $[0, 1]$ and $\forall s \in \mathcal{S}$, let $U_{n}^{ne(s)}$ be a sequence of independent uniform random variables on $ne(s)$ .
 Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follow : \\
 
 
@@ -111,11 +111,11 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
 \]
 \\[0.5cm]
 
-This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbourghs of $S_n$ (it is $U_n^{ne(S_n)}$). 
+This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbours of $S_n$ (it is $U_n^{ne(S_n)}$). 
 The Markov Chain moves to this neighbourgh if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
 If the new value of $\mathcal{L}$ is smaller, the Markov Chain moves with a probability that is equal to the ratio of the two values.
 This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. \\
-As $S_{n+1}$ is a function of $S_n$ and of other independant random variables, the sequence $S_n$ is a homogenous Markov Chain.
+As $S_{n+1}$ is a function of $S_n$ and of other independent random variables, the sequence $S_n$ is a homogenous Markov Chain.
 
 The transition matrix of this Markov Chain is the following: 
 \[
@@ -168,7 +168,7 @@ $
 \end{aligned}
 $
 
-Thus, $S_n$ is \textbf{irreductible}.\\
+Thus, $S_n$ is \textbf{irreducible}.\\
 
 A Markov chain of transition matrix $P$ on the support $\mathcal{S}$ is said to be \textit{aperiodic} if: \\
 $\forall s \in \mathcal{S}, \forall s' \in \mathcal{S}, \exists N \in \mathbb{N}, \text{ s.t } \forall n > N, P(s, s')^n >0 $ \cite{bodineau2015modelisation}\\
@@ -189,7 +189,7 @@ Let $(s, s')  \in \mathcal{S}^2$. \\
 Thus $S_n$ is an \textbf{aperiodic} Markov Chain.\\
 
 
-Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreductible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.\\
+Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreducible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.\\
 
 
 The most probable set that will be sampled by $S_n$ is the one that maximises the diversity.

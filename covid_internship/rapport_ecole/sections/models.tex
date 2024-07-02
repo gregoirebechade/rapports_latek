@@ -6,7 +6,7 @@ In this study, let us define a model ${h}_{\theta }$ as a function ${h}$  define
 In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed from $\mathcal{D}$, and used for the prediction.  
 I deisgned two types of models: the first type correspond to models which are only trained on the time series we want to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to forecast the number of hospitalized (the mobility and the number of infected). 
 All of these models were implemented in Python, and are available on the Github repository provided with this report (\ref{github-link}).
-During the training or predicting phase, the computation sometimes fails (for instance, when the matrix is non-inversible for the linear regression model). 
+During the training or predicting phase, the computation sometimes fails (for instance, when the matrix is non-invertible for the linear regression model). 
 The model then outputs the value of the moving average model (see \ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
 \textbf{Task of a model}: \\
 
@@ -78,22 +78,7 @@ The evolution of the number of person in each compartment is described by a syst
 \end{equation}
 
 At $t=0$, the values of $(S_0, I_0, R_0, H_0)$ are fixed to $(10^6 -1, 1, 0, 0,) $. 
-As the system of equation can't be directly solved, we use a Euler method to solve it : \\
-
-
-\begin{equation}
-    \left\{
-    \begin{aligned}
-        S_{t+dt}=S_t + dt \frac{dS}{dt}\\
-        I_{t+dt}=I_t + dt \frac{dI}{dt}\\
-        R_{t+dt}=R_t + dt \frac{dR}{dt}\\
-        H_{t+dt}=H_t + dt \frac{dH}{dt}\\
-    \end{aligned}
-    \right.
-\end{equation}
-
-
-We chose to fix $dt=0.001$. 
+As the system of equation can't be directly solved, we use a Euler method to solve it. 
 
 
 To train this model, we minimize the least squares error between the curve of the number of hospitalized observed to the curve of the number of hospitalized of the training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
@@ -101,13 +86,13 @@ I implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or bo
 This value of $0.2$ seems arbitrairy but corresponds to an expected value of recovery of 5 days and sometimes helps the curve fit function to converge, as the computations sometimes fails to optimize on the 4 parameters. 
 
 \input{tables/table_types_of_sirh.tex}
-In the prediction phase, a $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
+In the prediction phase, an $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
 The initial values for $S$ and $I$ correspond to the last value of the fit of the training phase. 
-The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the trainig data. 
-The initial value of $R$ is fixed by the previous values as the equation $S_t + I_y + R_t + H_t = N$ is always true. 
-The confidence interval of the prediction is computd thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
+The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the training data. 
+The initial value of $R$ is fixed by the previous values as the equation $S_t + I_t + R_t + H_t = N$ is always true. 
+The confidence interval of the prediction is computed thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
 
-A SIRH model of the second type was implemented. 
+An SIRH model of the second type was implemented. 
 It has the same structure but uses the mobility data and the number of infected to be more precise. 
 The idea is the same, but there are two differences : 
 \begin{itemize}
@@ -131,10 +116,10 @@ SIRH multi 1 refer to the model in which $\gamma_h$ and $\gamma_i$ are free and 
 \subsection{ARIMA and VAR models} 
 
 The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic forecasting (see \cite{kufel2020arima} and \cite{shang2021regional}).
-The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differenciated $d$ times. 
+The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differentiated $d$ times. 
 It follows the equation : \\
 $Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j} \label{eq:arima}$\\ 
-where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differenciation, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
+where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differentiation, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
 The coefficient are estimated through maximum likelihood estimation. 
 This method is implemented in the \texttt{statsmodels} library, which directly provides prediction and confidence intervals.
 I realized a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
@@ -203,8 +188,8 @@ Y_{k,t-p}
     
 
 
-Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} librairy. 
-The confidence intervals are also directy provided by the librairy.
+Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} library. 
+The confidence intervals are also directy provided by the library.
 
 
 
@@ -237,7 +222,7 @@ In order to implement machine learning regressors, I converted the time-series $
 $\forall i \in \{21, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
 I have then trained and optimized both regressors : the linear and the bayesain regressors, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
-The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} librairy (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
+The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} library (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
 The confidence interval for the linear regression prediction was computed as follow : \\
 Let us suppose that the data follows a linear regression model : $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
 The least square estimator of $\beta$ is $\hat{\beta} = (X^T X)^{-1} X^T Y$.
@@ -253,7 +238,7 @@ $
 $
 \newline
 $\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}^T \sigma ^2$.\\
-The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn librairy and the delta method. 
+The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn library and the delta method. 
 
 \subsection{Ensemble model}
 
@@ -391,9 +376,9 @@ We have:
 \[
 \hat{D}  \underset{a.s}{\rightarrow} D \text{,  with } D = \mathbb{E}[A_i^T A_i ] = A_0^T A_0 \text{ (cf Hyp \ref{hyp:major})}
 \]
-$\hat{\delta}$ is the empirical mean of random variables independant but non identically distributed. 
+$\hat{\delta}$ is the empirical mean of random variables independent but non identically distributed. 
 We therefore cannot use the Kolmogorov's Strong Law of Large Numbers. 
-There exists a law of large number for independant and non identically distributed random variables, which assesses that (see Therom 12 from \cite{suquet2004lois}):
+There exists a law of large number for independent and non identically distributed random variables, which asserts that (see Therom 12 from \cite{suquet2004lois}):
 
 
 
@@ -416,7 +401,7 @@ There exists a law of large number for independant and non identically distribut
 
 Let $ i \in \{1, ..., n\}$.\\[0.2cm]
 $X_i = A_i ^T \tilde{Y_i} = A_i^T A_i \beta^* + A_i ^T \epsilon'_i$. \\
-The random values $X_i$ are independant random variables.\\
+The random values $X_i$ are independent random variables.\\
 $\forall i \in \{ 1, ...  n \}, \mathbb{E}[X_i^2] = \mathbb{E}[X_i] ^2 + A_0 ^T A_0 \sigma'^2 < + \infty $.\\
 
 $\sum_{i=1}^{\infty } \frac{Var(X_i)}{i^2} = \sum_{i=1}^{\infty } \frac{A_0^T A_0 \sigma'^2}{i^2} =  A_0^T A_0 \sigma'^2 \sum_{i=1}^{\infty } \frac{1}{i^2} < + \infty$.\\
@@ -460,7 +445,7 @@ This line is made of two terms. Let's show that each one of them converges in la
 \end{align*}
 
 
-Yet, as $\epsilon_i $ and $  A_i $ are independant, and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i ^T A_i \epsilon_i ^2 ] = \mathbb{E} [ A_i ^T A_i ] \sigma'^2 =A_0^T A_0 \sigma'^2  $. 
+Yet, as $\epsilon_i $ and $  A_i $ are independent, and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i ^T A_i \epsilon_i ^2 ] = \mathbb{E} [ A_i ^T A_i ] \sigma'^2 =A_0^T A_0 \sigma'^2  $. 
 
 Finally, $\frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, D \sigma'^{2})$. 
 
