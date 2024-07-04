@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  2 JUL 2024 13:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  4 JUL 2024 14:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -908,7 +908,7 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 44
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd) (sections/introduction.tex) (sections/results.tex [1
 
 {C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
-<figures/ranks_big_increase_RMSE_7.png, id=153, 633.8079pt x 800.0289pt>
+<figures/ranks_big_increase_RMSE_7.png, id=159, 633.8079pt x 800.0289pt>
 File: figures/ranks_big_increase_RMSE_7.png Graphic file (type png)
 <use figures/ranks_big_increase_RMSE_7.png>
 Package pdftex.def Info: figures/ranks_big_increase_RMSE_7.png  used on input line 84.
@@ -917,7 +917,7 @@ Package pdftex.def Info: figures/ranks_big_increase_RMSE_7.png  used on input li
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/expected_ranks_big_increase_RMSE_7.png, id=156, 594.0594pt x 473.3685pt>
+<figures/expected_ranks_big_increase_RMSE_7.png, id=162, 594.0594pt x 473.3685pt>
 File: figures/expected_ranks_big_increase_RMSE_7.png Graphic file (type png)
 <use figures/expected_ranks_big_increase_RMSE_7.png>
 Package pdftex.def Info: figures/expected_ranks_big_increase_RMSE_7.png  used on input line 92.
@@ -925,7 +925,7 @@ Package pdftex.def Info: figures/expected_ranks_big_increase_RMSE_7.png  used on
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/heatmap_RMSE_7.png, id=158, 607.7907pt x 473.3685pt>
+<figures/heatmap_RMSE_7.png, id=164, 607.7907pt x 473.3685pt>
 File: figures/heatmap_RMSE_7.png Graphic file (type png)
 <use figures/heatmap_RMSE_7.png>
 Package pdftex.def Info: figures/heatmap_RMSE_7.png  used on input line 100.
@@ -933,43 +933,75 @@ Package pdftex.def Info: figures/heatmap_RMSE_7.png  used on input line 100.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/esb_rank_7.png, id=167, 640.3122pt x 800.0289pt>
+<figures/esb_rank_7.png, id=173, 640.3122pt x 800.0289pt>
 File: figures/esb_rank_7.png Graphic file (type png)
 <use figures/esb_rank_7.png>
 Package pdftex.def Info: figures/esb_rank_7.png  used on input line 122.
 (pdftex.def)             Requested size: 310.50357pt x 387.96472pt.
-<figures/esb_rank_14.png, id=168, 647.5392pt x 800.0289pt>
+<figures/esb_rank_14.png, id=174, 647.5392pt x 800.0289pt>
 File: figures/esb_rank_14.png Graphic file (type png)
 <use figures/esb_rank_14.png>
 Package pdftex.def Info: figures/esb_rank_14.png  used on input line 129.
 (pdftex.def)             Requested size: 310.50357pt x 383.61887pt.
-<figures/heatmap_esb_14.png, id=171, 615.0177pt x 473.3685pt>
+<figures/heatmap_esb_14.png, id=177, 615.0177pt x 473.3685pt>
 File: figures/heatmap_esb_14.png Graphic file (type png)
 <use figures/heatmap_esb_14.png>
 Package pdftex.def Info: figures/heatmap_esb_14.png  used on input line 140.
 (pdftex.def)             Requested size: 310.50357pt x 238.99503pt.
-<figures/heatmap_esb_7.png, id=172, 607.7907pt x 473.3685pt>
+<figures/heatmap_esb_7.png, id=178, 607.7907pt x 473.3685pt>
 File: figures/heatmap_esb_7.png Graphic file (type png)
 <use figures/heatmap_esb_7.png>
 Package pdftex.def Info: figures/heatmap_esb_7.png  used on input line 148.
 (pdftex.def)             Requested size: 310.50357pt x 241.83366pt.
-[3]) (sections/discussion.tex
+[3] [4 <./figures/ranks_big_increase_RMSE_7.png>]
+<figures/heatmap_real_14.png, id=209, 402.5439pt x 406.8801pt>
+File: figures/heatmap_real_14.png Graphic file (type png)
+<use figures/heatmap_real_14.png>
+Package pdftex.def Info: figures/heatmap_real_14.png  used on input line 182.
+(pdftex.def)             Requested size: 199.60895pt x 201.76326pt.
+<figures/heatmap_real_7.png, id=210, 402.5439pt x 406.8801pt>
+File: figures/heatmap_real_7.png Graphic file (type png)
+<use figures/heatmap_real_7.png>
+Package pdftex.def Info: figures/heatmap_real_7.png  used on input line 190.
+(pdftex.def)             Requested size: 199.60895pt x 201.76326pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/real_data_7.png, id=211, 956.8548pt x 543.4704pt>
+File: figures/real_data_7.png Graphic file (type png)
+<use figures/real_data_7.png>
+Package pdftex.def Info: figures/real_data_7.png  used on input line 204.
+(pdftex.def)             Requested size: 221.78923pt x 125.96579pt.
+<figures/real_data_14.png, id=212, 956.8548pt x 543.4704pt>
+File: figures/real_data_14.png Graphic file (type png)
+<use figures/real_data_14.png>
+Package pdftex.def Info: figures/real_data_14.png  used on input line 212.
+(pdftex.def)             Requested size: 221.78923pt x 125.96579pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (sections/discussion.tex
 Underfull \hbox (badness 10000) in paragraph at lines 7--12
 
  []
 
-[4 <./figures/ranks_big_increase_RMSE_7.png>] [5 <./figures/expected_ranks_big_increase_RMSE_7.png>] [6 <./figures/heatmap_RMSE_7.png>] [7 <./figures/esb_rank_7.png>] [8 <./figures/esb_rank_14.png>] [9 <./figures/heatmap_esb_14.png> <./figures/heatmap_esb_7.png>]) (sections/conclusion.tex) (sections/methods.tex
+[5 <./figures/expected_ranks_big_increase_RMSE_7.png>] [6 <./figures/heatmap_RMSE_7.png>] [7 <./figures/esb_rank_7.png>] [8 <./figures/esb_rank_14.png>] [9 <./figures/heatmap_esb_14.png> <./figures/heatmap_esb_7.png>] [10 <./figures/heatmap_real_14.png> <./figures/heatmap_real_7.png> <./figures/real_data_7.png> <./figures/real_data_14.png>]) (sections/conclusion.tex) (sections/methods.tex [11]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 6.
 
-[10] (tables/table_covasim_parameters.tex)
-<figures/mobility_reports.png, id=258, 418.4433pt x 327.3831pt>
+(tables/table_covasim_parameters.tex)
+<figures/mobility_reports.png, id=284, 418.4433pt x 327.3831pt>
 File: figures/mobility_reports.png Graphic file (type png)
 <use figures/mobility_reports.png>
 Package pdftex.def Info: figures/mobility_reports.png  used on input line 33.
 (pdftex.def)             Requested size: 221.78923pt x 173.5222pt.
- [11 <./figures/mobility_reports.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 53.
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/bbold\ubbold.fd)
 Underfull \hbox (badness 10000) in paragraph at lines 53--54
@@ -986,12 +1018,12 @@ Overfull \hbox (48.84056pt too wide) in paragraph at lines 57--67
 []$[][]$ 
  []
 
-
+[13 <./figures/mobility_reports.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
-<figures/most_different_pandemics.png, id=268, 714.7503pt x 523.9575pt>
+<figures/most_different_pandemics.png, id=302, 714.7503pt x 523.9575pt>
 File: figures/most_different_pandemics.png Graphic file (type png)
 <use figures/most_different_pandemics.png>
 Package pdftex.def Info: figures/most_different_pandemics.png  used on input line 78.
@@ -1009,12 +1041,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
-[12]
+
 Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
-
+[14 <./figures/most_different_pandemics.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
@@ -1024,7 +1056,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
-[13 <./figures/most_different_pandemics.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
@@ -1039,7 +1071,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 144--156
 
  []
 
-
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 157--159
 
  []
@@ -1049,7 +1081,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--166
 
  []
 
-[14]
+
 Overfull \hbox (19.75365pt too wide) in paragraph at lines 168--182
 []$[][]$ 
  []
@@ -1084,7 +1116,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
-
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
@@ -1099,8 +1131,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--213
 
  []
 
-[15]
-<figures/mobilities.png, id=307, 409.7709pt x 327.3831pt>
+<figures/mobilities.png, id=333, 409.7709pt x 327.3831pt>
 File: figures/mobilities.png Graphic file (type png)
 <use figures/mobilities.png>
 Package pdftex.def Info: figures/mobilities.png  used on input line 217.
@@ -1110,12 +1141,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 228--235
 
  []
 
-[16 <./figures/mobilities.png>]
+[17 <./figures/mobilities.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 303--305
 
  []
 
-(tables/table_types_of_sirh.tex) [17]
+[18] (tables/table_types_of_sirh.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 330--333
 
  []
@@ -1125,7 +1156,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 334--335
 
  []
 
-[18]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 445--447
 
  []
@@ -1135,14 +1166,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 448--454
 
  []
 
-<figures/esb_coefs.png, id=344, 503.7219pt x 250.7769pt>
+[20]
+<figures/esb_coefs.png, id=375, 503.7219pt x 250.7769pt>
 File: figures/esb_coefs.png Graphic file (type png)
 <use figures/esb_coefs.png>
 Package pdftex.def Info: figures/esb_coefs.png  used on input line 477.
 (pdftex.def)             Requested size: 221.78923pt x 110.41487pt.
-[19] [20 <./figures/esb_coefs.png>]
+ [21 <./figures/esb_coefs.png>] [22]
 \c@theorem=\count462
- [21]
+
 Underfull \hbox (badness 10000) in paragraph at lines 604--605
 
  []
@@ -1162,17 +1194,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 614--615
 
  []
 
-[22]
+[23] [24]
 Underfull \hbox (badness 10000) in paragraph at lines 701--704
 
  []
 
-[23]
+
 Underfull \hbox (badness 10000) in paragraph at lines 726--733
 
  []
 
-
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 734--735
 
  []
@@ -1182,46 +1214,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 736--739
 
  []
 
-[24] (tables/table_classification.tex)) (sections/appendix.tex
-<figures/heatmap_RMSE_14.png, id=395, 615.0177pt x 473.3685pt>
+(tables/table_classification.tex)) (sections/appendix.tex
+<figures/heatmap_RMSE_14.png, id=422, 615.0177pt x 473.3685pt>
 File: figures/heatmap_RMSE_14.png Graphic file (type png)
 <use figures/heatmap_RMSE_14.png>
 Package pdftex.def Info: figures/heatmap_RMSE_14.png  used on input line 8.
 (pdftex.def)             Requested size: 310.50357pt x 238.99503pt.
-<figures/heatmap_WIS_7.png, id=396, 596.9502pt x 473.3685pt>
+ [26]
+<figures/heatmap_WIS_7.png, id=428, 596.9502pt x 473.3685pt>
 File: figures/heatmap_WIS_7.png Graphic file (type png)
 <use figures/heatmap_WIS_7.png>
 Package pdftex.def Info: figures/heatmap_WIS_7.png  used on input line 15.
 (pdftex.def)             Requested size: 310.50357pt x 246.22527pt.
- [25 <./figures/heatmap_RMSE_14.png>]
-<figures/heatmap_WIS_14.png, id=404, 604.1772pt x 473.3685pt>
+<figures/heatmap_WIS_14.png, id=429, 604.1772pt x 473.3685pt>
 File: figures/heatmap_WIS_14.png Graphic file (type png)
 <use figures/heatmap_WIS_14.png>
 Package pdftex.def Info: figures/heatmap_WIS_14.png  used on input line 23.
 (pdftex.def)             Requested size: 310.50357pt x 243.27827pt.
-) [26 <./figures/heatmap_WIS_7.png> <./figures/heatmap_WIS_14.png>] [27] (main.aux)
+) [27 <./figures/heatmap_RMSE_14.png> <./figures/heatmap_WIS_7.png>] [28 <./figures/heatmap_WIS_14.png>] [29] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B5922595DF75AC4D0DFBA29627A108AA;4013.
+(rerunfilecheck)             Checksum: 95929ADA6C42112B2508592CD0F67169;4165.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33096 strings out of 474495
- 631001 string characters out of 5743936
- 1951460 words of memory out of 5000000
- 54751 multiletter control sequences out of 15000+600000
+ 33149 strings out of 474495
+ 632347 string characters out of 5743936
+ 1950460 words of memory out of 5000000
+ 54799 multiletter control sequences out of 15000+600000
  577466 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,93p,747b,1773s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold7.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (27 pages, 1107398 bytes).
+ <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold7.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (29 pages, 1400342 bytes).
 PDF statistics:
- 918 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
- 299 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 979 PDF objects out of 1000 (max. 8388607)
+ 113 named destinations out of 1000 (max. 500000)
+ 327 words of extra memory for PDF output out of 10000 (max. 10000000)
 

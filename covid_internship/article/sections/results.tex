@@ -10,13 +10,13 @@ These values correspond to scaling factors of the default values of the model.
 For each pandemic, the transmission probabilities were time dependent and followed one of the four different mobility patterns (see Fig.\ref{fig:mobilities}). 
 Thanks to those 4 parameters, each varied on three different values and to the four different mobilities, we obtained 324 simulations of pandemics. 
 We have decided to focus on the number of hospitalized individuals as the target variable. 
-Indeed, it is a key variable to monitor, as the hospital occupancy correspond to the capacity of the state to treat the patients. 
+Indeed, it is a key variable to monitor, as the hospital occupancy corresponds to the capacity of the state to treat the patients. 
 
 
 \subsection*{The models}
 
 In this paper, we implemented 13 individual models and an ensemble model.
-Each model was trained on the data from the begining of a pandemic and made predictions 7 or 14 days ahead (on user's choice).
+Each model was trained on the data from the beginning of a pandemic and made predictions 7 or 14 days ahead (on user's choice).
 They output a point prediction and a set of confidence intervals on the prediction. 
 Models of two types were implemented. 
 The models of the first type were only trained on the time series of the number of hospitalized of the past few days. 
@@ -24,25 +24,25 @@ The models of the second type were trained on the time series of the number of h
 
 \subsubsection{SIRH}
 
-The SIRH (Suspectible, Infected, Recovered, Hospitalized) (Fig.\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment : the Hospitalized compartment. 
+The SIRH (Suscectible, Infected, Recovered, Hospitalized) (Fig.\ref{fig:sirh}) is a variation of the classical SIR model, with another compartment: the Hospitalized compartment. 
 The parameters of this model correspond to the rates of evolution from a compartment to another one. 
-$\beta$ correspond to the transmission rate, $\gamma_i$ and $\gamma_h$ correspond to the recovery rate from both Infected and Hospitalized compartments, and $h$ correspond to the hospitalization rate. 
+$\beta$ corresponds to the transmission rate, $\gamma_i$ and $\gamma_h$ correspond to the recovery rate from both Infected and Hospitalized compartments, and $h$ corresponds to the hospitalization rate. 
 The value of $S, I, R$ and $H$ are linked through a system of differential equations (\ref{eq:sirh}). 
 As the curve of the pandemic of a SIRH is deterministic, it is possible to generate it from the values of the parameters $\beta$, $\gamma_i$, $\gamma_h$ and $h$, and to compare it to the value of the number of hospitalized observed from the beginning of the pandemic.
-The optimal parameters are found through minimization of the least square between the SIRH curve and the real curve. 
+The optimal parameters are found through minimization of the least squares error between the SIRH curve and the real curve. 
 During the predicting phase, a 7 (or 14) days SIRH is run, with initial value estimated from the data and the fit of the training phase.
 The confidence interval is estimated through linearization of the regression (see \ref{sec:ci})
 
 Variations of the SIRH model were implemented, with $\gamma_i$ and $\gamma_h$ kept constant. 
 
 A SIRH model of the second type was also constructed. 
-Following the same idea as the first type SIRH, this model has a time varying transmission rate, which is a linear combination of the mobility : $\beta_t = a \times m_t + b$. 
+Following the same idea as the first SIRH model described above, this model has a time varying transmission rate, which is a linear combination of the mobility: $\beta_t = a \times m_t + b$, as it is done in \cite{gerlee2021predicting}. 
 The parameters to optimize are now $a, b, \gamma_i, \gamma_h$ and $h$ and both curve of the number of hospitalized and the number of infected are fitted to the data. 
 
 
 \subsubsection{ARIMA}
 
-The ARIMA model is used for time series forcasting. 
+The ARIMA model is used for time series forecasting. 
 It is the sum of an AR and a MA model (\ref{eq:arima})
 It is trained by maximizing the likelihood of the observed data. 
 
@@ -57,7 +57,7 @@ It returns the value of the average of the past seven days and a confidence inte
 
 \subsubsection{Exponential regression}
 
-The exponential regression is a model that fits an exponential regression ($x \rightarrow a e^{b x} + c$ ) to the values of the number of hospitaized. 
+The exponential regression is a model that fits an exponential function ($x \rightarrow a e^{b x} + c$) to the values of the number of hospitaized. 
 The values of $a, b$ and $c$ are found by minimizing the least square difference between the prediction and the real values. 
 The confidence interval is estimated through linearization of the regression (see \ref{sec:ci}). 
 
@@ -75,17 +75,17 @@ They use the last 20 data points to predict the next one (see \ref{sec:mlmodels}
 
 The models described above were tested on 14 points of each of the 324 pandemics generated, when the pandemic was significant (i.e when more than 0.01\% of the population was hospitalized, in our case when the value of the number of hospitalized was above 100). 
 For each point, a 7 and 14 days-ahead prediction was made. 
-Each prediction was evaluated thanks to WIS and RMSE (see \ref{sec:metrics}), and then ranked according to the performances of other models.
-The points of evaluation were also classified in one of the following categories : 'big increase', 'increase', 'stable', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic (see :\ref{sec:classification} for more details). 
+Each prediction was evaluated thanks to WIS and RMSE (see \ref{sec:metrics}), and then ranked according to the performances of the other models.
+The points of evaluation were also classified in one of the following categories: 'big increase', 'increase', 'stable', 'decrease' and 'big decrease', based on the value of the reproductive number at this time of the pandemic (see \ref{sec:classification} for more details). 
 It is then possible to get global information on the rankings of the models. 
-For instance, if the loss and the reach of prediction is fixed, we can look at the distribution of rankings of all the models for a type of point (to see the best model for a type of point), as in Fig.\ref{fig:rankings}.
+For instance, if the loss and the reach of prediction is fixed, we can look at the distribution of rankings of all the models for a type of point (to see the best model for a given type of point), as in Fig.\ref{fig:rankings}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/ranks_big_increase_RMSE_7.png}
     \caption{Distribution of rankings of the models for big increase points for 7-days ahead predictions and RMSE loss}
     \label{fig:rankings}
 \end{figure}
-This distribution of rankings of the model can be summed up in one single value : the expected value of the rank of a model (see Fig.\ref{fig:expected_rank} ), which enables to get the idea of the best model for this type of point, this loss, and this prediction range on a more compact figure. 
+This distribution of rankings of the model can be summed up in one single value: the expected value of the rank of a model (see Fig.\ref{fig:expected_rank}), which enables to get the idea of the best model for this type of point, this loss, and this prediction range on a more compact figure. 
 
 \begin{figure}[h]
     \centering
@@ -105,17 +105,17 @@ For each loss and range of prediction, the expected rank of the models for each 
 
 The other heatmaps corresponding to RMSE for 14 days ahead prediction and WIS for 7 and 14 days ahead predictions can be found in the appendix (\ref{sec:appendix})
 Some general interpretations can be made on these results. 
-We noticed that regressors performances drop from 7-days ahead to 14-days ahead. 
+We noticed that regressors performances drop from 7-days ahead to 14-days ahead predictions. 
 The family of the SIRH model does slightly better for long terms predictions than for short term ones. 
 The ARIMA performance drops from 7-days ahead to 14-days ahead predictions. 
 The exponential models are very bad and almost always the last ones. 
 
 \subsection{The Ensemble model}
 
-It has been shown in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}, \cite{howerton2023evaluation}) that ensemble models, which are models taking into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking ( as it is done in \cite{reich2019accuracy} ) or linear opinion pool (see \cite{howerton2023evaluation}).
+It has been shown in the literature (\cite{cramer2022evaluation}, \cite{reich2019accuracy}, \cite{howerton2023evaluation}) that ensemble models, which are models that take into account the predictions of many individual models and output their mean, median, or any other function that combines the predictions, such as stacking (as it is done in \cite{reich2019accuracy}) or linear opinion pool (see \cite{howerton2023evaluation}).
 We decided to implement or own ensemble models. 
 They consist in a linear combination of the predictions of the 13 individual models (without exponential models) for 7 and 14 days-ahead predictions.
-The performances of these two models are shown in the two figure below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})
+The performances of these two models are shown in the two figures below (Fig.\ref{fig:esb_rank_7} and Fig.\ref{fig:esb_rank_14})
 
 \begin{figure}
     \centering
@@ -153,9 +153,66 @@ The heatmaps of expected ranks on all type of points enables to see how consiste
 From these figures, we can see that the ensemble model is rarely the best, but never the last model, which is a result already observed in \cite{cramer2022evaluation}.
 Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expected rank.
 For instance, on the Figure.\ref{fig:expected_rank}, one can see that the top 3 models are Bayesian Regression, VAR and SIRH4. 
-On the train set, the Ensemble model is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
+On the test set, the Ensemble model is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
 Its consistency allows for accurate predictions and helps avoiding outlier predicted values that sometimes appear on the other good models (such as VAR and ARIMA). 
 
 
+\subsection{Test on real data}
+
+We also tested the models on real data from the Covid-19 pandemic in Sweden. 
+The data of the number of hospitalized individuals was taken from the website \href{https://ourworldindata.org/covid-hospitalizations}{Our World in data}, the data of the number of infected was taken from the website \href{ https://www.worldometers.info/coronavirus/country/sweden/#coronavirus-cases-linear}{Worldometers}, and the mobility used was the mobility from the Västraffik reports (\cite{gerlee2021predicting}). 
+We aknowledge that the mobility reports rom Västraffik only concern the region of Västra Götaland, and that the mobility of the whole country would have been more relevant, but it is a good approximation, as the mitigation measures were at the state level in Sweden. 
+The models were tested each 20 days from the 2nd of March to the 7th of December 2020. 
+For each of these points, the models were trained on the data from the beginning of the pandemic to the day before the prediction, and outputed a 7-days ahead and a 14-days ahead prediction. 
+As we wanted to compare the models with the ensemble model, we decided to assess their performances with the RMSE and not the WIS. 
+For each point prediction, the models were ranked according to the RMSE between the prediction and the real value. 
+The rankings are shown on fig \ref{fig:rankings_real_data}. 
+The predictions of the models are plotted with the real data on fig \ref{fig:real_data}.
+We noticed similar results to what we observed on the synthetized set for Arima, VAR, Bayesian and Linear regressors.
+The performance of the ensemble model is disappointing during the period between the 20th of July and the 8th of October. 
+This "flat" period was probably not present in the tes on which the ensemble model was optimized, as the real-world data is probably much more complex than the data generated with Covasim.
+Moreover, the Ensemble model puts lots of weight on the VAR model (see fig \ref{fig:ensemble_weights}), which might be very sensitive to the errors in the data, as it takes into account the number of infected and the mobility.
+However, event if the ensemble model is not well-ranked, it lands not far from the real value, the other models being a little closer than him. 
+
+\begin{figure}[h!]
+    \centering
+    % Première sous-figure
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/heatmap_real_14.png}  % Remplacez "image1.png" par le chemin de votre première image
+      \caption{Rankings for 7-days ahead predictions}
+      \label{fig:sousfig1}
+    \end{subfigure}
+    \hfill
+    % Deuxième sous-figure
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/heatmap_real_7.png}  % Remplacez "image2.png" par le chemin de votre deuxième image
+      \caption{Rankings for 14-days ahead predictions}
+      \label{fig:sousfig2}
+    \end{subfigure}
+    \caption{Rankings of the models during the Covid-19 pandemic in Sweden}
+    \label{fig:rankings_real_data}
+\end{figure}
 
 
+\begin{figure}[h!]
+    \centering
+    % Première sous-figure
+    \begin{subfigure}[b]{0.5\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/real_data_7.png}  % Remplacez "image1.png" par le chemin de votre première image
+      \caption{Predictions 7-days ahead}
+      \label{fig:sousfig1g}
+    \end{subfigure}
+    \hfill
+    % Deuxième sous-figure
+    \begin{subfigure}[b]{0.5\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/real_data_14.png}  % Remplacez "image2.png" par le chemin de votre deuxième image
+      \caption{Predictions 14-days ahead}
+      \label{fig:sousfig2g}
+    \end{subfigure}
+    \caption{Predictions of the models during the Covid-19 pandemic in Sweden. The y-axis was cut at 3000.}
+    \label{fig:real_data}
+\end{figure}

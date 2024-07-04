@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1719914456 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1720097569 -1
   "./bibliography/references.bib" 1719579164 7622 935a07f62cb975406509a51719dfb251 ""
-  "main.bcf" 1719914454 111359 db90dabd5091ceb393b3d106936b57ea "pdflatex"
+  "main.bcf" 1720097567 111435 cd2784284887e57c1a4a3e140288f6f3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1719914447 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/rapport_ecole/main.tex" "main.pdf" "main" 1719914456 0
+["pdflatex"] 1720097561 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/rapport_ecole/main.tex" "main.pdf" "main" 1720097569 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1718721400 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1719568939 28976 d9db75ca4b56c83a8f70afe4fe96ae09 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1717156662 31952 8bcd38facc752fc208bbb3dba0164919 ""
@@ -257,27 +257,31 @@
   "figures/heatmap_WIS_7.png" 1719317937 74415 953769cda12a0507c88315c96e87c8cf ""
   "figures/heatmap_esb_14.png" 1719318206 79307 646d9d001c9a911bb7859e022e696e48 ""
   "figures/heatmap_esb_7.png" 1719318184 79823 8344bb25f5be5c54341cf87f04c08ed6 ""
+  "figures/heatmap_real_14.png" 1720096289 89611 df0d20d25618941920213c0fade424ff ""
+  "figures/heatmap_real_7.png" 1720096267 89330 3e33aa049e587a8ab1fe362773e26609 ""
   "figures/le virus_découpé_bis.jpg" 1719562229 135831 96479fee16ff641ad3c8cc8042c444bd ""
   "figures/mobilities.png" 1717598510 39981 149dd048c001d893e34ccc2131b3e1f9 ""
   "figures/mobility_reports.png" 1717494605 30156 03aa02e34a350c5d8a51be45789f7e2f ""
   "figures/most_different_pandemics.png" 1717505760 114400 d9b93f05951541ccf7999f7750dfe293 ""
   "figures/ranks_big_increase_RMSE_7.png" 1719316856 74013 45b61598908865b0d6d2921cb78ded6f ""
+  "figures/real_data_14.png" 1720096276 104255 651f6b4d5b81ef76f319f0a88e4d9181 ""
+  "figures/real_data_7.png" 1720096248 104373 4fd2fafbafda5e6aeba3d0eca6bc002f ""
   "logo_chalmers.jpg" 1719567781 80381 ca1fd1436e9f6f26b46034e107ffa40e ""
   "logo_x.png" 1719567205 150669 f38c83add78ac6fd6ef40ae29992b60a ""
-  "main.aux" 1719914454 15877 f2339d7d453e9b637b1aef77dc77e9e0 "pdflatex"
+  "main.aux" 1720097567 17483 bdea14adca996e297c6165b2ee42adcb "pdflatex"
   "main.bbl" 1719819717 40701 1f978535df4d10590041e037298b240a "biber main"
-  "main.out" 1719914454 4155 b171a59c7992f7dfc4a1cd09370ab492 "pdflatex"
-  "main.run.xml" 1719914454 2318 ebd98b15c298057d75c6637c1a71e311 "pdflatex"
+  "main.out" 1720097567 4307 274e579f18ef5e8591fa6999081875d0 "pdflatex"
+  "main.run.xml" 1720097567 2318 ebd98b15c298057d75c6637c1a71e311 "pdflatex"
   "main.tex" 1719820561 3017 3c094463449f5013195999da069cdede ""
-  "main.toc" 1719914454 2218 ce073ffad808b4a32b027ae91406abf5 "pdflatex"
+  "main.toc" 1720097567 2302 ba7e45b7059df2d555c4b791045dfb08 "pdflatex"
   "sections/Literature_review_and_context.tex" 1719821102 2979 eaa5c37801e2a33c2b44d9c298ef8beb ""
-  "sections/appendix.tex" 1719820488 1032 542c96a3f1ae58a8a3dabae64acf0a37 ""
+  "sections/appendix.tex" 1720097553 2701 ea2671babb3dee1a30f077a8dc1a2bb6 ""
   "sections/conclusion.tex" 1719842229 829 09c8b33144bab8907fb99f1e927bfbc9 ""
   "sections/generating_diverse_pandemics.tex" 1719914276 15272 530573f3d960f20b0304b5649393f6b8 ""
   "sections/introduction.tex" 1719820857 2986 fa255bc32b94aafccb2499f02a7058db ""
   "sections/models.tex" 1719912043 25011 751c094d5cc495bcc24a4e815b67eded ""
   "sections/plagiat.tex" 1719820444 546 8ab32532cd3f76312056d7c94b76857b ""
-  "sections/results_and_discussion.tex" 1719914446 17717 a9733800f6f5d060af358caec56848fc ""
+  "sections/results_and_discussion.tex" 1720097506 20017 5bd4bb376ad10c80dc42f190d24af50d ""
   "tables/table_types_of_sirh.tex" 1718789001 355 29fff74d967bcf4083681c2bf2927b9d ""
   (generated)
   "main.aux"
