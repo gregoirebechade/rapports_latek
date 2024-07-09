@@ -161,7 +161,7 @@ Its consistency allows for accurate predictions and helps avoiding outlier predi
 
 We also tested the models on real data from the Covid-19 pandemic in Sweden. 
 The data of the number of hospitalized individuals was taken from the website \href{https://ourworldindata.org/covid-hospitalizations}{Our World in data}, the data of the number of infected was taken from the website \href{ https://www.worldometers.info/coronavirus/country/sweden/#coronavirus-cases-linear}{Worldometers}, and the mobility used was the mobility from the Västraffik reports (\cite{gerlee2021predicting}). 
-We aknowledge that the mobility reports rom Västraffik only concern the region of Västra Götaland, and that the mobility of the whole country would have been more relevant, but it is a good approximation, as the mitigation measures were at the state level in Sweden. 
+We aknowledge that the mobility reports from Västraffik only concern the region of Västra Götaland, and that the mobility of the whole country would have been more relevant, but it is a good approximation, as the mitigation measures were at the state level in Sweden. 
 The models were tested each 20 days from the 2nd of March to the 7th of December 2020. 
 For each of these points, the models were trained on the data from the beginning of the pandemic to the day before the prediction, and outputed a 7-days ahead and a 14-days ahead prediction. 
 As we wanted to compare the models with the ensemble model, we decided to assess their performances with the RMSE and not the WIS. 
@@ -170,9 +170,9 @@ The rankings are shown on fig \ref{fig:rankings_real_data}.
 The predictions of the models are plotted with the real data on fig \ref{fig:real_data}.
 We noticed similar results to what we observed on the synthetized set for Arima, VAR, Bayesian and Linear regressors.
 The performance of the ensemble model is disappointing during the period between the 20th of July and the 8th of October. 
-This "flat" period was probably not present in the tes on which the ensemble model was optimized, as the real-world data is probably much more complex than the data generated with Covasim.
+This "flat" period was probably not present in the set on which the ensemble model was optimized, as the real-world data is probably much more complex than the data generated with Covasim.
 Moreover, the Ensemble model puts lots of weight on the VAR model (see fig \ref{fig:ensemble_weights}), which might be very sensitive to the errors in the data, as it takes into account the number of infected and the mobility.
-However, event if the ensemble model is not well-ranked, it lands not far from the real value, the other models being a little closer than him. 
+However, during this "flat" period,  even if the ensemble model is not well-ranked, it lands not far from the real value, the other models being a little closer than him. 
 
 \begin{figure}[h!]
     \centering
@@ -202,7 +202,7 @@ However, event if the ensemble model is not well-ranked, it lands not far from t
     \begin{subfigure}[b]{0.5\textwidth}
       \centering
       \includegraphics[width=\textwidth]{figures/real_data_7.png}  % Remplacez "image1.png" par le chemin de votre première image
-      \caption{Predictions 7-days ahead}
+      \caption{7-days ahead predictions}
       \label{fig:sousfig1g}
     \end{subfigure}
     \hfill
@@ -210,7 +210,7 @@ However, event if the ensemble model is not well-ranked, it lands not far from t
     \begin{subfigure}[b]{0.5\textwidth}
       \centering
       \includegraphics[width=\textwidth]{figures/real_data_14.png}  % Remplacez "image2.png" par le chemin de votre deuxième image
-      \caption{Predictions 14-days ahead}
+      \caption{14-days ahead predictions}
       \label{fig:sousfig2g}
     \end{subfigure}
     \caption{Predictions of the models during the Covid-19 pandemic in Sweden. The y-axis was cut at 3000.}

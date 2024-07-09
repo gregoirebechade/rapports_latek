@@ -196,6 +196,7 @@ The most probable set that will be sampled by $S_n$ is the one that maximises th
 I implemented this MCMC algorithm to maximise $\mathcal{L}_2$ on $\mathcal{S}$ . 
 The first value of the sequence was a clever starting point: the four parameters that maximized $\mathcal{L}_2$ on the 14 pandemics generated earlier (Fig.\ref{fig:diversity_pandemics}).  
 After 200 iterations, the set of parameters that maximised the diversity was \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
+They correspond respectively to the mean of the log-normal distribution representing the time spent in the compartment 'symptomatic' before moving into the compartment 'severe', the mean of the log-normal distribution representing the time spent in the compartment 'asymptomatic' before moving into the compartment 'recovered', to the scale factor for proportion of symptomatic cases and to the scale factor for proportion of symptomatic cases that become severe. (see \cite{kerr2021covasim}). 
 The $\mathcal{L}_2$- diversity increased from 62353 to 93553. \\
 
 To create the most diverse set possible, I used 4 different mobilities reports (Fig.\ref{fig:mobilities}), corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
