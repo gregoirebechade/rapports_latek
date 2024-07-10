@@ -154,65 +154,64 @@ From these figures, we can see that the ensemble model is rarely the best, but n
 Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expected rank.
 For instance, on the Figure.\ref{fig:expected_rank}, one can see that the top 3 models are Bayesian Regression, VAR and SIRH4. 
 On the test set, the Ensemble model is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
-Its consistency allows for accurate predictions and helps avoiding outlier predicted values that sometimes appear on the other good models (such as VAR and ARIMA). 
+Its consistency allows for accurate predictions and helps avoiding outlier predicted values that sometimes appear on the other good models (such as VAR and ARIMA).  
 
 
 \subsection{Test on real data}
 
-We also tested the models on real data from the Covid-19 pandemic in Sweden. 
-The data of the number of hospitalized individuals was taken from the website \href{https://ourworldindata.org/covid-hospitalizations}{Our World in data}, the data of the number of infected was taken from the website \href{ https://www.worldometers.info/coronavirus/country/sweden/#coronavirus-cases-linear}{Worldometers}, and the mobility used was the mobility from the Västraffik reports (\cite{gerlee2021predicting}). 
-We aknowledge that the mobility reports from Västraffik only concern the region of Västra Götaland, and that the mobility of the whole country would have been more relevant, but it is a good approximation, as the mitigation measures were at the state level in Sweden. 
+We also tested the models on real data from the Covid-19 pandemic in Sweden and in France. 
+The data of the number of hospitalized individuals was taken from the website \href{https://ourworldindata.org/covid-hospitalizations}{Our World in data}, the data of the number of infected was taken from the website \href{ https://www.worldometers.info/coronavirus/country/sweden/#coronavirus-cases-linear}{Worldometers}, and the mobility used was the mobility from the Google reports (\href{https://www.google.com/covid19/mobility/}), see \cite{google_covid19_mobility}. 
+As the mobility used in the previous part concerned public transportation mobility, we decided to focus on the relative mobility in the public transports, (\textit{transit\_stations\_percent\_change\_from\_baseline} in the .csv file provided by Google).
 The models were tested each 20 days from the 2nd of March to the 7th of December 2020. 
 For each of these points, the models were trained on the data from the beginning of the pandemic to the day before the prediction, and outputed a 7-days ahead and a 14-days ahead prediction. 
 As we wanted to compare the models with the ensemble model, we decided to assess their performances with the RMSE and not the WIS. 
 For each point prediction, the models were ranked according to the RMSE between the prediction and the real value. 
 The rankings are shown on fig \ref{fig:rankings_real_data}. 
-The predictions of the models are plotted with the real data on fig \ref{fig:real_data}.
-We noticed similar results to what we observed on the synthetized set for Arima, VAR, Bayesian and Linear regressors.
-The performance of the ensemble model is disappointing during the period between the 20th of July and the 8th of October. 
-This "flat" period was probably not present in the set on which the ensemble model was optimized, as the real-world data is probably much more complex than the data generated with Covasim.
-Moreover, the Ensemble model puts lots of weight on the VAR model (see fig \ref{fig:ensemble_weights}), which might be very sensitive to the errors in the data, as it takes into account the number of infected and the mobility.
-However, during this "flat" period,  even if the ensemble model is not well-ranked, it lands not far from the real value, the other models being a little closer than him. 
+The predictions of the models are plotted with the real data on fig \ref{fig:real_data}, in the appendix. 
+% We noticed similar results to what we observed on the synthetized set for Arima, VAR, Bayesian and Linear regressors.
+% The performance of the ensemble model is disappointing during the period between the 20th of July and the 8th of October. 
+% This "flat" period was probably not present in the set on which the ensemble model was optimized, as the real-world data is probably much more complex than the data generated with Covasim.
+% Moreover, the Ensemble model puts lots of weight on the VAR model (see fig \ref{fig:ensemble_weights}), which might be very sensitive to the errors in the data, as it takes into account the number of infected and the mobility.
+% However, during this "flat" period,  even if the ensemble model is not well-ranked, it lands not far from the real value, the other models being a little closer than him. 
+
+
+
 
 \begin{figure}[h!]
     \centering
     % Première sous-figure
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{figures/heatmap_real_14.png}  % Remplacez "image1.png" par le chemin de votre première image
-      \caption{Rankings for 7-days ahead predictions}
+      \includegraphics[width=\textwidth]{figures/heatmap_test_france_7.png}  
+      \caption{Rankings for 7-days ahead predictions for Sweden TOCHANGE}
       \label{fig:sousfig1}
     \end{subfigure}
     \hfill
     % Deuxième sous-figure
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{figures/heatmap_real_7.png}  % Remplacez "image2.png" par le chemin de votre deuxième image
-      \caption{Rankings for 14-days ahead predictions}
+      \includegraphics[width=\textwidth]{figures/heatmap_test_france_14.png}  
+      \caption{Rankings for 14-days ahead predictions for Sweden TOCHANGE}
       \label{fig:sousfig2}
     \end{subfigure}
+    
+    % troisième sous-figure
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/heatmap_test_france_7.png} 
+        \caption{7-days ahead predictions for France}
+        \label{fig:sousfig1gh}
+    \end{subfigure}
+    \hfill
+    % quatrième sous-figure
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/heatmap_test_france_14.png} 
+        \caption{7-days ahead predictions for France}
+        \label{fig:sousfig2gh}
+    \end{subfigure}
+    \hfill
     \caption{Rankings of the models during the Covid-19 pandemic in Sweden}
     \label{fig:rankings_real_data}
 \end{figure}
 
-
-\begin{figure}[h!]
-    \centering
-    % Première sous-figure
-    \begin{subfigure}[b]{0.5\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{figures/real_data_7.png}  % Remplacez "image1.png" par le chemin de votre première image
-      \caption{7-days ahead predictions}
-      \label{fig:sousfig1g}
-    \end{subfigure}
-    \hfill
-    % Deuxième sous-figure
-    \begin{subfigure}[b]{0.5\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{figures/real_data_14.png}  % Remplacez "image2.png" par le chemin de votre deuxième image
-      \caption{14-days ahead predictions}
-      \label{fig:sousfig2g}
-    \end{subfigure}
-    \caption{Predictions of the models during the Covid-19 pandemic in Sweden. The y-axis was cut at 3000.}
-    \label{fig:real_data}
-\end{figure}
