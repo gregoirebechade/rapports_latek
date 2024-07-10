@@ -37,45 +37,75 @@
 
 
 \begin{figure}[h!]
+  \centering
+  % Première sous-figure
+  \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    % Première sous-figure
-    \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{figures/heatmap_test_sweden_7.png}  
+    \caption{Rankings for 7-days ahead predictions for Sweden }
+    \label{fig:sousfig1}
+  \end{subfigure}
+  \hfill
+  % Deuxième sous-figure
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/heatmap_test_sweden_14.png}  
+    \caption{Rankings for 14-days ahead predictions for Sweden }
+    \label{fig:sousfig2}
+  \end{subfigure}
+  
+  % troisième sous-figure
+  \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{figures/heatmap_real_14.png}  % Remplacez "image1.png" par le chemin de votre première image
-      \caption{Rankings for 7-days ahead predictions}
-      \label{fig:sousfig1}
-    \end{subfigure}
-    \hfill
-    % Deuxième sous-figure
-    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{figures/heatmap_test_france_7.png} 
+      \caption{7-days ahead predictions for France}
+      \label{fig:sousfig1gh}
+  \end{subfigure}
+  \hfill
+  % quatrième sous-figure
+  \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{figures/heatmap_real_7.png}  % Remplacez "image2.png" par le chemin de votre deuxième image
-      \caption{Rankings for 14-days ahead predictions}
-      \label{fig:sousfig2}
-    \end{subfigure}
-    \caption{Rankings of the models during the Covid-19 pandemic in Sweden}
-    \label{fig:rankings_real_data}
+      \includegraphics[width=\textwidth]{figures/heatmap_test_france_14.png} 
+      \caption{7-days ahead predictions for France}
+      \label{fig:sousfig2gh}
+  \end{subfigure}
+  \hfill
+  \caption{Rankings of the models during the Covid-19 pandemic in Sweden}
+  \label{fig:rankings_real_data}
 \end{figure}
 
 
 \begin{figure}[h!]
-    \centering
-    % Première sous-figure
-    \begin{subfigure}[b]{0.5\textwidth}
+  \centering
+  % Première sous-figure
+  \begin{subfigure}[b]{0.5\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{figures/real_data_7.png}  % Remplacez "image1.png" par le chemin de votre première image
-      \caption{Predictions 7-days ahead}
+      \includegraphics[width=\textwidth]{figures/real_data_sweden_7.png}  
+      \caption{7-days ahead predictions for Swedish data}
       \label{fig:sousfig1g}
     \end{subfigure}
     \hfill
     % Deuxième sous-figure
     \begin{subfigure}[b]{0.5\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{figures/real_data_14.png}  % Remplacez "image2.png" par le chemin de votre deuxième image
-      \caption{Predictions 14-days ahead}
+      \includegraphics[width=\textwidth]{figures/real_data_sweden_14.png}  
+      \caption{14-days ahead predictions for Swedish data}
       \label{fig:sousfig2g}
     \end{subfigure}
-    \caption{Predictions of the models during the Covid-19 pandemic in Sweden. The y-axis was cut at 3000.}
-    \label{fig:real_data}
+    \begin{subfigure}[b]{0.5\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/real_data_France_7.png}  
+      \caption{7-days ahead predictions for French data}
+      \label{fig:sousfig1F}
+    \end{subfigure}
+    \hfill
+    % Deuxième sous-figure
+    \begin{subfigure}[b]{0.5\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/real_data_France_14.png}  
+      \caption{14-days ahead predictions for French data}
+      \label{fig:sousfig2F}
+    \end{subfigure}
+  \caption{Predictions of the models during the Covid-19 pandemic in Sweden and France.}
+  \label{fig:real_data}
 \end{figure}
-

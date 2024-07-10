@@ -303,7 +303,7 @@ We have:
 
 Now, if $\theta$ is close enough to $\theta^*$, we can write (from \cite{ruckstuhl2010introduction}):
 \[
-\forall i \in \{ 1, ..., n\} :  h_\theta(i) = h_{\theta^*} (i ) + (\theta - \theta^*)^T\nabla_\theta h_{\theta^*}(i) 
+\forall i \in \{ 1, ..., n\} :  h_\theta(i) = h_{\theta^*} (i) + (\theta - \theta^*)^T\nabla_\theta h_{\theta^*}(i) 
 \]
 which leads to:
 \[
@@ -342,7 +342,7 @@ Let us assume that $\tilde{Y_i} = A_i \beta ^* + \epsilon'_i $, with $\epsilon'_
 
 The solution of this problem is explicitly (from \cite*{powellasymptoticsforleastsquares}):
 \[
-\hat{\beta } = (A^T A ) ^{-1} A^T \tilde{Y}
+\hat{\beta } = (A^T A) ^{-1} A^T \tilde{Y}
 \]
 
 This least-square estimator is unbiased:
@@ -352,20 +352,20 @@ This least-square estimator is unbiased:
 
 
 \[
-\hat {\beta } = \left(  \sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left(  \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
+\hat {\beta } = \left(\sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left(\sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
 \]
 
 \[
-\hat {\beta } =\frac{n}{n} \left(  \sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left(  \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
+\hat {\beta } =\frac{n}{n} \left(\sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left(\sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
 \]
 
 \[
-\hat {\beta } = \left( \frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left( \frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
+\hat {\beta } = \left(\frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i \right) ^{-1}    \times \left(\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
 \]
 
 Let us denote, with the notations from \cite{powellasymptoticsforleastsquares}:
 \[
-\hat{D}  = \frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i , \quad \text{and} \quad \hat{\delta}  = \left( \frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
+\hat{D}  = \frac{1}{n} \sum_{i=1}^{n}   A_i ^T A_i , \quad \text{and} \quad \hat{\delta}  = \left(\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i } \right)
 \]
 
 We have:
@@ -428,26 +428,26 @@ M & \mapsto & M^{-1}
 Now, let us show that $\hat{\beta}$ is asymptotically normal (proof from \cite{powellasymptoticsforleastsquares}): 
 
 \begin{align*}
-    \sqrt{n} ( \hat{\beta} - \beta ^* ) &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \beta ^* ) \\
-     &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \hat{D}^{-1} \hat{D} \beta ^* ) \\
-     &= \sqrt{n} \hat{D}^{-1} (\hat{\delta} -  \hat{D} \beta ^* )  \\
-     &= \sqrt{n} \hat{D}^{-1} \left( \frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} - \frac{1}{n}  \sum_{i=1}^{n}  A_i ^T A_i \beta ^* \right)  \\
-     &= \frac{\sqrt{n}}{n} \hat{D}^{-1} \left( \sum_{i=1}^{n} A_i ^T (\tilde{Y_i} -    A_i \beta ^* ) \right)   \\
-     &= \frac{1}{\sqrt{n}}  \hat{D} ^{-1} \left( \sum_{i=1}^{n}  A_i ^T \epsilon _ i \right)  
+    \sqrt{n} (\hat{\beta} - \beta ^*) &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \beta ^*) \\
+     &= \sqrt{n} (\hat{D}^{-1} \hat{\delta} - \hat{D}^{-1} \hat{D} \beta ^*) \\
+     &= \sqrt{n} \hat{D}^{-1} (\hat{\delta} -  \hat{D} \beta ^*)  \\
+     &= \sqrt{n} \hat{D}^{-1} \left(\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} - \frac{1}{n}  \sum_{i=1}^{n}  A_i ^T A_i \beta ^* \right)  \\
+     &= \frac{\sqrt{n}}{n} \hat{D}^{-1} \left(\sum_{i=1}^{n} A_i ^T (\tilde{Y_i} -    A_i \beta ^*) \right)   \\
+     &= \frac{1}{\sqrt{n}}  \hat{D} ^{-1} \left(\sum_{i=1}^{n}  A_i ^T \epsilon _ i \right)  
 \end{align*}
 
 This line is made of two terms. Let's show that each one of them converges in law. 
 
 \begin{align*}
-    \frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) &= \sqrt{n} \left( \frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \\
-    &= \sqrt{n} \left( \frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i - 0 \right) \\
-    &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \text{Var}(A_i^T \epsilon_i) )
+    \frac{1}{\sqrt{n}} \left(\sum_{i=1}^{n}  A_i^T \epsilon'_i \right) &= \sqrt{n} \left(\frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \\
+    &= \sqrt{n} \left(\frac{1}{n} \sum_{i=1}^{n}  A_i^T \epsilon'_i - 0 \right) \\
+    &\xrightarrow{\mathcal{L}} \mathcal{N}(0, \text{Var}(A_i^T \epsilon_i))
 \end{align*}
 
 
 Yet, as $\epsilon_i $ and $  A_i $ are independent, and $\mathbb{E} [ A_i^T \epsilon'_i] = 0 $ , $\text{Var}(A_i^T \epsilon_i) = \mathbb{E}[A_i ^T A_i \epsilon_i ^2 ] = \mathbb{E} [ A_i ^T A_i ] \sigma'^2 =A_0^T A_0 \sigma'^2  $. 
 
-Finally, $\frac{1}{\sqrt{n}} \left( \sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, D \sigma'^{2})$. 
+Finally, $\frac{1}{\sqrt{n}} \left(\sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, D \sigma'^{2})$. 
 
 On the other hand, $\hat{D}^{-1} \xrightarrow{\mathcal{L}} D^{-1} $, which is constant.
 

@@ -525,6 +525,28 @@
       \field{pages}{181\bibrangedash 204}
       \range{pages}{24}
     \endentry
+    \entry{google_covid19_mobility}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=11bb1d2fc83a61c4b40b81c2f83149db}{%
+           family={LLC},
+           familyi={L\bibinitperiod},
+           given={Google},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{11bb1d2fc83a61c4b40b81c2f83149db}
+      \strng{fullhash}{11bb1d2fc83a61c4b40b81c2f83149db}
+      \strng{bibnamehash}{11bb1d2fc83a61c4b40b81c2f83149db}
+      \strng{authorbibnamehash}{11bb1d2fc83a61c4b40b81c2f83149db}
+      \strng{authornamehash}{11bb1d2fc83a61c4b40b81c2f83149db}
+      \strng{authorfullhash}{11bb1d2fc83a61c4b40b81c2f83149db}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.google.com/covid19/mobility/}}
+      \field{note}{Accessed: July 10, 2024}
+      \field{title}{Google COVID-19 Community Mobility Reports}
+    \endentry
     \entry{paireau2022ensemble}{article}{}
       \name{author}{9}{}{%
         {{hash=a9860bd8337b1f61b9f663e77767ddfc}{%

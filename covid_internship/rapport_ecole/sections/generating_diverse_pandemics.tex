@@ -1,4 +1,4 @@
-\section{Generating diverse pandemics}
+\section{Generating synthetic pandemics}
 
 
 
@@ -49,9 +49,9 @@ Let :  \\
 $
 \begin{aligned}
     &\mathcal{L}_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1}  \\
-    &\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1} ) \|_{L_2} \\
+    &\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1}) \|_{L_2} \\
     &\mathcal{L}_3 = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) \text{, with }\mathcal{W} \text{ the Wasserstein distance.} \\
-    &\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2} ),\mathcal{W} ( \tilde{Y_1'} - \tilde{Y_2'} ) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''} ) ) \|_{L_2} \\
+    &\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2}),\mathcal{W} (\tilde{Y_1'} - \tilde{Y_2'}) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''})) \|_{L_2} \\
 \end{aligned}
 $
 
@@ -155,14 +155,14 @@ $s_3 = [a', b', c', d]$ \\
 
 $
 \begin{aligned}
-    \mathbb{P}(S_{n+4}=s'\vert S_n = s ) & \geqslant \mathbb{P}(S_{n+4} = s' \cap  S_{n+3}= s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \\
+    \mathbb{P}(S_{n+4}=s'\vert S_n = s) & \geqslant \mathbb{P}(S_{n+4} = s' \cap  S_{n+3}= s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \\
     & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \cap S_n = s) \\
-    & \quad\quad\quad\quad \times \mathbb{P}( S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \text{  (Baye' s Formula)}\\
+    & \quad\quad\quad\quad \times \mathbb{P}(S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s) \text{  (Baye' s Formula)}\\
     & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3)\\
-    & \quad\quad\quad\quad  \times \mathbb{P}( S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s)  \text{ (by Markov's property)}\\
+    & \quad\quad\quad\quad  \times \mathbb{P}(S_{n+3} = s_3 \cap S_{n+2} = s_2 \cap S_{n+1} = s_1 \vert S_n = s)  \text{ (by Markov's property)}\\
     & \vdots \\
-    & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3) \times \mathbb{P}( S_{n+3} = s_3 \vert S_{n+2} = s_2) \times \mathbb{P}( S_{n+2} = s_2 \vert S_{n+1} = s_1) \\
-    & \quad\quad\quad\quad \times \mathbb{P}( S_{n+1} = s_1 \vert S_n = s ) \text{ (by Markov's property)}\\
+    & \geqslant \mathbb{P}(S_{n+4} = s' \vert S_{n+3} = s_3) \times \mathbb{P}(S_{n+3} = s_3 \vert S_{n+2} = s_2) \times \mathbb{P}(S_{n+2} = s_2 \vert S_{n+1} = s_1) \\
+    & \quad\quad\quad\quad \times \mathbb{P}(S_{n+1} = s_1 \vert S_n = s) \text{ (by Markov's property)}\\
     & \geqslant (\frac{1}{36})^4 \times min (1, \frac{\mathcal{L}(s')}{\mathcal{L}(s)}) \times min (1, \frac{\mathcal{L}(s_3)}{\mathcal{L}(s_2)}) \times min (1, \frac{\mathcal{L}(s_2)}{\mathcal{L}(s_1)}) \times min (1, \frac{\mathcal{L}(s_1)}{\mathcal{L}(s)})  \\
     & > 0 \\
 \end{aligned}
@@ -182,7 +182,7 @@ Let $(s, s')  \in \mathcal{S}^2$. \\
     \item If $s'$ is not a local minimum, \\
      $\forall n >4, \mathbb{P}(S_{n} = s' \vert S_0 = s) \geqslant \mathbb{P}(S_{4} = s' \vert S_0 = s) \times K(s', s')^{n-4} > 0 $ \\
     \item If $s'$ is a local minimum,  $\forall s^* \in ne(s')$, $s^*$ is not a local minimum and $K(s^*, s^*) \neq 0$. \\
-    $\forall n>5$, $\mathbb{P}(S_n = s' \vert S_0 = s )   \geqslant \mathbb{P}(S_3=s^* \vert S_0 = s ) \times K(s^*, s^*)^{n-4} \times K(s^*, s') >0 $\\
+    $\forall n>5$, $\mathbb{P}(S_n = s' \vert S_0 = s)   \geqslant \mathbb{P}(S_3=s^* \vert S_0 = s) \times K(s^*, s^*)^{n-4} \times K(s^*, s') >0 $\\
     
 \end{itemize}
 

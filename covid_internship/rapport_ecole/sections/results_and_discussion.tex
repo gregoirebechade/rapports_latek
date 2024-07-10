@@ -9,12 +9,12 @@ The first metric is the Weighted Interval Score (WIS), which is a metric commonl
 Let $\alpha$ be in $]0, 1[$. Let $\hat{y}$ be the prediction of the model and $y$ the real value.
 Let $[l, u]$ be the $(1-\alpha)$ confidence interval of the prediction.
 We define the Interval Score ($IS$) as : \\
-$IS_\alpha( [l, u], \hat{y}, y ) = \frac{2}{\alpha} \times ( \mathbb{1}_{\{y<l\}} (l-y) + \mathbb{1}_{\{y>u\}} (y-u) + (u-l))$. \\
+$IS_\alpha([l, u], \hat{y}, y) = \frac{2}{\alpha} \times (\mathbb{1}_{\{y<l\}} (l-y) + \mathbb{1}_{\{y>u\}} (y-u) + (u-l))$. \\
 This metric is made of three terms: a term of overprediction that punishes a model predicting a confidence interval which is above the real value, a term of underprediction that punishes a model whose confidence interval is under the real value, and a term of range, that punishes too wide confidence intervals. \\
 Let $(\alpha_k)_{k \in \{1, \dots , K\}} \in ] 0 , 1 [ ^K $
 The WIS is defined as follow. \\
 
-$WIS( [l, u], \hat{y}, y ) = \sum_{k=0}^{K} w_k IS_{\alpha_k}( [l, u], \hat{y}, y ) $ , with $(w_k)_{k \in \{1, ... , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
+$WIS([l, u], \hat{y}, y) = \sum_{k=0}^{K} w_k IS_{\alpha_k}([l, u], \hat{y}, y) $ , with $(w_k)_{k \in \{1, ... , K\}} \in \mathbb{R}_+ ^K $ weights chosen by the user. \\
 
 According to previous literature (\cite{cramer2022evaluation}), I decided to set \\
 $(\alpha_k)_{k \in \{1, ... , K\}} = [0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]$ and $ \forall k \in  \{1, ... , K\}, w_k = \frac{\alpha_k}{2}$
@@ -77,7 +77,7 @@ For instance, if the loss and the reach of prediction is fixed, we can look at t
     \caption{Distribution of rankings of the models for big increase points for 7-days ahead predictions and RMSE loss}
     \label{fig:rankings}
 \end{figure}
-This distribution of rankings of the model can be summed up in one single value : the expected value of the rank of a model (see Fig.\ref{fig:expected_rank} ), which enables to get the idea of the best model for this type of point, this loss, and this prediction range on a more compact figure. 
+This distribution of rankings of the model can be summed up in one single value : the expected value of the rank of a model (see Fig.\ref{fig:expected_rank}), which enables to get the idea of the best model for this type of point, this loss, and this prediction range on a more compact figure. 
 
 \begin{figure}[h]
     \centering
@@ -171,7 +171,7 @@ The interpretation based on the heatmaps Fig.\ref{fig:heatmap_RMSE_14}, Fig.\ref
 
 \begin{itemize}
     \item Arima and VAR are very performant models in terms of expected ranking. They are the two best models for 7-days ahead predictions and in the top 4 models for the 14-days ahead predictions. 
-    \item Adding information with the mobility and the number of infected is not beneficial for the models. We observe almost always a poorest performance of the models of the second type compared to their equivalent model of the first type (VAR / Arima and SIRH Multi / SIRH ). Only the exponential multi outperforms the mere exponential model, but as they both perform pretty bad, this result is not interesting. 
+    \item Adding information with the mobility and the number of infected is not beneficial for the models. We observe almost always a poorest performance of the models of the second type compared to their equivalent model of the first type (VAR / Arima and SIRH Multi / SIRH). Only the exponential multi outperforms the mere exponential model, but as they both perform pretty bad, this result is not interesting. 
     \item The autoregressive models (Bayesian and Linear Regression, ARIMA and VAR) perform best for short term predictions rather than long term ones. On the other hand, the SIRH models, which have a phyisical meaning and try to fit the data to an understandable model perform better for long term predictions. This is also observed in the coefficients of the ensemble model (see Fig. \ref{fig:ensemble_weights}). Indeed, the ensemble model put more weight on the VAR and Arima models for short term predictions and more on the SIRH models for long terms predictions.  
     \item The difference of ranking between the models is more pronounced when we rank them with RMSE rather than WIS. This might be due to the fact that the confidence intervals are not well calibrated and that the real value always land out of it. 
     \item The Moving Average model is not the worst model and is often ranked between 6 and 8. This might be due to the fact that as the curve of the number of hospitalized is continuous, the mean never diverge too much from the real value, while other models might misinterpret the trend of the curve and land far away from the real value. 
@@ -183,20 +183,27 @@ The interpretation based on the heatmaps Fig.\ref{fig:heatmap_RMSE_14}, Fig.\ref
 
 \subsection{Test on real data}
 
-I have also tested the models on real data from the Covid-19 pandemic in Sweden. 
-The data of the number of hospitalized individuals was taken from the website \href{https://ourworldindata.org/covid-hospitalizations}{Our World in data}, the data of the number of infected was taken from the website \href{ https://www.worldometers.info/coronavirus/country/sweden/#coronavirus-cases-linear}{Worldometers}, and the mobility used was the mobility from the Västraffik reports (\cite{gerlee2021predicting}). 
-I aknowledge that the mobility reports from Västraffik only concern the region of Västra Götaland, and that the mobility of the whole country would have been more relevant, but it is a good approximation, as the mitigation measures were at the state level in Sweden. 
+
+I also tested the models on real data from the Covid-19 pandemic in Sweden and in France. 
+The data of the number of hospitalized individuals was taken from the website \href{https://ourworldindata.org/covid-hospitalizations}{Our World in data}, the data of the number of infected was taken from the website \href{ https://www.worldometers.info/coronavirus/country/sweden/#coronavirus-cases-linear}{Worldometers}, and the mobility used was the mobility from the \href{https://www.google.com/covid19/mobility/}{ Google reports}, see \cite{google_covid19_mobility}. 
+As the mobility used in the previous part concerned public transportation mobility, I decided to focus on the relative mobility in the public transports (\textit{transit\_stations\_percent\_change\_from\_baseline} in the .csv file provided by Google).
 The models were tested each 20 days from the 2nd of March to the 7th of December 2020. 
 For each of these points, the models were trained on the data from the beginning of the pandemic to the day before the prediction, and outputed a 7-days ahead and a 14-days ahead prediction. 
-As I wanted to compare the models with the ensemble model, I have decided to assess their performances with the RMSE and not the WIS. 
+As I wanted to compare the models with the ensemble model, I decided to assess their performances with the RMSE and not the WIS. 
 For each point prediction, the models were ranked according to the RMSE between the prediction and the real value. 
-The rankings are shown on fig \ref{fig:rankings_real_data} in the appendix. 
-The predictions of the models are plotted with the real data on fig \ref{fig:real_data}.
-I noticed similar results to what was observed on the synthetized set for Arima, VAR, Bayesian and Linear regressors.
-The performance of the ensemble model is quite disappointing during the period between the 20th of July and the 8th of October. 
-This "flat" period was probably not present in the set on which the ensemble model was optimized, as the real-world data is probably much more complex than the data generated with Covasim.
+The rankings are shown on Fig.\ref{fig:rankings_real_data}. 
+The predictions of the models are plotted with the real data on Fig.\ref{fig:real_data}, in the appendix. 
+I noticed similar results to what I observed on the synthetized set for Arima, VAR, Bayesian and Linear regressors: they perform well, but have better results for short term predictions rather than long ones. 
+The performance of the ensemble model is disappointing during the period between the 20th of July and the 8th of October for the Swedish data, but not for the French one, which is surprising, as the curve are both shaped with two waves. 
 Moreover, the Ensemble model puts lots of weight on the VAR model (see fig \ref{fig:ensemble_weights}), which might be very sensitive to the errors in the data, as it takes into account the number of infected and the mobility.
-However, event if the ensemble model is not well-ranked, it lands not far from the real value, the other models being a little closer than him. 
+The difference between this two countries might therefore be due to the quality of the estimation of the number of infected. 
+However, during this "flat" period,  even if the ensemble model is not well-ranked, it lands not far from the real value, the other models being better because they are a little closer than him (only for 7 days ahead predictions). 
+On French data, the ensemble model performs well, and is very consistent. 
+The difference of performance between the two countries might also be te consequence of the difference of range of the pandemics due to the difference of population between the two countries. 
+
+ 
+
+
 
 \subsection{Comparison with Previous Research}
 
@@ -208,7 +215,7 @@ They also observe the fact that the ensemble model is very consistent: rarely th
 In \cite{rahmandad2022enhancing}, the authors compared several model to understand they key features that enabled a model to make long term predictions. 
 These features are : " \textit{(1) capturing the physics of transmission (instead of using black-box models); (2) projecting human behavioral reactions to an evolving pandemic; and (3) resetting state variables to account for randomness not captured in the model before starting projection.}"
 These findings are consistent with the results that I have observed. 
-Indeed, I have showed that the SEIR model (capturing the physics of transmission and resetting state ) performances increase from 7-days ahead to 14-days ahead predictions, while black-box models (such as Arima or VAR), are less performant for long terms prediction. 
+Indeed, I have showed that the SEIR model (capturing the physics of transmission and resetting state) performances increase from 7-days ahead to 14-days ahead predictions, while black-box models (such as Arima or VAR), are less performant for long terms prediction. 
 This has to be qualified, as the "long term predictions" of this report refer to a 14-days ahead prediction, while the study \cite{rahmandad2022enhancing} get interested to predictions up to 14-weeks reach. 
 
 The methodology of point classification has not be found in any other paper of the literature. 
