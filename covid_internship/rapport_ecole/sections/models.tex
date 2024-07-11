@@ -2,12 +2,12 @@
 
 
 
-In this study, let us define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameters $\theta$ and trained on the data $\mathcal{D}$.
+In this study, let us define a model ${h}_{\theta }$ as a function ${h}$  defined on $ \mathbb{N}$, with parameter $\theta$ and trained on the data $\mathcal{D}$.
 In the training phase, $\hat{\theta}$,  an estimator of $\theta$ is computed from $\mathcal{D}$, and used for the prediction.  
-I deisgned two types of models: the first type correspond to models which are only trained on the time series we want to predict (the number of hospitalized in our case), and the second type of models are trained on the time series we want to predict, but also on other time series that can be relevant to forecast the number of hospitalized (the mobility and the number of infected). 
+I designed two types of models: the first type corresponds to models which are only trained on the time series we want to predict (the number of hospitalized individuals in our case), and models of the second type are trained on the same time series, but also on other time series that can be relevant to forecast the number of hospitalized (the mobility and the number of infected). 
 All of these models were implemented in Python, and are available on the Github repository provided with this report (\ref{github-link}).
-During the training or predicting phase, the computation sometimes fails (for instance, when the matrix is non-invertible for the linear regression model). 
-The model then outputs the value of the moving average model (see \ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
+During the training or prediction phase, the computation sometimes fails (for instance, when the matrix is non-invertible for the linear regression model). 
+The model then outputs the predicted value of the moving average model (see Sec.\ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
 \textbf{Task of a model}: \\
 
 Each model ${h}$ is given : 
@@ -26,14 +26,14 @@ And outputs:
     \item A $(1-\alpha)$ confidence interval on the prediction, $I_{\alpha, n+r}$
 \end{enumerate}
 
-The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the parameter estimator and the output $\hat{Y}_{n+r} = {h}_{\hat{\theta}}(n+r)$.
+The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$,  the parameter estimator and the output $\hat{Y}_{n+r} = {h}_{\hat{\theta}}(n+r)$.
 
 
 \subsection{The SIRH model}
 
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}[
         roundnode/.style={circle, draw=blue!60, fill=gray!5, very thick, minimum size=7mm},
@@ -60,10 +60,10 @@ The model will train on the data $\mathcal{D}$ to compute $\hat{\theta}$ the par
     
 \end{figure}
 
-The SIRH model (Fig.\ref{fig:sirh}) is an extension of the classic compartemental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
+The SIRH model (Fig.\ref{fig:sirh}) is an extension of the classic compartmental SIR (Susceptible-Infectious-Recovered) model used to describe the spread of infectious diseases.
 In the SIRH model, a fourth compartment, "H" for "Hospitalized," is added. 
-Each compartment corresponds to the number of person in the state of health of the compartment. 
-The evolution of the number of person in each compartment is described by a system of ordinary differential equations: 
+Each compartment corresponds to the number of people in the state of health of the compartment. 
+The evolution of the number of people in each compartment is described by a system of ordinary differential equations: 
 
 \begin{equation}
     \label{eq:sirh}
@@ -78,19 +78,19 @@ The evolution of the number of person in each compartment is described by a syst
 \end{equation}
 
 At $t=0$, the values of $(S_0, I_0, R_0, H_0)$ are fixed to $(10^6 -1, 1, 0, 0,) $. 
-As the system of equation can't be directly solved, we use a Euler method to solve it. 
+As the system of equation can't be directly solved, we use a Euler's method to solve it. 
 
 
-To train this model, we minimize the least squares error between the curve of the number of hospitalized observed to the curve of the number of hospitalized of the training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
+To train this model, we minimize the least squares error between the curve of the number of hospitalized predicted by the model SIRH($\theta$) to the curve of the number of hospitalized of the training data with respect to $\theta = (\beta, \gamma_i, \gamma_h, h)$. 
 I implemented some variations of the model in which $\gamma_i$, $\gamma_h$ or both were fixed to the value $0.2$ (see the Table.\ref{tab:sirh_models_parameters}).
-This value of $0.2$ seems arbitrairy but corresponds to an expected value of recovery of 5 days and sometimes helps the curve fit function to converge, as the computations sometimes fails to optimize on the 4 parameters. 
+This value of $0.2$ seems arbitrairy but corresponds to an expected value of recovery of 5 days and sometimes helps the curve fit function to converge, as the computations sometimes fail to optimize on the 4 parameters. 
 
 \input{tables/table_types_of_sirh.tex}
 In the prediction phase, an $r$ day SIRH simulation is launched, with the parameter $\hat{\theta}$ computed during the training phase. 
-The initial values for $S$ and $I$ correspond to the last value of the fit of the training phase. 
+The initial values for $S$ and $I$ correspond to the last value of the fit from the training phase. 
 The initial value for $H$ corresponds to the last value of $\mathcal{D}$, the training data. 
-The initial value of $R$ is fixed by the previous values as the equation $S_t + I_t + R_t + H_t = N$ is always true. 
-The confidence interval of the prediction is computed thanks to a linearization and the use of the delta-method (see \ref{sec:ci})
+The initial value of $R$ is fixed by the previous values, as the equation $S_t + I_t + R_t + H_t = N$ is always true. 
+The confidence interval of the prediction is computed using a linearization and the use of the delta-method (see Sec.\ref{sec:ci})
 
 An SIRH model of the second type was implemented. 
 It has the same structure but uses the mobility data and the number of infected to be more precise. 
@@ -106,10 +106,10 @@ We have :\\
 $\hat{\theta} = \underset{\theta \in \mathbb{R}^5}{\operatorname{argmin}} \sum_{t=1}^{n} (\frac{H_\theta(t) - Y_{H, t}}{\underset{t \in \{1, ..., n \}}{\operatorname{max(Y_{H, t})}}})^2 + (\frac{I_\theta(t) - Y_{I, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{I, t})}})^2$\\
 
 With $\theta = (a, b, \gamma_i, \gamma_h, h)$ and $m_t$ the mobility at time $t$.
-The normalization factors enables to prevent the optimization to focus on the number of infected, which is bigger than the number of hospitalized. 
+The normalization factors prevent the optimization to focus on the number of infected, which is bigger than the number of hospitalized. 
 During my first tries, I hadn't normalized the data and the curve of the infected was almost perfectly fitted to the curve of the SIRH model, but the curve of the hospitalized was flat. 
 Once again, a variation of the SIRH model was implemented, in which the value of $\gamma_h$ and $\gamma_i$ is fixed to $0.2$. 
-SIRH multi 1 refer to the model in which $\gamma_h$ and $\gamma_i$ are free and SIRH multi 2 refer to the model in which $\gamma_h$ and $\gamma_i$ are fixed to $0.2$.
+SIRH multi 1 refers to the model in which $\gamma_h$ and $\gamma_i$ are free and SIRH multi 2 refers to the model in which $\gamma_h$ and $\gamma_i$ are fixed to $0.2$.
 
 
 
@@ -206,14 +206,14 @@ This model is used as a baseline, indeed, a model that does not manage to outper
 An exponential regression model was implemented.
 It corresponds to fitting the data of the number of hospitalized ($Y_t$) to the function $E_{a, b, c}(t) = a \times e^{b t} +c$.
 The value of $\theta = (a, b, c)$ is computed through a least square minimization method.
-The confidence interval on the prediction is estimated with the same method as SIRH (see \ref{sec:ci}). 
+The confidence interval on the prediction is estimated with the same method as SIRH (see Sec.\ref{sec:ci}). 
 
 An exponential regression of the second type was also implemented: \\
 The data of the number of hospitalized is fitted to the function $E_{a, b, c, d, e}(t) = a \times e^{b m_{t-i} + c  t + d \times inf_{t-j} }+e$.\\
 $m_t$ is the mobility data at time $t$ and $inf_t$ is the number of infected at time $t$.
 The value of $\theta = (a, b, c, d, e)$ is computed through a least square method.
 The optimal value of the time lag $i$ and $j$ is optimized during the training phase through a grid search among all the values between 0 and 14. 
-The confidence interval on the prediction is estimated with the same method as SIRH (see \ref{sec:ci}). 
+The confidence interval on the prediction is estimated with the same method as SIRH (see Sec.\ref{sec:ci}). 
 
 \subsection{Machine learning models}
 \label{sec:mlmodels}

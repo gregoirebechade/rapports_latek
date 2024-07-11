@@ -616,6 +616,40 @@
       \field{pages}{e2103302119}
       \range{pages}{-1}
     \endentry
+    \entry{panaretos2019statistical}{article}{}
+      \name{author}{2}{}{%
+        {{hash=15e590e58f7c79b8d168fe2c92592a51}{%
+           family={Panaretos},
+           familyi={P\bibinitperiod},
+           given={Victor\bibnamedelima M},
+           giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=878941c926a76fccc9009824de657f7b}{%
+           family={Zemel},
+           familyi={Z\bibinitperiod},
+           given={Yoav},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{fullhash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{bibnamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authorbibnamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authornamehash}{5701d70511945ddeefdff11a7aa546c2}
+      \strng{authorfullhash}{5701d70511945ddeefdff11a7aa546c2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual review of statistics and its application}
+      \field{number}{1}
+      \field{title}{Statistical aspects of Wasserstein distances}
+      \field{volume}{6}
+      \field{year}{2019}
+      \field{pages}{405\bibrangedash 431}
+      \range{pages}{27}
+    \endentry
     \entry{powellasymptoticsforleastsquares}{article}{}
       \name{author}{1}{}{%
         {{hash=f1fac2bf94f2099432a9e4dd193771d5}{%

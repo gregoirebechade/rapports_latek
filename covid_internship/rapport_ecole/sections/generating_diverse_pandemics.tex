@@ -2,25 +2,25 @@
 
 
 
-To be able to compare the performances of the models, one need pandemic data to compare them. 
-As the objective was to obtain the most consistent results, I decided not to train and compare the models on real data as this data is limited and biaised: the results would not have been relevant when facing a new pandemic. 
+To be able to compare the performances of the models, one needs pandemic data to compare them. 
+As the objective was to obtain the most consistent results, I decided not to train and compare the models on real data as this data is limited and biased: the results would not have been relevant when facing a new pandemic. 
 All the simulations in this paper are made on a fixed population of $10^6$ agents. 
 
 \subsection{Covasim}
 
 To generate the pandemics,  Covasim \cite{kerr2021covasim}, a python library that can simulate the evolution of a pandemic, was used. 
 Covasim is an agent-based model that can simulate the spread of a pandemic in a population. 
-This model takes as an input many parameters such as the population type, the population size, the age repartition... and outputs a complete description of the pandemic, with real-time values of each relevant piece of information, such as the number of severe, of asymptomatic... but also physical values such as the value of the reproduction number. 
-Covasim enables to generate a huge diversity of pandemics, thanks to the plurality of parameters that can be given as input to the model, but also with interventions that can be planned by the users. 
-These interventions can help to assess the impact of a vaccination campaign, or lockdown scenarios. 
-They represent relatives changes in the probabilities of transmission. 
-Covasim was used by policymakers during the Covid 19 outbreak to adapt their strategies of mitigation, for instance in Australia,Vietnam, India and United States (\cite{kerr2021covasim}). 
+This model takes as an input many parameters such as the population type, the population size, the age distribution... and outputs a complete description of the pandemic, with real-time values of each relevant piece of information, such as the number of severe individuals, asymptomatic individuals... but also physical values such as the value of the reproduction number. 
+Covasim enables to generate a wide diversity of pandemics, thanks to the plurality of parameters that can be given as inputs to the model, but also with interventions that can be planned by the user. 
+These interventions can help assess the impact of a vaccination campaign, or lockdown scenarios. 
+They represent relative changes in the probabilities of transmission. 
+Covasim was used by policymakers during the Covid 19 outbreak to adapt their strategies of mitigation, for instance in Australia, Vietnam, India and United States (\cite{kerr2021covasim}). 
 
 \subsection{First pandemics}
-
+\label{sec:first_pandemics}
 For the implementation and the first tests of the models, two pandemics were generated. 
-The first one focusing on the new deaths count and the second one focusing on the number of hospitalized count. 
-I quickly decided to move to the second pandemic, as the variable 'new deaths' is neither relevant nor continuous (which caused problems in the implementation of some models, namely SIRH models).
+The first one focusing on the new deaths count and the second one focusing on the number of hospitalizations. 
+I quickly decided to move to the second pandemic, as the variable 'new deaths' is neither relevant nor continuous (which caused problems in the implementation of some models, namely the SIRH models).
 
 
 The different interventions were based on mobility reports from Västtrafik (see appendix \ref{sec:appendix}), the public transport company of the city of Gothenburg. 
@@ -30,28 +30,28 @@ These interventions correspond to 53 relative weekly variations of the mobility,
 
 \subsection{Generating diverse pandemics}
 \label{sec:generating_divserse_pandemics}
-In order to evaluate the performances of my models on a wide range of pandemics, a training set of pandemics was generated. 
-A huge diversity of pandemics is needed to determine the most consistent model.
+In order to evaluate the performance of my models on a wide range of pandemics, I generated a training set of pandemics. 
+A wide diversity of pandemics is needed to determine the most consistent model.
 It is so relevant to identify the key parameters that generate this diversity.
 As Covasim has a very huge set of inputs parameters, a first subset of key parameters was identified: the spread parameters and the severity parameters. 
-The severity parameters are the 4 parameters that correspond to the probability for an agent to get from a compartment to another (for instance from infected to crictical). 
-The spread parameters are 9 parameters that represent the distribution of probability of the time spend by an agent in a compartment (such as infected, crictical...) once he entered it. 
+The severity parameters are the 4 parameters that correspond to the probability for an agent to get from a compartment to another (for instance from infected to critical). 
+The spread parameters are 9 parameters that represent the distribution of probability of the time spend by an agent in a compartment (such as infected, critical...) once he entered it. 
 This set of 13 parameters is then noted as $S$. 
 This distribution is a log-normal distribution, but the spread-parameters correspond to the mean of this log-normal distribution
 All the parameters have a default value of 1, which corresponds to keeping the reference value. 
-I decided to select 4 parameters and to make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
-To select the 4 parameters that generated the most diversity, different diversity metrics were computed. 
+I decided to select 4 parameters and make them vary in $[0.5, 1, 2]$, leading to a set of 81 pandemics. 
+To select the 4 parameters that generated the most diversity, various diversity metrics were computed. 
 
-Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized in two pandemics, and $Y'$ and $Y''$ the first and second derivatives of $Y$.  \\[0.2cm]
+Let $Y_1$ ,  $Y_2 \in \mathbb{R}^n$  be two time series of $n$ days representing the number of hospitalized individuals in two pandemics, $Y'$ and $Y''$ the first and second derivatives of $Y$, and $\tilde{Y}$ the normalized array of $Y$ so that its maximum is equal to 1.  \\[0.2cm]
 
 Let :  \\
 
 $
 \begin{aligned}
-    &\mathcal{L}_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1}  \\
-    &\mathcal{L}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1}) \|_{L_2} \\
-    &\mathcal{L}_3 = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) \text{, with }\mathcal{W} \text{ the Wasserstein distance.} \\
-    &\mathcal{L}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2}),\mathcal{W} (\tilde{Y_1'} - \tilde{Y_2'}) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''})) \|_{L_2} \\
+    &{l }_1(Y_1, Y_2) = \| Y_1 - Y_2 \|_{L_1}  \\
+    &{l}_2(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \| \tilde{Y_1} - \tilde{Y_2} \|_{L_1}, \| \tilde{Y_1'} - \tilde{Y_2'} \|_{L_1} , \| \tilde{Y_1''} - \tilde{Y_2''} \|_{L_1}) \|_{L_2} \\
+    &{l}_3(Y_1, Y_2) = \mathcal{W}(\tilde{Y_1} - \tilde{Y_2}) \text{, with }\mathcal{W} \text{ the Wasserstein distance (\cite{panaretos2019statistical}).} \\
+    &{l}_4(Y_1, Y_2) = \| (\frac{max(Y_1)}{max(Y_2)} ;\frac{max(Y_1')}{max(Y_2')} ; \frac{max(Y_1'')}{max(Y_2'')} , \mathcal{W} (\tilde{Y_1} - \tilde{Y_2}),\mathcal{W} (\tilde{Y_1'} - \tilde{Y_2'}) , \mathcal{W} (\tilde{Y_1''} - \tilde{Y_2''})) \|_{L_2} \\
 \end{aligned}
 $
 
@@ -60,11 +60,11 @@ To determine which measure to use, I generated 14 pandemics.
 Each pandemic but the last one has default parameters except one of them which was doubled. 
 The last pandemic has only default parameters. 
 
-For each norm $\mathcal{L}_k$, I determined $s$,  the subset of 4 pandemics that maximized the following quantity:\\
+For each norm $l_k$, I determined $s$,  the subset of 4 pandemics that maximized the following quantity:\\
 
-\[ \mathcal{L}_k(S) = \sum_{i, j \in s, i \neq j} \mathcal{L}_k(Y_i, Y_j) \]
+\[ \mathcal{L}_k(s) = \sum_{i, j \in s, i \neq j} {l}_k(Y_i, Y_j) \]
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/most_different_pandemics.png}
     \caption{4 most diverse pandemics according to each norm.}
@@ -74,12 +74,12 @@ For each norm $\mathcal{L}_k$, I determined $s$,  the subset of 4 pandemics that
 
 The 4 most diverse pandemics (in the subset of 14 pandemics generated) according to each norm are shown in the Fig.\ref{fig:diversity_pandemics}.
 As "diversity" is not countable, a human choice was necessary to choose the most relevant norm.
-According to Fig. \ref{fig:diversity_pandemics}, I decided to select $\mathcal{L}_2$.
+According to Fig. \ref{fig:diversity_pandemics}, I decided to select ${l}_2$.
 But, keeping the parameters \texttt{[0, 5, 10, 12]} would not be accurate, as the parameters were changed independently, and the diversity did not take into account the correlation between some of them. \\
 
-Finding the parameters that maximise the $\mathcal{L}_2$ diversity is equivalent to solve the following problem : \\
+Finding the parameters that maximise the $\mathcal{L}$ diversity is equivalent to solve the following problem : \\
 
-$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{argmax  } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s)  }{\mathcal{L}_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
+$ s_{opt} = \underset{s \subset S , \vert s \vert =4 }{\text{argmax } } \mathcal{ L}(s)$, with $ \mathcal{L}(s)= \sum_{p_1, p_2 \in \mathcal{P}_g(s)  }{l_2(p_1,p_2)}$, and  $\mathcal{P}_{g}(s)$ the set of the 81 pandemics generated with the 4 parameters of $s$.
 
 However, generating a pandemic with \texttt{Covasim} is time consuming, and it is not possible to compute the diversity of each set of 4 parameters $s$ included in $S$ (the set of all 13 parameters).\\[1cm]
 
@@ -111,11 +111,11 @@ Let $s_0 \in \mathcal{S}$ and let  $S_n$ be the random sequence defined as follo
 \]
 \\[0.5cm]
 
-This formula means that at each iteration, a neighbourgh of $S_n$ is uniformly selected among all the neighbours of $S_n$ (it is $U_n^{ne(S_n)}$). 
-The Markov Chain moves to this neighbourgh if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
+This formula means that at each iteration, a neighbor  of $S_n$ is uniformly selected among all the neighbours of $S_n$ (it is $U_n^{ne(S_n)}$). 
+The Markov Chain moves to this neighbor  if the value of  $\mathcal{L}(U_n^{ne(S_n)})$ is higher than the value of the function $\mathcal{L}(S_n)$ at the current state.
 If the new value of $\mathcal{L}$ is smaller, the Markov Chain moves with a probability that is equal to the ratio of the two values.
-This way of moving on the different subsets prevents to be stucked in a local maxima but avoids exploring dummies areas, in which the diversity is very small. \\
-As $S_{n+1}$ is a function of $S_n$ and of other independent random variables, the sequence $S_n$ is a homogenous Markov Chain.
+This way of moving on the different subsets prevents to be stuck in a local maxima but avoids exploring dummies areas, in which the diversity is very small. \\
+As $S_{n+1}$ is a function of $S_n$ and of other independent random variables, the sequence $S_n$ is a homogeneous Markov Chain.
 
 The transition matrix of this Markov Chain is the following: 
 \[
@@ -130,7 +130,7 @@ K(s, s'): \left\{
 \]
 \\[0.3cm]
 
-Let $(s, s') \in \mathcal{S}^2$. Let us suppose that $ s' \neq s$, that  $s' \in ne(s)$, and that $\mathcal{L}(s) < \mathcal{L}(s')$ (the other case is symmetric). \\[0.15cm]
+Let $(s, s') \in \mathcal{S}^2$. Suppose that $ s' \neq s$, that  $s' \in ne(s)$, and that $\mathcal{L}(s) < \mathcal{L}(s')$ (the other case is symmetric). \\[0.15cm]
 $
 \begin{aligned}
     \pi(s)K(s, s') &=  \frac{\mathcal{L}(s)}{\sum_{s \in \mathcal{S}} \mathcal{L}(s)} \times \frac{1}{36} \quad \text{as} \ \mathcal{L}(s) < \mathcal{L}(s') \\
@@ -189,18 +189,18 @@ Let $(s, s')  \in \mathcal{S}^2$. \\
 Thus $S_n$ is an \textbf{aperiodic} Markov Chain.\\
 
 
-Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreducible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution to $\pi$.\\
+Finally, according to the \textbf{Theorem 5.5 } from \cite*{bodineau2015modelisation}, as $S_n$ is irreducible and aperiodic, as $\pi$ is the stationary distribution, and as $\mathcal{S}$ is countable, $S_n$ converges in distribution toward $\pi$.\\
 
 
 The most probable set that will be sampled by $S_n$ is the one that maximises the diversity.
-I implemented this MCMC algorithm to maximise $\mathcal{L}_2$ on $\mathcal{S}$ . 
-The first value of the sequence was a clever starting point: the four parameters that maximized $\mathcal{L}_2$ on the 14 pandemics generated earlier (Fig.\ref{fig:diversity_pandemics}).  
+I implemented this MCMC algorithm to maximise $\mathcal{L}$ on $\mathcal{S}$ . 
+The first value of the sequence was a clever starting point: the four parameters that maximized $\mathcal{L}$ on the 14 pandemics generated earlier (Fig.\ref{fig:diversity_pandemics}).  
 After 200 iterations, the set of parameters that maximised the diversity was \texttt{[2, 4, 9, 10] }, which correspond to the parameters \texttt{[sym2sev, asym2rec, rel\_symp\_prob, rel\_severe\_prob]}. 
 They correspond respectively to the mean of the log-normal distribution representing the time spent in the compartment 'symptomatic' before moving into the compartment 'severe', the mean of the log-normal distribution representing the time spent in the compartment 'asymptomatic' before moving into the compartment 'recovered', to the scale factor for proportion of symptomatic cases and to the scale factor for proportion of symptomatic cases that become severe. (see \cite{kerr2021covasim}). 
-The $\mathcal{L}_2$- diversity increased from 62353 to 93553. \\
+The $\mathcal{L}$- diversity increased from 62353 to 93553. \\
 
-To create the most diverse set possible, I used 4 different mobilities reports (Fig.\ref{fig:mobilities}), corresponding to constant mobility, annual variations, lockdown scenario and the reports from Vasträffik from \cite{gerlee2021predicting}. 
-\begin{figure}
+To create the most diverse set possible, I used 4 different mobilities reports (Fig.\ref{fig:mobilities}), corresponding to constant mobility, annual variations, lockdown scenario and the reports from Västraffik from \cite{gerlee2021predicting} (see \ref{sec:first_pandemics}). 
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/mobilities.png}
     \caption{Mobility reports.}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  10 JUL 2024 16:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  11 JUL 2024 12:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -996,18 +996,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 59.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 47.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 59.
+Package pdftex.def Info: logo_x.png  used on input line 47.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1017,11 +1012,16 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
-<figures/most_different_pandemics.png, id=220, 714.7503pt x 523.9575pt>
+<figures/most_different_pandemics.png, id=224, 714.7503pt x 523.9575pt>
 File: figures/most_different_pandemics.png Graphic file (type png)
 <use figures/most_different_pandemics.png>
 Package pdftex.def Info: figures/most_different_pandemics.png  used on input line 69.
@@ -1041,11 +1041,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
 File: logo_chalmers.jpg Graphic file (type jpg)
 <use logo_chalmers.jpg>
-Package pdftex.def Info: logo_chalmers.jpg  used on input line 83.
+Package pdftex.def Info: logo_chalmers.jpg  used on input line 81.
 (pdftex.def)             Requested size: 42.67912pt x 48.95299pt.
 File: logo_x.png Graphic file (type png)
 <use logo_x.png>
-Package pdftex.def Info: logo_x.png  used on input line 83.
+Package pdftex.def Info: logo_x.png  used on input line 81.
 (pdftex.def)             Requested size: 34.14322pt x 46.00345pt.
 
 Package fancyhdr Warning: \headheight is too small (25.0pt): 
@@ -1190,7 +1190,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [10]
-<figures/mobilities.png, id=259, 409.7709pt x 327.3831pt>
+<figures/mobilities.png, id=265, 409.7709pt x 327.3831pt>
 File: figures/mobilities.png Graphic file (type png)
 <use figures/mobilities.png>
 Package pdftex.def Info: figures/mobilities.png  used on input line 205.
@@ -1287,7 +1287,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--230
 
  []
 
-<figures/esb_coefs.png, id=302, 503.7219pt x 250.7769pt>
+<figures/esb_coefs.png, id=308, 503.7219pt x 250.7769pt>
 File: figures/esb_coefs.png Graphic file (type png)
 <use figures/esb_coefs.png>
 Package pdftex.def Info: figures/esb_coefs.png  used on input line 252.
@@ -1461,7 +1461,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--44
 
  []
 
-<figures/ranks_big_increase_RMSE_7.png, id=363, 633.8079pt x 800.0289pt>
+<figures/ranks_big_increase_RMSE_7.png, id=369, 633.8079pt x 800.0289pt>
 File: figures/ranks_big_increase_RMSE_7.png Graphic file (type png)
 <use figures/ranks_big_increase_RMSE_7.png>
 Package pdftex.def Info: figures/ranks_big_increase_RMSE_7.png  used on input line 76.
@@ -1482,7 +1482,7 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [22]
-<figures/expected_ranks_big_increase_RMSE_7.png, id=369, 594.0594pt x 473.3685pt>
+<figures/expected_ranks_big_increase_RMSE_7.png, id=375, 594.0594pt x 473.3685pt>
 File: figures/expected_ranks_big_increase_RMSE_7.png Graphic file (type png)
 <use figures/expected_ranks_big_increase_RMSE_7.png>
 Package pdftex.def Info: figures/expected_ranks_big_increase_RMSE_7.png  used on input line 84.
@@ -1491,7 +1491,7 @@ Package pdftex.def Info: figures/expected_ranks_big_increase_RMSE_7.png  used on
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/heatmap_RMSE_7.png, id=371, 607.7907pt x 473.3685pt>
+<figures/heatmap_RMSE_7.png, id=377, 607.7907pt x 473.3685pt>
 File: figures/heatmap_RMSE_7.png Graphic file (type png)
 <use figures/heatmap_RMSE_7.png>
 Package pdftex.def Info: figures/heatmap_RMSE_7.png  used on input line 92.
@@ -1515,22 +1515,22 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [23 <./figures/ranks_big_increase_RMSE_7.png>]
-<figures/esb_rank_7.png, id=383, 640.3122pt x 800.0289pt>
+<figures/esb_rank_7.png, id=389, 640.3122pt x 800.0289pt>
 File: figures/esb_rank_7.png Graphic file (type png)
 <use figures/esb_rank_7.png>
 Package pdftex.def Info: figures/esb_rank_7.png  used on input line 115.
 (pdftex.def)             Requested size: 204.85846pt x 255.95343pt.
-<figures/esb_rank_14.png, id=384, 647.5392pt x 800.0289pt>
+<figures/esb_rank_14.png, id=390, 647.5392pt x 800.0289pt>
 File: figures/esb_rank_14.png Graphic file (type png)
 <use figures/esb_rank_14.png>
 Package pdftex.def Info: figures/esb_rank_14.png  used on input line 122.
 (pdftex.def)             Requested size: 204.85846pt x 253.0969pt.
-<figures/heatmap_esb_14.png, id=387, 615.0177pt x 473.3685pt>
+<figures/heatmap_esb_14.png, id=393, 615.0177pt x 473.3685pt>
 File: figures/heatmap_esb_14.png Graphic file (type png)
 <use figures/heatmap_esb_14.png>
 Package pdftex.def Info: figures/heatmap_esb_14.png  used on input line 139.
 (pdftex.def)             Requested size: 204.85846pt x 157.67113pt.
-<figures/heatmap_esb_7.png, id=388, 607.7907pt x 473.3685pt>
+<figures/heatmap_esb_7.png, id=394, 607.7907pt x 473.3685pt>
 File: figures/heatmap_esb_7.png Graphic file (type png)
 <use figures/heatmap_esb_7.png>
 Package pdftex.def Info: figures/heatmap_esb_7.png  used on input line 146.
@@ -1674,12 +1674,12 @@ Package fancyhdr Warning: \headheight is too small (25.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-28.03302pt}.
 
 [31] (sections/appendix.tex
-<figures/heatmap_RMSE_14.png, id=465, 615.0177pt x 473.3685pt>
+<figures/heatmap_RMSE_14.png, id=471, 615.0177pt x 473.3685pt>
 File: figures/heatmap_RMSE_14.png Graphic file (type png)
 <use figures/heatmap_RMSE_14.png>
 Package pdftex.def Info: figures/heatmap_RMSE_14.png  used on input line 8.
 (pdftex.def)             Requested size: 318.66948pt x 245.27905pt.
-<figures/heatmap_WIS_7.png, id=466, 596.9502pt x 473.3685pt>
+<figures/heatmap_WIS_7.png, id=472, 596.9502pt x 473.3685pt>
 File: figures/heatmap_WIS_7.png Graphic file (type png)
 <use figures/heatmap_WIS_7.png>
 Package pdftex.def Info: figures/heatmap_WIS_7.png  used on input line 15.
@@ -1688,7 +1688,7 @@ Package pdftex.def Info: figures/heatmap_WIS_7.png  used on input line 15.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/heatmap_WIS_14.png, id=467, 604.1772pt x 473.3685pt>
+<figures/heatmap_WIS_14.png, id=473, 604.1772pt x 473.3685pt>
 File: figures/heatmap_WIS_14.png Graphic file (type png)
 <use figures/heatmap_WIS_14.png>
 Package pdftex.def Info: figures/heatmap_WIS_14.png  used on input line 23.
@@ -1696,7 +1696,7 @@ Package pdftex.def Info: figures/heatmap_WIS_14.png  used on input line 23.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/mobility_reports.png, id=468, 418.4433pt x 327.3831pt>
+<figures/mobility_reports.png, id=474, 418.4433pt x 327.3831pt>
 File: figures/mobility_reports.png Graphic file (type png)
 <use figures/mobility_reports.png>
 Package pdftex.def Info: figures/mobility_reports.png  used on input line 32.
@@ -1704,22 +1704,22 @@ Package pdftex.def Info: figures/mobility_reports.png  used on input line 32.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/heatmap_test_sweden_7.png, id=469, 402.5439pt x 406.8801pt>
+<figures/heatmap_test_sweden_7.png, id=475, 402.5439pt x 406.8801pt>
 File: figures/heatmap_test_sweden_7.png Graphic file (type png)
 <use figures/heatmap_test_sweden_7.png>
 Package pdftex.def Info: figures/heatmap_test_sweden_7.png  used on input line 44.
 (pdftex.def)             Requested size: 204.85846pt x 207.06529pt.
-<figures/heatmap_test_sweden_14.png, id=470, 402.5439pt x 406.8801pt>
+<figures/heatmap_test_sweden_14.png, id=476, 402.5439pt x 406.8801pt>
 File: figures/heatmap_test_sweden_14.png Graphic file (type png)
 <use figures/heatmap_test_sweden_14.png>
 Package pdftex.def Info: figures/heatmap_test_sweden_14.png  used on input line 52.
 (pdftex.def)             Requested size: 204.85846pt x 207.06529pt.
-<figures/heatmap_test_france_7.png, id=471, 402.5439pt x 406.8801pt>
+<figures/heatmap_test_france_7.png, id=477, 402.5439pt x 406.8801pt>
 File: figures/heatmap_test_france_7.png Graphic file (type png)
 <use figures/heatmap_test_france_7.png>
 Package pdftex.def Info: figures/heatmap_test_france_7.png  used on input line 60.
 (pdftex.def)             Requested size: 204.85846pt x 207.06529pt.
-<figures/heatmap_test_france_14.png, id=472, 402.5439pt x 406.8801pt>
+<figures/heatmap_test_france_14.png, id=478, 402.5439pt x 406.8801pt>
 File: figures/heatmap_test_france_14.png Graphic file (type png)
 <use figures/heatmap_test_france_14.png>
 Package pdftex.def Info: figures/heatmap_test_france_14.png  used on input line 68.
@@ -1727,22 +1727,22 @@ Package pdftex.def Info: figures/heatmap_test_france_14.png  used on input line 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/real_data_sweden_7.png, id=473, 956.8548pt x 543.4704pt>
+<figures/real_data_sweden_7.png, id=479, 956.8548pt x 543.4704pt>
 File: figures/real_data_sweden_7.png Graphic file (type png)
 <use figures/real_data_sweden_7.png>
 Package pdftex.def Info: figures/real_data_sweden_7.png  used on input line 83.
 (pdftex.def)             Requested size: 227.62206pt x 129.28287pt.
-<figures/real_data_sweden_14.png, id=474, 956.8548pt x 543.4704pt>
+<figures/real_data_sweden_14.png, id=480, 956.8548pt x 543.4704pt>
 File: figures/real_data_sweden_14.png Graphic file (type png)
 <use figures/real_data_sweden_14.png>
 Package pdftex.def Info: figures/real_data_sweden_14.png  used on input line 91.
 (pdftex.def)             Requested size: 227.62206pt x 129.28287pt.
-<figures/real_data_France_7.png, id=475, 963.3591pt x 543.4704pt>
+<figures/real_data_France_7.png, id=481, 963.3591pt x 543.4704pt>
 File: figures/real_data_France_7.png Graphic file (type png)
 <use figures/real_data_France_7.png>
 Package pdftex.def Info: figures/real_data_France_7.png  used on input line 97.
 (pdftex.def)             Requested size: 227.62206pt x 128.41214pt.
-<figures/real_data_France_14.png, id=476, 963.3591pt x 543.4704pt>
+<figures/real_data_France_14.png, id=482, 963.3591pt x 543.4704pt>
 File: figures/real_data_France_14.png Graphic file (type png)
 <use figures/real_data_France_14.png>
 Package pdftex.def Info: figures/real_data_France_14.png  used on input line 105.
@@ -1830,17 +1830,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33010 strings out of 474495
- 631627 string characters out of 5743936
+ 33015 strings out of 474495
+ 631848 string characters out of 5743936
  1949460 words of memory out of 5000000
- 54648 multiletter control sequences out of 15000+600000
+ 54652 multiletter control sequences out of 15000+600000
  579654 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,93p,753b,1856s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi600\bbold8.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbold/dpi657\bbold10.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (36 pages, 2045785 bytes).
+Output written on main.pdf (36 pages, 2046904 bytes).
 PDF statistics:
- 1051 PDF objects out of 1200 (max. 8388607)
- 109 named destinations out of 1000 (max. 500000)
+ 1058 PDF objects out of 1200 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
  354 words of extra memory for PDF output out of 10000 (max. 10000000)
 
