@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {6.3}The Ensemble model}{24}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Summary of Key Findings}{25}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Test on real data}{27}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Comparison with Previous Research}{28}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.6}Comparison with Previous Research}{27}{subsection.6.6}%
 \contentsline {subsection}{\numberline {6.7}Practical Implications}{28}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Limitations}{29}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.8}Limitations}{28}{subsection.6.8}%
 \contentsline {section}{\numberline {7}Appendix}{32}{section.7}%

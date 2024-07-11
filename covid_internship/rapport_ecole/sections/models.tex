@@ -10,7 +10,7 @@ During the training or prediction phase, the computation sometimes fails (for in
 The model then outputs the predicted value of the moving average model (see Sec.\ref{sec:moving_average}), which can be interpreted as a naive output when the computation fails. \\[0.3cm]
 \textbf{Task of a model}: \\
 
-Each model ${h}$ is given : 
+Each model ${h}$ is given: 
 
 \begin{enumerate}
     \item A training set $\mathcal{D}$ of size $n$. 
@@ -94,14 +94,14 @@ The confidence interval of the prediction is computed using a linearization and 
 
 An SIRH model of the second type was implemented. 
 It has the same structure but uses the mobility data and the number of infected to be more precise. 
-The idea is the same, but there are two differences : 
+The idea is the same, but there are two differences: 
 \begin{itemize}
-    \item $\beta$ varies with the time as a linear combination of the mobility : $\beta_t = a + b \times m_t$ (which is inspired from \cite{gerlee2021predicting})
+    \item $\beta$ varies with the time as a linear combination of the mobility: $\beta_t = a + b \times m_t$ (which is inspired from \cite{gerlee2021predicting})
     \item The data is fitted to both the number of hospitalized and the number of infected. 
 \end{itemize}
 To write it more formally, let $H_\theta(t)$ and $I_\theta(t)$ be the number of hospitalized and infected at time $t$ in the SIRH model with parameters $\theta$.
 Let $Y_{H, t}$ and $Y_{I, t}$ be the number of hospitalized and infected at time $t$ in the data.
-We have :\\
+We have:\\
 
 $\hat{\theta} = \underset{\theta \in \mathbb{R}^5}{\operatorname{argmin}} \sum_{t=1}^{n} (\frac{H_\theta(t) - Y_{H, t}}{\underset{t \in \{1, ..., n \}}{\operatorname{max(Y_{H, t})}}})^2 + (\frac{I_\theta(t) - Y_{I, t}}{\underset{t \in \{1, ..., n \}}{max(Y_{I, t})}})^2$\\
 
@@ -117,17 +117,17 @@ SIRH multi 1 refers to the model in which $\gamma_h$ and $\gamma_i$ are free and
 
 The ARIMA and VAR models are used for time-series forecasting and have outperformed many models in pandemic forecasting (see \cite{kufel2020arima} and \cite{shang2021regional}).
 The $ARIMA(p, d, q)$ model is the sum of an $AR(p)$ and a $MA(q)$ model applied on the time series differentiated $d$ times. 
-It follows the equation : \\
+It follows the equation: \\
 $Y_{t}^{d}=\alpha+\sum_{i=1}^{p}\beta_{t-i}\,Y_{t-i}^{d}\,+\,\sum_{j=1}^{q}\phi_{t-j}\,\epsilon_{t-j} \label{eq:arima}$\\ 
 where $Y_{t}^{d}$ is the time series at time $t$, $d$ is the order of the differentiation, $\alpha$ is a constant, $p$ is the order of the autoregressive part, $q$ is the order of the moving average part and $\epsilon_{t-j}$ is the difference between the prediction of the model and the real value at time $t-j$.\\
-The coefficient are estimated through maximum likelihood estimation. 
+The coefficients are estimated through maximum likelihood estimation. 
 This method is implemented in the \texttt{statsmodels} library, which directly provides prediction and confidence intervals.
-I realized a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
+I performed a grid search on a single pandemic to identify the combination of parameters that would optimize the prediction accuracy. 
 I found an optimal value for $p= 3, d=0, q=3$. 
 
 The VAR model is a multi-dimensional $AR$ model, in which different variables are predicted. 
-It so corresponds to a second type model. 
-This model exploits the correlation between variables and the value of the parameters of a VAR have physical sense as they can be interpreted to find correlations between variables. 
+It therefore corresponds to a second type model. 
+This model exploits the correlation between variables and the values of the parameters of a VAR have physical sense as they can be interpreted to find correlations between variables. 
 Let $Y_{1,t}, ..., Y_{k,t}$ be the times series (in our case, $k=3$ and they correspond to the number of hospitalized, the number of infected and the mobility data).
 
 
@@ -135,7 +135,7 @@ Let $Y_{1,t}, ..., Y_{k,t}$ be the times series (in our case, $k=3$ and they cor
 
 \begin{equation*}
 \begin{aligned}
-VAR(p) : 
+VAR(p): 
 \begin{pmatrix}
 Y_{1,t} \\
 Y_{2,t} \\
@@ -188,8 +188,8 @@ Y_{k,t-p}
     
 
 
-Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodel} library. 
-The confidence intervals are also directy provided by the library.
+Again, the $\phi_{i,j,k}$ and  $c_i$ are estimated through maximum likelihood estimation with the \texttt{statsmodels} library. 
+The confidence intervals are also directly provided by the library.
 
 
 
@@ -197,36 +197,36 @@ The confidence intervals are also directy provided by the library.
 \label{sec:moving_average}
 
 A mere moving average model was also implemented. 
-It returns a constant prediction that correspond to the mean of the 7 past days. 
-The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the 7 last data-points.
-This model is used as a baseline, indeed, a model that does not manage to outperform the moving average model would not be useful. 
+It returns a constant prediction that corresponds to the mean of the past 7 days. 
+The confidence intervals are computed by assuming that the predictions follow a normal distribution of variance equal to the variance of the last 7 data points.
+This model is used as a baseline. Indeed, a model that does not manage to outperform the moving average model would not be useful. 
 
 \subsection{Exponential regression}
 
 An exponential regression model was implemented.
 It corresponds to fitting the data of the number of hospitalized ($Y_t$) to the function $E_{a, b, c}(t) = a \times e^{b t} +c$.
-The value of $\theta = (a, b, c)$ is computed through a least square minimization method.
-The confidence interval on the prediction is estimated with the same method as SIRH (see Sec.\ref{sec:ci}). 
+The value of $\theta = (a, b, c)$ is computed through a least squares minimization method.
+The confidence interval for the prediction is estimated using the same method as SIRH (see Sec.\ref{sec:ci}). 
 
 An exponential regression of the second type was also implemented: \\
 The data of the number of hospitalized is fitted to the function $E_{a, b, c, d, e}(t) = a \times e^{b m_{t-i} + c  t + d \times inf_{t-j} }+e$.\\
 $m_t$ is the mobility data at time $t$ and $inf_t$ is the number of infected at time $t$.
-The value of $\theta = (a, b, c, d, e)$ is computed through a least square method.
+The value of $\theta = (a, b, c, d, e)$ is computed through a least squares method.
 The optimal value of the time lag $i$ and $j$ is optimized during the training phase through a grid search among all the values between 0 and 14. 
-The confidence interval on the prediction is estimated with the same method as SIRH (see Sec.\ref{sec:ci}). 
+The confidence interval for the prediction is estimated using the same method as SIRH (see Sec.\ref{sec:ci}). 
 
 \subsection{Machine learning models}
 \label{sec:mlmodels}
 
-In order to implement machine learning regressors, I converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that : \\
+In order to implement machine learning regressors, I converted the time-series $Y_{t,  t \in \{1, \hdots n\}}$ in a training set $(X_i, Y_i)$ such that: \\
 $\forall i \in \{21, ..., n\}, X_i = (Y_{i-1}, Y_{i-2}, ..., Y_{i-20})$.\\
 
-I have then trained and optimized both regressors : the linear and the bayesain regressors, which were the only one that did not output absurd results on the \texttt{scikit-learn} models among : linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
-The Bayesian ridge model was implemented with the default prior of the \texttt{scikit-learn} library (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
-The confidence interval for the linear regression prediction was computed as follow : \\
-Let us suppose that the data follows a linear regression model : $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
-The least square estimator of $\beta$ is $\hat{\beta} = (X^T X)^{-1} X^T Y$.
-If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to predict, the prediction is  : \\
+I have then trained and optimized both regressors: the linear and the bayesian regressors, which were the only ones that did not output absurd results among the \texttt{scikit-learn} models among: linear regression, bayesian regression, Gradient boosting regressor, Random Forest regressor and SVR. 
+The Bayesian Ridge model was implemented with the default prior of the \texttt{scikit-learn} library (a gamma distribution with shape parameter $10^{-6}$ and scale parameter $10^{-6}$).
+The confidence interval for the linear regression prediction was computed as follows: \\
+Let us suppose that the data follows a linear regression model: $Y = X\beta + \epsilon$, with $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times d}$, $\beta \in \mathbb{R}^d$ and $\epsilon \in \mathbb{R}^n$ and $ \forall i \in \{1, ..., n \}, \epsilon_i  \sim \mathcal{N}(0, \sigma^2)$ iid.
+The least squares estimator of $\beta$ is $\hat{\beta} = (X^T X)^{-1} X^T Y$.
+If we have new data $\tilde{X} \in \mathbb{R}^{1 \times d}$ that we want to predict, the prediction is: \\
 
 $
 \begin{aligned}
@@ -238,14 +238,14 @@ $
 $
 \newline
 $\tilde{Y}$ follows a normal distribution of expected value $\tilde{X} \beta$ and variance $\tilde{X} (X^T X)^{-1} \tilde{X}^T \sigma ^2$.\\
-The confidence interval on bayesian regression was directly computed with the variance of the parameters given by the scikit-learn library and the delta method. 
+The confidence interval for bayesian regression was directly computed with the variance of the parameters given by the scikit-learn library and the delta method. 
 
 \subsection{Ensemble model}
 
-It has been showned (see \cite{cramer2022evaluation} and \cite{reich2019accuracy}), that ensemble models, which combine the outputs of many models, can outperform by far individual models.
+It has been shown (see \cite{cramer2022evaluation} and \cite{reich2019accuracy}), that ensemble models, which combine the outputs of many models, can outperform by far individual models.
 I have implemented an ensemble model which is a linear combination of the outputs of the 13 models described above, with the exponential models removed.
-The weights of this model were found my minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the pandemic generated. 
-They are represented in the Fig.\ref{fig:ensemble_weights}.
+The weights of this model were found by minimizing the least-squared error between the prediction of the ensemble model and the real value of the number of hospitalized on a train set of approximately 80\% of the generated pandemic. 
+They are represented in Fig.\ref{fig:ensemble_weights}.
 As the ensemble model only outputs a single value without confidence intervals, it is only evaluated with the RMSE metric. 
 \begin{figure}
     \centering
@@ -255,10 +255,10 @@ As the ensemble model only outputs a single value without confidence intervals, 
 \end{figure}
 \subsection{Computing confidence intervals on the prediction}
 \label{sec:ci}
-In this section, we prove the formula used for in the code to compute the confidence intervals. 
+In this section, we prove the formula used in the code to compute the confidence intervals. 
 The following proof is inspired from \cite{ruckstuhl2010introduction} and \cite{powellasymptoticsforleastsquares}. 
-I have assembled individuals proofs from these two articles to get the final results. 
-Some notations and steps are identical to what we can find in the paper and are explicitely cited. \\
+I have assembled individual proofs from these two articles to get the final results. 
+Some notations and steps are identical to what one can find in the papers and are explicitly cited. \\
 This problem is a non linear regression problem. 
 The proof is made of three steps. 
 First, we linearize the problem around the solution to get back to a linear regression problem. 
@@ -268,18 +268,18 @@ Finally, we use the delta-method to obtain the asymptotic normality of the non l
 
 \textbf{Assumption}:
 \\[0.5cm]
-We suppose that the data of the pandemic observed follows the model $h$, of parameter $\theta^* \in \mathbb{R}^d$. Let $Y_i$, $ i = 1, \ldots, n$ be the number of hospitalized at each day. We suppose that: $Y_i = h_{\theta ^* } (i) + \epsilon_i$, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, iid, and independent from all the other variables. The objective is to estimate $\theta^*$. We use $\hat{\theta}$, the least square estimator of $\theta^*$ as an estimator of $\theta^* $:
+We suppose that the data of the pandemic observed follows the model $h$, of parameter $\theta^* \in \mathbb{R}^d$. Let $Y_{i, i = 1, \ldots, n }$ be the number of hospitalized at each day. We suppose that: $Y_i = h_{\theta ^* } (i) + \epsilon_i$, with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, iid, and independent from all the other variables. The objective is to estimate $\theta^*$. We use $\hat{\theta}$, the least squares estimator of $\theta^*$ as an estimator of $\theta^* $:
 \[
 \hat{\theta} =  \underset{\theta \in \mathbb{R}^d}{\operatorname{argmin}} \sum_{i=1}^{n} (Y_i - h_{\theta}(i))^2
 \]
 This problem is a non-linear regression problem on the regressors $i$. 
 We also suppose that $h_\theta$ is differentiable.
-Finally, we suppose that 
+Finally, we assume that 
 \begin{equation}
 \exists A_0 \in \mathbb{R} ^{1 \times d},  \frac{1}{n} \sum_{i=1}^{n} \nabla_\theta h_{\theta^*}(i) \nabla_\theta h_{\theta^*}(i)^T \underset{n \rightarrow +\infty }{\rightarrow}  A_0^T A_0 .\label{hyp:major}  \\
 \end{equation}
 
-\textbf{STEP 1 :}\\
+\textbf{STEP 1:}\\
 \label{step:step1}
 
 Let:
@@ -303,7 +303,7 @@ We have:
 
 Now, if $\theta$ is close enough to $\theta^*$, we can write (from \cite{ruckstuhl2010introduction}):
 \[
-\forall i \in \{ 1, ..., n\} :  h_\theta(i) = h_{\theta^*} (i) + (\theta - \theta^*)^T\nabla_\theta h_{\theta^*}(i) 
+\forall i \in \{ 1, ..., n\}:  h_\theta(i) = h_{\theta^*} (i) + (\theta - \theta^*)^T\nabla_\theta h_{\theta^*}(i) 
 \]
 which leads to:
 \[
@@ -329,14 +329,14 @@ This is now a  linear regression problem on the regressors $\nabla_\theta h_{\th
 
 
 
-\textbf{STEP 2 :}\\
+\textbf{STEP 2:}\\
 \label{step:step2}
 
 
 
 Let us solve this problem in the general case.
 
-Let $(A_i, \tilde{Y_i})$ be the observations.
+Let $(A_i, \tilde{Y}_i)$ be the observations.
 In our case, $A_i = (\nabla_\theta h_{\theta*} (i))^T$, the rows of $A$,  and is a fixed quantity.  
 Let us assume that $\tilde{Y_i} = A_i \beta ^* + \epsilon'_i $, with $\epsilon'_i \sim \mathcal{N}(0, \sigma'^2)$.
 
@@ -345,7 +345,7 @@ The solution of this problem is explicitly (from \cite*{powellasymptoticsforleas
 \hat{\beta } = (A^T A) ^{-1} A^T \tilde{Y}
 \]
 
-This least-square estimator is unbiased:
+This least-squares estimator is unbiased:
 \[
 \mathbb{E}[\hat{\beta}] = \beta^*
 \]
@@ -377,7 +377,7 @@ We have:
 \hat{D}  \underset{a.s}{\rightarrow} D \text{,  with } D = \mathbb{E}[A_i^T A_i ] = A_0^T A_0 \text{ (cf Hyp \ref{hyp:major})}
 \]
 $\hat{\delta}$ is the empirical mean of random variables independent but non identically distributed. 
-We therefore cannot use the Kolmogorov's Strong Law of Large Numbers. 
+We therefore cannot use the Kolmogorov's strong law of large numbers. 
 There exists a law of large number for independent and non identically distributed random variables, which asserts that (see Therom 12 from \cite{suquet2004lois}):
 
 
@@ -408,7 +408,7 @@ $\sum_{i=1}^{\infty } \frac{Var(X_i)}{i^2} = \sum_{i=1}^{\infty } \frac{A_0^T A_
 
 Moreover,  $\frac{1}{n} \sum_{i=1}^{n} \mathbb{E}[X_i] =\frac{1}{n} \sum_{i=1}^{n} A_i^T A_i \beta^* = \frac{\beta^*}{n} \sum_{i=1}^{n} A_i^T A_i \underset{n\rightarrow \infty}{\rightarrow} \beta ^*  A_0 ^T A_0 $ (see \ref{hyp:major}).\\
 
-Therefore, with Theorem \ref{thm:1}, we have :  $\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} \underset{a.s}{\rightarrow}  \beta ^*  A_0 ^T A_0 $
+Therefore, with Theorem \ref{thm:1}, we have:  $\frac{1}{n} \sum_{i=1}^{n} A_i ^T \tilde{Y_i} \underset{a.s}{\rightarrow}  \beta ^*  A_0 ^T A_0 $
 
 \[
 \hat{\delta}   \underset{a.s}{\rightarrow}  \delta = A_0 ^T A_0 \beta^*
@@ -451,8 +451,7 @@ Finally, $\frac{1}{\sqrt{n}} \left(\sum_{i=1}^{n}  A_i^T \epsilon'_i \right) \xr
 
 On the other hand, $\hat{D}^{-1} \xrightarrow{\mathcal{L}} D^{-1} $, which is constant.
 
-Finally, with Slutsky, we obtain that: 
-
+Finally, by Slutsky's theorem, we obtain that : \\
 \begin{align*}
     \sqrt{n} (\hat{\beta} - \beta^*) &\xrightarrow{\mathcal{L}} D^{-1}\mathcal{N}(0, D \sigma'^2) \\
     &\xrightarrow{\mathcal{L}} \mathcal{N}(0, D^{-1} (D \sigma'^2) (D^{-1})^T) \\
@@ -479,7 +478,7 @@ As a partial conclusion, we have that $\hat{\theta}$ is asymptotically normal.
 
 
 
-\textbf{STEP 3 :}\\
+\textbf{STEP 3:}\\
 \label{step:step3}
 
 
@@ -500,7 +499,7 @@ h_{\hat{\theta}} \rightarrow \mathcal{N}(h_{\theta^*}, \frac{1}{n}\nabla_\theta 
 \]
 
 By estimating $\frac{1}{n} \Sigma$ from \texttt{curve\_fit}, we can compute the confidence interval of the prediction with the quantiles of the normal distribution.
-The gradient of $h_\theta$ is approximated through numerical approximation: \\
+The gradient of $h_\theta$ is approximated numerically: \\
 $\nabla_\theta h_\theta [i] \simeq \frac{h_{\theta + d \theta _ i  } - h_\theta}{dt}$, with $dt=0.0001$. \\
 
 \begin{align*}
