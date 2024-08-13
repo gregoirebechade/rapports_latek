@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1720703952 "main.bcf" "main.bbl" "main" 1720705769 0
+["biber main"] 1720703952 "main.bcf" "main.bbl" "main" 1723299310 0
   "./bibliography/references.bib" 1720687001 8171 6aada1983fdd8dac0d555722b5c7015a ""
-  "main.bcf" 1720705768 111829 c7fd723d055ecbb57a81baad5cf1ef46 "pdflatex"
+  "main.bcf" 1723299309 111829 c7fd723d055ecbb57a81baad5cf1ef46 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1720705760 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/rapport_ecole/main.tex" "main.pdf" "main" 1720705769 0
+["pdflatex"] 1723299301 "c:/Users/grego/Documents/code/rapports_latek/covid_internship/rapport_ecole/main.tex" "main.pdf" "main" 1723299310 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1718721400 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1719568939 28976 d9db75ca4b56c83a8f70afe4fe96ae09 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1717156662 31952 8bcd38facc752fc208bbb3dba0164919 ""
@@ -271,20 +271,20 @@
   "figures/real_data_sweden_7.png" 1720613362 108492 09cf53b66aa81ea8e50414ed50e7f6f4 ""
   "logo_chalmers.jpg" 1719567781 80381 ca1fd1436e9f6f26b46034e107ffa40e ""
   "logo_x.png" 1719567205 150669 f38c83add78ac6fd6ef40ae29992b60a ""
-  "main.aux" 1720705768 19296 9035ea2311b69f583ad203e1d059a57a "pdflatex"
+  "main.aux" 1723299308 19296 9035ea2311b69f583ad203e1d059a57a "pdflatex"
   "main.bbl" 1720703962 43122 062383620cc69cc9bab2ebab54ad7f78 "biber main"
-  "main.out" 1720705768 4347 a7078a1d9ec5099ed8d3c19460f8560b "pdflatex"
-  "main.run.xml" 1720705768 2318 ebd98b15c298057d75c6637c1a71e311 "pdflatex"
+  "main.out" 1723299309 4347 a7078a1d9ec5099ed8d3c19460f8560b "pdflatex"
+  "main.run.xml" 1723299309 2318 ebd98b15c298057d75c6637c1a71e311 "pdflatex"
   "main.tex" 1720620956 3018 fac76909002eb4ad8717a64739fe88a2 ""
-  "main.toc" 1720705768 2310 b25c619c40a549af599eea1663dc2bd3 "pdflatex"
-  "sections/Literature_review_and_context.tex" 1720686019 3029 aee0889e2d77cb3ca0e18a6eaf39bcb2 ""
+  "main.toc" 1723299309 2310 b25c619c40a549af599eea1663dc2bd3 "pdflatex"
+  "sections/Literature_review_and_context.tex" 1723298286 3034 2511777d7af82255e788b5fad12cdf08 ""
   "sections/appendix.tex" 1720614180 3554 6897cf983671daea9d106af37ce1bd44 ""
   "sections/conclusion.tex" 1720705759 831 550e01dac5cc547c705a4385040af1c7 ""
-  "sections/generating_diverse_pandemics.tex" 1720689798 15888 0b9e90c973bf9b30f7829a61dc79c331 ""
-  "sections/introduction.tex" 1720685646 3012 20c44c7ef283afe7097c6b787ef1288c ""
+  "sections/generating_diverse_pandemics.tex" 1723298509 15894 23772c1d10b7264c797aa65b75ca1d9a ""
+  "sections/introduction.tex" 1723298091 3013 4e6101a6ad2ee6819e74ee6ff0588ada ""
   "sections/models.tex" 1720700289 25089 ec797fa5e0d188f77d9e456a4563bf63 ""
   "sections/plagiat.tex" 1719820444 546 8ab32532cd3f76312056d7c94b76857b ""
-  "sections/results_and_discussion.tex" 1720705495 20735 11ca7c3fb4f383c8e650082d66890455 ""
+  "sections/results_and_discussion.tex" 1723299300 20790 06030c97e0ce4a6da6a0293596308530 ""
   "tables/table_types_of_sirh.tex" 1718789001 355 29fff74d967bcf4083681c2bf2927b9d ""
   (generated)
   "main.aux"

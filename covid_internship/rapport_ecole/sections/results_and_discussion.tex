@@ -87,7 +87,7 @@ This distribution of rankings of the model can be summed up in one single value:
 \end{figure}
 
 This new number loses information (for instance on bimodal rankings distribution) but enables to highlihgt the expected performance of a model. 
-For each loss and range of prediction, the expected rank of the models for each type of point can be vizualized on the same figure, which enables to have a global look of the performances of the models.(Fig.\ref{fig:heatmap_RMSE_7}) 
+For each loss and range of prediction, the expected rank of the models for each type of point can be vizualized on the same figure, which enables to have a global look of the performances of the models.(Fig.\ref{fig:heatmap_RMSE_7}). During a classification, the best model is ranked 0. 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/heatmap_RMSE_7.png}
@@ -152,7 +152,7 @@ The heatmaps of expected ranks on all type of points enables to see how consiste
 \end{figure}
 
 From these figures, one can notice that the ensemble model is rarely the best, but never the last model. 
-Indeed, for a loss, a type of point and a prediction range, one can look at the best models in terms of expected rank.
+Indeed, for a loss, a type of point and a prediction range, one can look at the best model in terms of expected rank.
 For instance, on the Fig.\ref{fig:expected_rank}, one can see that the top 3 models are Bayesian Regression, VAR and SIRH4. 
 On the train set, the Ensemble model is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
 Its consistency allows for accurate predictions and helps avoiding outlier predicted values that sometimes appear on the other good models (such as VAR and ARIMA). 
@@ -172,10 +172,10 @@ The interpretation based on the heatmaps Fig.\ref{fig:heatmap_RMSE_14}, Fig.\ref
 \begin{itemize}
     \item Arima and VAR are very effective models in terms of expected ranking. They are the two best models for 7-days ahead predictions and in the top 4 models for the 14-days ahead predictions. 
     \item Adding information with the mobility and the number of infected is not beneficial for the models. We observe almost always a poorer performance of the models of the second type compared to their equivalent model of the first type (VAR / Arima and SIRH Multi / SIRH). Only the exponential multi outperforms the mere exponential model, but as they both perform pretty bad, this result is not interesting. 
-    \item The autoregressive models (Bayesian and Linear Regression, ARIMA and VAR) perform best for short term predictions rather than long term ones. On the other hand, the SIRH models, which have a physical meaning and try to fit the data to an understandable model perform better for long term predictions. This is also observed in the coefficients of the ensemble model (see Fig. \ref{fig:ensemble_weights}). Indeed, the ensemble model puts more weight on the VAR and Arima models for short term predictions and more on the SIRH models for long terms predictions.  
+    \item The autoregressive models (Bayesian and Linear Regression, ARIMA and VAR) perform best for short term predictions rather than long term ones. On the other hand, the SIRH models, which have a physical meaning and try to fit the data to an understandable model performs better for long term predictions. This is also observed in the coefficients of the ensemble model (see Fig. \ref{fig:ensemble_weights}). Indeed, the ensemble model puts more weight on the VAR and Arima models for short term predictions and more on the SIRH models for long terms predictions.  
     \item The difference of ranking between the models is more pronounced when we rank them with RMSE rather than WIS. This might be due to the fact that the confidence intervals are not well calibrated and that the real value always land outside it. 
-    \item The Moving Average model is not the worst model and is often ranked between 6 and 8. This might be due to the fact that as the curve of the number of hospitalized is continuous, the mean never diverge too much from the real value, while other models might misinterpret the trend of the curve and land far away from the real value. 
-    \item The Exponential models are almost always the last models, except for big increase points that are almost always at the very beginning of the pandemic. the fact that the beginning of a pandemic looks like an exponential curve is also shown with the SIRH model, when the number of infected is very small. 
+    \item The Moving Average model is not the worst model and is often ranked between 6 and 8. This might be due to the fact that as the curve of the number of hospitalized is continuous, the mean never diverges too much from the real value, while other models might misinterpret the trend of the curve and land far away from the real value. 
+    \item The Exponential models are almost always the last models, except for big increase points that are almost always at the very beginning of the pandemic. The fact that the beginning of a pandemic looks like an exponential curve is also shown with the SIRH model, when the number of infected is very small. 
     \item The Ensemble model performs quite well. I noticed that it is very rarely the best model for a type of point, while other models almost always have some points on which they make the best prediction. On the other hand, it is never the last, and has a very consistent ranking: it is the only model that appears in all top-6 models for all types of points, all losses and all prediction ranges.
 \end{itemize}
 
