@@ -1,0 +1,402 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,landscape,margin=1.5cm]{geometry}
+\usepackage{multicol}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{float}
+
+\begin{document}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\begin{multicols}{2}
+
+\section{Incertitudes}
+
+\subsection{ L’évaluation statistique de l’incertitude-type (type A)}
+\begin{itemize}
+
+    \item bien quand la \textbf{variabilité} des mesures est directement accessible (on refait donc la mesure plusieurs fois) 
+    \item rarement utilisé aux concours
+    \item Pour n mesures \(x_i\), la valeur retenue est (simple moyenne rien de méchant) : \[
+    \overline{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+    \]
+    \item L’incertitude-type associée à x est une estimation de l’écart-type de la moyenne, que l’on peut déduire de l’écart-type expérimental \(s_{exp}\) de l’ensemble des observations :\[
+    u(x) = \frac{s_{\text{exp}}}{\sqrt{n}}
+    \]
+avec \[
+s_{\text{exp}} = \sqrt{\sum_{i=1}^{n} \frac{ (x_i - \overline{x})^2}{n-1}}
+\]
+    \item Plus on fait de mesures mieux ce sera, mais pour l'épreuve même un petit nombre suffit (moins de 10) !  
+\end{itemize}
+
+
+\subsection{L’évaluation non statistique de l’incertitude-type (type B)}
+
+\begin{itemize}
+    \item Exemple : mesure d’une position \(x\) à l’aide d’un instrument gradué (règle graduée de 1 mm). 
+    Si l’expérimentateur estime sa mesure à \(\pm 1 \, \text{cm}\) (de manière honnête de préférence, votre "jugé" est moins fiable que ce que vous croyez...), la demi-étendue est \(\Delta x = 0.5 \, \text{cm}\).
+    \item L’incertitude-type, écart-type de l’ensemble des valeurs possibles, est alors :
+    \[
+    u(x) = \frac{\Delta x}{\sqrt{3}}
+    \]
+    \item Le terme racine carrée de trois vient de l’hypothèse que les valeurs de l’intervalle sont équiprobables (loi uniforme). Par exemple :
+    \[
+    u(x) = \frac{1 \, }{\sqrt{3}} \approx 0{,}287 \, \text{cm}
+    \]
+    \item On gardera 2 chiffres significatifs pour l’incertitude-type afin d’éviter des problèmes d’arrondi.
+    \item Autre exemple : tolérance d’un composant ; une résistance \(R = 200 \, \Omega\) avec une tolérance de 5 \%. La demi-étendue est :
+    \[
+    \Delta R = 200 \, \times 0{,}05 = 10 \, \Omega
+    \]
+    On en déduit :
+    \[
+    u(R) = \frac{10 \, }{\sqrt{3}} \approx 5{,}8 \, \Omega
+    \]
+    Finalement, on écrit :
+    \[
+    R = 200{,}0 \, \Omega \ ; \ u(R) = 5{,}8 \, \Omega
+    \]
+    ou 
+    \[
+    R = 200{,}0 \pm 5{,}8 \, \Omega
+    \]
+\end{itemize}
+
+
+
+\subsection{Incertitudes-types composées}
+
+Prenons l'exemple d'analyse spectrale d’un signal. On demande de prédire la pulsation propre \(\omega_0 = \sqrt{2} / (RC)\) à l’aide des valeurs de la résistance \(R\) et de la capacité \(C\). Les composants ont une résistance \(R = 10 \, \text{k}\Omega\) et une capacité \(C = 100 \, \text{nF}\), avec une tolérance de 5 %.
+
+\subsubsection{Méthode directe}
+
+Pour calculer l’incertitude-type sur \(\omega_0\), on utilise la formule de composition des incertitudes dans le cas d’un produit :
+\[
+\frac{u(\omega_0)}{\omega_0} = \sqrt{\left( \frac{u(R)}{R} \right)^2 + \left( \frac{u(C)}{C} \right)^2}
+\]
+Les incertitudes-types relatives pour \(R\) et \(C\) sont \(u(R)/R = 5\% / \sqrt{3}\) et \(u(C)/C = 5\% / \sqrt{3}\), soit \(2,9\%\). On obtient :
+\[
+\frac{u(\omega_0)}{\omega_0} = \sqrt{(0,029)^2 + (0,029)^2} = 0,041 = 4,1\%
+\]
+Avec \(\omega_0 = 1,414 \times 10^3 \, \text{rad} \cdot \text{s}^{-1}\), on déduit :
+\[
+u(\omega_0) = 1,414 \times 10^3 \times 0,041 \approx 58 \, \text{rad} \cdot \text{s}^{-1}
+\]
+Finalement :
+\[
+\omega_0 = (1,414 \pm 0,058) \times 10^3 \, \text{rad} \cdot \text{s}^{-1}
+\]
+
+\subsubsection{Méthode de Monte Carlo}
+
+La méthode de Monte Carlo permet de simplifier les calculs complexes.\textit{Elle consiste à tirer au hasard de manière uniforme des valeurs de R et de C pour approximer puis à calculer l'écart-type des tirages.} En Python :
+
+\begin{verbatim}
+import numpy as np
+
+NMC = 100000
+R = np.random.uniform(10e3 * (1-0.05), 10e3 * (1+0.05), NMC)
+C = np.random.uniform(100e-9 * (1-0.05), 100e-9 * (1+0.05), NMC)
+ome_0 = np.sqrt(2)/(R * C)
+print("ome_0=", np.mean(ome_0), "+/-", np.std(ome_0, ddof=1), 'rad/s')
+\end{verbatim}
+
+Résultat de la simulation :
+\[
+\omega_0 = 1416 \pm 58 \, \text{rad} \cdot \text{s}^{-1}
+\]
+Mais pour montrer qu'on joue dans la cour des grands on écrira sur son compte rendu :
+\[
+\omega_0 = (1,416 \pm 0,058) . 10^3 \, \text{rad} \cdot \text{s}^{-1}
+\]
+
+Cette méthode utilise la fonction \texttt{np.random.uniform} pour tirer au sort des valeurs d’une grandeur incertaine entre deux bornes de manière uniforme.
+
+\subsubsection{Expressions utiles pour les calculs des incertitudes composées}
+
+\begin{itemize}
+    \item \(X = \lambda Y\) (\(\lambda\) constante) : \(u(X) = |\lambda| \cdot u(Y)\)
+    \item \(X = Y + Z\) ou \(X = Y - Z\) : \(u(X) = \sqrt{u(Y)^2 + u(Z)^2}\)
+    \item \(X = Y / Z\) ou \(X = Y \cdot Z\) : \(u(X) = |X| \sqrt{\left(\frac{u(Y)}{Y}\right)^2 + \left(\frac{u(Z)}{Z}\right)^2}\)
+    \item \(X = \lambda Y^a Z^b\) : \(u(X) = |X| \sqrt{a^2 \left(\frac{u(Y)}{Y}\right)^2 + b^2 \left(\frac{u(Z)}{Z}\right)^2}\)
+\end{itemize}
+
+\section{Comparaison de deux valeurs : écart normalisé}
+\textit{je supprimerai cette partie, je ne l'ai pas vue en prépa perso et je ne me souviens pas avoir entendu qqn l'avoir aux concours. En plus elle ajoute du bazar et détourne du vrai résultat important qui est plus haut. }
+
+Pour comparer deux résultats de mesure, il faut prendre en compte les deux valeurs mesurées ($X_1$ et $X_2$) et les incertitudes-types correspondantes ($u(X_1)$ et $u(X_2)$). Au programme de classe préparatoire, il existe un critère quantitatif, basé sur le calcul d’un ratio qu’on nomme écart normalisé ($E_N$) ou encore \textit{z-score} ($z$) :
+
+\[
+z = \frac{|X_1 - X_2|}{\sqrt{u(X_1)^2 + u(X_2)^2}}
+\]
+
+Il arrive qu’une valeur soit « de référence », ce qui signifie que son incertitude est très inférieure à l’autre. L’expression qui précède se ramène alors à l’expression vue en terminale :
+
+\[
+z = \frac{X - X_\text{ref}}{u(X)}
+\]
+
+Attention ! On considère que deux résultats sont compatibles si $z < 2$, et incompatibles sinon. Ce seuil de 2 est arbitraire et résulte d’un compromis. Même si les résultats sont compatibles, il arrive avec une certaine probabilité (environ une fois sur 20 selon certaines hypothèses) que la valeur de $z$ excède 2. Il faut alors envisager un seuil supérieur à 2 si l’on veut éviter de déclarer une incompatibilité à tort. L’interprétation est donc toujours délicate, et la seule valeur du \textit{z-score} ne saurait à elle seule constituer la conclusion sur l’ensemble d’une expérience. Par exemple, si on a par mégarde surévalué l’incertitude-type, cela signifie qu’on va sous-évaluer le \textit{z-score}. On risque dans ce cas de conclure à la compatibilité de deux mesures, alors que ce n’est pas forcément le cas. \\
+
+En conclusion, dans un compte rendu d’expérience, il est nécessaire de documenter aussi bien que possible, dans le temps imparti, les différentes hypothèses qui ont mené au résultat, c’est-à-dire la valeur mesurée et l’incertitude-type associée. Le calcul du \textit{z-score} permet de discuter de la compatibilité de deux résultats, mais il convient de conserver un regard critique. Il vaut mieux évoquer ce qui peut expliquer une incompatibilité que de se contenter d’une compatibilité apparente.
+
+\section{Régression linéaire}
+
+\subsection{Représentation et calcul}
+
+En physique, de nombreux modèles peuvent se ramener à une relation linéaire ou affine entre deux grandeurs. Par exemple, lors de la décharge d’un condensateur dans un conducteur ohmique, la tension $U$ vérifie :
+
+\[
+U = U_0 e^{-\frac{t}{\tau}}
+\]
+
+qu’on peut mettre sous la forme :
+
+\[
+\ln U = \ln U_0 - \frac{t}{\tau}
+\]
+
+qui n’est autre qu’une loi affine. En mesurant et traçant les points correctement il est alors facile de déduire la constante de temps $\tau$ qui nous intéresse.
+
+Bien évidemment, les points ne seront pas rigoureusement alignés, car les valeurs mesurées sont incertaines : à chacune des valeurs sont associées des incertitudes-types (que ce soit en abscisse ou en ordonnée). On représente ces incertitudes-types à l’aide de barres horizontales (pour les $x_i$) et verticales (pour les $y_i$). Au concours, il arrive encore que du papier millimétré soit fourni pour un tracé manuel des points. Lorsqu’un ordinateur est disponible, il est plus raisonnable d’utiliser un logiciel adéquat. Le code ci-dessous donne un exemple avec Python et la bibliothèque Matplotlib :
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.array([0, 1, 2, 3, 4,......])
+U = np.array([2.016, 1.453, 1.025,.....])
+u_t = 0.2
+u_U = 0.2
+
+ln_U = np.log(U)
+u_ln_U = u_U / U
+
+a, b = np.polyfit(t, ln_U, 1)
+
+plt.figure()
+plt.errorbar(t, ln_U, xerr = u_t, yerr = u_ln_U, fmt = '.')
+plt.plot(t, a * t + b, label = 'régression linéaire')
+plt.legend()
+plt.xlabel('t (s)')
+plt.ylabel('ln(U/1V)')
+plt.show()
+
+print('tau =', -1/a, 's')
+\end{verbatim}
+
+La fonction \texttt{np.polyfit} (au programme en PCSI) permet de réaliser la régression linéaire (le paramètre 1 est indispensable pour que la relation soit affine et polynomiale d’un degré plus élevé). La fonction \texttt{plt.errorbar} sert à tracer les points expérimentaux munis des barres d’incertitudes. La fonction \texttt{plt.plot} sert à tracer la droite de régression (j'espère ne rien vous apprendre sur ça). Enfin, on affiche le temps caractéristique $\tau$ estimé par régression linéaire.\\
+
+Combien de chiffres significatifs choisir ? Difficile de répondre sans avoir l’incertitude-type associée à $\tau$. Sans estimation de l’incertitude-type, on écrit par défaut le résultat avec 3 CS (trop de chiffres pourrait être pénalisé).
+
+\subsection{Incertitude-type des paramètres de la droite de régression}
+
+L’estimation de l’incertitude-type des paramètres de la droite de régression est soit directement donnée par des logiciels spécialisés (Regressi en est un exemple), soit calculée avec Python à l’aide d’une simulation Monte Carlo. Le code est plus complexe, raison pour laquelle il n’est pas détaillé ici. Si, au concours, on doit se contenter d’un tracé manuel, on peut estimer l’incertitude-type d’un paramètre (par exemple la pente) en traçant avec une règle, deux droites supplémentaires extrêmes : l’une avec la pente la plus grande que l’on pense possible, l’autre avec la pente la plus petite possible. On fait ensuite une évaluation de type B : la demi-différence de ces deux pentes est divisée par $\sqrt{3}$ pour donner l’incertitude-type de la pente.
+
+\subsection{Validation de la régression linéaire}
+
+Les points expérimentaux sont-ils bien décrits par une loi affine ? Pour répondre à cette question, il faut examiner sur le schéma comment la droite de régression se positionne par rapport aux barres d’incertitudes. Si les points sont compatibles avec la loi affine aux incertitudes expérimentales près, alors on s’attend à ce que :
+\begin{itemize}
+    \item les points se trouvent statistiquement de part et d’autre de la droite ;
+    \item les points sont à moins de deux barres d’incertitudes de la droite.
+\end{itemize}
+Ce contrôle est subjectif mais indispensable. Attention à ne pas tomber dans l’excès inverse : même si un point s’écarte largement de la droite de régression, il n’est pas pertinent de le supprimer (à moins qu’une erreur manifeste n’explique cet écart) : au pire, cela signale que la loi affine ne décrit pas correctement le modèle.
+
+
+
+
+\section{Quelques ordres de grandeur}
+
+\section*{Ordres de Grandeur en Électronique}
+
+Il est primordial, pour un étudiant en Sciences, de connaître quelques ordres de grandeur. Cette compétence est donc évaluée dans le cadre des concours, notamment pour les épreuves orales et pour les TP. En effet, les examinateurs des deux épreuves vérifient quasi systématiquement l’aptitude d’un candidat à déterminer et exploiter l’ordre de grandeur des variables qu’ils présentent. Il est indispensable d’avoir les idées claires sur les valeurs des grandeurs physiques qui sont mesurées pendant l’épreuve de TP.
+
+\subsection{Composants Classiques}
+
+\begin{table}[H]
+\centering
+\caption{Ordres de grandeur des composants classiques}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Composant} & \textbf{Ordre de Grandeur} \\ \hline
+Résistance & \(1 < R < 1\,\text{M}\Omega\) \\ \hline
+Inductance & \(10\,\text{mH} < L < 1\,\text{H}\) \\ \hline
+Impedance d’une bobine (1000 spires) & \(L \approx 50 \times n^2\,\text{mH}\) \newline \(R \approx 10 \times n\,\Omega\) \\ \hline
+Capacité & \(1\,\text{nF} < C < 1\,\text{mF}\) \\ \hline
+Tension seuil d’une diode à jonction & \(\text{Si} \approx 0,6\,\text{V}\) \newline \(\text{Ge} \approx 0,3\,\text{V}\) \\ \hline
+Résistance dynamique & \(r_d(\text{direct}) < 10\,\Omega\) \newline \(r_d(\text{inverse}) \approx 100\,\text{M}\Omega\) \\ \hline
+Tension Zener & \(U_Z \approx 5\,\text{V}\) \\ \hline
+Constante d’un multiplieur & \(0,1\,\text{V}^{-1}\) \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Remarques :}
+\begin{itemize}
+    \item Pour une bobine avec un nombre différent de spires, par exemple \(1000 \times n\) spires : \(L \approx 50 \times n^2 \text{ mH}\) et \(R \approx 10 \times n \text{ }\Omega\).
+    \item Il existe des condensateurs chimiques de capacités plus grandes, mais rarement utilisés en TP.
+    \item La tension seuil dépend de la nature du semi-conducteur : Silicium ou Germanium.
+\end{itemize}
+
+\subsection{Amplificateur Linéaire Intégré (ALI)}
+
+\begin{table}[H]
+\centering
+\caption{Ordres de grandeur des ALI}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Caractéristique} & \textbf{Ordre de Grandeur} \\ \hline
+Gain statique & \(\mu_0 \approx 10^5\) \\ \hline
+Fréquence de coupure & \(f_C \approx 10\,\text{Hz}\) \\ \hline
+Tensions de saturation & \(V_{\text{sat}+} \approx 15\,\text{V}\) \newline \(V_{\text{sat}-} \approx -15\,\text{V}\) \\ \hline
+Courant de saturation & \(I_{\text{sat}} \approx 20\,\text{mA}\) \\ \hline
+Tension de décalage & \(V_d \approx 10\,\text{mV}\) \\ \hline
+Courants de polarisation & \(i_+ \approx i_- \approx 10\,\text{nA}\) \\ \hline
+Vitesse de balayage limite & \(\sigma \approx 1\,\text{V}/\mu\text{s}\) \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Remarques :}
+\begin{itemize}
+    \item Les tensions de saturation sont en fait légèrement inférieures aux tensions d’alimentation de l’ALI \(V_{\text{alim}} = 15\,\text{V}\).
+    \item Cette limitation est une protection interne de la part du constructeur pour éviter de détériorer le composant par effet thermique.
+\end{itemize}
+
+\subsection{Optique}
+
+\begin{table}[H]
+\centering
+\caption{Ordres de grandeur en optique}
+\begin{tabular}{|p{5cm}|p{5cm}|}
+\hline
+\textbf{Caractéristique} & \textbf{Ordre de Grandeur} \\ \hline
+Domaine du visible & \begin{tabular}{l} 
+Violet = 400\,\text{nm} \\
+Rouge = 750\,\text{nm}
+\end{tabular} \\ \hline
+Indice du vide & 1 \\ \hline
+Indice de l’air & \(n - 1 \approx 3 \times 10^{-4}\) \\ \hline
+Indice du verre & \(n \approx 1,5\) \newline avec pour les flints \(n \approx 1,57 \text{ à } 1,66\) \\ \hline
+Longueur d’onde du laser Hélium-Néon & \(\lambda = 632,8\,\text{nm}\) \\ \hline
+Longueur de cohérence du laser & \(L_c \approx 1\,\text{m}\) \\ \hline
+Raie verte du Mercure Hg & \(\lambda = 546,1\,\text{nm}\) \\ \hline
+Doublet jaune du Sodium Na & \begin{tabular}{l} 
+\(\lambda_1 = 589,0\,\text{nm}\) \\
+\(\lambda_2 = 589,6\,\text{nm}\) \\
+donc \(\Delta \lambda = 0,6\,\text{nm}\)
+\end{tabular} \\ \hline
+Doublet jaune du mercure Hg & \begin{tabular}{l} 
+\(\lambda_1 = 577\,\text{nm}\) \\
+\(\lambda_2 = 579,1\,\text{nm}\) \\
+donc \(\Delta \lambda = 2,1\,\text{nm}\)
+\end{tabular} \\ \hline
+Longueur de cohérence d’une raie & \(L_c \approx 5\,\text{cm}\) \\ \hline
+Longueur de cohérence d’une source de lumière blanche classique & \(L_c \approx 1\,\mu\text{m}\) \\ \hline
+Pouvoir séparateur de l'œil & \(\epsilon \approx 1' \approx 1,7 \times 10^{-2}\,\text{°} \approx 3 \times 10^{-4}\,\text{rad}\) \\ \hline
+Œil emmétrope & \begin{tabular}{l} 
+Vision nette de 25\,\text{cm} \\
+à l’infini
+\end{tabular} \\ \hline
+Temps de réponse de l'œil & \(0,1\,\text{s}\) \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Matériel}
+
+\begin{table}[H]
+\centering
+\caption{Ordres de grandeur du matériel électronique}
+\begin{tabular}{|p{5cm}|p{5cm}|}
+\hline
+\textbf{Composant} & \textbf{Ordre de Grandeur} \\ \hline
+Amplitude de sortie d’un GBF & \(0 < U_m < 12\,\text{V}\) \\ \hline
+Offset d’un GBF (tension de décalage) & \(-10\,\text{V} < U_0 < 10\,\text{V}\) \\ \hline
+Résistance de sortie d’un GBF & \(R_g = 50\,\Omega\) \\ \hline
+Plage de fréquences d’un GBF & \(0 < f < 5\,\text{MHz}\) \\ \hline
+Impédance caractéristique d’un câble coaxial & \(Z_C = 50\,\Omega\) \\ \hline
+Impédance d’entrée d’un oscilloscope & \(R_e \approx 1\,\text{M}\Omega\) \newline en parallèle avec \newline \(C_e \approx 10\,\text{pF}\) \\ \hline
+Résistance interne d’un voltmètre & \(R_i \approx 10\,\text{M}\Omega\) \\ \hline
+Résistance interne d’un ampèremètre & \begin{tabular}{l} 
+Dépend fortement du calibre : \\
+Pour le calibre A, \(R_i \approx 1\,\Omega\) \\
+Pour le calibre \(\mu A\), \(R_i \approx 1\,\text{k}\Omega\)
+\end{tabular} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Matériel Optique}
+
+\begin{table}[H]
+\centering
+\caption{Ordres de grandeur du matériel optique}
+\begin{tabular}{|p{5cm}|p{5cm}|}
+\hline
+\textbf{Caractéristique} & \textbf{Ordre de Grandeur} \\ \hline
+Graduation d’un banc optique & \(1\,\text{mm}\) \\ \hline
+Graduation d’un goniomètre & \(\epsilon \approx 1 \approx 1,7 \times 10^{-2}\,\text{°} \approx 3 \times 10^{-4}\,\text{rad}\) \\ \hline
+Graduation de la vis micrométrique & \(0,01\,\text{mm}\) \\ \hline
+Écart entre deux annulations successives du contraste (source Sodium) & \(0,29\,\text{mm}\) \\ \hline
+Écart entre deux annulations successives du contraste (source Mercure) & \(0,08\,\text{mm}\) \\ \hline
+Distance focale d’un condenseur & \(6 \text{ à } 8\,\text{cm}\) \\ \hline
+Distance focale des lentilles courantes & \(10\,\text{cm} < f < 1\,\text{m}\) \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Divers}
+
+\begin{table}[H]
+\centering
+\caption{Ordres de grandeur divers}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Caractéristique} & \textbf{Ordre de Grandeur} \\ \hline
+Fréquence de résonance d’un capteur d’ultrasons & \(f_0 \approx 40\,\text{kHz}\) \\ \hline
+Longueur d’onde dans l’air d’une onde ultrasonore & \(\lambda_{\text{air}} \approx 8,5\,\text{mm}\) \\ \hline
+Longueur d’onde dans l’eau d’une onde ultrasonore & \(\lambda_{\text{eau}} \approx 3,8\,\text{cm}\) \\ \hline
+Célérité du son dans l’air & \(c \approx 340\,\text{m/s}\) \\ \hline
+Célérité d’une onde électromagnétique dans un câble coaxial & \(c \approx 2 \times 10^8\,\text{m/s}\) \\ \hline
+Composante horizontale du champ magnétique terrestre & \(B_h \approx 20\,\mu\text{T}\) \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+\end{document}
