@@ -166,6 +166,7 @@ INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tf
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT .\exercice 1.jpg
 INPUT .\exercice 1.jpg
 INPUT .\exercice 1.jpg
@@ -174,14 +175,14 @@ INPUT .\exercice 1.jpg
 INPUT .\exercice 1.jpg
 INPUT .\exercice 1.jpg
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
-INPUT .\exercice 2.jpg
-INPUT .\exercice 2.jpg
-INPUT .\exercice 2.jpg
-INPUT .\exercice 2.jpg
-INPUT .\exercice 2.jpg
-INPUT .\exercice 2.jpg
-INPUT .\exercice 2.jpg
 INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT .\exercice 2.jpg
+INPUT .\exercice 2.jpg
+INPUT .\exercice 2.jpg
+INPUT .\exercice 2.jpg
+INPUT .\exercice 2.jpg
+INPUT .\exercice 2.jpg
+INPUT .\exercice 2.jpg
 INPUT .\exercice 3.jpg
 INPUT .\exercice 3.jpg
 INPUT .\exercice 3.jpg
@@ -192,6 +193,8 @@ INPUT .\exercice 3.jpg
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\grego\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\grego\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
