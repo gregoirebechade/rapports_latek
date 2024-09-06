@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  1 SEP 2024 22:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  6 SEP 2024 09:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -491,7 +491,17 @@ Package pdftex.def Info: interféromètre stellaire .jpg  used on input line 61
 [1
 
 {C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./interféro
-mètre stellaire .jpg>] [2] (main.aux)
+mètre stellaire .jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+<meme_singes.jpg, id=47, 691.08188pt x 944.7797pt>
+File: meme_singes.jpg Graphic file (type jpg)
+<use meme_singes.jpg>
+Package pdftex.def Info: meme_singes.jpg  used on input line 83.
+(pdftex.def)             Requested size: 177.42868pt x 242.55186pt.
+[2 <./meme_singes.jpg>] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -500,10 +510,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A591313F91D6DC46EB7244D04A934EBA;876.
  ) 
 Here is how much of TeX's memory you used:
- 12838 strings out of 474495
- 209285 string characters out of 5743936
+ 12846 strings out of 474495
+ 209454 string characters out of 5743936
  1940460 words of memory out of 5000000
- 34959 multiletter control sequences out of 15000+600000
+ 34966 multiletter control sequences out of 15000+600000
  563446 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,79p,443b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -521,9 +531,9 @@ rs/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb
 mr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (2 pages, 160798 bytes).
+Output written on main.pdf (2 pages, 362050 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 PDF objects out of 1000 (max. 8388607)
+ 18 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

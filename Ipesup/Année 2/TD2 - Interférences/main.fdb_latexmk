@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725222434 "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD2 - Interférences/main.tex" "main.pdf" "main" 1725222436 0
+["pdflatex"] 1725608926 "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD2 - Interférences/main.tex" "main.pdf" "main" 1725608928 0
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1723555142 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
   "C:/Users/grego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1704621744 24224029 74796c39445e227faab7b664e2920fba ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -92,11 +92,12 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD2 - Interférences/main.tex" 1725222434 3905 af1cd8c4d69e3df08d90458ef62e83e3 ""
+  "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD2 - Interférences/main.tex" 1725608925 4012 08cd7ccbe2d694f185c5d74227cce10e ""
   "interféromètre stellaire .jpg" 1722962816 12531 51522099b39b248484aecb4199bb80b7 ""
-  "main.aux" 1725222436 1259 c05fc0910a6f5c51441222419c6fb46c "pdflatex"
-  "main.out" 1725222436 876 a591313f91d6dc46eb7244d04a934eba "pdflatex"
-  "main.tex" 1725222434 3905 af1cd8c4d69e3df08d90458ef62e83e3 ""
+  "main.aux" 1725608928 1259 c05fc0910a6f5c51441222419c6fb46c "pdflatex"
+  "main.out" 1725608928 876 a591313f91d6dc46eb7244d04a934eba "pdflatex"
+  "main.tex" 1725608925 4012 08cd7ccbe2d694f185c5d74227cce10e ""
+  "meme_singes.jpg" 1725608902 200853 a728bf3ec4951dd47369ab372896f63b ""
   (generated)
   "main.aux"
   "main.log"
