@@ -62,10 +62,10 @@ On place une source de lumière $S$ devant la lentille sur l'axe $(Ox)$.
 \section{Modèle d'une cavité}
 
 On modélise une cavité optique par une suite de lentilles convergentes identiques de focale $f'$, coaxiales, et séparées d'une distance $a$. 
-La lentille $n$ est frapée au point d'abscisse $y_n$ par un rayon lumineux.
+La lentille $n$ est frappée au point d'abscisse $y_n$ par un rayon lumineux.
 L'angle entre l'horizontale et le rayon lumineux est noté $\alpha_n$ et est compté positivement dans le sens direct. 
 \begin{enumerate}
-  \item Déterminer deux relations de réccurence entre $y_{n+1}$ et $y_n$, $\alpha_{n+1}$ et $\alpha_n$ puis en déduire une relation d'ordre 2 sur les $y_n$. 
+  \item Déterminer deux relations de récurrence entre $y_{n+1}$ et $y_n$, $\alpha_{n+1}$ et $\alpha_n$ puis en déduire une relation d'ordre 2 sur les $y_n$. 
   \item A quelle condition sur $a$ et $f$ le dispositif est-il intéressant ? 
   \item Résoudre le problème dans le cas où $a=2f$.
 \end{enumerate}
@@ -75,7 +75,8 @@ L'angle entre l'horizontale et le rayon lumineux est noté $\alpha_n$ et est com
   \includegraphics[width=0.4\textwidth]{exercice 2.jpg}
     \caption{Schéma de la cavité}
 \end{figure}
-\newpage
+
+
 \section{Fibre optique}
 
 On considère une fibre optique orientée selon l'axe $(Oz)$ dont le milieu est d'indice variable $n(r)=n_0 \sqrt{1-(\frac{kr}{a})^2}$ et dont la gaine est d'indice $n_G$. 
@@ -94,5 +95,28 @@ On considère une fibre optique orientée selon l'axe $(Oz)$ dont le milieu est 
     \caption{Schéma de la gaine}
 \end{figure}
 
+\newpage
+\section{Prisme}
+
+On considère un prisme isocèle d'angle au sommet A et d'indice $n$ plongé dans l'air d'indice 1, traversé par un rayon lumineux. 
+On note $i$ l'angle d'incidence, $r$ l'angle de réfraction sur la première face, $i'$ l'angle à la sortie du prisme et $r'$ l'angle d'incidence sur la deuxième face. On note $D$ l'angle de déviation total. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.45\textwidth]{prisme.jpeg}
+  \caption{Schéma du prisme}
+\end{figure}
+\begin{enumerate}
+  \item Faire un schéma de la situation et déterminer les relations entre $i$, $r$, $i'$ et $r'$.
+  \item Déterminer une relation entre $A$, $r$ et $r'$ d'une part et $D$, $A$, $i$ et $i'$ d'autre part.
+  \item Montrer que $D$ s'exprime en fonction de $i$ uniquement.
+  \item Expérimentalement, on observe un unique minimum de déviation $D_{min}$ quand on fait varier l'angle d'incidence $i$, obtenu pour $i=i_{min}$. Par un argument de symétrie, en déduire qu'on a nécessairement $i=i'$ au minimum de déviation. 
+  \item Exprimer $n$ en fonction de $A$ et $D_{min}$.\\[1cm]
+\end{enumerate}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.55\textwidth]{prisme.jpg}
+\end{figure}
 \end{document}
 
