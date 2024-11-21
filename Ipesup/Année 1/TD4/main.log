@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  25 OCT 2024 22:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  14 NOV 2024 15:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex"
-(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex
+**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 1/TD4/main.tex"
+(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 1/TD4/main.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
 (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -304,34 +304,38 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count301
 \l__pdf_internal_box=\box53
-) (main.aux)
+) (main.aux
+
+LaTeX Warning: Label `fig:maison' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Info: Redefining \degres on input line 24.
-LaTeX Info: Redefining \up on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Info: Redefining \degres on input line 23.
+LaTeX Info: Redefining \up on input line 23.
 
 
 Package french.ldf Warning: OT1 encoding should not be used for French.
 (french.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(french.ldf)                of your document; reported on input line 24.
+(french.ldf)                of your document; reported on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -396,65 +400,91 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 24.
+Package hyperref Info: Link coloring ON on input line 23.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<exercice 1.jpg, id=23, 934.24031pt x 558.58687pt>
-File: exercice 1.jpg Graphic file (type jpg)
-<use exercice 1.jpg>
-Package pdftex.def Info: exercice 1.jpg  used on input line 56.
-(pdftex.def)             Requested size: 133.07489pt x 79.56535pt.
- [1
 
-{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./exercice 1.jpg>]
-<exercice 2.jpg, id=46, 1041.8925pt x 348.55219pt>
-File: exercice 2.jpg Graphic file (type jpg)
-<use exercice 2.jpg>
-Package pdftex.def Info: exercice 2.jpg  used on input line 75.
-(pdftex.def)             Requested size: 177.42868pt x 59.35413pt.
-<exercice 3.jpg, id=47, 804.75656pt x 376.40625pt>
-File: exercice 3.jpg Graphic file (type jpg)
-<use exercice 3.jpg>
-Package pdftex.def Info: exercice 3.jpg  used on input line 94.
-(pdftex.def)             Requested size: 177.42868pt x 82.98767pt.
- [2 <./exercice 2.jpg> <./exercice 3.jpg>]
-<prisme.jpeg, id=63, 475.7775pt x 285.065pt>
-File: prisme.jpeg Graphic file (type jpg)
-<use prisme.jpeg>
-Package pdftex.def Info: prisme.jpeg  used on input line 106.
-(pdftex.def)             Requested size: 199.60895pt x 119.59598pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
-<prisme.jpg, id=64, 1084.05pt x 1038.88126pt>
-File: prisme.jpg Graphic file (type jpg)
-<use prisme.jpg>
-Package pdftex.def Info: prisme.jpg  used on input line 119.
-(pdftex.def)             Requested size: 243.96951pt x 233.8016pt.
-[3 <./prisme.jpeg> <./prisme.jpg>] (main.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
+
+ []
+
+<cs1.jpg, id=15, 607.51968pt x 357.58594pt>
+File: cs1.jpg Graphic file (type jpg)
+<use cs1.jpg>
+Package pdftex.def Info: cs1.jpg  used on input line 55.
+(pdftex.def)             Requested size: 133.07489pt x 78.3254pt.
+<cs2.jpg, id=16, 620.3175pt x 210.7875pt>
+File: cs2.jpg Graphic file (type jpg)
+<use cs2.jpg>
+Package pdftex.def Info: cs2.jpg  used on input line 61.
+(pdftex.def)             Requested size: 177.42868pt x 60.29056pt.
+<pingouin_schema.jpeg, id=17, 1027.84pt x 1027.84pt>
+File: pingouin_schema.jpeg Graphic file (type jpg)
+<use pingouin_schema.jpeg>
+Package pdftex.def Info: pingouin_schema.jpeg  used on input line 79.
+(pdftex.def)             Requested size: 177.42868pt x 177.42805pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1
+
+{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./cs1.jpg> <./cs2.jpg>]
+<maison.png, id=37, 512.41437pt x 288.07625pt>
+File: maison.png Graphic file (type png)
+<use maison.png>
+Package pdftex.def Info: maison.png  used on input line 108.
+(pdftex.def)             Requested size: 177.42868pt x 99.74684pt.
+ [2 <./pingouin_schema.jpeg> <./maison.png>] [3] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 42B805CB6122AA119B8E016E838EF1BA;589.
+(rerunfilecheck)             Checksum: F7E823AED6808BD2E0B2DC6FC2FAC79B;356.
  ) 
 Here is how much of TeX's memory you used:
- 12885 strings out of 474495
- 209995 string characters out of 5743936
- 1943460 words of memory out of 5000000
- 34993 multiletter control sequences out of 15000+600000
- 563781 words of font info for 56 fonts, out of 8000000 for 9000
+ 12882 strings out of 474495
+ 209777 string characters out of 5743936
+ 1940460 words of memory out of 5000000
+ 34999 multiletter control sequences out of 15000+600000
+ 563772 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,731b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (3 pages, 504793 bytes).
+ 75i,8n,79p,671b,708s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (3 pages, 520020 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 45 words of extra memory for PDF output out of 10000 (max. 10000000)
 

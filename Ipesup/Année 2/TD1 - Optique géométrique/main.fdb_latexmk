@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1725784673 "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex" "main.pdf" "main" 1725784674 0
-  "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1723555142 81265 a0a5aa5ab2448e2ffd334a7dd33e1b67 ""
+["pdflatex"] 1729889331 "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex" "main.pdf" "main" 1729889334 0
+  "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1729332005 83220 ff1ce6eb70dd5ea7f42c3a670e55c4ae ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1705750827 11548 39e26292e0a7c7b689e1d8eda7c59ec4 ""
   "C:/Users/grego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1704621744 24224029 74796c39445e227faab7b664e2920fba ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -96,13 +96,13 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex" 1725784672 5766 ea2e18eb4e91df7a7b5a9a40d3a4838f ""
+  "c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex" 1729889331 5766 ea2e18eb4e91df7a7b5a9a40d3a4838f ""
   "exercice 1.jpg" 1722717633 66413 c11ffb39fd5965a3d635911962e48437 ""
   "exercice 2.jpg" 1722717690 61756 4956af084b256f40d03ca3ab4c7b6c20 ""
   "exercice 3.jpg" 1722717724 78138 9eac07ca7670931940b4cfed46eb5f59 ""
-  "main.aux" 1725784674 1601 b7f90f1c6eeb18a362671f3d1929e155 "pdflatex"
-  "main.out" 1725784674 589 42b805cb6122aa119b8e016e838ef1ba "pdflatex"
-  "main.tex" 1725784672 5766 ea2e18eb4e91df7a7b5a9a40d3a4838f ""
+  "main.aux" 1729889334 1601 b7f90f1c6eeb18a362671f3d1929e155 "pdflatex"
+  "main.out" 1729889334 589 42b805cb6122aa119b8e016e838ef1ba "pdflatex"
+  "main.tex" 1729889331 5766 ea2e18eb4e91df7a7b5a9a40d3a4838f ""
   "prisme.jpeg" 1725781931 26834 28e053981dacf71f8a07648c260d6ccb ""
   "prisme.jpg" 1725784529 96570 79e0396c2d07120938a1eb284faa9ecd ""
   (generated)

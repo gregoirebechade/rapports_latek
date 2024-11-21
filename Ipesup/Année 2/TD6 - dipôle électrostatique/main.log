@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  25 OCT 2024 22:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  12 OCT 2024 14:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex"
-(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD1 - Optique géométrique/main.tex
+**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD6 - dipôle électrostatique/main.tex"
+(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD6 - dipôle électrostatique/main.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
 (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -401,60 +401,48 @@ Package hyperref Info: Link coloring ON on input line 24.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<exercice 1.jpg, id=23, 934.24031pt x 558.58687pt>
-File: exercice 1.jpg Graphic file (type jpg)
-<use exercice 1.jpg>
-Package pdftex.def Info: exercice 1.jpg  used on input line 56.
-(pdftex.def)             Requested size: 133.07489pt x 79.56535pt.
- [1
 
-{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./exercice 1.jpg>]
-<exercice 2.jpg, id=46, 1041.8925pt x 348.55219pt>
-File: exercice 2.jpg Graphic file (type jpg)
-<use exercice 2.jpg>
-Package pdftex.def Info: exercice 2.jpg  used on input line 75.
-(pdftex.def)             Requested size: 177.42868pt x 59.35413pt.
-<exercice 3.jpg, id=47, 804.75656pt x 376.40625pt>
-File: exercice 3.jpg Graphic file (type jpg)
-<use exercice 3.jpg>
-Package pdftex.def Info: exercice 3.jpg  used on input line 94.
-(pdftex.def)             Requested size: 177.42868pt x 82.98767pt.
- [2 <./exercice 2.jpg> <./exercice 3.jpg>]
-<prisme.jpeg, id=63, 475.7775pt x 285.065pt>
-File: prisme.jpeg Graphic file (type jpg)
-<use prisme.jpeg>
-Package pdftex.def Info: prisme.jpeg  used on input line 106.
-(pdftex.def)             Requested size: 199.60895pt x 119.59598pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
-<prisme.jpg, id=64, 1084.05pt x 1038.88126pt>
-File: prisme.jpg Graphic file (type jpg)
-<use prisme.jpg>
-Package pdftex.def Info: prisme.jpg  used on input line 119.
-(pdftex.def)             Requested size: 243.96951pt x 233.8016pt.
-[3 <./prisme.jpeg> <./prisme.jpg>] (main.aux)
+<dipôle schéma.jpg, id=19, 1794.705pt x 1044.90375pt>
+File: dipôle schéma.jpg Graphic file (type jpg)
+<use dipôle schéma.jpg>
+Package pdftex.def Info: dipôle schéma.jpg  used on input line 37.
+(pdftex.def)             Requested size: 177.42868pt x 103.30069pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+[1
+
+{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./dipôle schéma.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
+
+ []
+
+[2] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 42B805CB6122AA119B8E016E838EF1BA;589.
+(rerunfilecheck)             Checksum: CA9C703B27492C0FC5FC8466934697AE;634.
  ) 
 Here is how much of TeX's memory you used:
- 12885 strings out of 474495
- 209995 string characters out of 5743936
- 1943460 words of memory out of 5000000
- 34993 multiletter control sequences out of 15000+600000
- 563781 words of font info for 56 fonts, out of 8000000 for 9000
+ 12839 strings out of 474495
+ 209330 string characters out of 5743936
+ 1942460 words of memory out of 5000000
+ 34958 multiletter control sequences out of 15000+600000
+ 563446 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,731b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (3 pages, 504793 bytes).
+ 75i,6n,79p,428b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
+Output written on main.pdf (2 pages, 272209 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
