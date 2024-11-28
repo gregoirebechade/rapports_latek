@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  25 NOV 2024 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  28 NOV 2024 16:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD10 - Ondes em dans le vide/main.tex"
-(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD10 - Ondes em dans le vide/main.tex
+**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD11 - Ondes em suite/main.tex"
+(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD11 - Ondes em suite/main.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
 (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -412,87 +412,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--32
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
+Overfull \hbox (13.15523pt too wide) in paragraph at lines 52--57
+[]\OT1/cmr/m/n/10 L'onde ar-rive sur une sur-face plane per-pen-di-cu-laire ^^Ra $\OML/cmm/m/it/10 Ox$\OT1/cmr/m/n/10 , d'aire S, et par-fai-te-ment r^^Sefl^^Sechissante.
  []
 
 [1
 
 {C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (39.5067pt too wide) in paragraph at lines 105--107
-[]\OT1/cmr/m/n/10 Calculer la va-leur moyenne, dans le temps de la den-sit^^Se d'^^Senergie vo-lu-mique de l'^^Senergie ^^Selectromagn^^Setique
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-<schéma_guide_d'ondes.png, id=48, 223.33438pt x 139.01938pt>
-File: schéma_guide_d'ondes.png Graphic file (type png)
-<use schéma_guide_d'ondes.png>
-Package pdftex.def Info: schéma_guide_d'ondes.png  used on input line 114.
-(pdftex.def)             Requested size: 177.42868pt x 110.44562pt.
-[2 <./schéma_guide_d'ondes.png>]
-Overfull \hbox (13.15523pt too wide) in paragraph at lines 126--131
-[]\OT1/cmr/m/n/10 L'onde ar-rive sur une sur-face plane per-pen-di-cu-laire ^^Ra $\OML/cmm/m/it/10 Ox$\OT1/cmr/m/n/10 , d'aire S, et par-fai-te-ment r^^Sefl^^Sechissante.
- []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<meme.jpg, id=70, 582.175pt x 461.725pt>
+<meme.jpg, id=44, 1003.75pt x 889.3225pt>
 File: meme.jpg Graphic file (type jpg)
 <use meme.jpg>
-Package pdftex.def Info: meme.jpg  used on input line 149.
-(pdftex.def)             Requested size: 177.42868pt x 140.7167pt.
-[3 <./meme.jpg>] (main.aux)
+Package pdftex.def Info: meme.jpg  used on input line 87.
+(pdftex.def)             Requested size: 177.42868pt x 157.1943pt.
+[2 <./meme.jpg>] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B8542DAFD9A2F05FEB79766BFF427FFB;703.
+(rerunfilecheck)             Checksum: 7C822DC8CC40183F03C2FF79CF2CCDEB;503.
  ) 
 Here is how much of TeX's memory you used:
- 12868 strings out of 474495
- 209636 string characters out of 5743936
- 1944460 words of memory out of 5000000
- 34963 multiletter control sequences out of 15000+600000
+ 12834 strings out of 474495
+ 209039 string characters out of 5743936
+ 1946460 words of memory out of 5000000
+ 34949 multiletter control sequences out of 15000+600000
  563145 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,547b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (3 pages, 232287 bytes).
+ 75i,6n,79p,540b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (2 pages, 245850 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 30 words of extra memory for PDF output out of 10000 (max. 10000000)
 
