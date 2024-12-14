@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  9 DEC 2024 15:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.7)  14 DEC 2024 10:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD 12 - transfert thermique/main.tex"
-(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD 12 - transfert thermique/main.tex
+**"c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD 13 transfert thermique suite/main.tex"
+(c:/Users/grego/Documents/code/rapports_latek/Ipesup/Année 2/TD 13 transfert thermique suite/main.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
 (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -304,11 +304,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count301
 \l__pdf_internal_box=\box53
-) (main.aux
-
-LaTeX Warning: Label `fig:maison' multiply defined.
-
-)
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -405,98 +401,53 @@ Package hyperref Info: Link coloring ON on input line 23.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--47
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--50
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--53
-
- []
-
-<cs1.jpg, id=15, 607.51968pt x 357.58594pt>
-File: cs1.jpg Graphic file (type jpg)
-<use cs1.jpg>
-Package pdftex.def Info: cs1.jpg  used on input line 60.
-(pdftex.def)             Requested size: 133.07489pt x 78.3254pt.
-<cs2.jpg, id=16, 620.3175pt x 210.7875pt>
-File: cs2.jpg Graphic file (type jpg)
-<use cs2.jpg>
-Package pdftex.def Info: cs2.jpg  used on input line 66.
-(pdftex.def)             Requested size: 177.42868pt x 60.29056pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-[1
-
-{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./cs1.jpg> <./cs2.jpg>]
-<pingouin_schema.jpeg, id=40, 1027.84pt x 1027.84pt>
-File: pingouin_schema.jpeg Graphic file (type jpg)
-<use pingouin_schema.jpeg>
-Package pdftex.def Info: pingouin_schema.jpeg  used on input line 92.
-(pdftex.def)             Requested size: 177.42868pt x 177.42805pt.
-<maison.png, id=41, 512.41437pt x 288.07625pt>
+<maison.png, id=15, 512.41437pt x 288.07625pt>
 File: maison.png Graphic file (type png)
 <use maison.png>
-Package pdftex.def Info: maison.png  used on input line 121.
+Package pdftex.def Info: maison.png  used on input line 39.
 (pdftex.def)             Requested size: 177.42868pt x 99.74684pt.
- [2 <./pingouin_schema.jpeg> <./maison.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 150--152
+ [1
+
+{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./maison.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
 
  []
 
-<meme.jpg, id=53, 537.50812pt x 533.74406pt>
+[2]
+Overfull \hbox (0.65224pt too wide) in paragraph at lines 117--118
+\OT1/cmr/m/n/10 par le m^^Setabolisme hu-main est $\OML/cmm/m/it/10 q \OT1/cmr/m/n/10 = 120\OML/cmm/m/it/10 W$ \OT1/cmr/m/n/10 et sa ca-pa-cit^^Se ther-mique mas-sique $\OML/cmm/m/it/10 c \OT1/cmr/m/n/10 = 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 kJ:kg[]:K[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+<meme.jpg, id=55, 538.01pt x 586.19pt>
 File: meme.jpg Graphic file (type jpg)
 <use meme.jpg>
-Package pdftex.def Info: meme.jpg  used on input line 159.
-(pdftex.def)             Requested size: 177.42868pt x 176.18494pt.
+Package pdftex.def Info: meme.jpg  used on input line 126.
+(pdftex.def)             Requested size: 177.42868pt x 193.31807pt.
 [3 <./meme.jpg>] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F7E823AED6808BD2E0B2DC6FC2FAC79B;356.
+(rerunfilecheck)             Checksum: 3BC883C6AC93D65858706C17B980CD54;405.
  ) 
 Here is how much of TeX's memory you used:
- 12896 strings out of 474495
- 210162 string characters out of 5743936
- 1939460 words of memory out of 5000000
- 35007 multiletter control sequences out of 15000+600000
- 564080 words of font info for 57 fonts, out of 8000000 for 9000
+ 12860 strings out of 474495
+ 209511 string characters out of 5743936
+ 1942460 words of memory out of 5000000
+ 34971 multiletter control sequences out of 15000+600000
+ 563473 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,695b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (3 pages, 609803 bytes).
+ 75i,6n,79p,709b,572s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\grego\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (3 pages, 341346 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
- 50 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
+ 35 words of extra memory for PDF output out of 10000 (max. 10000000)
 
